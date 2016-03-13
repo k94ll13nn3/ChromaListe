@@ -1,0 +1,1 @@
+Based on [Daktilo theme](https://github.com/kronik3r/daktilo) licensed under [The MIT License.](https://opensource.org/licenses/MIT)

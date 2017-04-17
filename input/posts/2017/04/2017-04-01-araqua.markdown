@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Araqua"
+date: 2017-04-01
+categories: [Appels à l'aide]
+image: http://www.pokepedia.fr/images/a/a6/Araqua-SL.png
+caught: Araqua
+location: Colline Clapotis
+level: 14
+version: Lune
+---

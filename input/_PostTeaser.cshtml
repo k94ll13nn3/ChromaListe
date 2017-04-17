@@ -1,0 +1,6 @@
+<li class="post-teaser">
+    <a href="@Context.GetLink("/")@Model["PostFile"]">
+        <span class="post-teaser__title">@Model["Title"]</span>
+        <span class="post-teaser__date">@($"{Model.Get<DateTime>("Date"):dd MMMM yyyy}")</span>
+    </a>
+</li>

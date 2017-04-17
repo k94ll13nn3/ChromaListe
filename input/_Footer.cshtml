@@ -1,0 +1,19 @@
+@{
+    var nbPkmsDistinct = @Documents["Posts"].Select(x => x["Title"]).Distinct().Count();
+    var nbPkms = @Documents["Posts"].Count();
+    var percent = nbPkmsDistinct * 100.0 / 802.0;
+}
+
+<div class="explore">
+    <div class="explore__devider">------ Pokémon chromatiques : @nbPkmsDistinct/@nbPkms (@string.Format("{0:0.0}%", percent)) | <script type="text/javascript">randomizePost()</script> ------</div>
+    <ul class="categories">
+        @foreach(var cat in Documents["Posts"].SelectMany<IDocument, string>(x => (string[])x["Categories"]).Distinct())
+        {
+            string category = ((string)cat);
+            category = category.Slugify();
+            <li class="categories__item"><a href="@Context.GetLink("/")categories/@(category)">@((string)cat)</a></li>
+        }
+        <li class="categories__item"><a href="@Context.GetLink("/")">Tout</a></li>
+    </ul>
+    <div class="explore__label">Thème <a href="https://github.com/kronik3r/daktilo">Daktilo</a> sous licence MIT.</div>
+</div>

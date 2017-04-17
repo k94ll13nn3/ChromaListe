@@ -1,0 +1,10 @@
+<script type="text/javascript">
+    var postsUrl = [@Html.Raw(string.Join(",", Documents["Posts"].Select(x => $"\"{Context.GetLink((string)x["PostFile"])}\"")))];
+    var postsTitle = [@Html.Raw(string.Join(",", Documents["Posts"].Select(x => $"\"{x["Title"]}\"")))];
+    function randomizePost()
+    {
+        var randomIndex;
+        randomIndex = Math.floor(Math.random() * postsUrl.length);
+        document.write('<a href="' + postsUrl[randomIndex] + '">' + postsTitle[randomIndex] + '</a>');
+    }
+</script>

@@ -26,17 +26,16 @@ public static string Slugify(this string value)
 }
 
 Pipelines.Add("Posts",
-	ReadFiles("posts/**/*.markdown"),  // Read all markdown files in the "posts" directory
-	FrontMatter(Yaml()),  // Load any frontmatter and parse it as YAML markup
-	Markdown(),  // Render the markdown content
-	Meta("PostFile", string.Format(@"posts\{0}.html", ((FilePath)@doc["SourceFileBase"]).ToString())),  // Use the post title as the filename and save it in metadata so we can use it in links later
-	Meta("Post", @doc.Content),  // Move the markdown content to metadata
-	Razor().WithLayout("/_Post.cshtml"),  // Compile and render the page template
-	WriteFiles((string)@doc["PostFile"])  // Write the post file 
+	ReadFiles("posts/**/*.markdown"), 
+	FrontMatter(Yaml()),  
+	Markdown(), 
+	Meta("PostFile", string.Format(@"posts\{0}.html", ((FilePath)@doc["SourceFileBase"]).ToString())),  
+	Razor().WithLayout("/_Post.cshtml"), 
+	WriteFiles((string)@doc["PostFile"])
 );
 
 Pipelines.Add("Pages",
-	ReadFiles("{!posts,**}/**/{!home,*}.cshtml"), 
+	ReadFiles("**/{!home,*}.cshtml"), 
 	FrontMatter(Yaml()), 
 	Razor().WithLayout("/_Page.cshtml"),  
 	WriteFiles(".html") 
@@ -47,7 +46,6 @@ Pipelines.Add("Categories",
 	Where((doc, ctx) => !string.IsNullOrEmpty(doc.String(Keys.GroupKey))),
 	ForEach(
 		Meta("Posts", (doc, ctx) => doc[Keys.GroupDocuments]),
-		Meta("Category", (doc, ctx) => doc.String(Keys.GroupKey)),
 		Meta("Title", (doc, ctx) => doc.String(Keys.GroupKey)),
 		Meta("Subtitle", (doc, ctx) => $"Pokémon attrapés avec la méthode <strong>‘{doc.String(Keys.GroupKey)}’</strong>"),
 		Meta(Keys.RelativeFilePath, (doc, ctx) =>

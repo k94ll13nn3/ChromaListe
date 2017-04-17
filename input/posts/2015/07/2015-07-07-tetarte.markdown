@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Tétarte"
+date: 2015-07-07
+categories: [Pêche]
+image: http://www.pokepedia.fr/images/5/54/T%C3%AAtarte-RFVF.png
+caught: Tétarte
+location: Route 19
+level: 45
+version: X
+---

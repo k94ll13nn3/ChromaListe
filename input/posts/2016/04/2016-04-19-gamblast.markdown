@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Gamblast"
+date: 2016-04-19
+categories: [Pêche]
+image: http://www.pokepedia.fr/images/1/1c/Gamblast-XY.png
+caught: Flingouste
+location: Relifac
+level: 25
+version: X
+---

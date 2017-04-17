@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>
+            @{
+                var title = "";
+                if(Metadata.ContainsKey("title"))
+                {
+                    title += Metadata["title"] + " &raquo "; 
+                }
+                title += @Context.String("SiteTitle");
+            }
+            @Html.Raw(title)
+            </title>
+        <link rel="icon" href="@Context.GetLink("/assets/img/favicon.ico")" type="image/x-icon">
+        <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+        <link href="@Context.GetLink("/assets/css/style.css")" rel="stylesheet" />
+        <link href="@Context.GetLink("/assets/vendor/font-awesome/css/font-awesome.css")" rel="stylesheet" />
+        <script type="text/javascript">
+            var postsUrl = [@Html.Raw(string.Join(",", Documents["Posts"].Select(x => $"\"{Context.GetLink((string)x["PostFile"])}\"")))];
+            var postsTitle = [@Html.Raw(string.Join(",", Documents["Posts"].Select(x => $"\"{x["Title"]}\"")))];
+            function randomizePost()
+            {
+                var randomIndex;
+                randomIndex = Math.floor(Math.random() * postsUrl.length);
+                document.write('<a href="' + postsUrl[randomIndex] + '">' + postsTitle[randomIndex] + '</a>');
+            }
+        </script>
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <header class="header">
+                <div class="navigation">
+                    <a href="@Context.GetLink("/")" class="logo">@Context.String("SiteTitle")</a>
+                </div>
+
+                <ul class="social-links">
+                    <a href="https://github.com/k94ll13nn3" class="social-links__entry" target="_blank">
+                        <i class="fa fa-github"></i>
+                    </a>
+                    <a href="/ChromaListe/statistics">
+                        <i class="fa fa-pie-chart"></i>
+                    </a>
+                </ul>
+            </header>
+
+            @RenderBody()                
+        </div>
+
+@{
+    var nbPkmsDistinct = @Documents["Posts"].Select(x => x["Title"]).Distinct().Count();
+    var nbPkms = @Documents["Posts"].Count();
+    var percent = nbPkmsDistinct * 100.0 / 802.0;
+}
+
+        <div class="explore">
+            <div class="explore__devider">------ Pokémon chromatiques : @nbPkmsDistinct/@nbPkms (@string.Format("{0:0.0}%", percent)) | <script type="text/javascript">randomizePost()</script> ------</div>
+            <ul class="categories">
+                @foreach(var cat in Documents["Posts"].SelectMany<IDocument, string>(x => (string[])x["Categories"]).Distinct())
+                {
+                    string category = ((string)cat);
+                    category = category.Slugify();
+                    <li class="categories__item"><a href="@Context.GetLink("/")categories/@(category)">@((string)cat)</a></li>
+                }
+                <li class="categories__item"><a href="@Context.GetLink("/")">Tout</a></li>
+            </ul>
+            <div class="explore__label">Thème <a href="https://github.com/kronik3r/daktilo">Daktilo</a> sous licence MIT.</div>
+        </div>
+    </body>
+</html>

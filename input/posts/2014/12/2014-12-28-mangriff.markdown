@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Mangriff"
+date: 2014-12-16
+categories: [Navi-Dex]
+image: http://www.pokepedia.fr/images/4/4d/Mangriff-RS.png
+caught: Mangriff
+location: Route 114
+level: 23
+version: OR
+---

@@ -1,0 +1,75 @@
+#n Wyam.Yaml
+#n Wyam.Razor
+#n Wyam.Markdown
+
+using System.Text;
+using System.Text.RegularExpressions;
+
+Settings["SiteTitle"] = "Chroma Liste";
+Settings[Keys.Host] = "k94ll13nn3.github.io";
+Settings[Keys.LinkRoot] = "/ChromaListe";
+
+System.Globalization.CultureInfo.DefaultThreadCurrentCulture
+    = System.Globalization.CultureInfo.CreateSpecificCulture("fr-FR");
+
+public static string Slugify(this string value)
+{
+	value = value.ToLowerInvariant();
+	var bytes = Encoding.GetEncoding("Cyrillic").GetBytes(value);
+	value = Encoding.ASCII.GetString(bytes);
+	value = Regex.Replace(value, @"\s", "-", RegexOptions.Compiled);
+	value = Regex.Replace(value, @"[^\w\s\p{Pd}]", string.Empty, RegexOptions.Compiled);
+	value = value.Trim('-', '_');
+	value = Regex.Replace(value, @"([-_]){2,}", "$1", RegexOptions.Compiled);
+
+	return value;
+}
+
+Pipelines.Add("Posts",
+	ReadFiles("posts/**/*.markdown"),  // Read all markdown files in the "posts" directory
+	FrontMatter(Yaml()),  // Load any frontmatter and parse it as YAML markup
+	Markdown(),  // Render the markdown content
+	Meta("PostFile", string.Format(@"posts\{0}.html", ((FilePath)@doc["SourceFileBase"]).ToString())),  // Use the post title as the filename and save it in metadata so we can use it in links later
+	Meta("Post", @doc.Content),  // Move the markdown content to metadata
+	Razor().WithLayout("/_Post.cshtml"),  // Compile and render the page template
+	WriteFiles((string)@doc["PostFile"])  // Write the post file 
+);
+
+Pipelines.Add("Pages",
+	ReadFiles("{!posts,**}/**/{!home,*}.cshtml"), 
+	FrontMatter(Yaml()), 
+	Razor().WithLayout("/_Page.cshtml"),  
+	WriteFiles(".html") 
+);
+
+Pipelines.Add("Categories",
+	GroupByMany("Categories", Documents("Posts")),
+	Where((doc, ctx) => !string.IsNullOrEmpty(doc.String(Keys.GroupKey))),
+	ForEach(
+		Meta("Posts", (doc, ctx) => doc[Keys.GroupDocuments]),
+		Meta("Category", (doc, ctx) => doc.String(Keys.GroupKey)),
+		Meta("Title", (doc, ctx) => doc.String(Keys.GroupKey)),
+		Meta("Subtitle", (doc, ctx) => $"Pokémon attrapés avec la méthode <strong>‘{doc.String(Keys.GroupKey)}’</strong>"),
+		Meta(Keys.RelativeFilePath, (doc, ctx) =>
+		{
+			string category = doc.String(Keys.GroupKey);
+			return $"categories/{category.Slugify()}/index.html";
+		})
+	),
+	Razor().WithLayout("/_Category.cshtml"),
+	WriteFiles()
+);
+
+Pipelines.Add("Index",
+	ReadFiles("home.cshtml"),
+	Paginate(9,
+		Documents("Posts"),
+		OrderBy((d, c) => d["PostFile"]).Descending()		
+	),
+	Razor(),
+	WriteFiles(@doc.Get<int>("CurrentPage") == 1 ? "index.html" : $"page{doc.Get<int>("CurrentPage")}/index.html")
+);
+
+Pipelines.Add("Ressources",
+	CopyFiles("**/*{!.cshtml,!.markdown,!.md,!.less,}")
+);

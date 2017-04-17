@@ -1,0 +1,26 @@
+@{
+    Layout = "/_Page.cshtml";
+}
+
+<ul class="list-posts">
+    @if(((IEnumerable<IDocument>)Metadata["Posts"]).Any())
+    {
+        @foreach(var doc in ((IEnumerable<IDocument>)Metadata["Posts"]).OrderByDescending(x => x["PostFile"]))
+        {
+            <li class="post-teaser">
+                <a href="@($"{Context.GetLink("/")}{@doc["PostFile"]}")">
+                    <span class="post-teaser__title">@doc["Title"]</span>
+                    <span class="post-teaser__date">@($"{DateTime.Parse((string)doc["Date"]):dd MMMM yyyy}")</span>
+                </a>
+            </li>
+        }
+    }
+    else
+    {
+        <li class="empty-post-list">
+            Pas de Pokémon dans cette catégorie
+        </li>
+    }
+
+    @RenderBody()
+</ul>

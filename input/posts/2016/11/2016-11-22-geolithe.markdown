@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Géolithe"
+date: 2016-11-22
+categories: [Rencontre aléatoire]
+image: http://www.pokepedia.fr/images/9/99/G%C3%A9olithe-NB.png
+caught: Géolithe
+location: Grand Canyon de Poni
+level: 44
+version: Lune
+---

@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Evoli"
+date: 2014-07-03
+categories: [Masuda]
+image: http://www.pokepedia.fr/images/8/8b/%C3%89voli-RFVF.png
+caught: Evoli
+location: Route 7
+level: oeuf
+version: X
+---

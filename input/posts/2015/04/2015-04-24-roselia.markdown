@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Rosélia"
+date: 2015-04-24
+categories: [Horde]
+image: http://www.pokepedia.fr/images/b/ba/Ros%C3%A9lia-RS.png
+caught: Rosélia
+location: Route 117
+level: 7
+version: OR
+---

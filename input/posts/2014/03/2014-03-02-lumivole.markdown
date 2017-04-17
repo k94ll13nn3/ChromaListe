@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Lumivole"
+date: 2014-03-02
+categories: [Rencontre aléatoire]
+image: http://www.pokepedia.fr/images/9/96/Lumivole-RS.png
+caught: Lumivole
+location: Route 7
+level: 13
+version: X
+---

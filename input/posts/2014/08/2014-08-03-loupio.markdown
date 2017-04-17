@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Loupio"
+date: 2014-08-03
+categories: [Pêche]
+image: http://www.pokepedia.fr/images/d/de/Loupio-HGSS.png
+caught: Loupio
+location: Baie Azur
+level: 25
+version: X
+---

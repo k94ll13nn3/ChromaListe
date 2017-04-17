@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Sharpedo"
+date: 2015-04-03
+categories: [Pêche]
+image: http://www.pokepedia.fr/images/f/f9/Sharpedo-RS.png
+caught: Sharpedo
+location: Route 119
+level: 40
+version: OR
+---

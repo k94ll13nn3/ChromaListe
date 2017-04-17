@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Mamanbo"
+date: 2014-08-02
+categories: [Pêche]
+image: http://www.pokepedia.fr/images/2/29/Mamanbo-NB.png
+caught: Mamanbo
+location: Baie Azur
+level: 35
+version: X
+---

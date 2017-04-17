@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Obalie"
+date: 2015-03-22
+categories: [Horde]
+image: http://www.pokepedia.fr/images/f/ff/Obalie-RS.png
+caught: Obalie
+location: Grotte Tréfonds
+level: 17
+version: OR
+---

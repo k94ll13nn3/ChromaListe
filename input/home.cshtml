@@ -1,0 +1,58 @@
+@{
+    Layout = "/_Page.cshtml";
+}
+
+<ul class="list-posts">
+    @foreach(IDocument doc in Model.Get<IEnumerable<IDocument>>("PageDocuments").OrderByDescending(x => x["PostFile"]))
+    {
+        <li class="post-teaser">
+            <a href="@($"{Context.GetLink("/")}{@doc["PostFile"]}")">
+                <span class="post-teaser__title">@doc["Title"]</span>
+                <span class="post-teaser__date">@($"{DateTime.Parse((string)doc["Date"]):dd MMMM yyyy}")</span>
+            </a>
+        </li>
+    }
+</ul>
+
+<div class="explore">
+    <div class="pagination">
+        @if(@Model.Get<int>("CurrentPage") > 1)
+        {
+            string pageLink = Model.Get<int>("CurrentPage") == 2 ? 
+                Context.GetLink("/") : 
+                Context.GetLink("/") + "page" + (Model.Get<int>("CurrentPage") - 1);
+            <a href="@pageLink">&laquo;</a>
+        }
+        else
+        {
+            <span>&laquo;</span>
+        }
+
+        @for(int page = 1 ; page <= @Model.Get<int>("TotalPages") ; page++)
+        {
+            @if(page == @Model.Get<int>("CurrentPage"))
+            {
+                <span class="page__number">@page</span>
+            }
+            else if (page == 1)
+            {
+                <a href="@Context.GetLink("/")">@page</a>
+            }
+            else
+            {
+                string pageLink = page == 1 ? Context.GetLink("/") : (Context.GetLink("/") + "page" + page);
+                <a href="@pageLink">@page</a>
+            }
+        }
+
+        @if(@Model.Get<int>("CurrentPage") < @Model.Get<int>("TotalPages"))
+        {
+            string pageLink = Context.GetLink("/") + "page" + (@Model.Get<int>("CurrentPage") + 1);
+            <a href="@pageLink">&raquo;</a>
+        }
+        else
+        {
+            <span>&raquo;</span>
+        }
+    </div>
+</div>

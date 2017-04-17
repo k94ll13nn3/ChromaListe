@@ -1,0 +1,11 @@
+---
+layout: post
+title: "M. Mime"
+date: 2014-02-09
+categories: [Horde]
+image: http://www.pokepedia.fr/images/3/3b/M._Mime-RFVF.png
+caught: Mime Jr.
+location: Grotte Miroitante
+level: 11
+version: X
+---

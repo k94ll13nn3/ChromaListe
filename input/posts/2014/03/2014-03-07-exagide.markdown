@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Exagide"
+date: 2014-03-07
+categories: [Masuda]
+image: http://www.pokepedia.fr/images/archive/8/87/20131020153011%21Exagide-XY.png
+caught: Monorpale
+location: Route 7
+level: oeuf
+version: X
+---

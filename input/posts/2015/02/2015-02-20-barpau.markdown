@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Barpau"
+date: 2015-02-20
+categories: [Pêche]
+image: http://www.pokepedia.fr/images/d/d9/Barpau-RS.png
+caught: Barpau
+location: Route 119
+level: 35
+version: OR
+---

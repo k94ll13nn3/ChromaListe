@@ -1,0 +1,16 @@
+@{
+	Layout = "/_Master.cshtml";
+}
+
+<h1 class="page-title">
+    @if(Metadata.ContainsKey("title"))
+    {
+        <div class="page-title__text">@Metadata["title"]</div>
+    }
+    @if(Metadata.ContainsKey("subtitle"))
+    {
+        <div class="page-title__subtitle">@Html.Raw(Metadata["subtitle"])</div>
+    }
+</h1>
+
+@RenderBody()

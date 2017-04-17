@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Galegon"
+date: 2015-06-21
+categories: [Horde]
+image: http://www.pokepedia.fr/images/f/f7/Galegon-RS.png
+caught: Galekid
+location: Grotte Granite
+level: 6
+version: OR
+---

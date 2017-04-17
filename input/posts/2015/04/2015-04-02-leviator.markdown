@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Léviator"
+date: 2015-04-02
+categories: [Pêche]
+image: http://www.pokepedia.fr/images/f/f2/L%C3%A9viator-RFVF.png
+caught: Magicarpe
+location: Route 115
+level: 25
+version: OR
+---

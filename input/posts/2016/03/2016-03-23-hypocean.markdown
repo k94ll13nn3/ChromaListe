@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Hypocéan"
+date: 2016-03-23
+categories: [Pêche]
+image: http://www.pokepedia.fr/images/f/fc/Hypoc%C3%A9an-RFVF.png
+caught: Hypocéan
+location: Chenal 130
+level: 40
+version: OR
+---

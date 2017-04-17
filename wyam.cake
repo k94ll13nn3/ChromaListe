@@ -68,10 +68,7 @@ Task("Build-Documentation")
     {
         Information("Detected that documentation files have changed, so running Wyam...");
         
-        Wyam(new WyamSettings
-        {
-            RootPath = "docs"
-        });
+        Wyam();
 
         if (isRunningOnAppVeyor && !isPullRequest)
         {

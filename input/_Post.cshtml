@@ -13,7 +13,7 @@
 
 <h1 class="page-title post-title">
     <div class="page-title__text post-title__text">@Metadata["Title"]</div>
-    <div class="page-title__subtitle post-title__subtitle">--- @($"{DateTime.Parse((string)Metadata["Date"]):dd MMMM yyyy}") ---</div>
+    <div class="page-title__subtitle post-title__subtitle">--- @($"{Metadata.Get<DateTime>("Date"):dd MMMM yyyy}") ---</div>
     <div class="page-title__subtitle post-title__subtitle">
         @if(previousPost != null)
         {
@@ -38,6 +38,7 @@
         <li>@Metadata["Location"]</li>
         <li>Niveau : @Metadata["Level"]</li>
         <li>Version : @Metadata["Version"]</li>
+        <li>Méthodes : @string.Join(", ", Metadata.Get<string[]>("Categories"))</li>
     </ul>
 
     @RenderBody()

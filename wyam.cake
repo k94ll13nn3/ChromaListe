@@ -50,7 +50,7 @@ Task("Build-Documentation")
     Information("Number of changed files: {0}", filesChanged.Count);
     var docFileChanged = false;
 
-    var wyamDocsFolderDirectoryName = "docs";
+    var wyamDocsFolderDirectoryName = "input";
     foreach(var file in filesChanged)
     {
         var backslash = '\\';

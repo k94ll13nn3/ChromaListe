@@ -8,4 +8,5 @@ caught: Relicanth
 location: Relifac
 level: 35
 version: X
+number: 369
 ---

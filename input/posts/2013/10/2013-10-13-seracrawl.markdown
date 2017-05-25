@@ -8,4 +8,5 @@ caught: Grelaçon
 location: Caverne Gelée
 level: 40
 version: X
+number: 713
 ---

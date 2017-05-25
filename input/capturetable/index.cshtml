@@ -1,0 +1,23 @@
+---
+title: Table de capture
+---
+
+@{
+    var catchedPokemon = @Documents["Posts"].Select(x => x.Get("Number")).Distinct();
+}
+
+<ul class="pokemonlist">
+    @{ 
+        for(int i = 1; i <= 802; i++) 
+        {
+            if(catchedPokemon.Contains(i.ToString()))
+            {
+                <li class="catched">@i.ToString("000")</li>
+            }
+            else
+            {
+                <li>@i.ToString("000")</li>
+            }
+        } 
+    }
+</ul>  

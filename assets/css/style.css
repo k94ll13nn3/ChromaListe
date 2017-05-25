@@ -1,4 +1,18 @@
 @charset "UTF-8";
+
+ul.pokemonlist li {
+  display:inline;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 130%;
+  color: #828282;
+}
+
+ul.pokemonlist li.catched {
+  font-weight: 900;
+  color: black;
+}
+
 dl {
   display: flex;
   flex-direction: column;

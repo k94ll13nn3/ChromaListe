@@ -1,8 +1,10 @@
 ---
+number: 618
 layout: post
-title: "Limonde"
+title: Limonde
 date: 2014-09-07
-categories: [Safari des Amis]
+categories:
+- Safari des Amis
 image: http://www.pokepedia.fr/images/b/b3/Limonde-NB.png
 caught: Limonde
 location: Safari des Amis

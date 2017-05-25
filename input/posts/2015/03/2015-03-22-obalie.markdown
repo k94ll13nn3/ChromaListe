@@ -1,8 +1,10 @@
 ---
+number: 363
 layout: post
-title: "Obalie"
+title: Obalie
 date: 2015-03-22
-categories: [Horde]
+categories:
+- Horde
 image: http://www.pokepedia.fr/images/f/ff/Obalie-RS.png
 caught: Obalie
 location: Grotte Tréfonds

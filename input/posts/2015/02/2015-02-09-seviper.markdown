@@ -1,10 +1,12 @@
 ---
+number: 336
 layout: post
-title: "Seviper"
+title: Séviper
 date: 2015-02-09
-categories: [Safari des Amis]
+categories:
+- Safari des Amis
 image: http://www.pokepedia.fr/images/4/45/S%C3%A9viper-RS.png
-caught: Seviper
+caught: Séviper
 location: Safari des Amis
 level: 30
 version: X

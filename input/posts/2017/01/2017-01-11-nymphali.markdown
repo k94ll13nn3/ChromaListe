@@ -1,8 +1,10 @@
 ---
+number: 700
 layout: post
-title: "Nymphali"
+title: Nymphali
 date: 2017-01-11
-categories: [RNG]
+categories:
+- RNG
 image: http://www.pokepedia.fr/images/thumb/8/83/Nymphali-XY.png/250px-Nymphali-XY.png
 caught: Evoli
 location: Ranch Ohana

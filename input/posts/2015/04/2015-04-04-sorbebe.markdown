@@ -1,8 +1,10 @@
 ---
+number: 582
 layout: post
-title: "Sorbébé"
+title: Sorbébé
 date: 2015-04-04
-categories: [Horde]
+categories:
+- Horde
 image: http://www.pokepedia.fr/images/5/50/Sorb%C3%A9b%C3%A9-NB.png
 caught: Sorbébé
 location: Caverne Gelée

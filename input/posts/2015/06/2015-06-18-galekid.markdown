@@ -1,8 +1,10 @@
 ---
+number: 304
 layout: post
-title: "Galekid"
+title: Galekid
 date: 2015-06-18
-categories: [Horde]
+categories:
+- Horde
 image: http://www.pokepedia.fr/images/b/bb/Galekid-RS.png
 caught: Galekid
 location: Grotte Granite

@@ -1,8 +1,10 @@
 ---
+number: 32
 layout: post
-title: "Nidoran♂"
+title: Nidoran♂
 date: 2017-02-23
-categories: [Horde]
+categories:
+- Horde
 image: http://www.pokepedia.fr/images/8/8e/Nidoran%E2%99%82-RFVF.png
 caught: Nidoran♂
 location: Route 11

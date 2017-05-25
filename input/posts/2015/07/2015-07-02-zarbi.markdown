@@ -1,8 +1,10 @@
 ---
+number: 201
 layout: post
-title: "Zarbi"
+title: Zarbi
 date: 2015-07-02
-categories: [Rencontre aléatoire]
+categories:
+- Rencontre aléatoire
 image: http://www.pokepedia.fr/images/5/53/Zarbi.png
 caught: Zarbi
 location: Grotte Mirage

@@ -1,8 +1,10 @@
 ---
+number: 37
 layout: post
-title: "Goupix"
+title: Goupix
 date: 2015-05-20
-categories: [Horde]
+categories:
+- Horde
 image: http://www.pokepedia.fr/images/f/f6/Goupix-RFVF.png
 caught: Goupix
 location: Mont Mémoria

@@ -1,8 +1,10 @@
 ---
+number: 179
 layout: post
-title: "Wattouat"
+title: Wattouat
 date: 2014-10-18
-categories: [Horde]
+categories:
+- Horde
 image: http://www.pokepedia.fr/images/7/7f/Wattouat-HGSS.png
 caught: Wattouat
 location: Route 12

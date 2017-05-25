@@ -1,8 +1,10 @@
 ---
+number: 182
 layout: post
-title: "Joliflor"
+title: Joliflor
 date: 2016-07-18
-categories: [Horde]
+categories:
+- Horde
 image: http://www.pokepedia.fr/images/f/f0/Joliflor-RFVF.png
 caught: Mystherbe
 location: Route 120

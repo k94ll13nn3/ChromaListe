@@ -1,8 +1,10 @@
 ---
+number: 158
 layout: post
-title: "Kaiminus"
+title: Kaiminus
 date: 2017-04-28
-categories: [Masuda]
+categories:
+- Masuda
 image: http://www.pokepedia.fr/images/b/b9/Kaiminus-HGSS.png
 caught: Kaiminus
 location: Ranch Ohana

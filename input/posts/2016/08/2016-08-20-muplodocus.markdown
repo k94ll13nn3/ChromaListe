@@ -1,8 +1,10 @@
 ---
+number: 706
 layout: post
-title: "Muplodocus"
+title: Muplodocus
 date: 2016-08-20
-categories: [Safari des Amis]
+categories:
+- Safari des Amis
 image: http://www.pokepedia.fr/images/9/96/Muplodocus-XY.png
 caught: Colimucus
 location: Safari des Amis

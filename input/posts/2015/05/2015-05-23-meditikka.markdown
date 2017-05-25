@@ -1,8 +1,10 @@
 ---
+number: 307
 layout: post
-title: "Méditikka"
+title: Méditikka
 date: 2015-05-23
-categories: [Navi-Dex]
+categories:
+- Navi-Dex
 image: http://www.pokepedia.fr/images/6/6e/M%C3%A9ditikka-RS.png
 caught: Méditikka
 location: Mont Mémoria

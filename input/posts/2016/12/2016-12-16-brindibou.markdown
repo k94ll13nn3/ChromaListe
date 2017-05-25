@@ -1,8 +1,10 @@
 ---
+number: 722
 layout: post
-title: "Brindibou"
+title: Brindibou
 date: 2016-12-16
-categories: [Masuda]
+categories:
+- Masuda
 image: http://www.pokepedia.fr/images/4/4f/Brindibou-SL.png
 caught: Brindibou
 location: Ranch Ohana

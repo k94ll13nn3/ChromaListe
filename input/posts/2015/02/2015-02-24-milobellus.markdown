@@ -1,8 +1,10 @@
 ---
+number: 350
 layout: post
-title: "Milobellus"
+title: Milobellus
 date: 2015-02-24
-categories: [Pêche]
+categories:
+- Pêche
 image: http://www.pokepedia.fr/images/9/98/Milobellus-RS.png
 caught: Milobellus
 location: Route 119

@@ -1,8 +1,10 @@
 ---
+number: 594
 layout: post
-title: "Mamanbo"
+title: Mamanbo
 date: 2014-08-02
-categories: [Pêche]
+categories:
+- Pêche
 image: http://www.pokepedia.fr/images/2/29/Mamanbo-NB.png
 caught: Mamanbo
 location: Baie Azur

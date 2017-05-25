@@ -1,8 +1,10 @@
 ---
+number: 377
 layout: post
-title: "Regirock"
+title: Regirock
 date: 2014-12-30
-categories: [Reset]
+categories:
+- Reset
 image: http://www.pokepedia.fr/images/6/63/Regirock-RS.png
 caught: Regirock
 location: Ruines Désert

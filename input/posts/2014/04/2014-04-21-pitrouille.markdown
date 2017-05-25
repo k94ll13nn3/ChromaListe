@@ -1,8 +1,10 @@
 ---
+number: 710
 layout: post
-title: "Pitrouille"
+title: Pitrouille
 date: 2014-04-21
-categories: [Rencontre aléatoire]
+categories:
+- Rencontre aléatoire
 image: http://www.pokepedia.fr/images/3/3b/Pitrouille-XY.png
 caught: Pitrouille
 location: Route 16

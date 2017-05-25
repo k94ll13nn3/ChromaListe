@@ -1,8 +1,10 @@
 ---
+number: 58
 layout: post
-title: "Caninos"
+title: Caninos
 date: 2017-01-21
-categories: [Masuda]
+categories:
+- Masuda
 image: http://www.pokepedia.fr/images/e/e2/Caninos-RFVF.png
 caught: Caninos
 location: Ranch Ohana

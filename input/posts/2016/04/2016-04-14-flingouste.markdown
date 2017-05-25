@@ -1,8 +1,10 @@
 ---
+number: 692
 layout: post
-title: "Flingouste"
+title: Flingouste
 date: 2016-04-14
-categories: [Pêche]
+categories:
+- Pêche
 image: http://www.pokepedia.fr/images/5/50/Flingouste-XY.png
 caught: Flingouste
 location: Relifac

@@ -1,8 +1,10 @@
 ---
+number: 19
 layout: post
-title: "Rattata (Alola)"
+title: Rattata (Alola)
 date: 2017-03-08
-categories: [Appels à l'aide]
+categories:
+- Appels à l'aide
 image: http://www.pokepedia.fr/images/8/86/Rattata-a-SL.png
 caught: Rattata
 location: Route 8

@@ -1,8 +1,10 @@
 ---
+number: 270
 layout: post
-title: "Nénupiot"
+title: Nénupiot
 date: 2017-05-21
-categories: [Horde]
+categories:
+- Horde
 image: http://www.pokepedia.fr/images/f/f4/N%C3%A9nupiot-RS.png
 caught: Nénupiot
 location: Route 114

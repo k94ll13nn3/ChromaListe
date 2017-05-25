@@ -1,8 +1,10 @@
 ---
+number: 712
 layout: post
-title: "Grelaçon"
+title: Grelaçon
 date: 2015-10-11
-categories: [Safari des Amis]
+categories:
+- Safari des Amis
 image: http://www.pokepedia.fr/images/5/57/Grela%C3%A7on-XY.png
 caught: Grelaçon
 location: Safari des Amis

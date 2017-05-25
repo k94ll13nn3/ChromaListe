@@ -1,8 +1,10 @@
 ---
+number: 524
 layout: post
-title: "Nodulithe"
+title: Nodulithe
 date: 2014-08-06
-categories: [Horde]
+categories:
+- Horde
 image: http://www.pokepedia.fr/images/2/2d/Nodulithe-NB.png
 caught: Nodulithe
 location: Grotte Miroitante

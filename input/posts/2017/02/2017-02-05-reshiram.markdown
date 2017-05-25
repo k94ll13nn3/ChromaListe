@@ -1,8 +1,10 @@
 ---
+number: 643
 layout: post
-title: "Reshiram"
+title: Reshiram
 date: 2017-02-05
-categories: [Reset]
+categories:
+- Reset
 image: http://www.pokepedia.fr/images/e/e2/Reshiram.png
 caught: Reshiram
 location: Grotte Évanescente

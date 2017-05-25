@@ -1,8 +1,10 @@
 ---
+number: 41
 layout: post
-title: "Nosferapti"
+title: Nosferapti
 date: 2015-03-24
-categories: [Horde]
+categories:
+- Horde
 image: http://www.pokepedia.fr/images/2/2b/Nosferapti-RFVF.png
 caught: Nosferapti
 location: Grotte Tréfonds

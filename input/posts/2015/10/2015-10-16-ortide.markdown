@@ -1,8 +1,10 @@
 ---
+number: 44
 layout: post
-title: "Ortide"
+title: Ortide
 date: 2015-10-16
-categories: [Horde]
+categories:
+- Horde
 image: http://www.pokepedia.fr/images/3/39/Ortide-RFVF.png
 caught: Mystherbe
 location: Route 120

@@ -1,8 +1,10 @@
 ---
+number: 27
 layout: post
-title: "Sabelette (Alola)"
+title: Sabelette (Alola)
 date: 2017-03-26
-categories: [Appels à l'aide]
+categories:
+- Appels à l'aide
 image: http://www.pokepedia.fr/images/b/b9/Sabelette-a-SL.png
 caught: Sabelette
 location: Village Toko

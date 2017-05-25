@@ -1,8 +1,10 @@
 ---
+number: 42
 layout: post
-title: "Nosferalto"
+title: Nosferalto
 date: 2015-06-18
-categories: [Horde]
+categories:
+- Horde
 image: http://www.pokepedia.fr/images/6/64/Nosferalto-RFVF.png
 caught: Nosferapti
 location: Grotte Granite

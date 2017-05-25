@@ -1,8 +1,10 @@
 ---
+number: 320
 layout: post
-title: "Wailmer"
+title: Wailmer
 date: 2015-03-30
-categories: [Pêche]
+categories:
+- Pêche
 image: http://www.pokepedia.fr/images/f/f9/Wailmer-RS.png
 caught: Wailmer
 location: Chenal 127

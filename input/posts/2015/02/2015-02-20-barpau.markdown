@@ -1,8 +1,10 @@
 ---
+number: 349
 layout: post
-title: "Barpau"
+title: Barpau
 date: 2015-02-20
-categories: [Pêche]
+categories:
+- Pêche
 image: http://www.pokepedia.fr/images/d/d9/Barpau-RS.png
 caught: Barpau
 location: Route 119

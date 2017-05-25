@@ -1,8 +1,10 @@
 ---
+number: 333
 layout: post
-title: "Tylton"
+title: Tylton
 date: 2017-05-22
-categories: [Horde]
+categories:
+- Horde
 image: http://www.pokepedia.fr/images/3/3f/Tylton-RS.png
 caught: Tylton
 location: Route 114

@@ -1,8 +1,10 @@
 ---
+number: 293
 layout: post
-title: "Chuchmur"
+title: Chuchmur
 date: 2014-10-23
-categories: [Horde]
+categories:
+- Horde
 image: http://www.pokepedia.fr/images/e/ea/Chuchmur-RS.png
 caught: Chuchmur
 location: Cave Connecterre

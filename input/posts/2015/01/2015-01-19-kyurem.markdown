@@ -1,8 +1,10 @@
 ---
+number: 646
 layout: post
-title: "Kyurem"
+title: Kyurem
 date: 2015-01-19
-categories: [Reset]
+categories:
+- Reset
 image: http://www.pokepedia.fr/images/a/a5/Kyurem-NB.png
 caught: Kyurem
 location: Gouffre Informe

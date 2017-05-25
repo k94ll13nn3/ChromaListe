@@ -1,8 +1,10 @@
 ---
+number: 223
 layout: post
-title: "Rémoraid"
+title: Rémoraid
 date: 2014-08-03
-categories: [Pêche]
+categories:
+- Pêche
 image: http://www.pokepedia.fr/images/7/70/R%C3%A9moraid-HGSS.png
 caught: Rémoraid
 location: Baie Azur

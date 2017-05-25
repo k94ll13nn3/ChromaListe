@@ -1,8 +1,10 @@
 ---
+number: 693
 layout: post
-title: "Gamblast"
+title: Gamblast
 date: 2016-04-19
-categories: [Pêche]
+categories:
+- Pêche
 image: http://www.pokepedia.fr/images/1/1c/Gamblast-XY.png
 caught: Flingouste
 location: Relifac

@@ -1,8 +1,10 @@
 ---
+number: 547
 layout: post
-title: "Farfaduvet"
+title: Farfaduvet
 date: 2014-08-29
-categories: [Masuda]
+categories:
+- Masuda
 image: http://www.pokepedia.fr/images/f/f1/Farfaduvet-NB.png
 caught: Farfaduvet
 location: Route 7

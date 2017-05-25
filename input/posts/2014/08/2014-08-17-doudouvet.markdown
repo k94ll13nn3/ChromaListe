@@ -1,8 +1,10 @@
 ---
+number: 546
 layout: post
-title: "Doudouvet"
+title: Doudouvet
 date: 2014-08-17
-categories: [Masuda]
+categories:
+- Masuda
 image: http://www.pokepedia.fr/images/8/8b/Doudouvet-NB.png
 caught: Doudouvet
 location: Route 7

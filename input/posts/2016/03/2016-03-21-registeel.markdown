@@ -1,8 +1,10 @@
 ---
+number: 379
 layout: post
-title: "Registeel"
+title: Registeel
 date: 2016-03-21
-categories: [Reset]
+categories:
+- Reset
 image: http://www.pokepedia.fr/images/f/fb/Registeel-RS.png
 caught: Registeel
 location: Tombeau Antique

@@ -1,8 +1,10 @@
 ---
+number: 244
 layout: post
-title: "Entei"
+title: Entei
 date: 2016-10-08
-categories: [Reset]
+categories:
+- Reset
 image: http://www.pokepedia.fr/images/9/90/Entei-HGSS.png
 caught: Entei
 location: Forêt Impénétrable

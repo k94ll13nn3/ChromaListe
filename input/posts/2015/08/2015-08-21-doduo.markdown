@@ -1,8 +1,10 @@
 ---
+number: 84
 layout: post
-title: "Doduo"
+title: Doduo
 date: 2015-08-21
-categories: [Horde]
+categories:
+- Horde
 image: http://www.pokepedia.fr/images/2/2a/Doduo-RFVF.png
 caught: Doduo
 location: Parc Safari

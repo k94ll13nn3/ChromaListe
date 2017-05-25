@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <packages>
-  <package id="Wyam.Yaml" version="0.17.6" targetFramework="net462">
+  <package id="Wyam.Yaml" version="0.18.3" targetFramework="net462">
     <package id="YamlDotNet" version="3.9.0" targetFramework="net462" />
     <package id="YamlDotNet.Dynamic" version="3.2.3" targetFramework="net462" />
   </package>
-  <package id="Wyam.Razor" version="0.17.6" targetFramework="net462">
+  <package id="Wyam.Razor" version="0.18.3" targetFramework="net462">
     <package id="Microsoft.CodeAnalysis.Analyzers" version="1.1.0" targetFramework="net462" />
     <package id="Microsoft.CSharp" version="4.3.0" targetFramework="net462" />
     <package id="Microsoft.DotNet.InternalAbstractions" version="1.0.0" targetFramework="net462" />
@@ -122,7 +122,7 @@
     <package id="Microsoft.CodeAnalysis.CSharp" version="2.0.0" targetFramework="net462" />
     <package id="Microsoft.AspNetCore.Mvc.Razor" version="1.1.2" targetFramework="net462" />
   </package>
-  <package id="Wyam.Markdown" version="0.17.6" targetFramework="net462">
+  <package id="Wyam.Markdown" version="0.18.3" targetFramework="net462">
     <package id="Markdig" version="0.10.6" targetFramework="net462" />
   </package>
 </packages>

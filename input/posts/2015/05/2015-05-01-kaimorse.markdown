@@ -1,8 +1,10 @@
 ---
+number: 365
 layout: post
-title: "Kaimorse"
+title: Kaimorse
 date: 2015-05-01
-categories: [Horde]
+categories:
+- Horde
 image: http://www.pokepedia.fr/images/8/8a/Kaimorse-RS.png
 caught: Obalie
 location: Grotte Tréfonds

@@ -1,8 +1,10 @@
 ---
+number: 120
 layout: post
-title: "Stari"
+title: Stari
 date: 2015-10-14
-categories: [Pêche]
+categories:
+- Pêche
 image: http://www.pokepedia.fr/images/3/34/Stari-RFVF.png
 caught: Stari
 location: Route 8

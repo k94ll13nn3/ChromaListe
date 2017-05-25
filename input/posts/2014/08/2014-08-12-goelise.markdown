@@ -1,8 +1,10 @@
 ---
+number: 278
 layout: post
-title: "Goélise"
+title: Goélise
 date: 2014-08-12
-categories: [Horde]
+categories:
+- Horde
 image: http://www.pokepedia.fr/images/d/d3/Go%C3%A9lise-RS.png
 caught: Goélise
 location: Route 8

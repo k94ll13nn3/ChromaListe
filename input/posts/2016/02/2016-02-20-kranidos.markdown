@@ -1,8 +1,10 @@
 ---
+number: 408
 layout: post
-title: "Kranidos"
+title: Kranidos
 date: 2016-02-20
-categories: [Reset]
+categories:
+- Reset
 image: http://www.pokepedia.fr/images/d/d4/Kranidos-DP.png
 caught: Kranidos
 location: Mérouville

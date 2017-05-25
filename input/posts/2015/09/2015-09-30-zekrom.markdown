@@ -1,8 +1,10 @@
 ---
+number: 644
 layout: post
-title: "Zekrom"
+title: Zekrom
 date: 2015-09-30
-categories: [Reset]
+categories:
+- Reset
 image: http://www.pokepedia.fr/images/c/c7/Zekrom-NB.png
 caught: Zekrom
 location: Grotte Évanescente

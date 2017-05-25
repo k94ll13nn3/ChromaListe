@@ -1,8 +1,10 @@
 ---
+number: 575
 layout: post
-title: "Mesmérella"
+title: Mesmérella
 date: 2016-03-11
-categories: [Masuda]
+categories:
+- Masuda
 image: http://www.pokepedia.fr/images/e/eb/Mesm%C3%A9rella-NB.png
 caught: Scrutella
 location: Atoll de Combat

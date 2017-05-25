@@ -1,8 +1,10 @@
 ---
+number: 101
 layout: post
-title: "Électrode"
+title: Électrode
 date: 2016-03-27
-categories: [Horde]
+categories:
+- Horde
 image: http://www.pokepedia.fr/images/0/03/%C3%89lectrode-RFVF.png
 caught: Voltorbe
 location: New Lavandia

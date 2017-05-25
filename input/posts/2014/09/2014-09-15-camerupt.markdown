@@ -1,8 +1,10 @@
 ---
+number: 323
 layout: post
-title: "Camérupt"
+title: Camérupt
 date: 2014-09-15
-categories: [Safari des Amis]
+categories:
+- Safari des Amis
 image: http://www.pokepedia.fr/images/1/15/M%C3%A9ga-Cam%C3%A9rupt-ROSA.png
 caught: Camérupt
 location: Safari des Amis

@@ -1,8 +1,10 @@
 ---
+number: 714
 layout: post
-title: "Sonistrelle"
+title: Sonistrelle
 date: 2016-08-14
-categories: [Safari des Amis]
+categories:
+- Safari des Amis
 image: http://www.pokepedia.fr/images/0/07/Sonistrelle-XY.png
 caught: Sonistrelle
 location: Safari des Amis

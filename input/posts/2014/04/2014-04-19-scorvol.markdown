@@ -1,8 +1,10 @@
 ---
+number: 472
 layout: post
-title: "Scorvol"
+title: Scorvol
 date: 2014-04-19
-categories: [Masuda]
+categories:
+- Masuda
 image: http://www.pokepedia.fr/images/8/8b/Scorvol-DP.png
 caught: Scorvol
 location: Route 7

@@ -1,8 +1,10 @@
 ---
+number: 273
 layout: post
-title: "Grainipiot"
+title: Grainipiot
 date: 2015-06-12
-categories: [Horde]
+categories:
+- Horde
 image: http://www.pokepedia.fr/images/9/99/Grainipiot-RS.png
 caught: Grainipiot
 location: Route 102

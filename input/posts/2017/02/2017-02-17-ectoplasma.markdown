@@ -1,8 +1,10 @@
 ---
+number: 94
 layout: post
-title: "Ectoplasma"
+title: Ectoplasma
 date: 2017-02-17
-categories: [Appels à l'aide]
+categories:
+- Appels à l'aide
 image: http://www.pokepedia.fr/images/8/8d/Ectoplasma-RFVF.png
 caught: Spectrum
 location: Bradley Prix

@@ -1,8 +1,10 @@
 ---
+number: 263
 layout: post
-title: "Zigzaton"
+title: Zigzaton
 date: 2015-06-15
-categories: [Horde]
+categories:
+- Horde
 image: http://www.pokepedia.fr/images/5/53/Zigzaton-RS.png
 caught: Zigzaton
 location: Route 102

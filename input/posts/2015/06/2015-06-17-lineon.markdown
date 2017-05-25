@@ -1,8 +1,10 @@
 ---
+number: 264
 layout: post
-title: "Linéon"
+title: Linéon
 date: 2015-06-17
-categories: [Horde]
+categories:
+- Horde
 image: http://www.pokepedia.fr/images/b/b5/Lin%C3%A9on-RS.png
 caught: Zigzaton
 location: Route 102

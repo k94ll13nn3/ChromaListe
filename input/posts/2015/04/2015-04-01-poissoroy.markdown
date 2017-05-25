@@ -1,8 +1,10 @@
 ---
+number: 119
 layout: post
-title: "Poissoroy"
+title: Poissoroy
 date: 2015-04-01
-categories: [Pêche]
+categories:
+- Pêche
 image: http://www.pokepedia.fr/images/e/ed/Poissoroy-RFVF.png
 caught: Poissirène
 location: Site Météore

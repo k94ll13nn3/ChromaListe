@@ -1,8 +1,10 @@
 ---
+number: 117
 layout: post
-title: "Hypocéan"
+title: Hypocéan
 date: 2016-03-23
-categories: [Pêche]
+categories:
+- Pêche
 image: http://www.pokepedia.fr/images/f/fc/Hypoc%C3%A9an-RFVF.png
 caught: Hypocéan
 location: Chenal 130

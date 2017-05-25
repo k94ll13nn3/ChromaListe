@@ -1,8 +1,10 @@
 ---
+number: 380
 layout: post
-title: "Latias"
+title: Latias
 date: 2015-01-28
-categories: [Reset]
+categories:
+- Reset
 image: http://www.pokepedia.fr/images/7/73/Latias-RS.png
 caught: Latias
 location: Île du Sud

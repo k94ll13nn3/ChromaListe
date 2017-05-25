@@ -1,5 +1,5 @@
 @{
-    var nbPkmsDistinct = @Documents["Posts"].Select(x => x["Title"]).Distinct().Count();
+    var nbPkmsDistinct = @Documents["Posts"].Select(x => x["Number"]).Distinct().Count();
     var nbPkms = @Documents["Posts"].Count();
     var percent = nbPkmsDistinct * 100.0 / 802.0;
 }

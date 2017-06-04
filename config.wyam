@@ -1,6 +1,7 @@
 #n Wyam.Yaml
 #n Wyam.Razor
 #n Wyam.Markdown
+#n Wyam.Json
 
 using System.Text;
 using System.Text.RegularExpressions;
@@ -24,6 +25,11 @@ public static string Slugify(this string value)
 
 	return value;
 }
+
+Pipelines.Add("PokemonJson",
+	ReadFiles("pokemons.json"),
+	Json()
+);
 
 Pipelines.Add("Posts",
 	ReadFiles("posts/**/*.markdown"), 

@@ -8,3 +8,19 @@
         document.write('<a href="' + postsUrl[randomIndex] + '">' + postsTitle[randomIndex] + '</a>');
     }
 </script>
+<script type="text/javascript">
+    @{
+        var uncaught = (Documents["PokemonJson"].First().ToList().First().Value as System.Collections.Generic.List<dynamic>)
+            .Where(x => !Documents["Posts"]
+                .Select(y => y["Number"])
+                .Contains($"{x.number}"));
+    }
+    var unchaughtNumbers = [@Html.Raw(string.Join(",", uncaught.Select(x => $"\"{x.number}\"")))];
+    var unchaughtNames = [@Html.Raw(string.Join(",", uncaught.Select(x => $"\"{x.name}\"")))];
+    function randomizeNextTarget()
+    {
+        var randomIndex2;
+        randomIndex2 = Math.floor(Math.random() * unchaughtNumbers.length);
+        document.write(unchaughtNumbers[randomIndex2] + ' - ' + unchaughtNames[randomIndex2]);
+    }
+</script>

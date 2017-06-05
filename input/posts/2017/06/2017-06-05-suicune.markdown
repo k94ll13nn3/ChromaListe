@@ -1,0 +1,13 @@
+---
+number: 245
+layout: post
+title: Suicune
+date: 2017-06-05
+categories:
+- Reset
+image: http://www.pokepedia.fr/images/9/9a/Suicune-HGSS.png
+caught: Suicune
+location: Forêt Impénétrable
+level: 50
+version: OR
+---

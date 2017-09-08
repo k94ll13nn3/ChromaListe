@@ -1,0 +1,13 @@
+---
+number: 334
+layout: post
+title: Altaria
+date: 2017-09-02
+categories:
+- Horde
+image: http://www.pokepedia.fr/images/5/56/Altaria-RS.png
+caught: Tylton
+location: Route 114
+level: 9
+version: AS
+---

@@ -6,7 +6,7 @@
 using System.Text;
 using System.Text.RegularExpressions;
 
-Settings["SiteTitle"] = "Chroma Liste";
+Settings["SiteTitle"] = "Shiny Living Dex";
 Settings[Keys.Host] = "k94ll13nn3.github.io";
 Settings[Keys.LinkRoot] = "/ChromaListe";
 

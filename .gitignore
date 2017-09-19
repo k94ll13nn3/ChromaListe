@@ -1,6 +1,3 @@
-output/
-tools/
-
 # Created by https://www.gitignore.io/api/csharp,visualstudio,visualstudiocode
 
 ### Csharp ###
@@ -410,8 +407,13 @@ __pycache__/
 # Python Tools for Visual Studio (PTVS)
 
 # Cake - Uncomment if you are using it
-# tools/**
-# !tools/packages.config
+tools/**
+!tools/packages.config
+
+# Wyam
+config.wyam.hash
+config.wyam.dll
+output/
+packages.xml
 
 # End of https://www.gitignore.io/api/csharp,visualstudio,visualstudiocode
-config.wyam.hash

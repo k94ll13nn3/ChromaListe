@@ -34,7 +34,10 @@
     <p><img src="@Metadata["Image"]" alt="" height="250px" /></p>
 
     <ul>
-        <li>Attrapé : @Metadata["Caught"]</li>
+        @if(!string.IsNullOrWhiteSpace(@Metadata["Caught"].ToString()) && @Metadata["Caught"].ToString() != @Metadata["Title"].ToString())
+        {
+            <li>Attrapé : @Metadata["Caught"]</li>
+        }
         <li>Numéro : @Metadata["Number"]</li>
         <li>@Metadata["Location"]</li>
         <li>Niveau : @Metadata["Level"]</li>

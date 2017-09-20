@@ -8,7 +8,7 @@ ul.pokemonlist li {
   color: #828282;
 }
 
-ul.pokemonlist li.catched {
+ul.pokemonlist li.catched>a {
   font-weight: 900;
   color: black;
 }

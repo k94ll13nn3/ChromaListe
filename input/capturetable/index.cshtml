@@ -17,7 +17,8 @@ notitle:
         {
             if(catchedPokemon.Contains(i.ToString()))
             {
-                <li class="catched">@i.ToString("000")</li>
+                var post = @Documents["Posts"].First(x => x.Get("Number").ToString() == i.ToString());
+                <li class="catched"><a title="@post.Get("Title").ToString()" href="@Context.GetLink(post)">@i.ToString("000")</a></li>
             }
             else
             {

@@ -1,5 +1,5 @@
 ---
-number: 19
+number: 19a
 layout: post
 title: Rattata (Alola)
 date: 2017-03-08

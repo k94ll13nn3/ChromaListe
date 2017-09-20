@@ -1,5 +1,5 @@
 ---
-number: 88
+number: 88a
 layout: post
 title: Tadmorv (Alola)
 date: 2017-03-11

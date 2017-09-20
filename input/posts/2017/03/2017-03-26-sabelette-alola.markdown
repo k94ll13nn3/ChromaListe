@@ -1,5 +1,5 @@
 ---
-number: 27
+number: 27a
 layout: post
 title: Sabelette (Alola)
 date: 2017-03-26

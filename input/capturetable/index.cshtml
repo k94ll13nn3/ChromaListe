@@ -12,18 +12,25 @@ notitle:
 </h1>
 
 <ul class="pokemonlist">
-    @{ 
-        for(int i = 1; i <= 802; i++) 
+    @{
+        var groupedPokemons = (Documents["PokemonJson"].First().ToList().First().Value as System.Collections.Generic.List<dynamic>)
+            .GroupBy(x => x.group);
+    }
+
+    @foreach(var pokemons in groupedPokemons)
+    {
+        <h1>@pokemons.Key</h1>
+        foreach(var pokemon in pokemons)
         {
-            if(catchedPokemon.Contains(i.ToString()))
+            if(catchedPokemon.Contains($"{pokemon?.number ?? string.Empty}"))
             {
-                var post = @Documents["Posts"].First(x => x.Get("Number").ToString() == i.ToString());
-                <li class="catched"><a title="@post.Get("Title").ToString()" href="@Context.GetLink(post)">@i.ToString("000")</a></li>
+                var post = @Documents["Posts"].First(x => x.Get("Number").ToString() == pokemon.number.ToString());
+                <li class="catched"><a title="@pokemon.name" href="@Context.GetLink(post)">@pokemon.number.ToString().PadLeft(4, ' ')</a></li>
             }
             else
             {
-                <li>@i.ToString("000")</li>
+                <li>@pokemon.number.ToString().PadLeft(4, ' ')</li>
             }
-        } 
+        }
     }
 </ul>  

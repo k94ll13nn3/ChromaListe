@@ -10,7 +10,7 @@ title: Statistiques
 
 <dl>
 @{
-    var categories = Documents["Posts"].Select<IDocument, string>(x => (string)x["Category"]).Distinct();
+    var categories = Documents["Posts"].Select<IDocument, string>(x => (string)x["Category"]).Distinct().OrderBy(x => x);
     foreach(var category in categories)
     {
         var count = @Documents["Posts"].Count(x => ((string)x["Category"]) == category);
@@ -24,7 +24,7 @@ title: Statistiques
 
 <dl>
 @{
-    var versions = Documents["Posts"].Select(x => (string)x["Version"]).Distinct();
+    var versions = Documents["Posts"].Select(x => (string)x["Version"]).Distinct().OrderBy(x => x);
     foreach(var version in versions)
     {
         var count = @Documents["Posts"].Count(x => (string)x["Version"] == version);
@@ -38,7 +38,7 @@ title: Statistiques
 
 <dl>
 @{
-    var years = Documents["Posts"].Select(x => DateTime.Parse((string)x["Date"]).Year).Distinct();
+    var years = Documents["Posts"].Select(x => DateTime.Parse((string)x["Date"]).Year).Distinct().OrderByDescending(x => x);
     foreach(var year in years)
     {
         var count = @Documents["Posts"].Count(x => DateTime.Parse((string)x["Date"]).Year == year);

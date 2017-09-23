@@ -3,6 +3,7 @@
 #n Wyam.Markdown
 #n Wyam.Json
 #n Wyam.Sass
+#n Wyam.Minification
 
 using System.Text;
 using System.Text.RegularExpressions;
@@ -69,6 +70,13 @@ Pipelines.Add("Categories",
 	),
 	Razor().WithLayout("/_Category.cshtml"),
 	WriteFiles()
+);
+
+Pipelines.Add("Scripts",
+	ReadFiles("_Scripts.cshtml"),
+	Razor().IgnorePrefix(null),
+	MinifyJs(),
+	WriteFiles((doc, ctx) => "assets/js/scripts.js")
 );
 
 Pipelines.Add("Index",

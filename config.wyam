@@ -29,7 +29,7 @@ public static string Slugify(this string value)
 
 Pipelines.Add("Sass",
     ReadFiles("assets/css/master.scss"),
-    Sass().WithCompactOutputStyle(),
+    Sass().WithCompressedOutputStyle(),
     WriteFiles()
 );
 

@@ -3,10 +3,9 @@ ul.pokemonlist li {
   margin-left: 10px;
   margin-right: 10px;
   font-size: 130%;
-  color: #828282;
-}
-
-ul.pokemonlist li.catched>a {
-  font-weight: 900;
-  color: black;
+  color: $cloudy;
+  &.catched>a {
+    font-weight: 900;
+    color: $iron;
+  }
 }

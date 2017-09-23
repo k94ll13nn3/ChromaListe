@@ -10,10 +10,10 @@ title: Statistiques
 
 <dl>
 @{
-    var categories = Documents["Posts"].SelectMany<IDocument, string>(x => (string[])x["Categories"]).Distinct();
+    var categories = Documents["Posts"].Select<IDocument, string>(x => (string)x["Category"]).Distinct();
     foreach(var category in categories)
     {
-        var count = @Documents["Posts"].Count(x => ((string[])x["Categories"]).Contains(category));
+        var count = @Documents["Posts"].Count(x => ((string)x["Category"]) == category);
         var percent = count * 100 / nbDocs;
         <dd class="percentage percentage-@percent"><span class="text">@category (@count)</span></dd>
     }

@@ -42,7 +42,7 @@
         <li>@Metadata["Location"]</li>
         <li>Niveau : @Metadata["Level"]</li>
         <li>Version : @Metadata["Version"]</li>
-        <li>Méthodes : @string.Join(", ", Metadata.Get<string[]>("Categories"))</li>
+        <li>Méthodes : @Metadata["Category"]</li>
     </ul>
 
     @RenderBody()

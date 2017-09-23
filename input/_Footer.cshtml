@@ -10,7 +10,7 @@
 <div class="explore">
     <div class="explore__devider">------ Pokémon chromatiques : @nbPkmsDistinct/@nbPkms (@string.Format("{0:0.0}%", percent)) | <script type="text/javascript">randomizePost()</script> ------</div>
     <ul class="categories">
-        @foreach(var cat in Documents["Posts"].SelectMany<IDocument, string>(x => (string[])x["Categories"]).Distinct())
+        @foreach(var cat in Documents["Posts"].Select<IDocument, string>(x => (string)x["Category"]).Distinct())
         {
             string category = ((string)cat);
             category = category.Slugify();

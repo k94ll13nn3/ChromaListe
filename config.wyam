@@ -2,6 +2,7 @@
 #n Wyam.Razor
 #n Wyam.Markdown
 #n Wyam.Json
+#n Wyam.Sass
 
 using System.Text;
 using System.Text.RegularExpressions;
@@ -25,6 +26,12 @@ public static string Slugify(this string value)
 
 	return value;
 }
+
+Pipelines.Add("Sass",
+    ReadFiles("assets/css/master.scss"),
+    Sass().WithCompactOutputStyle(),
+    WriteFiles()
+);
 
 Pipelines.Add("PokemonJson",
 	ReadFiles("pokemons.json"),
@@ -75,5 +82,5 @@ Pipelines.Add("Index",
 );
 
 Pipelines.Add("Ressources",
-	CopyFiles("**/*{!.cshtml,!.markdown,!.md,!.less,}")
+	CopyFiles("**/*{!.cshtml,!.markdown,!.md,!.less,!.scss,}")
 );

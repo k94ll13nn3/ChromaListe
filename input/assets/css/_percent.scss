@@ -1,0 +1,54 @@
+dl {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 540px;
+  position: relative;
+  padding: 20px;
+}
+
+dt {
+  align-self: flex-start;
+  width: 100%;
+  display: block;
+  text-align: center;
+  margin-left: 200px;
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  height: 20px;
+  width: 200px;
+  position: absolute;
+  left: 0;
+  justify-content: flex-end;
+}
+
+.percentage {
+  line-height: 1;
+  width: 100%;
+  height: 20px;
+  margin-left: 200px;
+}
+
+.percentage:after {
+  content: "";
+  display: block;
+  background-color: $iron;
+  width: 50px;
+  height: 50%;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background-color .3s ease;
+}
+
+@for $i from 1 through 100 {
+  .percentage-#{$i} {
+    &:after {
+      $value: ($i * 1%);
+      width: $value;
+    }
+  }
+}

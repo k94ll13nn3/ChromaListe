@@ -82,5 +82,5 @@ Pipelines.Add("Index",
 );
 
 Pipelines.Add("Ressources",
-	CopyFiles("**/*{!.cshtml,!.markdown,!.md,!.less,!.scss,}")
+	CopyFiles("**/*{!.cshtml,!.markdown,!.md,!.less,!.scss,!.json,}")
 );

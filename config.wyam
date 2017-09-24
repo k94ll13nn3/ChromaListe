@@ -72,8 +72,8 @@ Pipelines.Add("Categories",
 	WriteFiles()
 );
 
-Pipelines.Add("Scripts",
-	ReadFiles("_Scripts.cshtml"),
+Pipelines.Add("RazorScripts",
+	ReadFiles("assets/js/_scripts.cshtml"),
 	Razor().IgnorePrefix(null),
 	MinifyJs(),
 	WriteFiles((doc, ctx) => "assets/js/scripts.js")

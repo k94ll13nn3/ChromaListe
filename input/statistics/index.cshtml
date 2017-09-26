@@ -15,7 +15,8 @@ title: Statistiques
     {
         var count = @Documents["Posts"].Count(x => ((string)x["Category"]) == category);
         var percent = count * 100 / nbDocs;
-        <dd class="percentage percentage-@percent"><span class="text">@category (@count)</span></dd>
+        var countString = $"({count})".PadLeft(4, ' ');
+        <dd class="percentage percentage-@percent"><span class="text">@category @countString</span></dd>
     }
 }
 </dl>
@@ -29,12 +30,13 @@ title: Statistiques
     {
         var count = @Documents["Posts"].Count(x => (string)x["Version"] == version);
         var percent = count * 100 / nbDocs;
-        <dd class="percentage percentage-@percent"><span class="text">@version (@count)</span></dd>
+        var countString = $"({count})".PadLeft(4, ' ');
+        <dd class="percentage percentage-@percent"><span class="text">@version @countString</span></dd>
     }
 }
 </dl>
 
-<h2>Date</h2>
+<h2>Année</h2>
 
 <dl>
 @{
@@ -43,7 +45,26 @@ title: Statistiques
     {
         var count = @Documents["Posts"].Count(x => DateTime.Parse((string)x["Date"]).Year == year);
         var percent = count * 100 / nbDocs;
-        <dd class="percentage percentage-@percent"><span class="text">@year (@count)</span></dd>
+        var countString = $"({count})".PadLeft(4, ' ');
+        <dd class="percentage percentage-@percent"><span class="text">@year @countString</span></dd>
+    }
+}
+</dl>
+
+<h2>Meilleurs mois</h2>
+
+<dl>
+@{
+
+    var months  = @Documents["Posts"]
+        .GroupBy(x => DateTime.Parse((string)x["Date"]).ToString("MMMM yyyy"))
+        .OrderByDescending(x => x.Count())
+        .Select(x => new {key = x.Key, count = x.Count()});
+
+    foreach(var month in months.Take(5))
+    {
+        var countString = $"({month.count})".PadLeft(4, ' ');
+        <dd class="percentage percentage-@month.count"><span class="text">@month.key @countString</span></dd>
     }
 }
 </dl>

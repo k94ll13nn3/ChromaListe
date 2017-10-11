@@ -1,6 +1,17 @@
+@{
+    var slugifiedPostFile = Model["PostFile"].ToString().Slugify();
+    var pokemons = (Documents["PokemonJson"].First().ToList().First().Value as System.Collections.Generic.List<dynamic>);
+    var currentPokemon = pokemons.First(x => x.number.ToString() == @Model["Number"].ToString()).pokeSpriteClass;
+}
+
 <li class="post-teaser">
     <a href="@Context.GetLink("/")@Model["PostFile"]">
-        <span class="post-teaser__title">@Model["Title"]</span>
-        <span class="post-teaser__date">@($"{Model.Get<DateTime>("Date"):dd MMMM yyyy}")</span>
+        <span id="icon__@slugifiedPostFile" class="pkspr @currentPokemon color-shiny custom-pkspr"></span>
+        <div>
+            <span class="post-teaser__title">@Model["Title"]</span>
+            <span class="post-teaser__date">@($"{Model.Get<DateTime>("Date"):dd MMMM yyyy}")</span>
+        </div>
     </a>
 </li>
+
+<script type="text/javascript">PkSpr.decorate('icon__@slugifiedPostFile');</script>

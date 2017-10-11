@@ -172,7 +172,7 @@
           "number":"29",
           "name":"Nidoran♀",
           "group":"Génération 1",
-          "pokeSpriteClass":"pkmn-nidoran"
+          "pokeSpriteClass":"pkmn-nidoran-f"
       },
       {
           "number":"30",
@@ -190,7 +190,7 @@
           "number":"32",
           "name":"Nidoran♂",
           "group":"Génération 1",
-          "pokeSpriteClass":"pkmn-nidoran"
+          "pokeSpriteClass":"pkmn-nidoran-m"
       },
       {
           "number":"33",

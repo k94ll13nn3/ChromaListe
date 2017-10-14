@@ -7,4 +7,5 @@ image: http://www.pokepedia.fr/images/c/cd/Mysdibule-RS.png
 location: Grotte Granite
 level: 6
 version: OR
+ball: luxury
 ---

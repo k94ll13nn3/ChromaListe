@@ -7,4 +7,5 @@ image: http://www.pokepedia.fr/images/f/fb/Registeel-RS.png
 location: Tombeau Antique
 level: 40
 version: OR
+ball: luxury
 ---

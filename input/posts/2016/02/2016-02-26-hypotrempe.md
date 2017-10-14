@@ -7,4 +7,5 @@ image: http://www.pokepedia.fr/images/3/3e/Hypotrempe-RFVF.png
 location: Chenal 130
 level: 30
 version: OR
+ball: quick
 ---

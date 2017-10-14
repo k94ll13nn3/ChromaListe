@@ -7,4 +7,5 @@ image: http://www.pokepedia.fr/images/d/d6/Stalgamin-RS.png
 location: Safari des Amis
 level: 30
 version: X
+ball: repeat
 ---

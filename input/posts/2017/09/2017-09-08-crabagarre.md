@@ -7,4 +7,5 @@ image: http://www.pokepedia.fr/images/a/ab/Crabagarre-SL.png
 location: Route 10
 level: 27
 version: Lune
+ball: premier
 ---

@@ -7,4 +7,5 @@ image: http://www.pokepedia.fr/images/1/11/Minidraco-RFVF.png
 location: Chemin du Défi
 level: 43
 version: Lune
+ball: premier
 ---

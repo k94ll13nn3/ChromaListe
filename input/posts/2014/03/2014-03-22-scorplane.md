@@ -7,4 +7,5 @@ image: http://www.pokepedia.fr/images/0/0c/Scorplane-HGSS.png
 location: Route 19
 level: 24
 version: X
+ball: timer
 ---

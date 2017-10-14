@@ -7,4 +7,5 @@ image: http://www.pokepedia.fr/images/3/3c/N%C5%93un%C5%93uf-RFVF.png
 location: Île noadkoko
 level: 40
 version: Lune
+ball: repeat
 ---

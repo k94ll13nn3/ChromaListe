@@ -7,4 +7,5 @@ image: http://www.pokepedia.fr/images/9/99/Grainipiot-RS.png
 location: Route 102
 level: 2
 version: OR
+ball: poke
 ---

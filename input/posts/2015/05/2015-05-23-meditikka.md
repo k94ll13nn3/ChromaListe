@@ -7,4 +7,5 @@ image: http://www.pokepedia.fr/images/6/6e/M%C3%A9ditikka-RS.png
 location: Mont Mémoria
 level: 28
 version: OR
+ball: repeat
 ---

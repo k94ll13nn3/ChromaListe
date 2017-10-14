@@ -7,4 +7,5 @@ image: http://www.pokepedia.fr/images/2/2b/Nosferapti-RFVF.png
 location: Tunnel Taupiqueur
 level: 22
 version: Lune
+ball: repeat
 ---

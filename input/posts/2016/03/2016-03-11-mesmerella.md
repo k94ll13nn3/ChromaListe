@@ -8,4 +8,5 @@ caught: Scrutella
 location: Atoll de Combat
 level: oeuf
 version: OR
+ball: poke
 ---

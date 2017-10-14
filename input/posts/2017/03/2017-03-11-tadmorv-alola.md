@@ -7,4 +7,5 @@ image: http://www.pokepedia.fr/images/e/e4/Tadmorv-a-SL.png
 location: Route 1
 level: 8
 version: Lune
+ball: nest
 ---

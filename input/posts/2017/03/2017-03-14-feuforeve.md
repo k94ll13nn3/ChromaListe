@@ -7,4 +7,5 @@ image: http://www.pokepedia.fr/images/3/31/Feufor%C3%AAve-RFVF.png
 location: Cimetière d'Ekaeka
 level: 7
 version: Lune
+ball: dusk
 ---

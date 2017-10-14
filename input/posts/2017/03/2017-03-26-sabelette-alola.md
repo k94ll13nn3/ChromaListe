@@ -7,4 +7,5 @@ image: http://www.pokepedia.fr/images/b/b9/Sabelette-a-SL.png
 location: Village Toko
 level: 29
 version: Lune
+ball: dive
 ---

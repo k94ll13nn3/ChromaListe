@@ -7,4 +7,5 @@ image: http://www.pokepedia.fr/images/3/3f/Relicanth-RS.png
 location: Relifac-le-Haut
 level: 35
 version: X
+ball: net
 ---

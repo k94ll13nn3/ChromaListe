@@ -7,4 +7,5 @@ image: http://www.pokepedia.fr/images/f/f2/Rapasdepic-RFVF.png
 location: Mont Hokulani
 level: 26
 version: Lune
+ball: ultra
 ---

@@ -7,4 +7,5 @@ image: http://www.pokepedia.fr/images/9/98/Milobellus-RS.png
 location: Route 119
 level: 35
 version: OR
+ball: luxury
 ---

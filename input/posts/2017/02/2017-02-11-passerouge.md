@@ -7,4 +7,5 @@ image: http://www.pokepedia.fr/images/a/a7/Passerouge-XY.png
 location: Parc Volcanique
 level: 16
 version: Lune
+ball: great
 ---

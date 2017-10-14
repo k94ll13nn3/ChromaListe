@@ -7,4 +7,5 @@ image: http://www.pokepedia.fr/images/f/f8/Scrutella-NB.png
 location: Route 102
 level: 3
 version: OR
+ball: repeat
 ---

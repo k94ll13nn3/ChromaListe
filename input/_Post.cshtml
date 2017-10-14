@@ -36,6 +36,7 @@
     <ul>
         @{
             var caught = (string)Metadata.Get("Caught");
+            var ball = (string)Metadata.Get("Ball");
         }
         @if(!string.IsNullOrWhiteSpace(caught) && caught != @Metadata["Title"].ToString())
         {
@@ -46,7 +47,13 @@
         <li>Niveau : @Metadata["Level"]</li>
         <li>Version : @Metadata["Version"]</li>
         <li>Méthodes : @Metadata["Category"]</li>
+        @if(!string.IsNullOrWhiteSpace(ball))
+        {
+            <li>Ball : <span id="icon__ball" class="pkspr pokeball-@ball custom-pkspr-ball"></span></li>
+        }
     </ul>
 
     @RenderBody()
 </div>
+
+<script type="text/javascript">PkSpr.decorate('icon__ball');</script>

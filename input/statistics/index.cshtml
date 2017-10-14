@@ -68,3 +68,19 @@ title: Statistiques
     }
 }
 </dl>
+
+<h2>Ball</h2>
+
+<dl>
+@{
+    var balls = Documents["Posts"].Select(x => (string)x["Ball"]).Distinct().OrderBy(x => x);
+    foreach(var ball in balls)
+    {
+        var count = @Documents["Posts"].Count(x => (string)x["Ball"] == ball);
+        var percent = count * 100 / nbDocs;
+        var countString = $"({count})".PadLeft(4, ' ');
+        <dd class="percentage percentage-@percent"><span class="text"><span id="icon__@ball" class="pkspr pokeball-@ball custom-pkspr-ball"></span> @countString</span></dd>
+        <script type="text/javascript">PkSpr.decorate('icon__@ball');</script>
+    }
+}
+</dl>

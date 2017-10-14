@@ -7,4 +7,5 @@ image: http://www.pokepedia.fr/images/f/f0/Queulorior-HGSS.png
 location: Atoll de Combat
 level: oeuf
 version: OR
+ball: poke
 ---

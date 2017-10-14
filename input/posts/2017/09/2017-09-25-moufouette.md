@@ -7,4 +7,5 @@ image: http://www.pokepedia.fr/images/9/9b/Moufouette-DP.png
 location: Route 11
 level: 11
 version: X
+ball: nest
 ---

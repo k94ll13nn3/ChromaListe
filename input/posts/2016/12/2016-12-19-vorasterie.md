@@ -7,4 +7,5 @@ image: http://www.pokepedia.fr/images/9/9b/Vorast%C3%A9rie-SL.png
 location: Ranch Ohana
 level: oeuf
 version: Lune
+ball: dive
 ---

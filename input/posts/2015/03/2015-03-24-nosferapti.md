@@ -7,4 +7,5 @@ image: http://www.pokepedia.fr/images/2/2b/Nosferapti-RFVF.png
 location: Grotte Tréfonds
 level: 17
 version: OR
+ball: nest
 ---

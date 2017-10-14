@@ -7,4 +7,5 @@ image: http://www.pokepedia.fr/images/5/50/Flingouste-XY.png
 location: Relifac
 level: 25
 version: X
+ball: net
 ---

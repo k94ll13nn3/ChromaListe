@@ -7,4 +7,5 @@ image: http://www.pokepedia.fr/images/8/86/Rattata-a-SL.png
 location: Route 8
 level: 20
 version: Lune
+ball: quick
 ---

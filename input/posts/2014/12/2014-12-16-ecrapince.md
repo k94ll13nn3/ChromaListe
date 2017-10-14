@@ -7,4 +7,5 @@ image: http://www.pokepedia.fr/images/0/02/%C3%89crapince-RS.png
 location: Route 117
 level: 35
 version: OR
+ball: nest
 ---

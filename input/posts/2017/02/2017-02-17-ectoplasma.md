@@ -8,4 +8,5 @@ caught: Spectrum
 location: Bradley Prix
 level: 31
 version: Lune
+ball: nest
 ---

@@ -7,4 +7,5 @@ image: http://www.pokepedia.fr/images/b/bf/Cresselia-DP.png
 location: Île de l
 level: 50
 version: OR
+ball: repeat
 ---

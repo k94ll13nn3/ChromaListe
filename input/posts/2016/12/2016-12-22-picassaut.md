@@ -7,4 +7,5 @@ image: http://www.pokepedia.fr/images/c/c2/Picassaut-SL.png
 location: Route 6
 level: 17
 version: Lune
+ball: poke
 ---

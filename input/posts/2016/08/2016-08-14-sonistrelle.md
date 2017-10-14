@@ -7,4 +7,5 @@ image: http://www.pokepedia.fr/images/0/07/Sonistrelle-XY.png
 location: Safari des Amis
 level: 30
 version: X
+ball: repeat
 ---

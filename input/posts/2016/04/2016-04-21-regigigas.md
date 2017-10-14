@@ -7,4 +7,5 @@ image: http://www.pokepedia.fr/images/c/cb/Regigigas-DP.png
 location: Grotte de l
 level: 50
 version: OR
+ball: repeat
 ---

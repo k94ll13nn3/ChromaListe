@@ -45,10 +45,10 @@ dt {
   transition: background-color .3s ease;
 }
 
-@for $i from 0 through 100 {
+@for $i from 0 through 1000 {
   .percentage-#{$i} {
     &:after {
-      $value: ($i * 1%);
+      $value: ($i/10 * 1%);
       width: $value;
     }
   }

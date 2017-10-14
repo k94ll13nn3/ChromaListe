@@ -14,7 +14,7 @@ title: Statistiques
     foreach(var category in categories)
     {
         var count = @Documents["Posts"].Count(x => ((string)x["Category"]) == category);
-        var percent = count * 100 / nbDocs;
+        var percent = count * 1000 / nbDocs;
         var countString = $"({count})".PadLeft(4, ' ');
         <dd class="percentage percentage-@percent"><span class="text">@category @countString</span></dd>
     }
@@ -29,7 +29,7 @@ title: Statistiques
     foreach(var version in versions)
     {
         var count = @Documents["Posts"].Count(x => (string)x["Version"] == version);
-        var percent = count * 100 / nbDocs;
+        var percent = count * 1000 / nbDocs;
         var countString = $"({count})".PadLeft(4, ' ');
         <dd class="percentage percentage-@percent"><span class="text">@version @countString</span></dd>
     }
@@ -44,7 +44,7 @@ title: Statistiques
     foreach(var year in years)
     {
         var count = @Documents["Posts"].Count(x => DateTime.Parse((string)x["Date"]).Year == year);
-        var percent = count * 100 / nbDocs;
+        var percent = count * 1000 / nbDocs;
         var countString = $"({count})".PadLeft(4, ' ');
         <dd class="percentage percentage-@percent"><span class="text">@year @countString</span></dd>
     }
@@ -63,8 +63,9 @@ title: Statistiques
 
     foreach(var month in months.Take(5))
     {
+        var percent = month.count * 10;
         var countString = $"({month.count})".PadLeft(4, ' ');
-        <dd class="percentage percentage-@month.count"><span class="text">@month.key @countString</span></dd>
+        <dd class="percentage percentage-@percent"><span class="text">@month.key @countString</span></dd>
     }
 }
 </dl>
@@ -77,7 +78,7 @@ title: Statistiques
     foreach(var ball in balls)
     {
         var count = @Documents["Posts"].Count(x => (string)x["Ball"] == ball);
-        var percent = count * 100 / nbDocs;
+        var percent = count * 1000 / nbDocs;
         var countString = $"({count})".PadLeft(4, ' ');
         <dd class="percentage percentage-@percent"><span class="text"><span id="icon__@ball" class="pkspr pokeball-@ball custom-pkspr-ball"></span> @countString</span></dd>
         <script type="text/javascript">PkSpr.decorate('icon__@ball');</script>

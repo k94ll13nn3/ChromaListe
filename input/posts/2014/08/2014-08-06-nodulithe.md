@@ -7,4 +7,5 @@ image: http://www.pokepedia.fr/images/2/2d/Nodulithe-NB.png
 location: Grotte Miroitante
 level: 11
 version: X
+ball: luxury
 ---

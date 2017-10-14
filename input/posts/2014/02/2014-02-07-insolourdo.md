@@ -7,4 +7,5 @@ image: http://www.pokepedia.fr/images/7/76/Insolourdo-HGSS.png
 location: Safari des Amis
 level: 30
 version: X
+ball: quick
 ---

@@ -7,4 +7,5 @@ image: http://www.pokepedia.fr/images/e/e6/Pachirisu-DP.png
 location: Safari des Amis
 level: 30
 version: X
+ball: quick
 ---

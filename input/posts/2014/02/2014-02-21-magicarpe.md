@@ -7,4 +7,5 @@ image: http://www.pokepedia.fr/images/0/06/Magicarpe-RFVF.png
 location: Route 22
 level: 15
 version: X
+ball: net
 ---

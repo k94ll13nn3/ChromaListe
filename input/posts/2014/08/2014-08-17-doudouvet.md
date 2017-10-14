@@ -7,4 +7,5 @@ image: http://www.pokepedia.fr/images/8/8b/Doudouvet-NB.png
 location: Route 7
 level: oeuf
 version: X
+ball: poke
 ---

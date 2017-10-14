@@ -7,4 +7,5 @@ image: http://www.pokepedia.fr/images/e/e3/M%C3%A9tamorph-RFVF.png
 location: Mont Hokulani
 level: 28
 version: Lune
+ball: timer
 ---

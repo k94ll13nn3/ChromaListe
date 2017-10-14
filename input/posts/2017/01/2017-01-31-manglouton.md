@@ -7,4 +7,5 @@ image: http://www.pokepedia.fr/images/f/f9/Manglouton-SL.png
 location: Route 1
 level: 6
 version: Lune
+ball: nest
 ---

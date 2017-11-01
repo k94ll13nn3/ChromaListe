@@ -24,8 +24,9 @@ notitle:
         {
             if(catchedPokemon.Contains($"{pokemon?.number ?? string.Empty}"))
             {
+                var countForPokemon = @Documents["Posts"].OrderBy(x => x.Get("Date").ToString()).Count(x => x.Get("Number").ToString() == pokemon.number.ToString());
                 var post = @Documents["Posts"].OrderBy(x => x.Get("Date").ToString()).First(x => x.Get("Number").ToString() == pokemon.number.ToString());
-                <li class="catched"><a title="@pokemon.name" href="@Context.GetLink(post)">@pokemon.number.ToString().PadLeft(4, ' ')</a></li>
+                <li class="@(countForPokemon > 1 ? "multiple-shiny" : "catched")"><a title="@pokemon.name" href="@Context.GetLink(post)">@pokemon.number.ToString().PadLeft(4, ' ')</a></li>
             }
             else
             {

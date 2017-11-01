@@ -8,6 +8,10 @@ ul.pokemonlist li {
     font-weight: 900;
     color: $iron;
   }
+  &.multiple-shiny>a {
+    font-weight: 900;
+    color: $blue;
+  }
 }
 
 .custom-pkspr {

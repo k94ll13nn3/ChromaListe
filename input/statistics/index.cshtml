@@ -10,13 +10,15 @@ title: Statistiques
 
 <dl>
 @{
-    var categories = Documents["Posts"].Select<IDocument, string>(x => (string)x["Category"]).Distinct().OrderBy(x => x);
+    var categories = Documents["Posts"]
+        .GroupBy(x => (string)x["Category"])
+        .OrderByDescending(x => x.Count())
+        .Select(x => new {key = x.Key, count = x.Count()});
     foreach(var category in categories)
     {
-        var count = @Documents["Posts"].Count(x => ((string)x["Category"]) == category);
-        var percent = count * 1000 / nbDocs;
-        var countString = $"({count})".PadLeft(4, ' ');
-        <dd class="percentage percentage-@percent"><span class="text">@category @countString</span></dd>
+        var percent = category.count * 1000 / nbDocs;
+        var countString = $"({category.count})".PadLeft(4, ' ');
+        <dd class="percentage percentage-@percent"><span class="text">@category.key @countString</span></dd>
     }
 }
 </dl>
@@ -25,13 +27,15 @@ title: Statistiques
 
 <dl>
 @{
-    var versions = Documents["Posts"].Select(x => (string)x["Version"]).Distinct().OrderBy(x => x);
+    var versions = Documents["Posts"]
+        .GroupBy(x => (string)x["Version"])
+        .OrderByDescending(x => x.Count())
+        .Select(x => new {key = x.Key, count = x.Count()});
     foreach(var version in versions)
     {
-        var count = @Documents["Posts"].Count(x => (string)x["Version"] == version);
-        var percent = count * 1000 / nbDocs;
-        var countString = $"({count})".PadLeft(4, ' ');
-        <dd class="percentage percentage-@percent"><span class="text">@version @countString</span></dd>
+        var percent = version.count * 1000 / nbDocs;
+        var countString = $"({version.count})".PadLeft(4, ' ');
+        <dd class="percentage percentage-@percent"><span class="text">@version.key @countString</span></dd>
     }
 }
 </dl>
@@ -40,13 +44,15 @@ title: Statistiques
 
 <dl>
 @{
-    var years = Documents["Posts"].Select(x => DateTime.Parse((string)x["Date"]).Year).Distinct().OrderByDescending(x => x);
+    var years = Documents["Posts"]
+        .GroupBy(x => DateTime.Parse((string)x["Date"]).Year)
+        .OrderByDescending(x => x.Count())
+        .Select(x => new {key = x.Key, count = x.Count()});
     foreach(var year in years)
     {
-        var count = @Documents["Posts"].Count(x => DateTime.Parse((string)x["Date"]).Year == year);
-        var percent = count * 1000 / nbDocs;
-        var countString = $"({count})".PadLeft(4, ' ');
-        <dd class="percentage percentage-@percent"><span class="text">@year @countString</span></dd>
+        var percent = year.count * 1000 / nbDocs;
+        var countString = $"({year.count})".PadLeft(4, ' ');
+        <dd class="percentage percentage-@percent"><span class="text">@year.key @countString</span></dd>
     }
 }
 </dl>
@@ -74,14 +80,17 @@ title: Statistiques
 
 <dl>
 @{
-    var balls = Documents["Posts"].Select(x => (string)x["Ball"]).Distinct().OrderBy(x => x);
+    var balls = Documents["Posts"]
+        .GroupBy(x => (string)x["Ball"])
+        .OrderByDescending(x => x.Count())
+        .Select(x => new {key = x.Key, count = x.Count()});
+
     foreach(var ball in balls)
     {
-        var count = @Documents["Posts"].Count(x => (string)x["Ball"] == ball);
-        var percent = count * 1000 / nbDocs;
-        var countString = $"({count})".PadLeft(4, ' ');
-        <dd class="percentage percentage-@percent"><span class="text"><span id="icon__@ball" class="pkspr pokeball-@ball custom-pkspr-ball"></span> @countString</span></dd>
-        <script type="text/javascript">PkSpr.decorate('icon__@ball');</script>
+        var percent = ball.count * 1000 / nbDocs;
+        var countString = $"({ball.count})".PadLeft(4, ' ');
+        <dd class="percentage percentage-@percent"><span class="text"><span id="icon__@ball.key" class="pkspr pokeball-@ball.key custom-pkspr-ball"></span> @countString</span></dd>
+        <script type="text/javascript">PkSpr.decorate('icon__@ball.key');</script>
     }
 }
 </dl>

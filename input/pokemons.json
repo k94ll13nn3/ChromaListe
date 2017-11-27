@@ -4813,6 +4813,36 @@
           "pokeSpriteClass":"pkmn-marshadow"
       },
       {
+          "number":"803",
+          "name":"Vémini",
+          "group":"Génération 7",
+          "pokeSpriteClass":"pkmn-poipole"
+      },
+      {
+          "number":"804",
+          "name":"Mandrillon",
+          "group":"Génération 7",
+          "pokeSpriteClass":"pkmn-naganadel"
+      },
+      {
+          "number":"805",
+          "name":"Ama-Ama",
+          "group":"Génération 7",
+          "pokeSpriteClass":"pkmn-stakataka"
+      },
+      {
+          "number":"806",
+          "name":"Pierroteknik",
+          "group":"Génération 7",
+          "pokeSpriteClass":"pkmn-blacephalon"
+      },
+      {
+          "number":"807",
+          "name":"Zeraora",
+          "group":"Génération 7",
+          "pokeSpriteClass":"pkmn-zeraora"
+      },
+      {
           "number":"19a",
           "name":"Rattata (Alola)",
           "group":"Formes d'Alola",

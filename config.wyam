@@ -47,6 +47,7 @@ Pipelines.Add("Posts",
 			(ctx.Documents["PokemonJson"].First().First().Value as System.Collections.Generic.List<dynamic>)
 			.Single(p => @doc["Number"].ToString() == p.number.ToString()).name.ToString()),
 	Meta("Date", (doc, ctx) => doc.String(Keys.SourceFileName).Substring(0, 10)),
+	Meta("Image", (doc, ctx) => ctx.GetLink($"/assets/img/pokemon/{@doc["Number"].ToString()}.png")),
 	Meta("PostFile", string.Format(@"posts\{0}.html", ((FilePath)@doc["SourceFileBase"]).ToString())),  
 	Razor().WithLayout("/_Post.cshtml"), 
 	WriteFiles((string)@doc["PostFile"])

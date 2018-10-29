@@ -27,16 +27,16 @@
         {
             @if(page == @Model.Get<int>("CurrentPage"))
             {
-                <span class="page__number">@page</span>
+                <span class="page__number">@(page)</span>
             }
             else if (page == 1)
             {
-                <a href="@Context.GetLink("/")">@page</a>
+                <a href="@Context.GetLink("/")">@(page)</a>
             }
             else
             {
                 string pageLink = page == 1 ? Context.GetLink("/") : (Context.GetLink("/") + "page" + page);
-                <a href="@pageLink">@page</a>
+                <a href="@pageLink">@(page)</a>
             }
         }
 

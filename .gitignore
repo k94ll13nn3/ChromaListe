@@ -415,5 +415,6 @@ config.wyam.hash
 config.wyam.dll
 output/
 packages.xml
+config.wyam.packages.xml
 
 # End of https://www.gitignore.io/api/csharp,visualstudio,visualstudiocode

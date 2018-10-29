@@ -4,5 +4,8 @@ branches:
     
 test: off
 
+install:
+- dotnet tool install -g Cake.Tool --version 0.30.0
+
 build_script:
-- ps: .\build.ps1
+- dotnet cake build.cake --verbosity=Verbose

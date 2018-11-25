@@ -5,6 +5,8 @@
 #n Wyam.Sass
 #n Wyam.Minification
 
+#n System.Text.Encoding.CodePages
+
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -18,7 +20,7 @@ System.Globalization.CultureInfo.DefaultThreadCurrentCulture
 public static string Slugify(this string value)
 {
 	value = value.ToLowerInvariant();
-	var bytes = Encoding.GetEncoding("Cyrillic").GetBytes(value);
+	var bytes = CodePagesEncodingProvider.Instance.GetEncoding("Cyrillic").GetBytes(value);
 	value = Encoding.ASCII.GetString(bytes);
 	value = Regex.Replace(value, @"\s", "-", RegexOptions.Compiled);
 	value = Regex.Replace(value, @"[^\w\s\p{Pd}]", string.Empty, RegexOptions.Compiled);

@@ -4,14 +4,14 @@
 // TOOLS
 //////////////////////////////////////////////////////////////////////
 
-#tool nuget:?package=Wyam&version=2.0.0
+#tool nuget:?package=Wyam&version=2.1.0
 #tool nuget:?package=KuduSync.NET&version=1.5.2
 
 //////////////////////////////////////////////////////////////////////
 // ADDINS
 //////////////////////////////////////////////////////////////////////
 
-#addin nuget:?package=Cake.Wyam&version=2.0.0
+#addin nuget:?package=Cake.Wyam&version=2.1.0
 #addin nuget:?package=Cake.Git&version=0.19.0
 #addin nuget:?package=Cake.Kudu&version=0.8.0
 

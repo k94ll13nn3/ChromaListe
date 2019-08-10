@@ -1,19 +1,17 @@
-// Inspired from https://github.com/cake-contrib/Cake.Recipe/blob/develop/Cake.Recipe/Content/wyam.cake
-
 //////////////////////////////////////////////////////////////////////
 // TOOLS
 //////////////////////////////////////////////////////////////////////
 
-#tool nuget:?package=Wyam&version=2.2.2
-#tool nuget:?package=KuduSync.NET&version=1.5.2
+#tool Wyam&version=2.2.5
+#tool KuduSync.NET&version=1.5.2
 
 //////////////////////////////////////////////////////////////////////
 // ADDINS
 //////////////////////////////////////////////////////////////////////
 
-#addin nuget:?package=Cake.Wyam&version=2.2.2
-#addin nuget:?package=Cake.Git&version=0.19.0
-#addin nuget:?package=Cake.Kudu&version=0.8.0
+#addin Cake.Wyam&version=2.2.5
+#addin Cake.Git&version=0.21.0
+#addin Cake.Kudu&version=0.10.1
 
 //////////////////////////////////////////////////////////////////////
 // ARGUMENTS
@@ -25,12 +23,6 @@ var target = Argument("target", "Default");
 // PREPARATION
 //////////////////////////////////////////////////////////////////////
 
-var isRunningOnAppVeyor = AppVeyor.IsRunningOnAppVeyor;
-var isPullRequest = AppVeyor.Environment.PullRequest.IsPullRequest;
-var accessToken = EnvironmentVariable("access_token");
-var deployRemote = @"https://github.com/k94ll13nn3/ChromaListe.git";
-var deployBranch = "gh-pages";
-var sourceCommit = GitLogTip("./");
 var outputPath = MakeAbsolute(Directory("./output"));
 var rootPublishFolder = MakeAbsolute(Directory("./publish"));
 
@@ -47,37 +39,42 @@ Task("Clean-Documentation")
 
 Task("Build-Documentation")
     .IsDependentOn("Clean-Documentation")
+    .WithCriteria(() => !string.IsNullOrWhiteSpace(EnvironmentVariable("GITHUB_TOKEN")), "Environment variable \"GITHUB_TOKEN\" not set.")
+    .WithCriteria(() => AppVeyor.IsRunningOnAppVeyor)
+    .WithCriteria(() => !AppVeyor.Environment.PullRequest.IsPullRequest)
     .Does(() =>
 {
     Wyam();
 
-    if (isRunningOnAppVeyor && !isPullRequest)
-    {
-        Information("Publishing documentation...");
-        var publishFolder = rootPublishFolder.Combine(DateTime.Now.ToString("yyyyMMdd_HHmmss"));
+    var accessToken = EnvironmentVariable("GITHUB_TOKEN");
+    var deployRemote = @"https://github.com/k94ll13nn3/ChromaListe.git";
+    var deployBranch = "gh-pages";
+    var sourceCommit = GitLogTip("./");
 
-        Information("Getting publish branch...");
-        GitClone(deployRemote, publishFolder, new GitCloneSettings{ BranchName = deployBranch });
+    Information("Publishing documentation...");
+    var publishFolder = rootPublishFolder.Combine(DateTime.Now.ToString("yyyyMMdd_HHmmss"));
 
-        Information("Sync output files...");
-            Kudu.Sync(outputPath, publishFolder, new KuduSyncSettings { 
-            ArgumentCustomization = args=>args.Append("--ignore").AppendQuoted(".git;CNAME")
-        });
+    Information("Getting publish branch...");
+    GitClone(deployRemote, publishFolder, new GitCloneSettings{ BranchName = deployBranch });
 
-        Information("Stage all changes...");
-        GitAddAll(publishFolder);
+    Information("Sync output files...");
+        Kudu.Sync(outputPath, publishFolder, new KuduSyncSettings { 
+        ArgumentCustomization = args=>args.Append("--ignore").AppendQuoted(".git;CNAME")
+    });
 
-        Information("Commit all changes...");
-        GitCommit(
-            publishFolder,
-            sourceCommit.Committer.Name,
-            sourceCommit.Committer.Email,
-            string.Format("AppVeyor Publish: {0}\r\n{1}", sourceCommit.Sha, sourceCommit.Message)
-        );
+    Information("Stage all changes...");
+    GitAddAll(publishFolder);
 
-        Information("Pushing all changes...");
-        GitPush(publishFolder, accessToken, "x-oauth-basic", deployBranch);
-    }
+    Information("Commit all changes...");
+    GitCommit(
+        publishFolder,
+        sourceCommit.Committer.Name,
+        sourceCommit.Committer.Email,
+        string.Format("AppVeyor Publish: {0}\r\n{1}", sourceCommit.Sha, sourceCommit.Message)
+    );
+
+    Information("Pushing all changes...");
+    GitPush(publishFolder, accessToken, "x-oauth-basic", deployBranch);
 });
 
 //////////////////////////////////////////////////////////////////////

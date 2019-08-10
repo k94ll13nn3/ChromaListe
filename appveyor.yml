@@ -1,3 +1,7 @@
+environment:
+  GITHUB_TOKEN:
+    secure: 2NagbQvKZoqyIOz7ckHVKyaCWwUvVF+tsWK4Mtu9lc6AgEdcfZHeRDb7iSl8sazN
+
 branches:
   only:
     - master
@@ -5,7 +9,7 @@ branches:
 test: off
 
 install:
-- dotnet tool install -g Cake.Tool --version 0.32.1
+- dotnet tool install -g Cake.Tool --version 0.34.1
 
 build_script:
 - dotnet cake build.cake --verbosity=Verbose

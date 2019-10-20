@@ -6,11 +6,6 @@ notitle:
     var catchedPokemon = @Documents["Posts"].Select(x => x.Get("Number")).Distinct();
 }
 
-<h1 class="page-title">
-    <div class="page-title__text">Table de capture</div>
-    <div class="page-title__subtitle">Cible potentielle : <script type="text/javascript">randomizeNextTarget()</script></div>
-</h1>
-
 <ul class="pokemonlist">
     @{
         var groupedPokemons = (Documents["PokemonJson"].First().ToList().First().Value as System.Collections.Generic.List<dynamic>)

@@ -93,7 +93,7 @@ Pipelines.Add("Index",
 		OrderBy((d, c) => d["PostFile"]).Descending()		
 	),
 	Razor(),
-	WriteFiles(@doc.Get<int>("CurrentPage") == 1 ? "index.html" : $"page{doc.Get<int>("CurrentPage")}/index.html")
+	WriteFiles($"page{@doc.Get<int>("CurrentPage")}/index.html")
 );
 
 Pipelines.Add("Ressources",

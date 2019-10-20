@@ -1,25 +1,19 @@
 ul.pokemonlist li {
   display: inline;
-  margin-left: 10px;
-  margin-right: 10px;
   font-size: 130%;
   color: $cloudy;
-  &.catched>a {
-    font-weight: 900;
-    color: $iron;
-  }
-  &.multiple-shiny>a {
-    font-weight: 900;
-    color: $blue;
+
+  &.not-catched {
+    opacity: 0.3;
   }
 }
 
 .custom-pkspr {
-  margin-top: -7px; 
+  margin-top: -7px;
   float: left;
 }
 
 .custom-pkspr-ball {
-  margin-top: -7px; 
+  margin-top: -7px;
   margin-bottom: -10px;
 }

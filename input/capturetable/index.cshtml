@@ -22,16 +22,24 @@ notitle:
         <h1>@pokemons.Key (@pokemons.Count(x => catchedPokemon.Contains($"{x?.number ?? string.Empty}"))/@pokemons.Count())</h1>
         foreach(var pokemon in pokemons)
         {
+            var currentPokemon = pokemon.pokeSpriteClass;
             if(catchedPokemon.Contains($"{pokemon?.number ?? string.Empty}"))
             {
-                var countForPokemon = @Documents["Posts"].OrderBy(x => x.Get("Date").ToString()).Count(x => x.Get("Number").ToString() == pokemon.number.ToString());
                 var post = @Documents["Posts"].OrderBy(x => x.Get("Date").ToString()).First(x => x.Get("Number").ToString() == pokemon.number.ToString());
-                <li class="@(countForPokemon > 1 ? "multiple-shiny" : "catched")"><a title="@pokemon.name" href="@Context.GetLink(post)">@pokemon.number.ToString().PadLeft(4, ' ')</a></li>
+                <li>
+                    <a title="@pokemon.name" href="@Context.GetLink(post)">
+                        <span class="pkspr @currentPokemon color-shiny"></span>
+                    </a>
+                </li>
             }
             else
             {
-                <li>@pokemon.number.ToString().PadLeft(4, ' ')</li>
+                <li class="not-catched">
+                    <span class="pkspr @currentPokemon"></span>
+                </li>
             }
         }
     }
 </ul>  
+
+<script type="text/javascript">PkSpr.process_dom();</script>

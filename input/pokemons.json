@@ -4949,6 +4949,12 @@
           "name":"Ossatueur (Alola)",
           "group":"Formes d'Alola",
           "pokeSpriteClass":"pkmn-marowak form-alola"
+      },
+      {
+          "number":"837",
+          "name":"Charbi",
+          "group":"Génération 8",
+          "pokeSpriteClass":"pkmn-rolycoly"
       }
   ]
 }

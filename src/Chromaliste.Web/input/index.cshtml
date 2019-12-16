@@ -1,7 +1,3 @@
----
-title: Statistiques
----
-
 @{
     var catchedPokemon = Context.Outputs["Posts"].OrderByDescending(x => x.Get("PostFile"));
     var pokemons = (Context.Outputs["PokemonJson"].First().ToList().First().Value as System.Collections.Generic.List<dynamic>);
@@ -13,7 +9,7 @@ title: Statistiques
     {
         var currentPokemon = pokemons.First(x => x.number.ToString() == pokemon["Number"].ToString());
         <li>
-            <a title="@currentPokemon.name" href="@Context.GetLink(pokemon)">
+            <a title="@currentPokemon.name" href="@Context.GetLink("/")@pokemon["PostFile"]">
                 <span class="pkspr @currentPokemon.pokeSpriteClass color-shiny"></span>
             </a>
         </li>

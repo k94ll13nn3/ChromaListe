@@ -1,0 +1,101 @@
+#n Wyam.Yaml
+#n Wyam.Razor
+#n Wyam.Markdown
+#n Wyam.Json
+#n Wyam.Sass
+#n Wyam.Minification
+
+#n System.Text.Encoding.CodePages
+
+using System.Text;
+using System.Text.RegularExpressions;
+
+Settings["SiteTitle"] = "Shiny Living Dex";
+Settings[Keys.Host] = "k94ll13nn3.github.io";
+Settings[Keys.LinkRoot] = "/ChromaListe";
+
+System.Globalization.CultureInfo.DefaultThreadCurrentCulture
+    = System.Globalization.CultureInfo.CreateSpecificCulture("fr-FR");
+
+public static string Slugify(this string value)
+{
+	value = value.ToLowerInvariant();
+	var bytes = CodePagesEncodingProvider.Instance.GetEncoding("Cyrillic").GetBytes(value);
+	value = Encoding.ASCII.GetString(bytes);
+	value = Regex.Replace(value, @"\s", "-", RegexOptions.Compiled);
+	value = Regex.Replace(value, @"[^\w\s\p{Pd}]", string.Empty, RegexOptions.Compiled);
+	value = value.Trim('-', '_');
+	value = Regex.Replace(value, @"([-_]){2,}", "$1", RegexOptions.Compiled);
+
+	return value;
+}
+
+Pipelines.Add("Sass",
+    ReadFiles("assets/css/master.scss"),
+    Sass().WithCompressedOutputStyle(),
+    WriteFiles()
+);
+
+Pipelines.Add("PokemonJson",
+	ReadFiles("pokemons.json"),
+	Json()
+);
+
+Pipelines.Add("Posts",
+	ReadFiles("posts/**/*.md"), 
+	FrontMatter(Yaml()),  
+	Markdown(), 
+	Meta("Title", (doc, ctx) => 
+			(ctx.Documents["PokemonJson"].First().First().Value as System.Collections.Generic.List<dynamic>)
+			.Single(p => @doc["Number"].ToString() == p.number.ToString()).name.ToString()),
+	Meta("Date", (doc, ctx) => doc.String(Keys.SourceFileName).Substring(0, 10)),
+	Meta("Image", (doc, ctx) => ctx.GetLink($"/assets/img/pokemon/{@doc["Number"].ToString()}.png")),
+	Meta("PostFile", string.Format(@"posts\{0}.html", ((FilePath)@doc["SourceFileBase"]).ToString())),  
+	Razor().WithLayout("/_Post.cshtml"), 
+	WriteFiles((string)@doc["PostFile"])
+);
+
+Pipelines.Add("Pages",
+	ReadFiles("**/{!home,*}.cshtml"), 
+	FrontMatter(Yaml()), 
+	Razor().WithLayout("/_Page.cshtml"),  
+	WriteFiles(".html") 
+);
+
+Pipelines.Add("Categories",
+	GroupBy("Category", Documents("Posts")),
+	Where((doc, ctx) => !string.IsNullOrEmpty(doc.String(Keys.GroupKey))),
+	ForEach(
+		Meta("Posts", (doc, ctx) => doc[Keys.GroupDocuments]),
+		Meta("Title", (doc, ctx) => doc.String(Keys.GroupKey)),
+		Meta("Subtitle", (doc, ctx) => $"Pokémon attrapés avec la méthode <strong>‘{doc.String(Keys.GroupKey)}’</strong>"),
+		Meta(Keys.RelativeFilePath, (doc, ctx) =>
+		{
+			string category = doc.String(Keys.GroupKey);
+			return $"categories/{category.Slugify()}/index.html";
+		})
+	),
+	Razor().WithLayout("/_Category.cshtml"),
+	WriteFiles()
+);
+
+Pipelines.Add("RazorScripts",
+	ReadFiles("assets/js/_scripts.cshtml"),
+	Razor().IgnorePrefix(null),
+	MinifyJs(),
+	WriteFiles((doc, ctx) => "assets/js/scripts.js")
+);
+
+Pipelines.Add("Index",
+	ReadFiles("home.cshtml"),
+	Paginate(9,
+		Documents("Posts"),
+		OrderBy((d, c) => d["PostFile"]).Descending()		
+	),
+	Razor(),
+	WriteFiles($"page{@doc.Get<int>("CurrentPage")}/index.html")
+);
+
+Pipelines.Add("Ressources",
+	CopyFiles("**/*{!.cshtml,!.markdown,!.md,!.less,!.scss,!.json,}")
+);

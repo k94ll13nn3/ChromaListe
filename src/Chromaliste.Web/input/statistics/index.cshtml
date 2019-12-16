@@ -3,14 +3,14 @@ title: Statistiques
 ---
 
 @{
-    var nbDocs = @Documents["Posts"].Count();
+    var nbDocs = Context.Outputs["Posts"].Count();
 }
 
 <h2>Méthode</h2>
 
 <dl>
 @{
-    var categories = Documents["Posts"]
+    var categories = Context.Outputs["Posts"]
         .GroupBy(x => (string)x["Category"])
         .OrderByDescending(x => x.Count())
         .Select(x => new {key = x.Key, count = x.Count()});
@@ -27,7 +27,7 @@ title: Statistiques
 
 <dl>
 @{
-    var versions = Documents["Posts"]
+    var versions = Context.Outputs["Posts"]
         .GroupBy(x => (string)x["Version"])
         .OrderByDescending(x => x.Count())
         .Select(x => new {key = x.Key, count = x.Count()});
@@ -44,7 +44,7 @@ title: Statistiques
 
 <dl>
 @{
-    var years = Documents["Posts"]
+    var years = Context.Outputs["Posts"]
         .GroupBy(x => DateTime.Parse((string)x["Date"]).Year)
         .OrderByDescending(x => x.Count())
         .Select(x => new {key = x.Key, count = x.Count()});
@@ -62,7 +62,7 @@ title: Statistiques
 <dl>
 @{
 
-    var months  = @Documents["Posts"]
+    var months  = Context.Outputs["Posts"]
         .GroupBy(x => DateTime.Parse((string)x["Date"]).ToString("MMMM yyyy"))
         .OrderByDescending(x => x.Count())
         .Select(x => new {key = x.Key, count = x.Count()});
@@ -80,7 +80,7 @@ title: Statistiques
 
 <dl>
 @{
-    var balls = Documents["Posts"]
+    var balls = Context.Outputs["Posts"]
         .GroupBy(x => (string)x["Ball"])
         .OrderByDescending(x => x.Count())
         .Select(x => new {key = x.Key, count = x.Count()});

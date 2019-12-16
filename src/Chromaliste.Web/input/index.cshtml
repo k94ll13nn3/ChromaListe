@@ -3,12 +3,12 @@ notitle:
 ---
 
 @{
-    var catchedPokemon = @Documents["Posts"].Select(x => x.Get("Number")).Distinct();
+    var catchedPokemon = Context.Outputs["Posts"].Select(x => x.Get("Number")).Distinct();
 }
 
 <ul class="pokemonlist">
     @{
-        var groupedPokemons = (Documents["PokemonJson"].First().ToList().First().Value as System.Collections.Generic.List<dynamic>)
+        var groupedPokemons = (Context.Outputs["PokemonJson"].First().ToList().First().Value as System.Collections.Generic.List<dynamic>)
             .GroupBy(x => x.group);
     }
 
@@ -20,7 +20,7 @@ notitle:
             var currentPokemon = pokemon.pokeSpriteClass;
             if(catchedPokemon.Contains($"{pokemon?.number ?? string.Empty}"))
             {
-                var post = @Documents["Posts"].OrderBy(x => x.Get("Date").ToString()).First(x => x.Get("Number").ToString() == pokemon.number.ToString());
+                var post = Context.Outputs["Posts"].OrderBy(x => x.Get("Date").ToString()).First(x => x.Get("Number").ToString() == pokemon.number.ToString());
                 <li>
                     <a title="@pokemon.name" href="@Context.GetLink(post)">
                         <span class="pkspr @currentPokemon color-shiny"></span>

@@ -1,6 +1,6 @@
 @{
-    var slugifiedPostFile = Model["PostFile"].ToString().Slugify();
-    var pokemons = (Documents["PokemonJson"].First().ToList().First().Value as System.Collections.Generic.List<dynamic>);
+    var slugifiedPostFile = Model["PostFileSlug"].ToString();
+    var pokemons = (Context.Outputs["PokemonJson"].First().ToList().First().Value as System.Collections.Generic.List<dynamic>);
     var currentPokemon = pokemons.First(x => x.number.ToString() == @Model["Number"].ToString()).pokeSpriteClass;
 }
 

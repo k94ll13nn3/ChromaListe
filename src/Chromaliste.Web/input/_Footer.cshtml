@@ -1,0 +1,39 @@
+@using System.Text;
+@using System.Text.RegularExpressions;
+
+@{
+    var nbPkmsTotal = (Context.Outputs["PokemonJson"].First().ToList().First().Value as System.Collections.Generic.List<dynamic>).Count();
+    var nbPkmsDistinct = Context.Outputs["Posts"].Select(x => x["Number"]).Distinct().Count();
+    var nbPkms = Context.Outputs["Posts"].Count();
+    var percent = nbPkmsDistinct * 100.0 / nbPkmsTotal;
+
+    static string Slugify(string value)
+    {
+        value = value.ToLowerInvariant();
+        var bytes = CodePagesEncodingProvider.Instance.GetEncoding("Cyrillic").GetBytes(value);
+        value = Encoding.ASCII.GetString(bytes);
+        value = Regex.Replace(value, @"\s", "-", RegexOptions.Compiled);
+        value = Regex.Replace(value, @"[^\w\s\p{Pd}]", string.Empty, RegexOptions.Compiled);
+        value = value.Trim('-', '_');
+        value = Regex.Replace(value, @"([-_]){2,}", "$1", RegexOptions.Compiled);
+
+        return value;
+    }
+}
+
+<div class="explore">
+    <div class="explore__devider">------ Pokémon chromatiques : @nbPkmsDistinct/@nbPkms (@string.Format("{0:0.0}%", percent)) |
+    <script type="text/javascript">randomizePost()</script> ------</div>
+    <ul class="categories">
+        @foreach (var cat in Context.Outputs["Posts"].Select<IDocument, string>(x => (string)x["Category"]).Distinct().OrderBy(x => (string)x))
+        {
+            string category = Slugify((string)cat);
+            <li class="categories__item"><a href="@Context.GetLink("/")categories/@(category)">@((string)cat)</a></li>
+        }
+        <li class="categories__item"><a href="@Context.GetLink("/page1")">Tout</a></li>
+    </ul>
+    <div class="explore__label">
+        Thème <a href="https://github.com/kronik3r/daktilo">Daktilo</a> sous licence MIT.</br>
+        Pokémon et tous les noms respectifs sont des marques déposées et © de Nintendo 1996-2018.
+    </div>
+</div>

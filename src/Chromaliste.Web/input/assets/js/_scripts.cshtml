@@ -1,7 +1,7 @@
 function randomizePost()
 {
-    var postsUrl = [@Html.Raw(string.Join(",", Documents["Posts"].Select(x => $"\"{Context.GetLink((string)x["PostFile"])}\"")))];
-    var postsTitle = [@Html.Raw(string.Join(",", Documents["Posts"].Select(x => $"\"{x["Title"]}\"")))];
+    var postsUrl = [@Html.Raw(string.Join(",", Context.Outputs["Posts"].Select(x => $"\"{Context.GetLink((string)x["PostFile"])}\"")))];
+    var postsTitle = [@Html.Raw(string.Join(",", Context.Outputs["Posts"].Select(x => $"\"{x["Title"]}\"")))];
     var randomIndex = Math.floor(Math.random() * postsUrl.length);
     document.write('<a href="' + postsUrl[randomIndex] + '">' + postsTitle[randomIndex] + '</a>');
 }
@@ -9,8 +9,8 @@ function randomizePost()
 function randomizeNextTarget()
 {
     @{
-        var uncaught = (Documents["PokemonJson"].First().ToList().First().Value as System.Collections.Generic.List<dynamic>)
-            .Where(x => !Documents["Posts"]
+        var uncaught = (Context.Outputs["PokemonJson"].First().ToList().First().Value as System.Collections.Generic.List<dynamic>)
+            .Where(x => !Context.Outputs["Posts"]
                 .Select(y => y["Number"])
                 .Contains($"{x.number}"));
     }

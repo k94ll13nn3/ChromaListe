@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Chromaliste.Web": {
+      "commandName": "Project",
+      "workingDirectory": "D:\\Developpement\\repos\\ChromaListe\\src\\Chromaliste.Web"
+    }
+  }
+}

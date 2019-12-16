@@ -1,11 +1,11 @@
-@{
+﻿@{
     var title = string.Empty;
     if(Metadata.ContainsKey("title"))
     {
         title += Metadata["title"] + " &raquo "; 
     }
     
-    title += @Context.String("SiteTitle");
+    title += @Context.GetString("SiteTitle");
 }
 
 <head>

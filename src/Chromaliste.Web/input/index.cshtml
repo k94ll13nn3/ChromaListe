@@ -1,40 +1,23 @@
 ---
-notitle: 
+title: Statistiques
 ---
 
 @{
-    var catchedPokemon = Context.Outputs["Posts"].Select(x => x.Get("Number")).Distinct();
+    var catchedPokemon = Context.Outputs["Posts"].OrderByDescending(x => x.Get("PostFile"));
+    var pokemons = (Context.Outputs["PokemonJson"].First().ToList().First().Value as System.Collections.Generic.List<dynamic>);
 }
 
 <ul class="pokemonlist">
-    @{
-        var groupedPokemons = (Context.Outputs["PokemonJson"].First().ToList().First().Value as System.Collections.Generic.List<dynamic>)
-            .GroupBy(x => x.group);
-    }
 
-    @foreach(var pokemons in groupedPokemons)
+    @foreach (var pokemon in catchedPokemon)
     {
-        <h1>@pokemons.Key (@pokemons.Count(x => catchedPokemon.Contains($"{x?.number ?? string.Empty}"))/@pokemons.Count())</h1>
-        foreach(var pokemon in pokemons)
-        {
-            var currentPokemon = pokemon.pokeSpriteClass;
-            if(catchedPokemon.Contains($"{pokemon?.number ?? string.Empty}"))
-            {
-                var post = Context.Outputs["Posts"].OrderBy(x => x.Get("Date").ToString()).First(x => x.Get("Number").ToString() == pokemon.number.ToString());
-                <li>
-                    <a title="@pokemon.name" href="@Context.GetLink(post)">
-                        <span class="pkspr @currentPokemon color-shiny"></span>
-                    </a>
-                </li>
-            }
-            else
-            {
-                <li class="not-catched">
-                    <span class="pkspr @currentPokemon"></span>
-                </li>
-            }
-        }
+        var currentPokemon = pokemons.First(x => x.number.ToString() == pokemon["Number"].ToString());
+        <li>
+            <a title="@currentPokemon.name" href="@Context.GetLink(pokemon)">
+                <span class="pkspr @currentPokemon.pokeSpriteClass color-shiny"></span>
+            </a>
+        </li>
     }
-</ul>  
+</ul>
 
 <script type="text/javascript">PkSpr.process_dom();</script>

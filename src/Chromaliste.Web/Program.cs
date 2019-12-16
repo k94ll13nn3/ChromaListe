@@ -70,7 +70,7 @@ namespace Chromaliste.Web
                     "Pages",
                     builder => builder
                         .WithDependencies("Posts", "PokemonJson")
-                        .WithInputReadFiles("**/{!home,*}.cshtml")
+                        .WithInputReadFiles("**/*.cshtml")
                         .WithProcessModules(
                             new ExtractFrontMatter(new ParseYaml()),
                             new RenderRazor().WithLayout((FilePath)"/_Page.cshtml")
@@ -105,19 +105,6 @@ namespace Chromaliste.Web
                             new MinifyJs()
                         )
                         .WithOutputWriteFiles(Config.FromDocument(_ => (FilePath)"assets/js/scripts.js"))
-                )
-                .BuildPipeline(
-                    "Index",
-                    builder => builder
-                        .WithDependencies("Posts", "PokemonJson")
-                        .WithInputReadFiles("home.cshtml")
-                        .WithProcessModules(
-                            new ReplaceDocuments("Posts"),
-                            new OrderDocuments("PostFile").Descending(),
-                            new PaginateDocuments(9),
-                            new RenderRazor().WithLayout((FilePath)"/_Page.cshtml")
-                        )
-                        .WithOutputWriteFiles(Config.FromDocument(_ => (FilePath)$"page{i++}/index.html"))
                 )
                 .BuildPipeline(
                     "Resources",

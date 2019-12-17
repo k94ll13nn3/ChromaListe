@@ -1,5 +1,5 @@
 @{
-    var catchedPokemon = Context.Outputs[nameof(Posts)].OrderByDescending(x => x.Get(CustomKeys.WritePath));
+    var catchedPokemon = Context.Outputs[nameof(Posts)].OrderByDescending(x => x.Get(CustomKeys.Date)).ThenByDescending(x => x.Get(CustomKeys.Number));
     var pokemons = (Context.Outputs[nameof(PokemonJson)].First().ToList().First().Value as System.Collections.Generic.List<dynamic>);
 }
 

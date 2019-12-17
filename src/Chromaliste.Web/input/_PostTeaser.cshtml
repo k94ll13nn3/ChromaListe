@@ -1,5 +1,7 @@
+@using Chromaliste.Web.Core;
+
 @{
-    var slugifiedPostFile = Model["PostFileSlug"].ToString();
+    var slugifiedPostFile = ((string)Model["PostFile"].ToString()).Slugify();
     var pokemons = (Context.Outputs["PokemonJson"].First().ToList().First().Value as System.Collections.Generic.List<dynamic>);
     var currentPokemon = pokemons.First(x => x.number.ToString() == @Model["Number"].ToString()).pokeSpriteClass;
 }

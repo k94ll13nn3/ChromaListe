@@ -28,7 +28,7 @@ namespace Chromaliste.Web.Pipelines
                 new SetMetadata(CustomKeys.Title, Config.FromDocument((doc, ctx) => (ctx.Outputs[nameof(PokemonJson)][0].First().Value as System.Collections.Generic.List<dynamic>)?.Single(p => doc.GetString("Number") == p.number.ToString()).name.ToString())),
                 new SetMetadata(CustomKeys.Date, Config.FromDocument(doc => doc.Source.FileName.ToString().Substring(0, 10))),
                 new SetMetadata(CustomKeys.Image, Config.FromDocument((doc, ctx) => ctx.GetLink($"/assets/img/pokemon/{doc.GetString(CustomKeys.Number)}.png"))),
-                new SetMetadata(CustomKeys.PostFile, Config.FromDocument(doc => $"posts/{doc.Source.FileNameWithoutExtension}.html")),
+                new SetMetadata(CustomKeys.WritePath, Config.FromDocument(doc => $"posts/{doc.Source.FileNameWithoutExtension}.html")),
             };
         }
     }

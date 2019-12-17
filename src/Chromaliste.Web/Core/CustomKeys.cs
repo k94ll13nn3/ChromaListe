@@ -6,13 +6,13 @@
 
         public static string Category => nameof(Category);
 
-        public static string Posts => nameof(Posts);
+        public static string CategoryPosts => nameof(CategoryPosts);
 
         public static string Title => nameof(Title);
 
         public static string Subtitle => nameof(Subtitle);
 
-        public static string RelativeFilePath => nameof(RelativeFilePath);
+        public static string NoTitle => nameof(NoTitle);
 
         public static string Number => nameof(Number);
 
@@ -20,6 +20,16 @@
 
         public static string Image => nameof(Image);
 
-        public static string PostFile => nameof(PostFile);
+        public static string Version => nameof(Version);
+
+        public static string Ball => nameof(Ball);
+
+        public static string Caught => nameof(Caught);
+
+        public static string Location => nameof(Location);
+
+        public static string Level => nameof(Level);
+
+        public static string WritePath => nameof(WritePath);
     }
 }

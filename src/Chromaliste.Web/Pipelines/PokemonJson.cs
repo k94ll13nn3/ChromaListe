@@ -10,7 +10,7 @@ namespace Chromaliste.Web.Pipelines
         {
             InputModules = new ModuleList
             {
-                new ReadFiles("pokemons.json")
+                new ReadFiles("data/pokemons.json")
             };
 
             ProcessModules = new ModuleList

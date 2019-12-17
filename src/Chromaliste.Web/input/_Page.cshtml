@@ -2,16 +2,16 @@
 	Layout = "/_Master.cshtml";
 }
 
-@if(!Metadata.ContainsKey("notitle"))
+@if(!Metadata.ContainsKey(CustomKeys.NoTitle))
 {
     <h1 class="page-title">
-        @if(Metadata.ContainsKey("title"))
+        @if(Metadata.ContainsKey(CustomKeys.Title))
         {
-            <div class="page-title__text">@Metadata["title"]</div>
+            <div class="page-title__text">@Metadata[CustomKeys.Title]</div>
         }
-        @if(Metadata.ContainsKey("subtitle"))
+        @if(Metadata.ContainsKey(CustomKeys.Subtitle))
         {
-            <div class="page-title__subtitle">@Html.Raw(Metadata["subtitle"])</div>
+            <div class="page-title__subtitle">@Html.Raw(Metadata[CustomKeys.Subtitle])</div>
         }
     </h1>
 }

@@ -1,9 +1,7 @@
-@using Chromaliste.Web.Core;
-
 @{
-    var nbPkmsTotal = (Context.Outputs["PokemonJson"].First().ToList().First().Value as System.Collections.Generic.List<dynamic>).Count();
-    var nbPkmsDistinct = Context.Outputs["Posts"].Select(x => x["Number"]).Distinct().Count();
-    var nbPkms = Context.Outputs["Posts"].Count();
+    var nbPkmsTotal = (Context.Outputs[nameof(PokemonJson)].First().ToList().First().Value as System.Collections.Generic.List<dynamic>).Count();
+    var nbPkmsDistinct = Context.Outputs[nameof(Posts)].Select(x => x[CustomKeys.Number]).Distinct().Count();
+    var nbPkms = Context.Outputs[nameof(Posts)].Count();
     var percent = nbPkmsDistinct * 100.0 / nbPkmsTotal;
 }
 
@@ -13,7 +11,7 @@
         <script type="text/javascript">randomizePost()</script> ------
     </div>
     <ul class="categories">
-        @foreach (string category in Context.Outputs["Posts"].Select<IDocument, string>(x => (string)x["Category"]).Distinct().OrderBy(x => x))
+        @foreach (string category in Context.Outputs["Posts"].Select<IDocument, string>(x => (string)x[CustomKeys.Category]).Distinct().OrderBy(x => x))
         {
             <li class="categories__item"><a href="@Context.GetLink("/")categories/@(category.Slugify())">@category</a></li>
         }

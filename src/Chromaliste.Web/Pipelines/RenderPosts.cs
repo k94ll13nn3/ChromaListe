@@ -18,7 +18,7 @@ namespace Chromaliste.Web.Pipelines
             {
                 new ReplaceDocuments(nameof(Posts)),
                 new RenderRazor().WithLayout((FilePath)"/_Post.cshtml"),
-                new SetDestination(Config.FromDocument(doc => (FilePath)doc.GetString(CustomKeys.PostFile))),
+                new SetDestination(Config.FromDocument(doc => (FilePath)doc.GetString(CustomKeys.WritePath))),
             };
 
             OutputModules = new ModuleList

@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace Chromaliste.Web.Core
@@ -7,6 +8,8 @@ namespace Chromaliste.Web.Core
     {
         public static string Slugify(this string value)
         {
+            _ = value ?? throw new ArgumentNullException(nameof(value));
+
             value = value.ToLowerInvariant();
             byte[] bytes = CodePagesEncodingProvider.Instance.GetEncoding("Cyrillic").GetBytes(value);
             value = Encoding.ASCII.GetString(bytes);

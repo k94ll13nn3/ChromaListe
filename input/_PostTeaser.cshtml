@@ -2,8 +2,7 @@
 
 @{
     var slugifiedPostFile = ((string)Model[CustomKeys.WritePath].ToString()).Slugify();
-    var pokemons = (Context.Outputs[nameof(PokemonJson)].First().ToList().First().Value as System.Collections.Generic.List<dynamic>);
-    var currentPokemon = pokemons.First(x => x.number.ToString() == @Model[CustomKeys.Number].ToString()).pokeSpriteClass;
+    var currentPokemon = Pokemon.Get(Model[CustomKeys.Number].ToString()).PokeSpriteClass;
 }
 
 <li class="post-teaser">

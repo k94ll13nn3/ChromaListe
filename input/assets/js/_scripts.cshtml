@@ -9,14 +9,11 @@ function randomizePost()
 function randomizeNextTarget()
 {
     @{
-        var uncaught = (Context.Outputs[nameof(PokemonJson)].First().ToList().First().Value as System.Collections.Generic.List<dynamic>)
-            .Where(x => !Context.Outputs[nameof(Posts)]
-                .Select(y => y[CustomKeys.Number])
-                .Contains($"{x.number}"));
+        var uncaught = Pokemon.GetAll().Where(x => !Context.Outputs[nameof(Posts)].Select(y => y[CustomKeys.Number]).Contains(x.Number));
     }
 
-    var unchaughtNumbers = [@Html.Raw(string.Join(",", uncaught.Select(x => $"\"{x.number}\"")))];
-    var unchaughtNames = [@Html.Raw(string.Join(",", uncaught.Select(x => $"\"{x.name}\"")))];
+    var unchaughtNumbers = [@Html.Raw(string.Join(",", uncaught.Select(x => $"\"{x.Number}\"")))];
+    var unchaughtNames = [@Html.Raw(string.Join(",", uncaught.Select(x => $"\"{x.Name}\"")))];
     var randomIndex = Math.floor(Math.random() * unchaughtNumbers.length);
     document.write(unchaughtNumbers[randomIndex] + ' - ' + unchaughtNames[randomIndex]);
 }

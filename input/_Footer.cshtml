@@ -1,5 +1,5 @@
 @{
-    var nbPkmsTotal = (Context.Outputs[nameof(PokemonJson)].First().ToList().First().Value as System.Collections.Generic.List<dynamic>).Count();
+    var nbPkmsTotal = Pokemon.PokemonCount;
     var nbPkmsDistinct = Context.Outputs[nameof(Posts)].Select(x => x[CustomKeys.Number]).Distinct().Count();
     var nbPkms = Context.Outputs[nameof(Posts)].Count();
     var percent = nbPkmsDistinct * 100.0 / nbPkmsTotal;

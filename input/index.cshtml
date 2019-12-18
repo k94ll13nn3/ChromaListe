@@ -1,16 +1,15 @@
 @{
     var catchedPokemon = Context.Outputs[nameof(Posts)].OrderByDescending(x => x.Get(CustomKeys.Date)).ThenByDescending(x => x.Get(CustomKeys.Number));
-    var pokemons = (Context.Outputs[nameof(PokemonJson)].First().ToList().First().Value as System.Collections.Generic.List<dynamic>);
 }
 
 <ul class="pokemonlist">
 
     @foreach (var pokemon in catchedPokemon)
     {
-        var currentPokemon = pokemons.First(x => x.number.ToString() == pokemon[CustomKeys.Number].ToString());
+        var currentPokemon = Pokemon.Get(pokemon.GetString(CustomKeys.Number));
         <li>
-            <a title="@currentPokemon.name" href="@Context.GetLink("/")@pokemon[CustomKeys.WritePath]">
-                <span class="pkspr @currentPokemon.pokeSpriteClass color-shiny"></span>
+            <a title="@currentPokemon.Name" href="@Context.GetLink("/")@pokemon[CustomKeys.WritePath]">
+                <span class="pkspr @currentPokemon.PokeSpriteClass color-shiny"></span>
             </a>
         </li>
     }

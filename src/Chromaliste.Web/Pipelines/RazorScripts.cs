@@ -11,7 +11,6 @@ namespace Chromaliste.Web.Pipelines
         {
             Dependencies.AddRange(new[]
             {
-                nameof(PokemonJson),
                 nameof(Posts),
             });
 

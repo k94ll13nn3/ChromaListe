@@ -13,7 +13,7 @@ namespace Chromaliste.Web.Core
             value = Regex.Replace(value, @"\s", "-", RegexOptions.Compiled);
             value = Regex.Replace(value, @"[^\w\s\p{Pd}]", string.Empty, RegexOptions.Compiled);
             value = value.Trim('-', '_');
-            value = Regex.Replace(value, @"([-_]){2,}", "$1", RegexOptions.Compiled);
+            value = Regex.Replace(value, "([-_]){2,}", "$1", RegexOptions.Compiled);
 
             return value;
         }

@@ -9,7 +9,7 @@ namespace Chromaliste.Web.Pipelines
         {
             ProcessModules = new ModuleList
             {
-                new CopyFiles("**/*{!.cshtml,!.markdown,!.md,!.less,!.scss,!.json,}")
+                new CopyFiles("**/*{!.cshtml,!.md,!.scss,}")
             };
         }
     }

@@ -22,7 +22,7 @@ namespace Chromaliste.Web.Pipelines
                 new RenderMarkdown(),
                 new SetMetadata(CustomKeys.Title, Config.FromDocument(doc => Pokemon.Get(doc.GetString("Number")).Name)),
                 new SetMetadata(CustomKeys.Date, Config.FromDocument(doc => doc.Source.FileName.ToString().Substring(0, 10))),
-                new SetMetadata(CustomKeys.Image, Config.FromDocument((doc, ctx) => ctx.GetLink($"/assets/img/pokemon/{doc.GetString(CustomKeys.Number)}.png"))),
+                new SetMetadata(CustomKeys.Image, Config.FromDocument((doc, ctx) => ctx.GetLink($"/assets/img/pokemon/{doc.GetString(CustomKeys.Number)}.{(doc.ContainsKey("switch") ? "jpg" : "png")}"))),
                 new SetMetadata(CustomKeys.WritePath, Config.FromDocument(doc => $"posts/{doc.Source.FileNameWithoutExtension}.html")),
             };
         }

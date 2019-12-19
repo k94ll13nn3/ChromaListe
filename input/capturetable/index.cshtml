@@ -26,7 +26,7 @@ NoTitle:
             {
                 var post = Context.Outputs[nameof(Posts)].OrderBy(x => x.Get(CustomKeys.Date).ToString()).First(x => x.Get(CustomKeys.Number).ToString() == pokemon.Number);
                 <li>
-                    <a title="@pokemon.Name" href="@Context.GetLink(post)">
+                    <a title="@pokemon.Name" href="@Context.GetLink("/")@post[CustomKeys.WritePath]">
                         <span class="pkspr @currentPokemon color-shiny"></span>
                     </a>
                 </li>

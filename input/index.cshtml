@@ -1,6 +1,14 @@
 @{
     var catchedPokemon = Context.Outputs[nameof(Posts)].OrderByDescending(x => x.Get(CustomKeys.Date)).ThenByDescending(x => x.Get(CustomKeys.Number));
+    var lastPokemons = catchedPokemon.Take(2).ToList();
 }
+
+<ul class="list-posts">
+    @Html.Partial("_PostTeaser", lastPokemons[0])
+    @Html.Partial("_PostTeaser", lastPokemons[1])
+</ul>
+
+<hr>
 
 <ul class="pokemonlist">
 

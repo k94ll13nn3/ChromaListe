@@ -37,10 +37,8 @@ namespace Strinken.Build
             }
 
             string lastCommitMessage = Read("git", "log -1 --pretty=format:%B");
-            string outputPath = Path.GetFullPath($"./output");
             string rootPublishFolder = Path.GetFullPath($"./publish");
 
-            DeleteDirectoryIfExists(outputPath);
             DeleteDirectoryIfExists(rootPublishFolder);
 
             string publishFolder = Path.Combine(rootPublishFolder, DateTime.Now.ToString("yyyyMMdd_HHmmss", CultureInfo.InvariantCulture));

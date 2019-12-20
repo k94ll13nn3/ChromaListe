@@ -5,12 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Statistiques &raquo Shiny Living Dex</title>
+    <title>Statistiques &raquo Keuvain's shiny living dex</title>
     <link rel="icon" href="/ChromaListe/assets/img/favicon.ico" type="image/x-icon">
     <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
     <link href="/ChromaListe/assets/css/master.css" rel="stylesheet" />
     <script type="text/javascript" src="/ChromaListe/assets/js/scripts.js"></script>
-
     <link href="/ChromaListe/assets/css/pokesprite.min.css" rel="stylesheet" />
     <script type="text/javascript" src="/ChromaListe/assets/js/pokesprite.min.js"></script>
 </head>
@@ -19,18 +18,19 @@
         <div class="wrapper">
             <header class="header">
     <div class="navigation">
-        <a href="/ChromaListe/" class="logo">Shiny Living Dex</a>
+        <a href="/ChromaListe/" class="logo">Keuvain&#x27;s shiny living dex</a>
 
         <ul class="menu">
             <li class="menu__entry"><a href="/ChromaListe/">Accueil</a></li>
             <li class="menu__entry"><a href="/ChromaListe/statistics">Statistiques</a></li>
+            <li class="menu__entry"><a href="/ChromaListe/capturetable">Table de capture</a></li>
         </ul>
     </div>
 </header>
             
     <h1 class="page-title">
             <div class="page-title__text">Statistiques</div>
-            </h1>
+    </h1>
 
 
 
@@ -76,11 +76,11 @@
 <h2>Meilleurs mois</h2>
 
 <dl>
-        <dd class="percentage percentage-140"><span class="text">octobre 2017 (14)</span></dd>
-        <dd class="percentage percentage-130"><span class="text">septembre 2017 (13)</span></dd>
-        <dd class="percentage percentage-100"><span class="text">ao&#xFB;t 2014 (10)</span></dd>
-        <dd class="percentage percentage-90"><span class="text">f&#xE9;vrier 2017 &#xA0;(9)</span></dd>
-        <dd class="percentage percentage-90"><span class="text">mars 2016 &#xA0;(9)</span></dd>
+        <dd class="percentage percentage-140"><span class="text">October 2017 (14)</span></dd>
+        <dd class="percentage percentage-130"><span class="text">September 2017 (13)</span></dd>
+        <dd class="percentage percentage-100"><span class="text">August 2014 (10)</span></dd>
+        <dd class="percentage percentage-90"><span class="text">March 2016 &#xA0;(9)</span></dd>
+        <dd class="percentage percentage-90"><span class="text">February 2017 &#xA0;(9)</span></dd>
 </dl>
 
 <h2>Ball</h2>
@@ -94,18 +94,18 @@
         <script type="text/javascript">PkSpr.decorate('icon__premier');</script>
         <dd class="percentage percentage-81"><span class="text"><span id="icon__luxury" class="pkspr pokeball-luxury custom-pkspr-ball"></span> (14)</span></dd>
         <script type="text/javascript">PkSpr.decorate('icon__luxury');</script>
-        <dd class="percentage percentage-64"><span class="text"><span id="icon__nest" class="pkspr pokeball-nest custom-pkspr-ball"></span> (11)</span></dd>
-        <script type="text/javascript">PkSpr.decorate('icon__nest');</script>
-        <dd class="percentage percentage-64"><span class="text"><span id="icon__quick" class="pkspr pokeball-quick custom-pkspr-ball"></span> (11)</span></dd>
-        <script type="text/javascript">PkSpr.decorate('icon__quick');</script>
-        <dd class="percentage percentage-64"><span class="text"><span id="icon__timer" class="pkspr pokeball-timer custom-pkspr-ball"></span> (11)</span></dd>
-        <script type="text/javascript">PkSpr.decorate('icon__timer');</script>
         <dd class="percentage percentage-64"><span class="text"><span id="icon__ultra" class="pkspr pokeball-ultra custom-pkspr-ball"></span> (11)</span></dd>
         <script type="text/javascript">PkSpr.decorate('icon__ultra');</script>
-        <dd class="percentage percentage-52"><span class="text"><span id="icon__dive" class="pkspr pokeball-dive custom-pkspr-ball"></span> &#xA0;(9)</span></dd>
-        <script type="text/javascript">PkSpr.decorate('icon__dive');</script>
+        <dd class="percentage percentage-64"><span class="text"><span id="icon__quick" class="pkspr pokeball-quick custom-pkspr-ball"></span> (11)</span></dd>
+        <script type="text/javascript">PkSpr.decorate('icon__quick');</script>
+        <dd class="percentage percentage-64"><span class="text"><span id="icon__nest" class="pkspr pokeball-nest custom-pkspr-ball"></span> (11)</span></dd>
+        <script type="text/javascript">PkSpr.decorate('icon__nest');</script>
+        <dd class="percentage percentage-64"><span class="text"><span id="icon__timer" class="pkspr pokeball-timer custom-pkspr-ball"></span> (11)</span></dd>
+        <script type="text/javascript">PkSpr.decorate('icon__timer');</script>
         <dd class="percentage percentage-52"><span class="text"><span id="icon__heal" class="pkspr pokeball-heal custom-pkspr-ball"></span> &#xA0;(9)</span></dd>
         <script type="text/javascript">PkSpr.decorate('icon__heal');</script>
+        <dd class="percentage percentage-52"><span class="text"><span id="icon__dive" class="pkspr pokeball-dive custom-pkspr-ball"></span> &#xA0;(9)</span></dd>
+        <script type="text/javascript">PkSpr.decorate('icon__dive');</script>
         <dd class="percentage percentage-46"><span class="text"><span id="icon__net" class="pkspr pokeball-net custom-pkspr-ball"></span> &#xA0;(8)</span></dd>
         <script type="text/javascript">PkSpr.decorate('icon__net');</script>
         <dd class="percentage percentage-40"><span class="text"><span id="icon__dusk" class="pkspr pokeball-dusk custom-pkspr-ball"></span> &#xA0;(7)</span></dd>
@@ -121,7 +121,10 @@
 
         
 <div class="explore">
-    <div class="explore__devider">------ Pokémon chromatiques : 168/171 (20,3%) | <script type="text/javascript">randomizePost()</script> ------</div>
+    <div class="explore__devider">
+        ------ Pokémon chromatiques : 168/171 (18.2%) |
+        <script type="text/javascript">randomizePost()</script> ------
+    </div>
     <ul class="categories">
             <li class="categories__item"><a href="/ChromaListe/categories/appels-a-laide">Appels &#xE0; l&#x27;aide</a></li>
             <li class="categories__item"><a href="/ChromaListe/categories/horde">Horde</a></li>
@@ -132,7 +135,6 @@
             <li class="categories__item"><a href="/ChromaListe/categories/reset">Reset</a></li>
             <li class="categories__item"><a href="/ChromaListe/categories/rng">RNG</a></li>
             <li class="categories__item"><a href="/ChromaListe/categories/safari-des-amis">Safari des Amis</a></li>
-        <li class="categories__item"><a href="/ChromaListe/page1">Tout</a></li>
     </ul>
     <div class="explore__label">
         Thème <a href="https://github.com/kronik3r/daktilo">Daktilo</a> sous licence MIT.</br>

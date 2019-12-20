@@ -9,12 +9,12 @@ namespace Strinken.Build
         {
             Target(
                 "build",
-                 () => Run("dotnet", @"run --project .\src\Chromaliste.Web\"));
+                 () => Run("dotnet", @"run --project .\src\ChromaListe.Web\"));
 
             Target(
                 "deploy",
                 DependsOn("build"),
-                () => Tools.DeploySite("GITHUB_TOKEN", "k94ll13nn3", "Strinken"));
+                () => Tools.DeploySite("GITHUB_TOKEN", "k94ll13nn3", "ChromaListe"));
 
             Target("default", DependsOn("deploy"));
 

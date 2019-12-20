@@ -1,10 +1,14 @@
-ul.pokemonlist li {
-  display: inline;
-  font-size: 130%;
-  color: $cloudy;
+ul.pokemonlist {
+  padding-left: 0px;
 
-  &.not-catched {
-    opacity: 0.3;
+  li {
+    display: inline;
+    font-size: 130%;
+    color: $cloudy;
+
+    &.not-catched {
+      opacity: 0.3;
+    }
   }
 }
 

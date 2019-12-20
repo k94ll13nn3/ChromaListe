@@ -1,22 +1,20 @@
 @{
-    var nbPkmsTotal = (Documents["PokemonJson"].First().ToList().First().Value as System.Collections.Generic.List<dynamic>).Count();
-}
-@{
-    var nbPkmsDistinct = @Documents["Posts"].Select(x => x["Number"]).Distinct().Count();
-    var nbPkms = @Documents["Posts"].Count();
+    var nbPkmsTotal = Pokemon.PokemonCount;
+    var nbPkmsDistinct = Context.Outputs[nameof(Posts)].Select(x => x[CustomKeys.Number]).Distinct().Count();
+    var nbPkms = Context.Outputs[nameof(Posts)].Count();
     var percent = nbPkmsDistinct * 100.0 / nbPkmsTotal;
 }
 
 <div class="explore">
-    <div class="explore__devider">------ Pokémon chromatiques : @nbPkmsDistinct/@nbPkms (@string.Format("{0:0.0}%", percent)) | <script type="text/javascript">randomizePost()</script> ------</div>
+    <div class="explore__devider">
+        ------ Pokémon chromatiques : @nbPkmsDistinct/@nbPkms (@string.Format("{0:0.0}%", percent)) |
+        <script type="text/javascript">randomizePost()</script> ------
+    </div>
     <ul class="categories">
-        @foreach(var cat in Documents["Posts"].Select<IDocument, string>(x => (string)x["Category"]).Distinct().OrderBy(x => (string)x))
+        @foreach (string category in Context.Outputs["Posts"].Select<IDocument, string>(x => (string)x[CustomKeys.Category]).Distinct().OrderBy(x => x))
         {
-            string category = ((string)cat);
-            category = category.Slugify();
-            <li class="categories__item"><a href="@Context.GetLink("/")categories/@(category)">@((string)cat)</a></li>
+            <li class="categories__item"><a href="@Context.GetLink("/")categories/@(category.Slugify())">@category</a></li>
         }
-        <li class="categories__item"><a href="@Context.GetLink("/page1")">Tout</a></li>
     </ul>
     <div class="explore__label">
         Thème <a href="https://github.com/kronik3r/daktilo">Daktilo</a> sous licence MIT.</br>

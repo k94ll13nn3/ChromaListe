@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Statiq.App" Version="1.0.0-alpha.22" />
+    <PackageReference Include="Statiq.Json" Version="1.0.0-alpha.22" />
+    <PackageReference Include="Statiq.Markdown" Version="1.0.0-alpha.22" />
+    <PackageReference Include="Statiq.Minification" Version="1.0.0-alpha.22" />
+    <PackageReference Include="Statiq.Razor" Version="1.0.0-alpha.22" />
+    <PackageReference Include="Statiq.Sass" Version="1.0.0-alpha.22" />
+    <PackageReference Include="Statiq.Yaml" Version="1.0.0-alpha.22" />
+  </ItemGroup>
+
+</Project>

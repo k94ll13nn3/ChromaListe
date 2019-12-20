@@ -1,0 +1,44 @@
+---
+NoTitle: 
+---
+
+@{
+    var catchedPokemon = Context.Outputs[nameof(Posts)].Select(x => x.Get(CustomKeys.Number)).Distinct();
+}
+
+<h1 class="page-title">
+    <div class="page-title__text">Table de capture</div>
+    <div class="page-title__subtitle">Cible potentielle : <script type="text/javascript">randomizeNextTarget()</script></div>
+</h1>
+
+<ul class="pokemonlist">
+    @{
+        var groupedPokemons = Pokemon.GetAll().GroupBy(x => x.Group);
+    }
+
+    @foreach(var pokemons in groupedPokemons)
+    {
+        <h1>@pokemons.Key (@pokemons.Count(x => catchedPokemon.Contains($"{x?.Number ?? string.Empty}"))/@pokemons.Count())</h1>
+        foreach(var pokemon in pokemons)
+        {
+            var currentPokemon = pokemon.PokeSpriteClass;
+            if(catchedPokemon.Contains($"{pokemon?.Number ?? string.Empty}"))
+            {
+                var post = Context.Outputs[nameof(Posts)].OrderBy(x => x.Get(CustomKeys.Date).ToString()).First(x => x.Get(CustomKeys.Number).ToString() == pokemon.Number);
+                <li>
+                    <a title="@pokemon.Name" href="@Context.GetLink("/")@post[CustomKeys.WritePath]">
+                        <span class="pkspr @currentPokemon color-shiny"></span>
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="not-catched">
+                    <span class="pkspr @currentPokemon"></span>
+                </li>
+            }
+        }
+    }
+</ul>  
+
+<script type="text/javascript">PkSpr.process_dom();</script>

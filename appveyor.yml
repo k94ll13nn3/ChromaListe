@@ -2,14 +2,11 @@ environment:
   GITHUB_TOKEN:
     secure: 2NagbQvKZoqyIOz7ckHVKyaCWwUvVF+tsWK4Mtu9lc6AgEdcfZHeRDb7iSl8sazN
 
-branches:
-  only:
-    - master
-    
 test: off
+skip_branch_with_pr: true
 
-install:
-- dotnet tool install -g Cake.Tool --version 0.34.1
+image: 
+- Visual Studio 2019
 
 build_script:
-- dotnet cake build.cake --verbosity=Verbose
+- dotnet run --project ./build/ChromaListe.Build

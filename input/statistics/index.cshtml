@@ -1,17 +1,17 @@
 ---
-title: Statistiques
+Title: Statistiques
 ---
 
 @{
-    var nbDocs = @Documents["Posts"].Count();
+    var nbDocs = Context.Outputs[nameof(Posts)].Count();
 }
 
 <h2>Méthode</h2>
 
 <dl>
 @{
-    var categories = Documents["Posts"]
-        .GroupBy(x => (string)x["Category"])
+    var categories = Context.Outputs[nameof(Posts)]
+        .GroupBy(x => (string)x[CustomKeys.Category])
         .OrderByDescending(x => x.Count())
         .Select(x => new {key = x.Key, count = x.Count()});
     foreach(var category in categories)
@@ -27,8 +27,8 @@ title: Statistiques
 
 <dl>
 @{
-    var versions = Documents["Posts"]
-        .GroupBy(x => (string)x["Version"])
+    var versions = Context.Outputs[nameof(Posts)]
+        .GroupBy(x => (string)x[CustomKeys.Version])
         .OrderByDescending(x => x.Count())
         .Select(x => new {key = x.Key, count = x.Count()});
     foreach(var version in versions)
@@ -44,8 +44,8 @@ title: Statistiques
 
 <dl>
 @{
-    var years = Documents["Posts"]
-        .GroupBy(x => DateTime.Parse((string)x["Date"]).Year)
+    var years = Context.Outputs[nameof(Posts)]
+        .GroupBy(x => DateTime.Parse((string)x[CustomKeys.Date]).Year)
         .OrderByDescending(x => x.Count())
         .Select(x => new {key = x.Key, count = x.Count()});
     foreach(var year in years)
@@ -62,8 +62,8 @@ title: Statistiques
 <dl>
 @{
 
-    var months  = @Documents["Posts"]
-        .GroupBy(x => DateTime.Parse((string)x["Date"]).ToString("MMMM yyyy"))
+    var months  = Context.Outputs[nameof(Posts)]
+        .GroupBy(x => DateTime.Parse((string)x[CustomKeys.Date]).ToString("MMMM yyyy"))
         .OrderByDescending(x => x.Count())
         .Select(x => new {key = x.Key, count = x.Count()});
 
@@ -80,8 +80,8 @@ title: Statistiques
 
 <dl>
 @{
-    var balls = Documents["Posts"]
-        .GroupBy(x => (string)x["Ball"])
+    var balls = Context.Outputs[nameof(Posts)]
+        .GroupBy(x => (string)x[CustomKeys.Ball])
         .OrderByDescending(x => x.Count())
         .Select(x => new {key = x.Key, count = x.Count()});
 

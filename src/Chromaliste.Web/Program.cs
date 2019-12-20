@@ -9,6 +9,7 @@ namespace Chromaliste.Web
     {
         private static async Task<int> Main(string[] args)
         {
+            System.Globalization.CultureInfo.DefaultThreadCurrentCulture = System.Globalization.CultureInfo.CreateSpecificCulture("fr-FR");
             return await Bootstrapper
                 .CreateDefault(args)
                 .ConfigureSettings(c =>

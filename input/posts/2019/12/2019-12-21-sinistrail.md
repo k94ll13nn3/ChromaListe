@@ -1,6 +1,6 @@
 ---
 number: 781
-category: Rencontre aléatoire
+category: Rencontre visible
 location: Route 9
 level: 42
 version: Epée

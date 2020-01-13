@@ -936,6 +936,7 @@ namespace ChromaListe.Web.Core
             ["52g"] = new Pokemon("52g", "Miaouss (Galar)", "Formes de Galar", "pkmn-meowth form-galar"),
             ["77g"] = new Pokemon("77g", "Ponyta (Galar)", "Formes de Galar", "pkmn-ponyta form-galar"),
             ["78g"] = new Pokemon("78g", "Galopa (Galar)", "Formes de Galar", "pkmn-rapidash form-galar"),
+            ["79g"] = new Pokemon("79g", "Ramoloss (Galar)", "Formes de Galar", "pkmn-slowpoke form-galar"),
             ["83g"] = new Pokemon("83g", "Canarticho (Galar)", "Formes de Galar", "pkmn-farfetchd form-galar"),
             ["110g"] = new Pokemon("110g", "Smogogo (Galar)", "Formes de Galar", "pkmn-weezing form-galar"),
             ["122g"] = new Pokemon("122g", "M. Mime (Galar)", "Formes de Galar", "pkmn-mr-mime form-galar"),

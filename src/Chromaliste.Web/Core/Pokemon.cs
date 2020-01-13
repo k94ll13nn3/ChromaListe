@@ -4,7 +4,7 @@ namespace ChromaListe.Web.Core
 {
     public sealed class Pokemon
     {
-        private static readonly IReadOnlyDictionary<string, Pokemon> _pokemonList = new Dictionary<string, Pokemon>
+        private static readonly IReadOnlyDictionary<string, Pokemon> PokemonList = new Dictionary<string, Pokemon>
         {
             // Generation 1
             ["1"] = new Pokemon("1", "Bulbizarre", "Génération 1", "pkmn-bulbasaur"),
@@ -957,7 +957,7 @@ namespace ChromaListe.Web.Core
             PokeSpriteClass = pokeSpriteClass;
         }
 
-        public static int PokemonCount => _pokemonList.Count;
+        public static int PokemonCount => PokemonList.Count;
 
         public string Name { get; set; }
 
@@ -969,12 +969,12 @@ namespace ChromaListe.Web.Core
 
         public static Pokemon Get(string number)
         {
-            return _pokemonList[number];
+            return PokemonList[number];
         }
 
         public static IEnumerable<Pokemon> GetAll()
         {
-            return _pokemonList.Values;
+            return PokemonList.Values;
         }
     }
 }

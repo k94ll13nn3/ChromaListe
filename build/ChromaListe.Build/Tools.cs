@@ -7,14 +7,6 @@ namespace Strinken.Build
 {
     public static class Tools
     {
-        public static void DeleteDirectoryIfExists(string path)
-        {
-            if (Directory.Exists(path))
-            {
-                Directory.Delete(path, true);
-            }
-        }
-
         public static void DeploySite(string tokenName, string owner, string project)
         {
             if (!string.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable("APPVEYOR_PULL_REQUEST_NUMBER")))
@@ -39,7 +31,10 @@ namespace Strinken.Build
             string lastCommitMessage = Read("git", "log -1 --pretty=format:%B");
             string rootPublishFolder = Path.GetFullPath($"./publish");
 
-            DeleteDirectoryIfExists(rootPublishFolder);
+            if (Directory.Exists(rootPublishFolder))
+            {
+                Directory.Delete(rootPublishFolder, true);
+            }
 
             string publishFolder = Path.Combine(rootPublishFolder, DateTime.Now.ToString("yyyyMMdd_HHmmss", CultureInfo.InvariantCulture));
             string deployRemote = $"https://github.com/{owner}/{project}.git";

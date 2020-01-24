@@ -18,6 +18,10 @@ namespace Strinken.Build
 
             Target("default", DependsOn("deploy"));
 
+            Target(
+                "preview",
+                 () => Run("dotnet", @"run --project .\src\ChromaListe.Web\ -- preview --virtual-dir=/ChromaListe"));
+
             RunTargetsAndExit(args);
         }
     }

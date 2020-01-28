@@ -1,7 +1,7 @@
 ﻿using static Bullseye.Targets;
 using static SimpleExec.Command;
 
-namespace Strinken.Build
+namespace ChromaListe.Build
 {
     public static class Program
     {

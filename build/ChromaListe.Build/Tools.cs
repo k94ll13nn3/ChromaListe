@@ -3,7 +3,7 @@ using System.Globalization;
 using System.IO;
 using static SimpleExec.Command;
 
-namespace Strinken.Build
+namespace ChromaListe.Build
 {
     public static class Tools
     {

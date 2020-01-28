@@ -3,9 +3,9 @@ using Statiq.Core;
 
 namespace ChromaListe.Web.Pipelines
 {
-    public class Resources : Pipeline
+    public class CopyResources : Pipeline
     {
-        public Resources()
+        public CopyResources()
         {
             ProcessModules = new ModuleList
             {

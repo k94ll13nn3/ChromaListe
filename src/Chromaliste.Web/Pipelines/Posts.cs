@@ -12,7 +12,7 @@ namespace ChromaListe.Web.Pipelines
         {
             InputModules = new ModuleList
             {
-                new ReadFiles("posts/**/*.md")
+                new ReadFiles(Config.FromDocument(_ => "posts/**/*.md"))
             };
 
             ProcessModules = new ModuleList

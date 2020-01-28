@@ -6,6 +6,7 @@ namespace ChromaListe.Web.Core
 {
     public static class StringExtensions
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Globalization", "CA1308", Justification = "Only for display.")]
         public static string Slugify(this string value)
         {
             _ = value ?? throw new ArgumentNullException(nameof(value));

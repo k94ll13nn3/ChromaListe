@@ -4,13 +4,13 @@ using Statiq.Sass;
 
 namespace ChromaListe.Web.Pipelines
 {
-    public class Sass : Pipeline
+    public class GenerateSass : Pipeline
     {
-        public Sass()
+        public GenerateSass()
         {
             InputModules = new ModuleList
             {
-                new ReadFiles("assets/css/master.scss")
+                new ReadFiles(Config.FromDocument(_ => "assets/css/master.scss"))
             };
 
             ProcessModules = new ModuleList

@@ -7,6 +7,7 @@ namespace ChromaListe.Build
 {
     public static class Tools
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Globalization", "CA1303", Justification = "No need to globalize error messages here.")]
         public static void DeploySite(string tokenName, string owner, string project)
         {
             if (!string.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable("APPVEYOR_PULL_REQUEST_NUMBER")))

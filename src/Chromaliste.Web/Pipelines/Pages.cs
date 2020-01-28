@@ -16,7 +16,7 @@ namespace ChromaListe.Web.Pipelines
 
             InputModules = new ModuleList
             {
-                new ReadFiles("**/*.cshtml")
+                new ReadFiles(Config.FromDocument(_ => "**/*.cshtml"))
             };
 
             ProcessModules = new ModuleList

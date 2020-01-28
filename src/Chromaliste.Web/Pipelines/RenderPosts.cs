@@ -1,9 +1,9 @@
-﻿using Chromaliste.Web.Core;
+﻿using ChromaListe.Web.Core;
 using Statiq.Common;
 using Statiq.Core;
 using Statiq.Razor;
 
-namespace Chromaliste.Web.Pipelines
+namespace ChromaListe.Web.Pipelines
 {
     public class RenderPosts : Pipeline
     {

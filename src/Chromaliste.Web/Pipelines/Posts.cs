@@ -1,11 +1,10 @@
-﻿using Chromaliste.Web.Core;
-using ChromaListe.Web.Core;
+﻿using ChromaListe.Web.Core;
 using Statiq.Common;
 using Statiq.Core;
 using Statiq.Markdown;
 using Statiq.Yaml;
 
-namespace Chromaliste.Web.Pipelines
+namespace ChromaListe.Web.Pipelines
 {
     public class Posts : Pipeline
     {

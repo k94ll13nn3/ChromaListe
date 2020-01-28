@@ -1,9 +1,9 @@
 ﻿using System.Threading.Tasks;
-using Chromaliste.Web.Core;
+using ChromaListe.Web.Core;
 using Statiq.App;
 using Statiq.Common;
 
-namespace Chromaliste.Web
+namespace ChromaListe.Web
 {
     public static class Program
     {

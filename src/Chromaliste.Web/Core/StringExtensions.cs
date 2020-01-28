@@ -2,7 +2,7 @@
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Chromaliste.Web.Core
+namespace ChromaListe.Web.Core
 {
     public static class StringExtensions
     {

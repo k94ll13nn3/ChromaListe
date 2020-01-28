@@ -1,7 +1,7 @@
 ﻿using Statiq.Common;
 using Statiq.Core;
 
-namespace Chromaliste.Web.Pipelines
+namespace ChromaListe.Web.Pipelines
 {
     public class Resources : Pipeline
     {

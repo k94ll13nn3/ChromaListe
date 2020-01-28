@@ -3,7 +3,7 @@ using Statiq.Core;
 using Statiq.Razor;
 using Statiq.Yaml;
 
-namespace Chromaliste.Web.Pipelines
+namespace ChromaListe.Web.Pipelines
 {
     public class Pages : Pipeline
     {

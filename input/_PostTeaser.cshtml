@@ -1,5 +1,3 @@
-@using Chromaliste.Web.Core;
-
 @{
     var slugifiedPostFile = ((string)Model[CustomKeys.WritePath].ToString()).Slugify();
     var currentPokemon = Pokemon.Get(Model[CustomKeys.Number].ToString()).PokeSpriteClass;

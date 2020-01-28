@@ -2,7 +2,7 @@
 using Statiq.Core;
 using Statiq.Sass;
 
-namespace Chromaliste.Web.Pipelines
+namespace ChromaListe.Web.Pipelines
 {
     public class Sass : Pipeline
     {

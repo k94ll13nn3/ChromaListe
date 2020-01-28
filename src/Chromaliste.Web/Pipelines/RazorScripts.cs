@@ -3,7 +3,7 @@ using Statiq.Core;
 using Statiq.Minification;
 using Statiq.Razor;
 
-namespace Chromaliste.Web.Pipelines
+namespace ChromaListe.Web.Pipelines
 {
     public class RazorScripts : Pipeline
     {

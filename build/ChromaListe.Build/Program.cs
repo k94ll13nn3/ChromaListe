@@ -9,7 +9,7 @@ namespace Strinken.Build
         {
             Target(
                 "build",
-                 () => Run("dotnet", @"run --project .\src\ChromaListe.Web\"));
+                 () => Run("dotnet", @"run --project .\src\ChromaListe.Web\ -- -i .\src\Chromaliste.Web\input\"));
 
             Target(
                 "deploy",
@@ -20,7 +20,7 @@ namespace Strinken.Build
 
             Target(
                 "preview",
-                 () => Run("dotnet", @"run --project .\src\ChromaListe.Web\ -- preview --virtual-dir=/ChromaListe"));
+                 () => Run("dotnet", @"run --project .\src\ChromaListe.Web\ -- preview -i .\src\Chromaliste.Web\input\ --virtual-dir=/ChromaListe"));
 
             RunTargetsAndExit(args);
         }

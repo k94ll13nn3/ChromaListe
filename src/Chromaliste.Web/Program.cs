@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
+using System.Threading.Tasks;
 using ChromaListe.Web.Core;
 using Statiq.App;
 using Statiq.Common;
@@ -7,9 +9,10 @@ namespace ChromaListe.Web
 {
     public static class Program
     {
+        [SuppressMessage("Style", "IDE1006", Justification = "Name cannot be changed.")]
         private static async Task<int> Main(string[] args)
         {
-            System.Globalization.CultureInfo.DefaultThreadCurrentCulture = System.Globalization.CultureInfo.CreateSpecificCulture("fr-FR");
+            CultureInfo.DefaultThreadCurrentCulture = CultureInfo.CreateSpecificCulture("fr-FR");
             return await Bootstrapper
                 .CreateDefault(args)
                 .ConfigureSettings(c =>

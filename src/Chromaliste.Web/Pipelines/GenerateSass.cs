@@ -8,9 +8,11 @@ namespace ChromaListe.Web.Pipelines
     {
         public GenerateSass()
         {
+            Isolated = true;
+
             InputModules = new ModuleList
             {
-                new ReadFiles(Config.FromDocument(_ => "assets/css/master.scss"))
+                new ReadFiles("assets/css/master.scss")
             };
 
             ProcessModules = new ModuleList

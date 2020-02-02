@@ -7,6 +7,8 @@ namespace ChromaListe.Web.Pipelines
     {
         public CopyResources()
         {
+            Isolated = true;
+
             ProcessModules = new ModuleList
             {
                 new CopyFiles("**/*{!.cshtml,!.md,!.scss,}")

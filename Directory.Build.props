@@ -1,7 +1,7 @@
 <Project>
 
   <PropertyGroup>
-    <NoWarn>RCS1090;CA2007</NoWarn>
+    <NoWarn>RCS1090;CA2007;S3220</NoWarn>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
     <LangVersion>8.0</LangVersion>

@@ -52,8 +52,17 @@ namespace ChromaListe.Build
             Run("git", $"config --global user.email {lastCommiterEmail}", publishFolder);
             Run("git", $"config --global user.name {lastCommiterName}", publishFolder);
             Run("powershell", $@"Add-Content ""$env:USERPROFILE\.git-credentials"" ""https://$($env:{tokenName}):x-oauth-basic@github.com`n""", publishFolder);
-            Run("git", $"commit -a -m \"AppVeyor Publish: {lastCommitHash}\r\n{lastCommitMessage}\"", publishFolder);
-            Run("git", "push", publishFolder);
+            
+            // Commit can fail if there are no changes made.
+            try
+            {
+                Run("git", $"commit -a -m \"AppVeyor Publish: {lastCommitHash}\r\n{lastCommitMessage}\"", publishFolder);
+                Run("git", "push", publishFolder);
+            }
+            catch (SimpleExec.NonZeroExitCodeException)
+            {
+                Console.WriteLine("No files commited.");
+            }
         }
     }
 }

@@ -14,6 +14,7 @@ namespace ChromaListe.Web
         {
             CultureInfo.DefaultThreadCurrentCulture = CultureInfo.CreateSpecificCulture("fr-FR");
             return await Bootstrapper
+                .Factory
                 .CreateDefault(args)
                 .ConfigureSettings(c =>
                 {

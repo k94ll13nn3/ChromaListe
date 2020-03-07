@@ -21,20 +21,20 @@ NoTitle:
         <h1>@pokemons.Key (@pokemons.Count(x => catchedPokemon.Contains($"{x?.Number ?? string.Empty}"))/@pokemons.Count())</h1>
         foreach(var pokemon in pokemons)
         {
-            var currentPokemon = pokemon.PokeSpriteClass;
+            var icon = Context.GetLink($"/assets/img/icons/{pokemon.Number.PadLeft(pokemon.Number.EndsWith('a') || pokemon.Number.EndsWith('g') ? 5 : 4, '0')}.png");
             if(catchedPokemon.Contains($"{pokemon?.Number ?? string.Empty}"))
             {
                 var post = Context.Outputs[nameof(Posts)].OrderBy(x => x.Get(CustomKeys.Date).ToString()).First(x => x.Get(CustomKeys.Number).ToString() == pokemon.Number);
                 <li>
                     <a title="@pokemon.Name" href="@Context.GetLink("/")@post[CustomKeys.WritePath]">
-                        <span class="pkspr @currentPokemon color-shiny"></span>
+                        <img style="width:52px;height:52px;display: inline-block;" src="@icon">
                     </a>
                 </li>
             }
             else
             {
                 <li class="not-catched">
-                    <span class="pkspr @currentPokemon"></span>
+                    <img style="width:52px;height:52px;display: inline-block;" src="@icon">
                 </li>
             }
         }

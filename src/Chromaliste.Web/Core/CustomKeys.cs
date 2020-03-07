@@ -31,5 +31,7 @@
         public static string Level => nameof(Level);
 
         public static string WritePath => nameof(WritePath);
+
+        public static string Icon => nameof(Icon);
     }
 }

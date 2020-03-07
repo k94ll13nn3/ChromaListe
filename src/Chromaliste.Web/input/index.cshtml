@@ -17,7 +17,7 @@
         var currentPokemon = Pokemon.Get(pokemon.GetString(CustomKeys.Number));
         <li>
             <a title="@currentPokemon.Name" href="@Context.GetLink("/")@pokemon[CustomKeys.WritePath]">
-                <span class="pkspr @currentPokemon.PokeSpriteClass color-shiny"></span>
+                <img style="width:52px;height:52px;display: inline-block;" src="@pokemon[CustomKeys.Icon]">
             </a>
         </li>
     }

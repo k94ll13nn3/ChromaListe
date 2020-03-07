@@ -1,11 +1,10 @@
 @{
     var slugifiedPostFile = ((string)Model[CustomKeys.WritePath].ToString()).Slugify();
-    var currentPokemon = Pokemon.Get(Model[CustomKeys.Number].ToString()).PokeSpriteClass;
 }
 
 <li class="post-teaser">
     <a href="@Context.GetLink("/")@Model[CustomKeys.WritePath]">
-        <span id="icon__@slugifiedPostFile" class="pkspr @currentPokemon color-shiny custom-pkspr"></span>
+        <img style="width:40px;height:40px;" class="custom-pkspr" src="@Model[CustomKeys.Icon]">
         <div>
             <span class="post-teaser__title">@Model[CustomKeys.Title]</span>
             <span class="post-teaser__date">@($"{Model.Get<DateTime>(CustomKeys.Date):dd MMMM yyyy}")</span>

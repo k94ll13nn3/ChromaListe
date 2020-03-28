@@ -25,8 +25,8 @@ namespace ChromaListe.Web.Pipelines
                     new SetMetadata(CustomKeys.Subtitle, Config.FromDocument(doc => $"Pokémon attrapés avec la méthode <strong>‘{doc.GetString(Keys.GroupKey)}’</strong>")),
                     new SetMetadata(CustomKeys.WritePath, Config.FromDocument(doc => $"categories/{doc.GetString(Keys.GroupKey).Slugify()}/index.html"))
                 ),
-                new RenderRazor().WithLayout((FilePath)"/_Category.cshtml"),
-                new SetDestination(Config.FromDocument(doc => (FilePath)doc.GetString(CustomKeys.WritePath)))
+                new RenderRazor().WithLayout((NormalizedPath)"/_Category.cshtml"),
+                new SetDestination(Config.FromDocument(doc => (NormalizedPath)doc.GetString(CustomKeys.WritePath)))
             };
 
             OutputModules = new ModuleList

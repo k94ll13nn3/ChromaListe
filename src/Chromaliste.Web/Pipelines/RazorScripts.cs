@@ -23,7 +23,7 @@ namespace ChromaListe.Web.Pipelines
             {
                 new RenderRazor().IgnorePrefix(null),
                 new MinifyJs(),
-                new SetDestination(Config.FromDocument(_ => (FilePath)"assets/js/scripts.js"))
+                new SetDestination(Config.FromDocument(_ => (NormalizedPath)"assets/js/scripts.js"))
             };
 
             OutputModules = new ModuleList

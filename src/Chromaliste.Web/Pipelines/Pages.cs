@@ -22,7 +22,7 @@ namespace ChromaListe.Web.Pipelines
             ProcessModules = new ModuleList
             {
                 new ExtractFrontMatter(new ParseYaml()),
-                new RenderRazor().WithLayout((FilePath)"/_Page.cshtml"),
+                new RenderRazor().WithLayout((NormalizedPath)"/_Page.cshtml"),
                 new SetDestination(".html")
             };
 

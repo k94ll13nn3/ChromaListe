@@ -18,13 +18,13 @@
         @if(previousPost != null)
         {
             <div style="float: left;"> 
-                <a href="@Context.GetLink((string)previousPost[CustomKeys.WritePath])">&larr; @previousPost[CustomKeys.Title]</a>
+                <a href="@Context.GetLink("/")@((string)previousPost[CustomKeys.WritePath])">&larr; @previousPost[CustomKeys.Title]</a>
             </div> 
         }
         @if(lastPost != null)
         {
             <div style="float: right;"> 
-                <a href="@Context.GetLink((string)lastPost[CustomKeys.WritePath])">@lastPost[CustomKeys.Title] &rarr;</a>
+                <a href="@Context.GetLink("/")@((string)lastPost[CustomKeys.WritePath])">@lastPost[CustomKeys.Title] &rarr;</a>
             </div> 
         }
     </div>

@@ -1,12 +1,14 @@
 @{
-	Layout = "/_Master.cshtml";
-    
+    Layout = "/_Master.cshtml";
+
     var previousPost = Context.Outputs[nameof(Posts)]
-        .OrderBy(x => x[CustomKeys.WritePath])
+        .OrderBy(x => x[CustomKeys.Date])
+        .ThenBy(x => x[CustomKeys.Number])
         .TakeWhile(x => x[CustomKeys.WritePath] != Model[CustomKeys.WritePath])
         .LastOrDefault();
     var lastPost = Context.Outputs[nameof(Posts)]
-        .OrderByDescending(x => x[CustomKeys.WritePath])
+        .OrderByDescending(x => x[CustomKeys.Date])
+        .ThenByDescending(x => x[CustomKeys.Number])
         .TakeWhile(x => x[CustomKeys.WritePath] != Model[CustomKeys.WritePath])
         .LastOrDefault();
 }
@@ -15,30 +17,30 @@
     <div class="page-title__text post-title__text">@Model[CustomKeys.Title]</div>
     <div class="page-title__subtitle post-title__subtitle">--- @($"{Model.Get<DateTime>(CustomKeys.Date):dd MMMM yyyy}") ---</div>
     <div class="page-title__subtitle post-title__subtitle">
-        @if(previousPost != null)
+        @if (previousPost != null)
         {
-            <div style="float: left;"> 
+            <div style="float: left;">
                 <a href="@Context.GetLink("/")@((string)previousPost[CustomKeys.WritePath])">&larr; @previousPost[CustomKeys.Title]</a>
-            </div> 
+            </div>
         }
-        @if(lastPost != null)
+        @if (lastPost != null)
         {
-            <div style="float: right;"> 
+            <div style="float: right;">
                 <a href="@Context.GetLink("/")@((string)lastPost[CustomKeys.WritePath])">@lastPost[CustomKeys.Title] &rarr;</a>
-            </div> 
+            </div>
         }
     </div>
 </h1>
 
 <div class="content">
-    <p><img src="@Model[CustomKeys.Image]" alt=""/></p>
+    <p><img src="@Model[CustomKeys.Image]" alt="" /></p>
 
     <ul>
         @{
             var caught = (string)Model.Get(CustomKeys.Caught);
             var ball = (string)Model.Get(CustomKeys.Ball);
         }
-        @if(!string.IsNullOrWhiteSpace(caught) && caught != @Model[CustomKeys.Title].ToString())
+        @if (!string.IsNullOrWhiteSpace(caught) && caught != @Model[CustomKeys.Title].ToString())
         {
             <li>Attrapé : @caught</li>
         }
@@ -47,7 +49,7 @@
         <li>Niveau : @Model[CustomKeys.Level]</li>
         <li>Version : @Model[CustomKeys.Version]</li>
         <li>Méthodes : @Model[CustomKeys.Category]</li>
-        @if(!string.IsNullOrWhiteSpace(ball))
+        @if (!string.IsNullOrWhiteSpace(ball))
         {
             <li>Ball : <span id="icon__ball" class="pkspr pokeball-@ball custom-pkspr-ball"></span></li>
         }
@@ -57,3 +59,29 @@
 </div>
 
 <script type="text/javascript">PkSpr.decorate('icon__ball');</script>
+
+<script type="text/javascript">
+
+document.onkeydown = function(evt) {
+    evt = evt || window.event;
+    switch (evt.keyCode) {
+        @if (previousPost != null)
+            {
+        <text>
+        case 37:
+            window.location = '@Context.GetLink("/")@((string)previousPost[CustomKeys.WritePath])';
+            break;
+        </text>
+            }
+                @if (lastPost != null)
+            {
+        <text>
+        case 39:
+            window.location = '@Context.GetLink("/")@((string)lastPost[CustomKeys.WritePath])';
+            break;
+             </text>
+            }
+        }
+};
+
+</script>

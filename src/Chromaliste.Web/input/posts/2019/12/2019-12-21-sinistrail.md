@@ -5,5 +5,4 @@ location: Route 9
 level: 42
 version: Epée
 ball: timer
-switch:
 ---

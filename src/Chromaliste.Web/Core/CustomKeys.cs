@@ -33,5 +33,7 @@
         public static string WritePath => nameof(WritePath);
 
         public static string Icon => nameof(Icon);
+
+        public static string ImageSuffix => nameof(ImageSuffix);
     }
 }

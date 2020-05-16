@@ -6,5 +6,4 @@ location: Grotte Miroitante
 level: 11
 version: X
 ball: heal
-switch:
 ---

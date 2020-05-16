@@ -5,5 +5,4 @@ location: Route 3
 level: 14
 version: Epée
 ball: repeat
-switch:
 ---

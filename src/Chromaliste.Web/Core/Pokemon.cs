@@ -911,6 +911,9 @@ namespace ChromaListe.Web.Core
             ["888"] = new Pokemon("888", "Zacian", "Génération 8"),
             ["889"] = new Pokemon("889", "Zamazenta", "Génération 8"),
             ["890"] = new Pokemon("890", "Éthernatos", "Génération 8"),
+            ["891"] = new Pokemon("891", "Wushours", "Génération 8"),
+            ["892"] = new Pokemon("892", "Shifours", "Génération 8"),
+            ["893"] = new Pokemon("893", "Zarude", "Génération 8"),
 
             // Alola forms
             ["19a"] = new Pokemon("19a", "Rattata (Alola)", "Formes d'Alola"),
@@ -937,6 +940,7 @@ namespace ChromaListe.Web.Core
             ["77g"] = new Pokemon("77g", "Ponyta (Galar)", "Formes de Galar"),
             ["78g"] = new Pokemon("78g", "Galopa (Galar)", "Formes de Galar"),
             ["79g"] = new Pokemon("79g", "Ramoloss (Galar)", "Formes de Galar"),
+            ["80g"] = new Pokemon("80g", "Flagadoss (Galar)", "Formes de Galar"),
             ["83g"] = new Pokemon("83g", "Canarticho (Galar)", "Formes de Galar"),
             ["110g"] = new Pokemon("110g", "Smogogo (Galar)", "Formes de Galar"),
             ["122g"] = new Pokemon("122g", "M. Mime (Galar)", "Formes de Galar"),

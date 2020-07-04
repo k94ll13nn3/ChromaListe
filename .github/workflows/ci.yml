@@ -14,13 +14,15 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1.4.0
+      uses: actions/setup-dotnet@v1.5.0
       with:
         dotnet-version: 3.1.201
     - name: Execute build
-      run: dotnet run --project .\src\ChromaListe.Web\ -- -i .\src\Chromaliste.Web\input\
+      run: |
+        cd src/ChromaListe.Web
+        dotnet run -- -i .\input\ -o ..\..\output\
     - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3.5.6
+      uses: peaceiris/actions-gh-pages@v3.6.1
       if: github.ref == 'refs/heads/master'
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}

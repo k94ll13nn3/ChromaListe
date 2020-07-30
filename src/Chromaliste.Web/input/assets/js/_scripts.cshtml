@@ -1,6 +1,6 @@
 function randomizePost()
 {
-    var postsUrl = [@Html.Raw(string.Join(",", Context.Outputs[nameof(Posts)].Select(x => $"\"{Context.GetLink((string)x[CustomKeys.WritePath])}\"")))];
+    var postsUrl = [@Html.Raw(string.Join(",", Context.Outputs[nameof(Posts)].Select(x => $"\"{Context.GetLink("/")}{(string)x[CustomKeys.WritePath]}\"")))];
     var postsTitle = [@Html.Raw(string.Join(",", Context.Outputs[nameof(Posts)].Select(x => $"\"{x["Title"]}\"")))];
     var randomIndex = Math.floor(Math.random() * postsUrl.length);
     document.write('<a href="' + postsUrl[randomIndex] + '">' + postsTitle[randomIndex] + '</a>');
@@ -17,3 +17,61 @@ function randomizeNextTarget()
     var randomIndex = Math.floor(Math.random() * unchaughtNumbers.length);
     document.write(unchaughtNumbers[randomIndex] + ' - ' + unchaughtNames[randomIndex]);
 }
+
+window.store = {@Html.Raw(string.Join(",", Context.Outputs[nameof(Posts)].Select(x => $"\"{x["Title"]}\":{{\"title\":\"{x["Title"]}\", \"url\":\"{Context.GetLink("/")}{(string)x[CustomKeys.WritePath]}\"}}")))};
+
+$(document).ready(function () {
+        $("#searchInput").keyup(function () {
+            updatesearchInput();
+        });
+        $("#searchInput").change(function () {
+            updatesearchInput();
+        });
+    });
+    function updatesearchInput() {
+        // Initalize lunr with the fields it will be searching on. I've given title
+        // a boost of 10 to indicate matches on this field are more important.
+        var idx = lunr(function () {
+            this.field('id');
+            this.field('title', { boost: 10 });
+            this.field('author');
+            this.field('category');
+            this.field('content');
+
+            for (var key in window.store) { // Add the data to lunr
+                this.add({
+                    'id': key,
+                    'title': window.store[key].title,
+                    'author': window.store[key].author,
+                    'category': window.store[key].category,
+                    'content': window.store[key].content
+                });
+            }
+        });
+
+
+        var squery = $("#searchInput").val().toLowerCase();
+        var resultsX = idx.search('*'+squery+'*');
+
+        var tooltips = '';
+        var results = 0;
+        if (resultsX.length > 0 && squery.length >= 2) {
+            for (var i = 0; i < resultsX.length; i++) {
+                var item = store[resultsX[i].ref];
+                tooltips += '<a href="' + item.url + '">' + item.title + '</a>';
+                results++;
+            }
+            if (results == 0) {
+                tooltips = "<em>Aucun résultats</em>";
+            }
+            $("#searchResults").fadeIn(222);
+        } else {
+            if (squery.length > 2) {
+                tooltips = "<em>Aucun résultats</em>";
+                $("#searchResults").fadeIn(222);
+            } else {
+                $("#searchResults").fadeOut(222);
+            }
+        }
+        $("#searchResults").html(tooltips);
+    }

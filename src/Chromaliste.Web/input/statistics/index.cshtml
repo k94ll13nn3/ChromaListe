@@ -90,7 +90,14 @@ Title: Statistiques
         var percent = ball.count * 1000 / nbDocs;
         var countString = $"({ball.count})".PadLeft(4, ' ');
         <dd class="percentage percentage-@percent"><span class="text"><span id="icon__@ball.key" class="pkspr pokeball-@ball.key custom-pkspr-ball"></span> @countString</span></dd>
-        <script type="text/javascript">PkSpr.decorate('icon__@ball.key');</script>
     }
 }
 </dl>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            PkSpr.process_dom();
+        });
+    </script>
+}

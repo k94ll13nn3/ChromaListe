@@ -8,7 +8,7 @@ NoTitle:
 
 <h1 class="page-title">
     <div class="page-title__text">Table de capture</div>
-    <div class="page-title__subtitle">Cible potentielle : <script type="text/javascript">randomizeNextTarget()</script></div>
+    <div class="page-title__subtitle">Cible potentielle : <span id="nextTarget"></span></div>
 </h1>
 
 <ul class="pokemonlist">
@@ -41,4 +41,23 @@ NoTitle:
     }
 </ul>  
 
-<script type="text/javascript">PkSpr.process_dom();</script>
+@section Scripts {
+    <script type="text/javascript">
+        function randomizeNextTarget()
+        {
+            @{
+                var uncaught = Pokemon.GetAll().Where(x => !Context.Outputs[nameof(Posts)].Select(y => y[CustomKeys.Number]).Contains(x.Number));
+            }
+
+            var unchaughtNumbers = [@Html.Raw(string.Join(",", uncaught.Select(x => $"\"{x.Number}\"")))];
+            var unchaughtNames = [@Html.Raw(string.Join(",", uncaught.Select(x => $"\"{x.Name}\"")))];
+            var randomIndex = Math.floor(Math.random() * unchaughtNumbers.length);
+            $("#nextTarget").html(unchaughtNumbers[randomIndex] + ' - ' + unchaughtNames[randomIndex]);
+        }
+
+        $(document).ready(function () {
+            PkSpr.process_dom();
+            randomizeNextTarget();
+        });
+    </script>
+}

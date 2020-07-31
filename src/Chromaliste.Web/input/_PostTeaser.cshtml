@@ -4,12 +4,9 @@
 
 <li class="post-teaser">
     <a href="@Context.GetLink("/")@Model[CustomKeys.WritePath]">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="@Model[CustomKeys.Icon]">
         <div>
             <span class="post-teaser__title">@Model[CustomKeys.Title]</span>
             <span class="post-teaser__date">@($"{Model.Get<DateTime>(CustomKeys.Date):dd MMMM yyyy}")</span>
         </div>
     </a>
 </li>
-
-<script type="text/javascript">PkSpr.decorate('icon__@slugifiedPostFile');</script>

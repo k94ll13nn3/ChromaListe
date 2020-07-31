@@ -6,6 +6,12 @@
             <li class="menu__entry"><a href="@Context.GetLink("/")">Accueil</a></li>
             <li class="menu__entry"><a href="@Context.GetLink("statistics")">Statistiques</a></li>
             <li class="menu__entry"><a href="@Context.GetLink("capturetable")">Table de capture</a></li>
+            <li class="menu__entry">
+                <div>
+                    <input type="text" id="searchInput" placeholder="Rechercher..." />
+                    <div id="searchResults"></div>
+                </div>
+            </li>
         </ul>
     </div>
 </header>

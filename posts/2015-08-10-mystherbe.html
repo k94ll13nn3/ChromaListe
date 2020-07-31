@@ -9,10 +9,12 @@
     <link rel="icon" href="/ChromaListe/assets/img/favicon.ico" type="image/x-icon">
     <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
     <link href="/ChromaListe/assets/css/master.css" rel="stylesheet" />
-    <script type="text/javascript" src="/ChromaListe/assets/js/scripts.js"></script>
     <link href="/ChromaListe/assets/css/pokesprite.min.css" rel="stylesheet" />
     <script type="text/javascript" src="/ChromaListe/assets/js/pokesprite.min.js"></script>
+    <script type="text/javascript" src="/ChromaListe/assets/js/lunr.min.js"></script>
+    <script type="text/javascript" src="/ChromaListe/assets/js/jquery.min.js"></script>
 </head>
+
 
     <body>
         <div class="wrapper">
@@ -24,9 +26,16 @@
             <li class="menu__entry"><a href="/ChromaListe/">Accueil</a></li>
             <li class="menu__entry"><a href="/ChromaListe/statistics">Statistiques</a></li>
             <li class="menu__entry"><a href="/ChromaListe/capturetable">Table de capture</a></li>
+            <li class="menu__entry">
+                <div>
+                    <input type="text" id="searchInput" placeholder="Rechercher..." />
+                    <div id="searchResults"></div>
+                </div>
+            </li>
         </ul>
     </div>
 </header>
+
             
 <h1 class="page-title post-title">
     <div class="page-title__text post-title__text">Mystherbe</div>
@@ -56,25 +65,6 @@
     
 </div>
 
-<script type="text/javascript">PkSpr.decorate('icon__ball');</script>
-
-<script type="text/javascript">
-
-document.onkeydown = function(evt) {
-    evt = evt || window.event;
-    switch (evt.keyCode) {
-
-        case 37:
-            window.location = '/ChromaListe/posts/2015-07-10-tarpaud.html';
-            break;
-        
-        case 39:
-            window.location = '/ChromaListe/posts/2015-08-21-doduo.html';
-            break;
-                     }
-};
-
-</script>
                 
         </div>
 
@@ -82,7 +72,7 @@ document.onkeydown = function(evt) {
 <div class="explore">
     <div class="explore__devider">
         ------ Pokémon chromatiques : 174/176 (18,8%) |
-        <script type="text/javascript">randomizePost()</script> ------
+        <a id="randomPostLink"></a> ------
     </div>
     <ul class="categories">
             <li class="categories__item"><a href="/ChromaListe/categories/appels-a-laide">Appels &#xE0; l&#x27;aide</a></li>
@@ -101,6 +91,32 @@ document.onkeydown = function(evt) {
         Pokémon et tous les noms respectifs sont des marques déposées et © de Nintendo 1996-2020.
     </div>
 </div>
+
+
+        <script type="text/javascript" src="/ChromaListe/assets/js/scripts.js"></script>
+
+        
+    <script type="text/javascript">
+
+    $(document).ready(function () {
+        $(this).keydown(function(evt) {
+            evt = evt || window.event;
+            switch (evt.keyCode) {
+
+                case 37:
+                    window.location = '/ChromaListe/posts/2015-07-10-tarpaud.html';
+                    break;
+                
+                case 39:
+                    window.location = '/ChromaListe/posts/2015-08-21-doduo.html';
+                    break;
+                                    }
+        });
+
+        PkSpr.process_dom();
+    });
+
+    </script>
 
     </body>
 </html>

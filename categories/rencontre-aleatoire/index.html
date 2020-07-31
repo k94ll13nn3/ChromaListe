@@ -9,10 +9,12 @@
     <link rel="icon" href="/ChromaListe/assets/img/favicon.ico" type="image/x-icon">
     <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
     <link href="/ChromaListe/assets/css/master.css" rel="stylesheet" />
-    <script type="text/javascript" src="/ChromaListe/assets/js/scripts.js"></script>
     <link href="/ChromaListe/assets/css/pokesprite.min.css" rel="stylesheet" />
     <script type="text/javascript" src="/ChromaListe/assets/js/pokesprite.min.js"></script>
+    <script type="text/javascript" src="/ChromaListe/assets/js/lunr.min.js"></script>
+    <script type="text/javascript" src="/ChromaListe/assets/js/jquery.min.js"></script>
 </head>
+
 
     <body>
         <div class="wrapper">
@@ -24,9 +26,16 @@
             <li class="menu__entry"><a href="/ChromaListe/">Accueil</a></li>
             <li class="menu__entry"><a href="/ChromaListe/statistics">Statistiques</a></li>
             <li class="menu__entry"><a href="/ChromaListe/capturetable">Table de capture</a></li>
+            <li class="menu__entry">
+                <div>
+                    <input type="text" id="searchInput" placeholder="Rechercher..." />
+                    <div id="searchResults"></div>
+                </div>
+            </li>
         </ul>
     </div>
 </header>
+
             
     <h1 class="page-title">
             <div class="page-title__text">Rencontre al&#xE9;atoire</div>
@@ -38,7 +47,6 @@
 
 <li class="post-teaser">
     <a href="/ChromaListe/posts/2017-11-26-pierroteknik.html">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="/ChromaListe/assets/img/icons/0806.png">
         <div>
             <span class="post-teaser__title">Pierroteknik</span>
             <span class="post-teaser__date">26 novembre 2017</span>
@@ -46,11 +54,8 @@
     </a>
 </li>
 
-<script type="text/javascript">PkSpr.decorate('icon__posts2017-11-26-pierroteknikhtml');</script>
-
 <li class="post-teaser">
     <a href="/ChromaListe/posts/2017-09-12-mimigal.html">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="/ChromaListe/assets/img/icons/0167.png">
         <div>
             <span class="post-teaser__title">Mimigal</span>
             <span class="post-teaser__date">12 septembre 2017</span>
@@ -58,11 +63,8 @@
     </a>
 </li>
 
-<script type="text/javascript">PkSpr.decorate('icon__posts2017-09-12-mimigalhtml');</script>
-
 <li class="post-teaser">
     <a href="/ChromaListe/posts/2016-12-17-plumeline.html">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="/ChromaListe/assets/img/icons/0741.png">
         <div>
             <span class="post-teaser__title">Plumeline</span>
             <span class="post-teaser__date">17 d&#xE9;cembre 2016</span>
@@ -70,11 +72,8 @@
     </a>
 </li>
 
-<script type="text/javascript">PkSpr.decorate('icon__posts2016-12-17-plumelinehtml');</script>
-
 <li class="post-teaser">
     <a href="/ChromaListe/posts/2016-12-07-rapasdepic.html">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="/ChromaListe/assets/img/icons/0022.png">
         <div>
             <span class="post-teaser__title">Rapasdepic</span>
             <span class="post-teaser__date">07 d&#xE9;cembre 2016</span>
@@ -82,11 +81,8 @@
     </a>
 </li>
 
-<script type="text/javascript">PkSpr.decorate('icon__posts2016-12-07-rapasdepichtml');</script>
-
 <li class="post-teaser">
     <a href="/ChromaListe/posts/2016-11-22-geolithe.html">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="/ChromaListe/assets/img/icons/0525.png">
         <div>
             <span class="post-teaser__title">G&#xE9;olithe</span>
             <span class="post-teaser__date">22 novembre 2016</span>
@@ -94,11 +90,8 @@
     </a>
 </li>
 
-<script type="text/javascript">PkSpr.decorate('icon__posts2016-11-22-geolithehtml');</script>
-
 <li class="post-teaser">
     <a href="/ChromaListe/posts/2015-07-02-zarbi.html">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="/ChromaListe/assets/img/icons/0201.png">
         <div>
             <span class="post-teaser__title">Zarbi</span>
             <span class="post-teaser__date">02 juillet 2015</span>
@@ -106,11 +99,8 @@
     </a>
 </li>
 
-<script type="text/javascript">PkSpr.decorate('icon__posts2015-07-02-zarbihtml');</script>
-
 <li class="post-teaser">
     <a href="/ChromaListe/posts/2014-04-21-pitrouille.html">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="/ChromaListe/assets/img/icons/0710.png">
         <div>
             <span class="post-teaser__title">Pitrouille</span>
             <span class="post-teaser__date">21 avril 2014</span>
@@ -118,11 +108,8 @@
     </a>
 </li>
 
-<script type="text/javascript">PkSpr.decorate('icon__posts2014-04-21-pitrouillehtml');</script>
-
 <li class="post-teaser">
     <a href="/ChromaListe/posts/2014-03-02-lumivole.html">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="/ChromaListe/assets/img/icons/0314.png">
         <div>
             <span class="post-teaser__title">Lumivole</span>
             <span class="post-teaser__date">02 mars 2014</span>
@@ -130,11 +117,8 @@
     </a>
 </li>
 
-<script type="text/javascript">PkSpr.decorate('icon__posts2014-03-02-lumivolehtml');</script>
-
 <li class="post-teaser">
     <a href="/ChromaListe/posts/2013-10-13-seracrawl.html">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="/ChromaListe/assets/img/icons/0713.png">
         <div>
             <span class="post-teaser__title">S&#xE9;racrawl</span>
             <span class="post-teaser__date">13 octobre 2013</span>
@@ -142,17 +126,17 @@
     </a>
 </li>
 
-<script type="text/javascript">PkSpr.decorate('icon__posts2013-10-13-seracrawlhtml');</script>
-
     
-</ul>                
+</ul>
+
+                
         </div>
 
         
 <div class="explore">
     <div class="explore__devider">
         ------ Pokémon chromatiques : 174/176 (18,8%) |
-        <script type="text/javascript">randomizePost()</script> ------
+        <a id="randomPostLink"></a> ------
     </div>
     <ul class="categories">
             <li class="categories__item"><a href="/ChromaListe/categories/appels-a-laide">Appels &#xE0; l&#x27;aide</a></li>
@@ -171,6 +155,12 @@
         Pokémon et tous les noms respectifs sont des marques déposées et © de Nintendo 1996-2020.
     </div>
 </div>
+
+
+        <script type="text/javascript" src="/ChromaListe/assets/js/scripts.js"></script>
+
+        
+    
 
     </body>
 </html>

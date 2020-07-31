@@ -9,10 +9,12 @@
     <link rel="icon" href="/ChromaListe/assets/img/favicon.ico" type="image/x-icon">
     <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
     <link href="/ChromaListe/assets/css/master.css" rel="stylesheet" />
-    <script type="text/javascript" src="/ChromaListe/assets/js/scripts.js"></script>
     <link href="/ChromaListe/assets/css/pokesprite.min.css" rel="stylesheet" />
     <script type="text/javascript" src="/ChromaListe/assets/js/pokesprite.min.js"></script>
+    <script type="text/javascript" src="/ChromaListe/assets/js/lunr.min.js"></script>
+    <script type="text/javascript" src="/ChromaListe/assets/js/jquery.min.js"></script>
 </head>
+
 
     <body>
         <div class="wrapper">
@@ -24,9 +26,16 @@
             <li class="menu__entry"><a href="/ChromaListe/">Accueil</a></li>
             <li class="menu__entry"><a href="/ChromaListe/statistics">Statistiques</a></li>
             <li class="menu__entry"><a href="/ChromaListe/capturetable">Table de capture</a></li>
+            <li class="menu__entry">
+                <div>
+                    <input type="text" id="searchInput" placeholder="Rechercher..." />
+                    <div id="searchResults"></div>
+                </div>
+            </li>
         </ul>
     </div>
 </header>
+
             
     <h1 class="page-title">
             <div class="page-title__text">Appels &#xE0; l&#x27;aide</div>
@@ -38,7 +47,6 @@
 
 <li class="post-teaser">
     <a href="/ChromaListe/posts/2018-12-05-tritox.html">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="/ChromaListe/assets/img/icons/0757.png">
         <div>
             <span class="post-teaser__title">Tritox</span>
             <span class="post-teaser__date">05 d&#xE9;cembre 2018</span>
@@ -46,11 +54,8 @@
     </a>
 </li>
 
-<script type="text/javascript">PkSpr.decorate('icon__posts2018-12-05-tritoxhtml');</script>
-
 <li class="post-teaser">
     <a href="/ChromaListe/posts/2017-12-17-scalpion.html">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="/ChromaListe/assets/img/icons/0624.png">
         <div>
             <span class="post-teaser__title">Scalpion</span>
             <span class="post-teaser__date">17 d&#xE9;cembre 2017</span>
@@ -58,11 +63,8 @@
     </a>
 </li>
 
-<script type="text/javascript">PkSpr.decorate('icon__posts2017-12-17-scalpionhtml');</script>
-
 <li class="post-teaser">
     <a href="/ChromaListe/posts/2017-11-30-zorua.html">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="/ChromaListe/assets/img/icons/0570.png">
         <div>
             <span class="post-teaser__title">Zorua</span>
             <span class="post-teaser__date">30 novembre 2017</span>
@@ -70,11 +72,8 @@
     </a>
 </li>
 
-<script type="text/javascript">PkSpr.decorate('icon__posts2017-11-30-zoruahtml');</script>
-
 <li class="post-teaser">
     <a href="/ChromaListe/posts/2017-11-05-kraknoix.html">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="/ChromaListe/assets/img/icons/0328.png">
         <div>
             <span class="post-teaser__title">Kraknoix</span>
             <span class="post-teaser__date">05 novembre 2017</span>
@@ -82,11 +81,8 @@
     </a>
 </li>
 
-<script type="text/javascript">PkSpr.decorate('icon__posts2017-11-05-kraknoixhtml');</script>
-
 <li class="post-teaser">
     <a href="/ChromaListe/posts/2017-10-29-manzai.html">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="/ChromaListe/assets/img/icons/0438.png">
         <div>
             <span class="post-teaser__title">Manza&#xEF;</span>
             <span class="post-teaser__date">29 octobre 2017</span>
@@ -94,11 +90,8 @@
     </a>
 </li>
 
-<script type="text/javascript">PkSpr.decorate('icon__posts2017-10-29-manzaihtml');</script>
-
 <li class="post-teaser">
     <a href="/ChromaListe/posts/2017-10-29-goinfrex.html">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="/ChromaListe/assets/img/icons/0446.png">
         <div>
             <span class="post-teaser__title">Goinfrex</span>
             <span class="post-teaser__date">29 octobre 2017</span>
@@ -106,11 +99,8 @@
     </a>
 </li>
 
-<script type="text/javascript">PkSpr.decorate('icon__posts2017-10-29-goinfrexhtml');</script>
-
 <li class="post-teaser">
     <a href="/ChromaListe/posts/2017-10-22-miaouss-alola.html">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="/ChromaListe/assets/img/icons/0052a.png">
         <div>
             <span class="post-teaser__title">Miaouss (Alola)</span>
             <span class="post-teaser__date">22 octobre 2017</span>
@@ -118,11 +108,8 @@
     </a>
 </li>
 
-<script type="text/javascript">PkSpr.decorate('icon__posts2017-10-22-miaouss-alolahtml');</script>
-
 <li class="post-teaser">
     <a href="/ChromaListe/posts/2017-09-25-cadoizo.html">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="/ChromaListe/assets/img/icons/0225.png">
         <div>
             <span class="post-teaser__title">Cadoizo</span>
             <span class="post-teaser__date">25 septembre 2017</span>
@@ -130,11 +117,8 @@
     </a>
 </li>
 
-<script type="text/javascript">PkSpr.decorate('icon__posts2017-09-25-cadoizohtml');</script>
-
 <li class="post-teaser">
     <a href="/ChromaListe/posts/2017-09-12-ramoloss.html">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="/ChromaListe/assets/img/icons/0079.png">
         <div>
             <span class="post-teaser__title">Ramoloss</span>
             <span class="post-teaser__date">12 septembre 2017</span>
@@ -142,11 +126,8 @@
     </a>
 </li>
 
-<script type="text/javascript">PkSpr.decorate('icon__posts2017-09-12-ramolosshtml');</script>
-
 <li class="post-teaser">
     <a href="/ChromaListe/posts/2017-09-10-baudrive.html">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="/ChromaListe/assets/img/icons/0425.png">
         <div>
             <span class="post-teaser__title">Baudrive</span>
             <span class="post-teaser__date">10 septembre 2017</span>
@@ -154,11 +135,8 @@
     </a>
 </li>
 
-<script type="text/javascript">PkSpr.decorate('icon__posts2017-09-10-baudrivehtml');</script>
-
 <li class="post-teaser">
     <a href="/ChromaListe/posts/2017-05-30-noeunoeuf.html">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="/ChromaListe/assets/img/icons/0102.png">
         <div>
             <span class="post-teaser__title">Noeunoeuf</span>
             <span class="post-teaser__date">30 mai 2017</span>
@@ -166,11 +144,8 @@
     </a>
 </li>
 
-<script type="text/javascript">PkSpr.decorate('icon__posts2017-05-30-noeunoeufhtml');</script>
-
 <li class="post-teaser">
     <a href="/ChromaListe/posts/2017-05-21-minidraco.html">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="/ChromaListe/assets/img/icons/0147.png">
         <div>
             <span class="post-teaser__title">Minidraco</span>
             <span class="post-teaser__date">21 mai 2017</span>
@@ -178,11 +153,8 @@
     </a>
 </li>
 
-<script type="text/javascript">PkSpr.decorate('icon__posts2017-05-21-minidracohtml');</script>
-
 <li class="post-teaser">
     <a href="/ChromaListe/posts/2017-05-07-tiboudet.html">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="/ChromaListe/assets/img/icons/0749.png">
         <div>
             <span class="post-teaser__title">Tiboudet</span>
             <span class="post-teaser__date">07 mai 2017</span>
@@ -190,11 +162,8 @@
     </a>
 </li>
 
-<script type="text/javascript">PkSpr.decorate('icon__posts2017-05-07-tiboudethtml');</script>
-
 <li class="post-teaser">
     <a href="/ChromaListe/posts/2017-04-16-tarenbulle.html">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="/ChromaListe/assets/img/icons/0752.png">
         <div>
             <span class="post-teaser__title">Tarenbulle</span>
             <span class="post-teaser__date">16 avril 2017</span>
@@ -202,11 +171,8 @@
     </a>
 </li>
 
-<script type="text/javascript">PkSpr.decorate('icon__posts2017-04-16-tarenbullehtml');</script>
-
 <li class="post-teaser">
     <a href="/ChromaListe/posts/2017-04-01-araqua.html">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="/ChromaListe/assets/img/icons/0751.png">
         <div>
             <span class="post-teaser__title">Araqua</span>
             <span class="post-teaser__date">01 avril 2017</span>
@@ -214,11 +180,8 @@
     </a>
 </li>
 
-<script type="text/javascript">PkSpr.decorate('icon__posts2017-04-01-araquahtml');</script>
-
 <li class="post-teaser">
     <a href="/ChromaListe/posts/2017-03-26-sabelette-alola.html">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="/ChromaListe/assets/img/icons/0027a.png">
         <div>
             <span class="post-teaser__title">Sabelette (Alola)</span>
             <span class="post-teaser__date">26 mars 2017</span>
@@ -226,11 +189,8 @@
     </a>
 </li>
 
-<script type="text/javascript">PkSpr.decorate('icon__posts2017-03-26-sabelette-alolahtml');</script>
-
 <li class="post-teaser">
     <a href="/ChromaListe/posts/2017-03-14-feuforeve.html">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="/ChromaListe/assets/img/icons/0200.png">
         <div>
             <span class="post-teaser__title">Feufor&#xEA;ve</span>
             <span class="post-teaser__date">14 mars 2017</span>
@@ -238,11 +198,8 @@
     </a>
 </li>
 
-<script type="text/javascript">PkSpr.decorate('icon__posts2017-03-14-feuforevehtml');</script>
-
 <li class="post-teaser">
     <a href="/ChromaListe/posts/2017-03-11-tadmorv-alola.html">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="/ChromaListe/assets/img/icons/0088a.png">
         <div>
             <span class="post-teaser__title">Tadmorv (Alola)</span>
             <span class="post-teaser__date">11 mars 2017</span>
@@ -250,11 +207,8 @@
     </a>
 </li>
 
-<script type="text/javascript">PkSpr.decorate('icon__posts2017-03-11-tadmorv-alolahtml');</script>
-
 <li class="post-teaser">
     <a href="/ChromaListe/posts/2017-03-08-rattata-alola.html">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="/ChromaListe/assets/img/icons/0019a.png">
         <div>
             <span class="post-teaser__title">Rattata (Alola)</span>
             <span class="post-teaser__date">08 mars 2017</span>
@@ -262,11 +216,8 @@
     </a>
 </li>
 
-<script type="text/javascript">PkSpr.decorate('icon__posts2017-03-08-rattata-alolahtml');</script>
-
 <li class="post-teaser">
     <a href="/ChromaListe/posts/2017-03-04-rocabot.html">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="/ChromaListe/assets/img/icons/0744.png">
         <div>
             <span class="post-teaser__title">Rocabot</span>
             <span class="post-teaser__date">04 mars 2017</span>
@@ -274,11 +225,8 @@
     </a>
 </li>
 
-<script type="text/javascript">PkSpr.decorate('icon__posts2017-03-04-rocabothtml');</script>
-
 <li class="post-teaser">
     <a href="/ChromaListe/posts/2017-02-19-terhal.html">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="/ChromaListe/assets/img/icons/0374.png">
         <div>
             <span class="post-teaser__title">Terhal</span>
             <span class="post-teaser__date">19 f&#xE9;vrier 2017</span>
@@ -286,11 +234,8 @@
     </a>
 </li>
 
-<script type="text/javascript">PkSpr.decorate('icon__posts2017-02-19-terhalhtml');</script>
-
 <li class="post-teaser">
     <a href="/ChromaListe/posts/2017-02-17-ectoplasma.html">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="/ChromaListe/assets/img/icons/0094.png">
         <div>
             <span class="post-teaser__title">Ectoplasma</span>
             <span class="post-teaser__date">17 f&#xE9;vrier 2017</span>
@@ -298,11 +243,8 @@
     </a>
 </li>
 
-<script type="text/javascript">PkSpr.decorate('icon__posts2017-02-17-ectoplasmahtml');</script>
-
 <li class="post-teaser">
     <a href="/ChromaListe/posts/2017-02-15-spectrum.html">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="/ChromaListe/assets/img/icons/0093.png">
         <div>
             <span class="post-teaser__title">Spectrum</span>
             <span class="post-teaser__date">15 f&#xE9;vrier 2017</span>
@@ -310,11 +252,8 @@
     </a>
 </li>
 
-<script type="text/javascript">PkSpr.decorate('icon__posts2017-02-15-spectrumhtml');</script>
-
 <li class="post-teaser">
     <a href="/ChromaListe/posts/2017-02-11-passerouge.html">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="/ChromaListe/assets/img/icons/0661.png">
         <div>
             <span class="post-teaser__title">Passerouge</span>
             <span class="post-teaser__date">11 f&#xE9;vrier 2017</span>
@@ -322,11 +261,8 @@
     </a>
 </li>
 
-<script type="text/javascript">PkSpr.decorate('icon__posts2017-02-11-passerougehtml');</script>
-
 <li class="post-teaser">
     <a href="/ChromaListe/posts/2017-02-04-metamorph.html">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="/ChromaListe/assets/img/icons/0132.png">
         <div>
             <span class="post-teaser__title">M&#xE9;tamorph</span>
             <span class="post-teaser__date">04 f&#xE9;vrier 2017</span>
@@ -334,11 +270,8 @@
     </a>
 </li>
 
-<script type="text/javascript">PkSpr.decorate('icon__posts2017-02-04-metamorphhtml');</script>
-
 <li class="post-teaser">
     <a href="/ChromaListe/posts/2017-02-03-pikachu.html">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="/ChromaListe/assets/img/icons/0025.png">
         <div>
             <span class="post-teaser__title">Pikachu</span>
             <span class="post-teaser__date">03 f&#xE9;vrier 2017</span>
@@ -346,11 +279,8 @@
     </a>
 </li>
 
-<script type="text/javascript">PkSpr.decorate('icon__posts2017-02-03-pikachuhtml');</script>
-
 <li class="post-teaser">
     <a href="/ChromaListe/posts/2017-02-03-pichu.html">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="/ChromaListe/assets/img/icons/0172.png">
         <div>
             <span class="post-teaser__title">Pichu</span>
             <span class="post-teaser__date">03 f&#xE9;vrier 2017</span>
@@ -358,11 +288,8 @@
     </a>
 </li>
 
-<script type="text/javascript">PkSpr.decorate('icon__posts2017-02-03-pichuhtml');</script>
-
 <li class="post-teaser">
     <a href="/ChromaListe/posts/2017-01-31-manglouton.html">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="/ChromaListe/assets/img/icons/0734.png">
         <div>
             <span class="post-teaser__title">Manglouton</span>
             <span class="post-teaser__date">31 janvier 2017</span>
@@ -370,11 +297,8 @@
     </a>
 </li>
 
-<script type="text/javascript">PkSpr.decorate('icon__posts2017-01-31-mangloutonhtml');</script>
-
 <li class="post-teaser">
     <a href="/ChromaListe/posts/2017-01-26-nosferapti.html">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="/ChromaListe/assets/img/icons/0041.png">
         <div>
             <span class="post-teaser__title">Nosferapti</span>
             <span class="post-teaser__date">26 janvier 2017</span>
@@ -382,11 +306,8 @@
     </a>
 </li>
 
-<script type="text/javascript">PkSpr.decorate('icon__posts2017-01-26-nosferaptihtml');</script>
-
 <li class="post-teaser">
     <a href="/ChromaListe/posts/2016-12-22-picassaut.html">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="/ChromaListe/assets/img/icons/0731.png">
         <div>
             <span class="post-teaser__title">Picassaut</span>
             <span class="post-teaser__date">22 d&#xE9;cembre 2016</span>
@@ -394,11 +315,8 @@
     </a>
 </li>
 
-<script type="text/javascript">PkSpr.decorate('icon__posts2016-12-22-picassauthtml');</script>
-
 <li class="post-teaser">
     <a href="/ChromaListe/posts/2016-12-11-bacabouh.html">
-        <img style="width:40px;height:40px;" class="custom-pkspr" src="/ChromaListe/assets/img/icons/0769.png">
         <div>
             <span class="post-teaser__title">Bacabouh</span>
             <span class="post-teaser__date">11 d&#xE9;cembre 2016</span>
@@ -406,17 +324,17 @@
     </a>
 </li>
 
-<script type="text/javascript">PkSpr.decorate('icon__posts2016-12-11-bacabouhhtml');</script>
-
     
-</ul>                
+</ul>
+
+                
         </div>
 
         
 <div class="explore">
     <div class="explore__devider">
         ------ Pokémon chromatiques : 174/176 (18,8%) |
-        <script type="text/javascript">randomizePost()</script> ------
+        <a id="randomPostLink"></a> ------
     </div>
     <ul class="categories">
             <li class="categories__item"><a href="/ChromaListe/categories/appels-a-laide">Appels &#xE0; l&#x27;aide</a></li>
@@ -435,6 +353,12 @@
         Pokémon et tous les noms respectifs sont des marques déposées et © de Nintendo 1996-2020.
     </div>
 </div>
+
+
+        <script type="text/javascript" src="/ChromaListe/assets/js/scripts.js"></script>
+
+        
+    
 
     </body>
 </html>

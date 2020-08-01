@@ -3,14 +3,14 @@ Title: Statistiques
 ---
 
 @{
-    var nbDocs = Context.Outputs[nameof(Posts)].Count();
+    var nbDocs = Context.Outputs.FromPipeline(nameof(Posts)).Count();
 }
 
 <h2>Méthode</h2>
 
 <dl>
 @{
-    var categories = Context.Outputs[nameof(Posts)]
+    var categories = Context.Outputs.FromPipeline(nameof(Posts))
         .GroupBy(x => (string)x[CustomKeys.Category])
         .OrderByDescending(x => x.Count())
         .Select(x => new {key = x.Key, count = x.Count()});
@@ -27,7 +27,7 @@ Title: Statistiques
 
 <dl>
 @{
-    var versions = Context.Outputs[nameof(Posts)]
+    var versions = Context.Outputs.FromPipeline(nameof(Posts))
         .GroupBy(x => (string)x[CustomKeys.Version])
         .OrderByDescending(x => x.Count())
         .Select(x => new {key = x.Key, count = x.Count()});
@@ -44,7 +44,7 @@ Title: Statistiques
 
 <dl>
 @{
-    var years = Context.Outputs[nameof(Posts)]
+    var years = Context.Outputs.FromPipeline(nameof(Posts))
         .GroupBy(x => DateTime.Parse((string)x[CustomKeys.Date]).Year)
         .OrderByDescending(x => x.Count())
         .Select(x => new {key = x.Key, count = x.Count()});
@@ -62,7 +62,7 @@ Title: Statistiques
 <dl>
 @{
 
-    var months  = Context.Outputs[nameof(Posts)]
+    var months  = Context.Outputs.FromPipeline(nameof(Posts))
         .GroupBy(x => DateTime.Parse((string)x[CustomKeys.Date]).ToString("MMMM yyyy"))
         .OrderByDescending(x => x.Count())
         .Select(x => new {key = x.Key, count = x.Count()});
@@ -80,7 +80,7 @@ Title: Statistiques
 
 <dl>
 @{
-    var balls = Context.Outputs[nameof(Posts)]
+    var balls = Context.Outputs.FromPipeline(nameof(Posts))
         .GroupBy(x => (string)x[CustomKeys.Ball])
         .OrderByDescending(x => x.Count())
         .Select(x => new {key = x.Key, count = x.Count()});

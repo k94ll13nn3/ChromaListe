@@ -1,5 +1,5 @@
 @{
-    var catchedPokemon = Context.Outputs[nameof(Posts)].OrderByDescending(x => x.Get(CustomKeys.Date)).ThenByDescending(x => x.Get(CustomKeys.Number));
+    var catchedPokemon = Context.Outputs.FromPipeline(nameof(Posts)).OrderByDescending(x => x.Get(CustomKeys.Date)).ThenByDescending(x => x.Get(CustomKeys.Number));
     var lastPokemons = catchedPokemon.Take(2).ToList();
 }
 

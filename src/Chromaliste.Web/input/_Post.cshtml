@@ -1,12 +1,12 @@
 @{
     Layout = "/_Master.cshtml";
 
-    var previousPost = Context.Outputs[nameof(Posts)]
+    var previousPost = Context.Outputs.FromPipeline(nameof(Posts))
         .OrderBy(x => x[CustomKeys.Date])
         .ThenBy(x => x[CustomKeys.Number])
         .TakeWhile(x => x[CustomKeys.WritePath] != Model[CustomKeys.WritePath])
         .LastOrDefault();
-    var lastPost = Context.Outputs[nameof(Posts)]
+    var lastPost = Context.Outputs.FromPipeline(nameof(Posts))
         .OrderByDescending(x => x[CustomKeys.Date])
         .ThenByDescending(x => x[CustomKeys.Number])
         .TakeWhile(x => x[CustomKeys.WritePath] != Model[CustomKeys.WritePath])

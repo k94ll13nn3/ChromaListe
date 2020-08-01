@@ -3,7 +3,7 @@ NoTitle:
 ---
 
 @{
-    var catchedPokemon = Context.Outputs[nameof(Posts)].Select(x => x.Get(CustomKeys.Number)).Distinct();
+    var catchedPokemon = Context.Outputs.FromPipeline(nameof(Posts)).Select(x => x.Get(CustomKeys.Number)).Distinct();
 }
 
 <h1 class="page-title">
@@ -24,7 +24,7 @@ NoTitle:
             var icon = Context.GetLink($"/assets/img/icons/{pokemon.Number.PadLeft(pokemon.Number.EndsWith('a') || pokemon.Number.EndsWith('g') ? 5 : 4, '0')}.png");
             if(catchedPokemon.Contains($"{pokemon?.Number ?? string.Empty}"))
             {
-                var post = Context.Outputs[nameof(Posts)].OrderBy(x => x.Get(CustomKeys.Date).ToString()).First(x => x.Get(CustomKeys.Number).ToString() == pokemon.Number);
+                var post = Context.Outputs.FromPipeline(nameof(Posts)).OrderBy(x => x.Get(CustomKeys.Date).ToString()).First(x => x.Get(CustomKeys.Number).ToString() == pokemon.Number);
                 <li>
                     <a title="@pokemon.Name" href="@Context.GetLink("/")@post[CustomKeys.WritePath]">
                         <img style="width:52px;height:52px;display: inline-block;" src="@icon">
@@ -46,7 +46,7 @@ NoTitle:
         function randomizeNextTarget()
         {
             @{
-                var uncaught = Pokemon.GetAll().Where(x => !Context.Outputs[nameof(Posts)].Select(y => y[CustomKeys.Number]).Contains(x.Number));
+                var uncaught = Pokemon.GetAll().Where(x => !Context.Outputs.FromPipeline(nameof(Posts)).Select(y => y[CustomKeys.Number]).Contains(x.Number));
             }
 
             var unchaughtNumbers = [@Html.Raw(string.Join(",", uncaught.Select(x => $"\"{x.Number}\"")))];

@@ -914,6 +914,11 @@ namespace ChromaListe.Web.Core
             ["891"] = new Pokemon("891", "Wushours", "Génération 8"),
             ["892"] = new Pokemon("892", "Shifours", "Génération 8"),
             ["893"] = new Pokemon("893", "Zarude", "Génération 8"),
+            ["894"] = new Pokemon("894", "Regieleki", "Génération 8"),
+            ["895"] = new Pokemon("895", "Regidrago", "Génération 8"),
+            ["896"] = new Pokemon("896", "Blizzeval", "Génération 8"),
+            ["897"] = new Pokemon("897", "Spectreval", "Génération 8"),
+            ["898"] = new Pokemon("898", "Sylveroy", "Génération 8"),
 
             // Alola forms
             ["19a"] = new Pokemon("19a", "Rattata (Alola)", "Formes d'Alola"),
@@ -944,6 +949,10 @@ namespace ChromaListe.Web.Core
             ["83g"] = new Pokemon("83g", "Canarticho (Galar)", "Formes de Galar"),
             ["110g"] = new Pokemon("110g", "Smogogo (Galar)", "Formes de Galar"),
             ["122g"] = new Pokemon("122g", "M. Mime (Galar)", "Formes de Galar"),
+            ["144g"] = new Pokemon("144g", "Artikodin (Galar)", "Formes de Galar"),
+            ["145g"] = new Pokemon("145g", "Électhor (Galar)", "Formes de Galar"),
+            ["146g"] = new Pokemon("146g", "Sulfura (Galar)", "Formes de Galar"),
+            ["199g"] = new Pokemon("199g", "Roigada (Galar)", "Formes de Galar"),
             ["222g"] = new Pokemon("222g", "Corayon (Galar)", "Formes de Galar"),
             ["263g"] = new Pokemon("263g", "Zigzaton (Galar)", "Formes de Galar"),
             ["264g"] = new Pokemon("264g", "Linéon (Galar)", "Formes de Galar"),

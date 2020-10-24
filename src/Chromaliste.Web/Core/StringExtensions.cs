@@ -12,7 +12,7 @@ namespace ChromaListe.Web.Core
             _ = value ?? throw new ArgumentNullException(nameof(value));
 
             value = value.ToLowerInvariant();
-            byte[] bytes = CodePagesEncodingProvider.Instance.GetEncoding("Cyrillic").GetBytes(value);
+            byte[] bytes = CodePagesEncodingProvider.Instance.GetEncoding("Cyrillic")?.GetBytes(value) ?? Array.Empty<byte>();
             value = Encoding.ASCII.GetString(bytes);
             value = Regex.Replace(value, @"\s", "-", RegexOptions.Compiled);
             value = Regex.Replace(value, @"[^\w\s\p{Pd}]", string.Empty, RegexOptions.Compiled);

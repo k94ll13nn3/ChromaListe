@@ -1,22 +1,23 @@
-ul.pokemonlist {
-  padding-left: 0px;
-
-  li {
-    display: inline;
-    color: $cloudy;
-
-    &.not-catched {
-      opacity: 0.2;
-    }
-  }
-}
-
-.custom-pkspr {
-  margin-top: -7px;
-  float: left;
-}
+$icon-size: 52px;
 
 .custom-pkspr-ball {
-  margin-top: -7px;
-  margin-bottom: -10px;
+    margin-top: -7px;
+    margin-bottom: -10px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, $icon-size + 3px);
+    justify-content: center;
+    justify-items: center;
+}
+
+.not-catched {
+    opacity: 0.2;
+}
+
+.pokemon-icon {
+    width: $icon-size;
+    height: $icon-size;
+    display: inline-block;
 }

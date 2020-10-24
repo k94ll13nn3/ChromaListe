@@ -10,15 +10,12 @@
 
 <hr>
 
-<ul class="pokemonlist">
-
+<div class="container">
     @foreach (var pokemon in catchedPokemon)
     {
         var currentPokemon = Pokemon.Get(pokemon.GetString(CustomKeys.Number));
-        <li>
-            <a title="@currentPokemon.Name" href="@Context.GetLink("/")@pokemon[CustomKeys.WritePath]">
-                <img style="width:52px;height:52px;display: inline-block;" src="@pokemon[CustomKeys.Icon]">
-            </a>
-        </li>
+        <a title="@currentPokemon.Name" href="@Context.GetLink("/")@pokemon[CustomKeys.WritePath]">
+            <img class="pokemon-icon" src="@pokemon[CustomKeys.Icon]">
+        </a>
     }
-</ul>
+</div>

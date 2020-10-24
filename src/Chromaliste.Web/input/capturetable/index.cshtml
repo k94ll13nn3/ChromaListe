@@ -11,35 +11,31 @@ NoTitle:
     <div class="page-title__subtitle">Cible potentielle : <span id="nextTarget"></span></div>
 </h1>
 
-<ul class="pokemonlist">
-    @{
-        var groupedPokemons = Pokemon.GetAll().GroupBy(x => x.Group);
-    }
+@{
+    var groupedPokemons = Pokemon.GetAll().GroupBy(x => x.Group);
+}
 
-    @foreach(var pokemons in groupedPokemons)
-    {
-        <h1>@pokemons.Key (@pokemons.Count(x => catchedPokemon.Contains($"{x?.Number ?? string.Empty}"))/@pokemons.Count())</h1>
-        foreach(var pokemon in pokemons)
+@foreach(var pokemons in groupedPokemons)
+{
+    <h1>@pokemons.Key (@pokemons.Count(x => catchedPokemon.Contains($"{x?.Number ?? string.Empty}"))/@pokemons.Count())</h1>
+    <div class="container">
+        @foreach(var pokemon in pokemons)
         {
             var icon = Context.GetLink($"/assets/img/icons/{pokemon.Number.PadLeft(pokemon.Number.EndsWith('a') || pokemon.Number.EndsWith('g') ? 5 : 4, '0')}.png");
             if(catchedPokemon.Contains($"{pokemon?.Number ?? string.Empty}"))
             {
                 var post = Context.Outputs.FromPipeline(nameof(Posts)).OrderBy(x => x.Get(CustomKeys.Date).ToString()).First(x => x.Get(CustomKeys.Number).ToString() == pokemon.Number);
-                <li>
-                    <a title="@pokemon.Name" href="@Context.GetLink("/")@post[CustomKeys.WritePath]">
-                        <img style="width:52px;height:52px;display: inline-block;" src="@icon">
-                    </a>
-                </li>
+                <a title="@pokemon.Name" href="@Context.GetLink("/")@post[CustomKeys.WritePath]">
+                    <img class="pokemon-icon" src="@icon">
+                </a>
             }
             else
             {
-                <li class="not-catched">
-                    <img style="width:52px;height:52px;display: inline-block;" src="@icon">
-                </li>
+                <img class="pokemon-icon not-catched" src="@icon">
             }
         }
-    }
-</ul>  
+    </div>
+}
 
 @section Scripts {
     <script type="text/javascript">

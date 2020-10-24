@@ -1,12 +1,15 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
+using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 
 namespace ChromaListe.Web.Core
 {
-    public static class StringExtensions
+    public static class ClassExtensions
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Globalization", "CA1308", Justification = "Only for display.")]
+        [SuppressMessage("Globalization", "CA1308", Justification = "Only for display.")]
         public static string Slugify(this string value)
         {
             _ = value ?? throw new ArgumentNullException(nameof(value));
@@ -20,6 +23,22 @@ namespace ChromaListe.Web.Core
             value = Regex.Replace(value, "([-_]){2,}", "$1", RegexOptions.Compiled);
 
             return value;
+        }
+
+        public static string GetDescription(this Enum value)
+        {
+            _ = value ?? throw new ArgumentNullException(nameof(value));
+
+            FieldInfo? fi = value.GetType().GetField(value.ToString());
+
+            if (fi is null)
+            {
+                return value.ToString();
+            }
+
+            DescriptionAttribute[] attributes = (DescriptionAttribute[])fi.GetCustomAttributes(typeof(DescriptionAttribute), false);
+
+            return attributes?.Length > 0 ? attributes[0].Description : value.ToString();
         }
     }
 }

@@ -11,7 +11,7 @@ NoTitle:
     <div class="page-title__subtitle">Cible potentielle : <span id="nextTarget"></span></div>
 </h1>
 
-@foreach (Groups group in new[] { Groups.Generation1, Groups.Generation2, Groups.Generation3, Groups.Generation4, Groups.Generation5, Groups.Generation6, Groups.Generation7, Groups.Generation8, Groups.Alola, Groups.Galar })
+@foreach (Groups group in new[] { Groups.Starter, Groups.Legendary, Groups.Mythical, Groups.Fossil, Groups.Pikalike, Groups.Eevee, Groups.Regi, Groups.UltraBeast })
 {
     IEnumerable<Pokemon> pokemons = Pokemon.GetAll(group);
     <h1>@group.GetDescription() (@pokemons.Count(x => catchedPokemon.Contains($"{x?.Number ?? string.Empty}"))/@pokemons.Count())</h1>

@@ -4,7 +4,7 @@
     <NoWarn>RCS1090;CA2007;S3220</NoWarn>
     <TreatWarningsAsErrors Condition="'$(Configuration)'=='Release'">true</TreatWarningsAsErrors>
     <CodeAnalysisTreatWarningsAsErrors Condition="'$(Configuration)'=='Release'">true</CodeAnalysisTreatWarningsAsErrors>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>9.0</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,7 +16,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="SonarAnalyzer.CSharp" Version="8.13.1.21947">
+    <PackageReference Include="SonarAnalyzer.CSharp" Version="8.14.0.22654">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>

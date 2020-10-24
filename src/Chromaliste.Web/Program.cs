@@ -18,7 +18,7 @@ namespace ChromaListe.Web
                 .CreateDefault(args)
                 .ConfigureSettings(c =>
                 {
-                    c[CustomKeys.SiteTitle] = "Keuvain's shiny living dex";
+                    c[CustomKeys.SiteTitle] = "ChromaListe by Keuvain";
                     c[Keys.Host] = "k94ll13nn3.github.io";
                     c[Keys.LinkRoot] = "/ChromaListe";
                 })

@@ -2,7 +2,7 @@
 
 namespace ChromaListe.Web.Core
 {
-    public sealed class Pokemon
+    public sealed record Pokemon
     {
         private static readonly IReadOnlyDictionary<string, Pokemon> PokemonList = new Dictionary<string, Pokemon>
         {
@@ -971,11 +971,11 @@ namespace ChromaListe.Web.Core
 
         public static int PokemonCount => PokemonList.Count;
 
-        public string Name { get; set; }
+        public string Name { get; }
 
-        public string Number { get; set; }
+        public string Number { get; }
 
-        public string Group { get; set; }
+        public string Group { get; }
 
         public static Pokemon Get(string number)
         {

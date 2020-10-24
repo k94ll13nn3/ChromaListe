@@ -5,12 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Keuvain's shiny living dex</title>
+    <title>ChromaListe by Keuvain</title>
     <link rel="icon" href="/ChromaListe/assets/img/favicon.ico" type="image/x-icon">
     <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
     <link href="/ChromaListe/assets/css/master.css" rel="stylesheet" />
-    <link href="/ChromaListe/assets/css/pokesprite.min.css" rel="stylesheet" />
-    <script type="text/javascript" src="/ChromaListe/assets/js/pokesprite.min.js"></script>
     <script type="text/javascript" src="/ChromaListe/assets/js/lunr.min.js"></script>
     <script type="text/javascript" src="/ChromaListe/assets/js/jquery.min.js"></script>
 </head>
@@ -20,7 +18,7 @@
         <div class="wrapper">
             <header class="header">
     <div class="navigation">
-        <a href="/ChromaListe/" class="logo">Keuvain&#x27;s shiny living dex</a>
+        <a href="/ChromaListe/" class="logo">ChromaListe by Keuvain</a>
 
         <ul class="menu">
             <li class="menu__entry"><a href="/ChromaListe/">Accueil</a></li>
@@ -66,894 +64,539 @@
 
 <hr>
 
-<ul class="pokemonlist">
-
-        <li>
-            <a title="Tr&#xE9;passable" href="/ChromaListe/posts/2020-07-04-trepassable.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0770.png">
-            </a>
-        </li>
-        <li>
-            <a title="Flamiaou" href="/ChromaListe/posts/2020-05-15-flamiaou.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0725.png">
-            </a>
-        </li>
-        <li>
-            <a title="Zigzaton (Galar)" href="/ChromaListe/posts/2020-03-07-zigzaton-galar.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0263g.png">
-            </a>
-        </li>
-        <li>
-            <a title="Tournicoton" href="/ChromaListe/posts/2020-01-21-tournicoton.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0829.png">
-            </a>
-        </li>
-        <li>
-            <a title="Nigosier" href="/ChromaListe/posts/2020-01-04-nigosier.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0845.png">
-            </a>
-        </li>
-        <li>
-            <a title="Sinistrail" href="/ChromaListe/posts/2019-12-21-sinistrail.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0781.png">
-            </a>
-        </li>
-        <li>
-            <a title="Charbi" href="/ChromaListe/posts/2019-12-14-charbi.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0837.png">
-            </a>
-        </li>
-        <li>
-            <a title="Tritox" href="/ChromaListe/posts/2018-12-05-tritox.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0757.png">
-            </a>
-        </li>
-        <li>
-            <a title="Groudon" href="/ChromaListe/posts/2018-12-03-groudon.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0383.png">
-            </a>
-        </li>
-        <li>
-            <a title="Celebi" href="/ChromaListe/posts/2018-02-13-celebi.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0251.png">
-            </a>
-        </li>
-        <li>
-            <a title="Katagami" href="/ChromaListe/posts/2018-01-07-katagami.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0798.png">
-            </a>
-        </li>
-        <li>
-            <a title="Scalpion" href="/ChromaListe/posts/2017-12-17-scalpion.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0624.png">
-            </a>
-        </li>
-        <li>
-            <a title="Ho-Oh" href="/ChromaListe/posts/2017-12-14-ho-oh.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0250.png">
-            </a>
-        </li>
-        <li>
-            <a title="Engloutyran" href="/ChromaListe/posts/2017-12-03-engloutyran.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0799.png">
-            </a>
-        </li>
-        <li>
-            <a title="Zorua" href="/ChromaListe/posts/2017-11-30-zorua.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0570.png">
-            </a>
-        </li>
-        <li>
-            <a title="Xerneas" href="/ChromaListe/posts/2017-11-28-xerneas.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0716.png">
-            </a>
-        </li>
-        <li>
-            <a title="Pierroteknik" href="/ChromaListe/posts/2017-11-26-pierroteknik.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0806.png">
-            </a>
-        </li>
-        <li>
-            <a title="Ark&#xE9;apti" href="/ChromaListe/posts/2017-11-21-arkeapti.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0566.png">
-            </a>
-        </li>
-        <li>
-            <a title="Kraknoix" href="/ChromaListe/posts/2017-11-05-kraknoix.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0328.png">
-            </a>
-        </li>
-        <li>
-            <a title="Polichombr" href="/ChromaListe/posts/2017-10-31-polichombr.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0353.png">
-            </a>
-        </li>
-        <li>
-            <a title="Drascore" href="/ChromaListe/posts/2017-10-29-drascore.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0452.png">
-            </a>
-        </li>
-        <li>
-            <a title="Rapion" href="/ChromaListe/posts/2017-10-29-rapion.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0451.png">
-            </a>
-        </li>
-        <li>
-            <a title="Goinfrex" href="/ChromaListe/posts/2017-10-29-goinfrex.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0446.png">
-            </a>
-        </li>
-        <li>
-            <a title="Manza&#xEF;" href="/ChromaListe/posts/2017-10-29-manzai.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0438.png">
-            </a>
-        </li>
-        <li>
-            <a title="Grolem" href="/ChromaListe/posts/2017-10-28-grolem.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0076.png">
-            </a>
-        </li>
-        <li>
-            <a title="Gravalanch" href="/ChromaListe/posts/2017-10-28-gravalanch.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0075.png">
-            </a>
-        </li>
-        <li>
-            <a title="Tarinorme" href="/ChromaListe/posts/2017-10-28-tarinorme.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0476.png">
-            </a>
-        </li>
-        <li>
-            <a title="Yanma" href="/ChromaListe/posts/2017-10-28-yanma.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0193.png">
-            </a>
-        </li>
-        <li>
-            <a title="Chamallot" href="/ChromaListe/posts/2017-10-24-chamallot.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0322.png">
-            </a>
-        </li>
-        <li>
-            <a title="Miaouss (Alola)" href="/ChromaListe/posts/2017-10-22-miaouss-alola.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0052a.png">
-            </a>
-        </li>
-        <li>
-            <a title="Racaillou" href="/ChromaListe/posts/2017-10-19-racaillou.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0074.png">
-            </a>
-        </li>
-        <li>
-            <a title="Crocrodil" href="/ChromaListe/posts/2017-10-17-crocrodil.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0159.png">
-            </a>
-        </li>
-        <li>
-            <a title="Germignon" href="/ChromaListe/posts/2017-10-09-germignon.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0152.png">
-            </a>
-        </li>
-        <li>
-            <a title="Magn&#xE9;ti" href="/ChromaListe/posts/2017-09-30-magneti.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0081.png">
-            </a>
-        </li>
-        <li>
-            <a title="Groret" href="/ChromaListe/posts/2017-09-30-groret.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0326.png">
-            </a>
-        </li>
-        <li>
-            <a title="Spoink" href="/ChromaListe/posts/2017-09-29-spoink.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0325.png">
-            </a>
-        </li>
-        <li>
-            <a title="Lovdisc" href="/ChromaListe/posts/2017-09-28-lovdisc.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0370.png">
-            </a>
-        </li>
-        <li>
-            <a title="Moufflair" href="/ChromaListe/posts/2017-09-25-moufflair.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0435.png">
-            </a>
-        </li>
-        <li>
-            <a title="Moufouette" href="/ChromaListe/posts/2017-09-25-moufouette.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0434.png">
-            </a>
-        </li>
-        <li>
-            <a title="Cadoizo" href="/ChromaListe/posts/2017-09-25-cadoizo.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0225.png">
-            </a>
-        </li>
-        <li>
-            <a title="Amagara" href="/ChromaListe/posts/2017-09-22-amagara.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0698.png">
-            </a>
-        </li>
-        <li>
-            <a title="Ramoloss" href="/ChromaListe/posts/2017-09-12-ramoloss.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0079.png">
-            </a>
-        </li>
-        <li>
-            <a title="Mimigal" href="/ChromaListe/posts/2017-09-12-mimigal.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0167.png">
-            </a>
-        </li>
-        <li>
-            <a title="Baudrive" href="/ChromaListe/posts/2017-09-10-baudrive.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0425.png">
-            </a>
-        </li>
-        <li>
-            <a title="Crabagarre" href="/ChromaListe/posts/2017-09-08-crabagarre.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0739.png">
-            </a>
-        </li>
-        <li>
-            <a title="Altaria" href="/ChromaListe/posts/2017-09-02-altaria.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0334.png">
-            </a>
-        </li>
-        <li>
-            <a title="Suicune" href="/ChromaListe/posts/2017-06-05-suicune.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0245.png">
-            </a>
-        </li>
-        <li>
-            <a title="Noeunoeuf" href="/ChromaListe/posts/2017-05-30-noeunoeuf.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0102.png">
-            </a>
-        </li>
-        <li>
-            <a title="Tylton" href="/ChromaListe/posts/2017-05-22-tylton.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0333.png">
-            </a>
-        </li>
-        <li>
-            <a title="N&#xE9;nupiot" href="/ChromaListe/posts/2017-05-21-nenupiot.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0270.png">
-            </a>
-        </li>
-        <li>
-            <a title="Minidraco" href="/ChromaListe/posts/2017-05-21-minidraco.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0147.png">
-            </a>
-        </li>
-        <li>
-            <a title="Tiboudet" href="/ChromaListe/posts/2017-05-07-tiboudet.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0749.png">
-            </a>
-        </li>
-        <li>
-            <a title="Kaiminus" href="/ChromaListe/posts/2017-04-28-kaiminus.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0158.png">
-            </a>
-        </li>
-        <li>
-            <a title="Tarenbulle" href="/ChromaListe/posts/2017-04-16-tarenbulle.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0752.png">
-            </a>
-        </li>
-        <li>
-            <a title="Araqua" href="/ChromaListe/posts/2017-04-01-araqua.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0751.png">
-            </a>
-        </li>
-        <li>
-            <a title="Sabelette (Alola)" href="/ChromaListe/posts/2017-03-26-sabelette-alola.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0027a.png">
-            </a>
-        </li>
-        <li>
-            <a title="Feufor&#xEA;ve" href="/ChromaListe/posts/2017-03-14-feuforeve.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0200.png">
-            </a>
-        </li>
-        <li>
-            <a title="Tadmorv (Alola)" href="/ChromaListe/posts/2017-03-11-tadmorv-alola.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0088a.png">
-            </a>
-        </li>
-        <li>
-            <a title="Rattata (Alola)" href="/ChromaListe/posts/2017-03-08-rattata-alola.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0019a.png">
-            </a>
-        </li>
-        <li>
-            <a title="Rocabot" href="/ChromaListe/posts/2017-03-04-rocabot.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0744.png">
-            </a>
-        </li>
-        <li>
-            <a title="Nidoran&#x2642;" href="/ChromaListe/posts/2017-02-23-nidoran.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0032.png">
-            </a>
-        </li>
-        <li>
-            <a title="Terhal" href="/ChromaListe/posts/2017-02-19-terhal.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0374.png">
-            </a>
-        </li>
-        <li>
-            <a title="Ectoplasma" href="/ChromaListe/posts/2017-02-17-ectoplasma.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0094.png">
-            </a>
-        </li>
-        <li>
-            <a title="Spectrum" href="/ChromaListe/posts/2017-02-15-spectrum.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0093.png">
-            </a>
-        </li>
-        <li>
-            <a title="Passerouge" href="/ChromaListe/posts/2017-02-11-passerouge.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0661.png">
-            </a>
-        </li>
-        <li>
-            <a title="Reshiram" href="/ChromaListe/posts/2017-02-05-reshiram.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0643.png">
-            </a>
-        </li>
-        <li>
-            <a title="M&#xE9;tamorph" href="/ChromaListe/posts/2017-02-04-metamorph.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0132.png">
-            </a>
-        </li>
-        <li>
-            <a title="Pikachu" href="/ChromaListe/posts/2017-02-03-pikachu.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0025.png">
-            </a>
-        </li>
-        <li>
-            <a title="Pichu" href="/ChromaListe/posts/2017-02-03-pichu.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0172.png">
-            </a>
-        </li>
-        <li>
-            <a title="Manglouton" href="/ChromaListe/posts/2017-01-31-manglouton.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0734.png">
-            </a>
-        </li>
-        <li>
-            <a title="Nosferapti" href="/ChromaListe/posts/2017-01-26-nosferapti.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0041.png">
-            </a>
-        </li>
-        <li>
-            <a title="Caninos" href="/ChromaListe/posts/2017-01-21-caninos.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0058.png">
-            </a>
-        </li>
-        <li>
-            <a title="Nymphali" href="/ChromaListe/posts/2017-01-11-nymphali.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0700.png">
-            </a>
-        </li>
-        <li>
-            <a title="Picassaut" href="/ChromaListe/posts/2016-12-22-picassaut.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0731.png">
-            </a>
-        </li>
-        <li>
-            <a title="Vorast&#xE9;rie" href="/ChromaListe/posts/2016-12-19-vorasterie.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0747.png">
-            </a>
-        </li>
-        <li>
-            <a title="Plumeline" href="/ChromaListe/posts/2016-12-17-plumeline.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0741.png">
-            </a>
-        </li>
-        <li>
-            <a title="Brindibou" href="/ChromaListe/posts/2016-12-16-brindibou.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0722.png">
-            </a>
-        </li>
-        <li>
-            <a title="Bacabouh" href="/ChromaListe/posts/2016-12-11-bacabouh.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0769.png">
-            </a>
-        </li>
-        <li>
-            <a title="Rapasdepic" href="/ChromaListe/posts/2016-12-07-rapasdepic.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0022.png">
-            </a>
-        </li>
-        <li>
-            <a title="G&#xE9;olithe" href="/ChromaListe/posts/2016-11-22-geolithe.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0525.png">
-            </a>
-        </li>
-        <li>
-            <a title="Entei" href="/ChromaListe/posts/2016-10-08-entei.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0244.png">
-            </a>
-        </li>
-        <li>
-            <a title="Lokhlass" href="/ChromaListe/posts/2016-08-26-lokhlass.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0131.png">
-            </a>
-        </li>
-        <li>
-            <a title="Muplodocus" href="/ChromaListe/posts/2016-08-20-muplodocus.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0706.png">
-            </a>
-        </li>
-        <li>
-            <a title="Sonistrelle" href="/ChromaListe/posts/2016-08-14-sonistrelle.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0714.png">
-            </a>
-        </li>
-        <li>
-            <a title="Colimucus" href="/ChromaListe/posts/2016-08-14-colimucus.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0705.png">
-            </a>
-        </li>
-        <li>
-            <a title="Joliflor" href="/ChromaListe/posts/2016-07-18-joliflor.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0182.png">
-            </a>
-        </li>
-        <li>
-            <a title="Rafflesia" href="/ChromaListe/posts/2016-06-06-rafflesia.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0045.png">
-            </a>
-        </li>
-        <li>
-            <a title="Regigigas" href="/ChromaListe/posts/2016-04-21-regigigas.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0486.png">
-            </a>
-        </li>
-        <li>
-            <a title="Gamblast" href="/ChromaListe/posts/2016-04-19-gamblast.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0693.png">
-            </a>
-        </li>
-        <li>
-            <a title="Flingouste" href="/ChromaListe/posts/2016-04-14-flingouste.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0692.png">
-            </a>
-        </li>
-        <li>
-            <a title="Frison" href="/ChromaListe/posts/2016-04-07-frison.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0626.png">
-            </a>
-        </li>
-        <li>
-            <a title="&#xC9;lectrode" href="/ChromaListe/posts/2016-03-27-electrode.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0101.png">
-            </a>
-        </li>
-        <li>
-            <a title="Voltorbe" href="/ChromaListe/posts/2016-03-26-voltorbe.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0100.png">
-            </a>
-        </li>
-        <li>
-            <a title="Hypoc&#xE9;an" href="/ChromaListe/posts/2016-03-23-hypocean.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0117.png">
-            </a>
-        </li>
-        <li>
-            <a title="Registeel" href="/ChromaListe/posts/2016-03-21-registeel.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0379.png">
-            </a>
-        </li>
-        <li>
-            <a title="Zigzaton" href="/ChromaListe/posts/2016-03-13-zigzaton.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0263.png">
-            </a>
-        </li>
-        <li>
-            <a title="Queulorior" href="/ChromaListe/posts/2016-03-12-queulorior.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0235.png">
-            </a>
-        </li>
-        <li>
-            <a title="Mesm&#xE9;rella" href="/ChromaListe/posts/2016-03-11-mesmerella.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0575.png">
-            </a>
-        </li>
-        <li>
-            <a title="Scrutella" href="/ChromaListe/posts/2016-03-11-scrutella.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0574.png">
-            </a>
-        </li>
-        <li>
-            <a title="Regice" href="/ChromaListe/posts/2016-03-08-regice.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0378.png">
-            </a>
-        </li>
-        <li>
-            <a title="Hypotrempe" href="/ChromaListe/posts/2016-02-26-hypotrempe.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0116.png">
-            </a>
-        </li>
-        <li>
-            <a title="Kranidos" href="/ChromaListe/posts/2016-02-20-kranidos.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0408.png">
-            </a>
-        </li>
-        <li>
-            <a title="Ortide" href="/ChromaListe/posts/2015-10-16-ortide.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0044.png">
-            </a>
-        </li>
-        <li>
-            <a title="Tarinor" href="/ChromaListe/posts/2015-10-14-tarinor.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0299.png">
-            </a>
-        </li>
-        <li>
-            <a title="Stari" href="/ChromaListe/posts/2015-10-14-stari.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0120.png">
-            </a>
-        </li>
-        <li>
-            <a title="Grela&#xE7;on" href="/ChromaListe/posts/2015-10-11-grelacon.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0712.png">
-            </a>
-        </li>
-        <li>
-            <a title="Mammochon" href="/ChromaListe/posts/2015-10-07-mammochon.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0473.png">
-            </a>
-        </li>
-        <li>
-            <a title="Stalgamin" href="/ChromaListe/posts/2015-10-06-stalgamin.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0361.png">
-            </a>
-        </li>
-        <li>
-            <a title="Zekrom" href="/ChromaListe/posts/2015-09-30-zekrom.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0644.png">
-            </a>
-        </li>
-        <li>
-            <a title="Doduo" href="/ChromaListe/posts/2015-08-21-doduo.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0084.png">
-            </a>
-        </li>
-        <li>
-            <a title="Mystherbe" href="/ChromaListe/posts/2015-08-10-mystherbe.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0043.png">
-            </a>
-        </li>
-        <li>
-            <a title="Tarpaud" href="/ChromaListe/posts/2015-07-10-tarpaud.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0186.png">
-            </a>
-        </li>
-        <li>
-            <a title="Tartard" href="/ChromaListe/posts/2015-07-08-tartard.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0062.png">
-            </a>
-        </li>
-        <li>
-            <a title="T&#xEA;tarte" href="/ChromaListe/posts/2015-07-07-tetarte.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0061.png">
-            </a>
-        </li>
-        <li>
-            <a title="Zarbi" href="/ChromaListe/posts/2015-07-02-zarbi.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0201.png">
-            </a>
-        </li>
-        <li>
-            <a title="Galegon" href="/ChromaListe/posts/2015-06-21-galegon.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0305.png">
-            </a>
-        </li>
-        <li>
-            <a title="Mysdibule" href="/ChromaListe/posts/2015-06-20-mysdibule.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0303.png">
-            </a>
-        </li>
-        <li>
-            <a title="Nostenfer" href="/ChromaListe/posts/2015-06-20-nostenfer.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0169.png">
-            </a>
-        </li>
-        <li>
-            <a title="Nosferalto" href="/ChromaListe/posts/2015-06-18-nosferalto.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0042.png">
-            </a>
-        </li>
-        <li>
-            <a title="Galekid" href="/ChromaListe/posts/2015-06-18-galekid.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0304.png">
-            </a>
-        </li>
-        <li>
-            <a title="Lin&#xE9;on" href="/ChromaListe/posts/2015-06-17-lineon.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0264.png">
-            </a>
-        </li>
-        <li>
-            <a title="Zigzaton" href="/ChromaListe/posts/2015-06-15-zigzaton.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0263.png">
-            </a>
-        </li>
-        <li>
-            <a title="Grainipiot" href="/ChromaListe/posts/2015-06-12-grainipiot.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0273.png">
-            </a>
-        </li>
-        <li>
-            <a title="M&#xE9;ditikka" href="/ChromaListe/posts/2015-05-23-meditikka.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0307.png">
-            </a>
-        </li>
-        <li>
-            <a title="Goupix" href="/ChromaListe/posts/2015-05-20-goupix.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0037.png">
-            </a>
-        </li>
-        <li>
-            <a title="Cochignon" href="/ChromaListe/posts/2015-05-17-cochignon.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0221.png">
-            </a>
-        </li>
-        <li>
-            <a title="Kaimorse" href="/ChromaListe/posts/2015-05-01-kaimorse.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0365.png">
-            </a>
-        </li>
-        <li>
-            <a title="Ros&#xE9;lia" href="/ChromaListe/posts/2015-04-24-roselia.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0315.png">
-            </a>
-        </li>
-        <li>
-            <a title="Raikou" href="/ChromaListe/posts/2015-04-18-raikou.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0243.png">
-            </a>
-        </li>
-        <li>
-            <a title="Sorb&#xE9;b&#xE9;" href="/ChromaListe/posts/2015-04-04-sorbebe.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0582.png">
-            </a>
-        </li>
-        <li>
-            <a title="Sharpedo" href="/ChromaListe/posts/2015-04-03-sharpedo.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0319.png">
-            </a>
-        </li>
-        <li>
-            <a title="L&#xE9;viator" href="/ChromaListe/posts/2015-04-02-leviator.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0130.png">
-            </a>
-        </li>
-        <li>
-            <a title="Poissoroy" href="/ChromaListe/posts/2015-04-01-poissoroy.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0119.png">
-            </a>
-        </li>
-        <li>
-            <a title="Poissir&#xE8;ne" href="/ChromaListe/posts/2015-04-01-poissirene.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0118.png">
-            </a>
-        </li>
-        <li>
-            <a title="Wailmer" href="/ChromaListe/posts/2015-03-30-wailmer.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0320.png">
-            </a>
-        </li>
-        <li>
-            <a title="Phogleur" href="/ChromaListe/posts/2015-03-27-phogleur.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0364.png">
-            </a>
-        </li>
-        <li>
-            <a title="Nosferapti" href="/ChromaListe/posts/2015-03-24-nosferapti.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0041.png">
-            </a>
-        </li>
-        <li>
-            <a title="Cresselia" href="/ChromaListe/posts/2015-03-22-cresselia.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0488.png">
-            </a>
-        </li>
-        <li>
-            <a title="Obalie" href="/ChromaListe/posts/2015-03-22-obalie.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0363.png">
-            </a>
-        </li>
-        <li>
-            <a title="Milobellus" href="/ChromaListe/posts/2015-02-24-milobellus.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0350.png">
-            </a>
-        </li>
-        <li>
-            <a title="Barpau" href="/ChromaListe/posts/2015-02-20-barpau.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0349.png">
-            </a>
-        </li>
-        <li>
-            <a title="S&#xE9;viper" href="/ChromaListe/posts/2015-02-09-seviper.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0336.png">
-            </a>
-        </li>
-        <li>
-            <a title="Latias" href="/ChromaListe/posts/2015-01-28-latias.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0380.png">
-            </a>
-        </li>
-        <li>
-            <a title="Miamiasme" href="/ChromaListe/posts/2015-01-20-miamiasme.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0568.png">
-            </a>
-        </li>
-        <li>
-            <a title="Kyurem" href="/ChromaListe/posts/2015-01-19-kyurem.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0646.png">
-            </a>
-        </li>
-        <li>
-            <a title="Regirock" href="/ChromaListe/posts/2014-12-30-regirock.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0377.png">
-            </a>
-        </li>
-        <li>
-            <a title="Mangriff" href="/ChromaListe/posts/2014-12-28-mangriff.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0335.png">
-            </a>
-        </li>
-        <li>
-            <a title="&#xC9;crapince" href="/ChromaListe/posts/2014-12-16-ecrapince.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0341.png">
-            </a>
-        </li>
-        <li>
-            <a title="Chuchmur" href="/ChromaListe/posts/2014-10-23-chuchmur.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0293.png">
-            </a>
-        </li>
-        <li>
-            <a title="Wattouat" href="/ChromaListe/posts/2014-10-18-wattouat.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0179.png">
-            </a>
-        </li>
-        <li>
-            <a title="Cam&#xE9;rupt" href="/ChromaListe/posts/2014-09-15-camerupt.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0323.png">
-            </a>
-        </li>
-        <li>
-            <a title="Limonde" href="/ChromaListe/posts/2014-09-07-limonde.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0618.png">
-            </a>
-        </li>
-        <li>
-            <a title="Pachirisu" href="/ChromaListe/posts/2014-09-07-pachirisu.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0417.png">
-            </a>
-        </li>
-        <li>
-            <a title="Luxio" href="/ChromaListe/posts/2014-09-06-luxio.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0404.png">
-            </a>
-        </li>
-        <li>
-            <a title="Farfaduvet" href="/ChromaListe/posts/2014-08-29-farfaduvet.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0547.png">
-            </a>
-        </li>
-        <li>
-            <a title="Doudouvet" href="/ChromaListe/posts/2014-08-17-doudouvet.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0546.png">
-            </a>
-        </li>
-        <li>
-            <a title="M&#xE9;tang" href="/ChromaListe/posts/2014-08-12-metang.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0375.png">
-            </a>
-        </li>
-        <li>
-            <a title="Go&#xE9;lise" href="/ChromaListe/posts/2014-08-12-goelise.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0278.png">
-            </a>
-        </li>
-        <li>
-            <a title="Nodulithe" href="/ChromaListe/posts/2014-08-06-nodulithe.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0524.png">
-            </a>
-        </li>
-        <li>
-            <a title="Mime Jr." href="/ChromaListe/posts/2014-08-05-mime-jr.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0439.png">
-            </a>
-        </li>
-        <li>
-            <a title="M. Mime (Galar)" href="/ChromaListe/posts/2014-08-05-m-mime-galar.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0122g.png">
-            </a>
-        </li>
-        <li>
-            <a title="R&#xE9;moraid" href="/ChromaListe/posts/2014-08-03-remoraid.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0223.png">
-            </a>
-        </li>
-        <li>
-            <a title="Loupio" href="/ChromaListe/posts/2014-08-03-loupio.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0170.png">
-            </a>
-        </li>
-        <li>
-            <a title="Mamanbo" href="/ChromaListe/posts/2014-08-02-mamanbo.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0594.png">
-            </a>
-        </li>
-        <li>
-            <a title="Ptitard" href="/ChromaListe/posts/2014-07-26-ptitard.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0060.png">
-            </a>
-        </li>
-        <li>
-            <a title="&#xC9;voli" href="/ChromaListe/posts/2014-07-03-evoli.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0133.png">
-            </a>
-        </li>
-        <li>
-            <a title="Banshitrouye" href="/ChromaListe/posts/2014-05-07-banshitrouye.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0711.png">
-            </a>
-        </li>
-        <li>
-            <a title="Pitrouille" href="/ChromaListe/posts/2014-04-21-pitrouille.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0710.png">
-            </a>
-        </li>
-        <li>
-            <a title="Scorvol" href="/ChromaListe/posts/2014-04-19-scorvol.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0472.png">
-            </a>
-        </li>
-        <li>
-            <a title="Scorplane" href="/ChromaListe/posts/2014-03-22-scorplane.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0207.png">
-            </a>
-        </li>
-        <li>
-            <a title="Exagide" href="/ChromaListe/posts/2014-03-07-exagide.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0681.png">
-            </a>
-        </li>
-        <li>
-            <a title="Lumivole" href="/ChromaListe/posts/2014-03-02-lumivole.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0314.png">
-            </a>
-        </li>
-        <li>
-            <a title="Magicarpe" href="/ChromaListe/posts/2014-02-21-magicarpe.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0129.png">
-            </a>
-        </li>
-        <li>
-            <a title="M. Mime" href="/ChromaListe/posts/2014-02-09-m-mime.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0122.png">
-            </a>
-        </li>
-        <li>
-            <a title="Insolourdo" href="/ChromaListe/posts/2014-02-07-insolourdo.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0206.png">
-            </a>
-        </li>
-        <li>
-            <a title="Relicanth" href="/ChromaListe/posts/2013-10-27-relicanth.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0369.png">
-            </a>
-        </li>
-        <li>
-            <a title="S&#xE9;racrawl" href="/ChromaListe/posts/2013-10-13-seracrawl.html">
-                <img style="width:52px;height:52px;display: inline-block;" src="/ChromaListe/assets/img/icons/0713.png">
-            </a>
-        </li>
-</ul>
+<div class="container">
+        <a title="Tr&#xE9;passable" href="/ChromaListe/posts/2020-07-04-trepassable.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0770.png">
+        </a>
+        <a title="Flamiaou" href="/ChromaListe/posts/2020-05-15-flamiaou.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0725.png">
+        </a>
+        <a title="Zigzaton (Galar)" href="/ChromaListe/posts/2020-03-07-zigzaton-galar.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0263g.png">
+        </a>
+        <a title="Tournicoton" href="/ChromaListe/posts/2020-01-21-tournicoton.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0829.png">
+        </a>
+        <a title="Nigosier" href="/ChromaListe/posts/2020-01-04-nigosier.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0845.png">
+        </a>
+        <a title="Sinistrail" href="/ChromaListe/posts/2019-12-21-sinistrail.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0781.png">
+        </a>
+        <a title="Charbi" href="/ChromaListe/posts/2019-12-14-charbi.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0837.png">
+        </a>
+        <a title="Tritox" href="/ChromaListe/posts/2018-12-05-tritox.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0757.png">
+        </a>
+        <a title="Groudon" href="/ChromaListe/posts/2018-12-03-groudon.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0383.png">
+        </a>
+        <a title="Celebi" href="/ChromaListe/posts/2018-02-13-celebi.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0251.png">
+        </a>
+        <a title="Katagami" href="/ChromaListe/posts/2018-01-07-katagami.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0798.png">
+        </a>
+        <a title="Scalpion" href="/ChromaListe/posts/2017-12-17-scalpion.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0624.png">
+        </a>
+        <a title="Ho-Oh" href="/ChromaListe/posts/2017-12-14-ho-oh.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0250.png">
+        </a>
+        <a title="Engloutyran" href="/ChromaListe/posts/2017-12-03-engloutyran.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0799.png">
+        </a>
+        <a title="Zorua" href="/ChromaListe/posts/2017-11-30-zorua.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0570.png">
+        </a>
+        <a title="Xerneas" href="/ChromaListe/posts/2017-11-28-xerneas.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0716.png">
+        </a>
+        <a title="Pierroteknik" href="/ChromaListe/posts/2017-11-26-pierroteknik.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0806.png">
+        </a>
+        <a title="Ark&#xE9;apti" href="/ChromaListe/posts/2017-11-21-arkeapti.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0566.png">
+        </a>
+        <a title="Kraknoix" href="/ChromaListe/posts/2017-11-05-kraknoix.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0328.png">
+        </a>
+        <a title="Polichombr" href="/ChromaListe/posts/2017-10-31-polichombr.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0353.png">
+        </a>
+        <a title="Drascore" href="/ChromaListe/posts/2017-10-29-drascore.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0452.png">
+        </a>
+        <a title="Rapion" href="/ChromaListe/posts/2017-10-29-rapion.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0451.png">
+        </a>
+        <a title="Goinfrex" href="/ChromaListe/posts/2017-10-29-goinfrex.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0446.png">
+        </a>
+        <a title="Manza&#xEF;" href="/ChromaListe/posts/2017-10-29-manzai.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0438.png">
+        </a>
+        <a title="Grolem" href="/ChromaListe/posts/2017-10-28-grolem.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0076.png">
+        </a>
+        <a title="Gravalanch" href="/ChromaListe/posts/2017-10-28-gravalanch.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0075.png">
+        </a>
+        <a title="Tarinorme" href="/ChromaListe/posts/2017-10-28-tarinorme.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0476.png">
+        </a>
+        <a title="Yanma" href="/ChromaListe/posts/2017-10-28-yanma.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0193.png">
+        </a>
+        <a title="Chamallot" href="/ChromaListe/posts/2017-10-24-chamallot.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0322.png">
+        </a>
+        <a title="Miaouss (Alola)" href="/ChromaListe/posts/2017-10-22-miaouss-alola.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0052a.png">
+        </a>
+        <a title="Racaillou" href="/ChromaListe/posts/2017-10-19-racaillou.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0074.png">
+        </a>
+        <a title="Crocrodil" href="/ChromaListe/posts/2017-10-17-crocrodil.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0159.png">
+        </a>
+        <a title="Germignon" href="/ChromaListe/posts/2017-10-09-germignon.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0152.png">
+        </a>
+        <a title="Magn&#xE9;ti" href="/ChromaListe/posts/2017-09-30-magneti.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0081.png">
+        </a>
+        <a title="Groret" href="/ChromaListe/posts/2017-09-30-groret.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0326.png">
+        </a>
+        <a title="Spoink" href="/ChromaListe/posts/2017-09-29-spoink.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0325.png">
+        </a>
+        <a title="Lovdisc" href="/ChromaListe/posts/2017-09-28-lovdisc.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0370.png">
+        </a>
+        <a title="Moufflair" href="/ChromaListe/posts/2017-09-25-moufflair.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0435.png">
+        </a>
+        <a title="Moufouette" href="/ChromaListe/posts/2017-09-25-moufouette.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0434.png">
+        </a>
+        <a title="Cadoizo" href="/ChromaListe/posts/2017-09-25-cadoizo.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0225.png">
+        </a>
+        <a title="Amagara" href="/ChromaListe/posts/2017-09-22-amagara.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0698.png">
+        </a>
+        <a title="Ramoloss" href="/ChromaListe/posts/2017-09-12-ramoloss.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0079.png">
+        </a>
+        <a title="Mimigal" href="/ChromaListe/posts/2017-09-12-mimigal.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0167.png">
+        </a>
+        <a title="Baudrive" href="/ChromaListe/posts/2017-09-10-baudrive.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0425.png">
+        </a>
+        <a title="Crabagarre" href="/ChromaListe/posts/2017-09-08-crabagarre.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0739.png">
+        </a>
+        <a title="Altaria" href="/ChromaListe/posts/2017-09-02-altaria.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0334.png">
+        </a>
+        <a title="Suicune" href="/ChromaListe/posts/2017-06-05-suicune.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0245.png">
+        </a>
+        <a title="Noeunoeuf" href="/ChromaListe/posts/2017-05-30-noeunoeuf.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0102.png">
+        </a>
+        <a title="Tylton" href="/ChromaListe/posts/2017-05-22-tylton.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0333.png">
+        </a>
+        <a title="N&#xE9;nupiot" href="/ChromaListe/posts/2017-05-21-nenupiot.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0270.png">
+        </a>
+        <a title="Minidraco" href="/ChromaListe/posts/2017-05-21-minidraco.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0147.png">
+        </a>
+        <a title="Tiboudet" href="/ChromaListe/posts/2017-05-07-tiboudet.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0749.png">
+        </a>
+        <a title="Kaiminus" href="/ChromaListe/posts/2017-04-28-kaiminus.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0158.png">
+        </a>
+        <a title="Tarenbulle" href="/ChromaListe/posts/2017-04-16-tarenbulle.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0752.png">
+        </a>
+        <a title="Araqua" href="/ChromaListe/posts/2017-04-01-araqua.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0751.png">
+        </a>
+        <a title="Sabelette (Alola)" href="/ChromaListe/posts/2017-03-26-sabelette-alola.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0027a.png">
+        </a>
+        <a title="Feufor&#xEA;ve" href="/ChromaListe/posts/2017-03-14-feuforeve.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0200.png">
+        </a>
+        <a title="Tadmorv (Alola)" href="/ChromaListe/posts/2017-03-11-tadmorv-alola.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0088a.png">
+        </a>
+        <a title="Rattata (Alola)" href="/ChromaListe/posts/2017-03-08-rattata-alola.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0019a.png">
+        </a>
+        <a title="Rocabot" href="/ChromaListe/posts/2017-03-04-rocabot.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0744.png">
+        </a>
+        <a title="Nidoran&#x2642;" href="/ChromaListe/posts/2017-02-23-nidoran.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0032.png">
+        </a>
+        <a title="Terhal" href="/ChromaListe/posts/2017-02-19-terhal.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0374.png">
+        </a>
+        <a title="Ectoplasma" href="/ChromaListe/posts/2017-02-17-ectoplasma.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0094.png">
+        </a>
+        <a title="Spectrum" href="/ChromaListe/posts/2017-02-15-spectrum.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0093.png">
+        </a>
+        <a title="Passerouge" href="/ChromaListe/posts/2017-02-11-passerouge.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0661.png">
+        </a>
+        <a title="Reshiram" href="/ChromaListe/posts/2017-02-05-reshiram.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0643.png">
+        </a>
+        <a title="M&#xE9;tamorph" href="/ChromaListe/posts/2017-02-04-metamorph.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0132.png">
+        </a>
+        <a title="Pikachu" href="/ChromaListe/posts/2017-02-03-pikachu.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0025.png">
+        </a>
+        <a title="Pichu" href="/ChromaListe/posts/2017-02-03-pichu.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0172.png">
+        </a>
+        <a title="Manglouton" href="/ChromaListe/posts/2017-01-31-manglouton.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0734.png">
+        </a>
+        <a title="Nosferapti" href="/ChromaListe/posts/2017-01-26-nosferapti.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0041.png">
+        </a>
+        <a title="Caninos" href="/ChromaListe/posts/2017-01-21-caninos.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0058.png">
+        </a>
+        <a title="Nymphali" href="/ChromaListe/posts/2017-01-11-nymphali.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0700.png">
+        </a>
+        <a title="Picassaut" href="/ChromaListe/posts/2016-12-22-picassaut.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0731.png">
+        </a>
+        <a title="Vorast&#xE9;rie" href="/ChromaListe/posts/2016-12-19-vorasterie.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0747.png">
+        </a>
+        <a title="Plumeline" href="/ChromaListe/posts/2016-12-17-plumeline.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0741.png">
+        </a>
+        <a title="Brindibou" href="/ChromaListe/posts/2016-12-16-brindibou.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0722.png">
+        </a>
+        <a title="Bacabouh" href="/ChromaListe/posts/2016-12-11-bacabouh.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0769.png">
+        </a>
+        <a title="Rapasdepic" href="/ChromaListe/posts/2016-12-07-rapasdepic.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0022.png">
+        </a>
+        <a title="G&#xE9;olithe" href="/ChromaListe/posts/2016-11-22-geolithe.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0525.png">
+        </a>
+        <a title="Entei" href="/ChromaListe/posts/2016-10-08-entei.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0244.png">
+        </a>
+        <a title="Lokhlass" href="/ChromaListe/posts/2016-08-26-lokhlass.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0131.png">
+        </a>
+        <a title="Muplodocus" href="/ChromaListe/posts/2016-08-20-muplodocus.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0706.png">
+        </a>
+        <a title="Sonistrelle" href="/ChromaListe/posts/2016-08-14-sonistrelle.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0714.png">
+        </a>
+        <a title="Colimucus" href="/ChromaListe/posts/2016-08-14-colimucus.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0705.png">
+        </a>
+        <a title="Joliflor" href="/ChromaListe/posts/2016-07-18-joliflor.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0182.png">
+        </a>
+        <a title="Rafflesia" href="/ChromaListe/posts/2016-06-06-rafflesia.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0045.png">
+        </a>
+        <a title="Regigigas" href="/ChromaListe/posts/2016-04-21-regigigas.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0486.png">
+        </a>
+        <a title="Gamblast" href="/ChromaListe/posts/2016-04-19-gamblast.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0693.png">
+        </a>
+        <a title="Flingouste" href="/ChromaListe/posts/2016-04-14-flingouste.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0692.png">
+        </a>
+        <a title="Frison" href="/ChromaListe/posts/2016-04-07-frison.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0626.png">
+        </a>
+        <a title="&#xC9;lectrode" href="/ChromaListe/posts/2016-03-27-electrode.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0101.png">
+        </a>
+        <a title="Voltorbe" href="/ChromaListe/posts/2016-03-26-voltorbe.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0100.png">
+        </a>
+        <a title="Hypoc&#xE9;an" href="/ChromaListe/posts/2016-03-23-hypocean.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0117.png">
+        </a>
+        <a title="Registeel" href="/ChromaListe/posts/2016-03-21-registeel.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0379.png">
+        </a>
+        <a title="Zigzaton" href="/ChromaListe/posts/2016-03-13-zigzaton.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0263.png">
+        </a>
+        <a title="Queulorior" href="/ChromaListe/posts/2016-03-12-queulorior.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0235.png">
+        </a>
+        <a title="Mesm&#xE9;rella" href="/ChromaListe/posts/2016-03-11-mesmerella.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0575.png">
+        </a>
+        <a title="Scrutella" href="/ChromaListe/posts/2016-03-11-scrutella.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0574.png">
+        </a>
+        <a title="Regice" href="/ChromaListe/posts/2016-03-08-regice.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0378.png">
+        </a>
+        <a title="Hypotrempe" href="/ChromaListe/posts/2016-02-26-hypotrempe.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0116.png">
+        </a>
+        <a title="Kranidos" href="/ChromaListe/posts/2016-02-20-kranidos.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0408.png">
+        </a>
+        <a title="Ortide" href="/ChromaListe/posts/2015-10-16-ortide.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0044.png">
+        </a>
+        <a title="Tarinor" href="/ChromaListe/posts/2015-10-14-tarinor.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0299.png">
+        </a>
+        <a title="Stari" href="/ChromaListe/posts/2015-10-14-stari.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0120.png">
+        </a>
+        <a title="Grela&#xE7;on" href="/ChromaListe/posts/2015-10-11-grelacon.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0712.png">
+        </a>
+        <a title="Mammochon" href="/ChromaListe/posts/2015-10-07-mammochon.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0473.png">
+        </a>
+        <a title="Stalgamin" href="/ChromaListe/posts/2015-10-06-stalgamin.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0361.png">
+        </a>
+        <a title="Zekrom" href="/ChromaListe/posts/2015-09-30-zekrom.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0644.png">
+        </a>
+        <a title="Doduo" href="/ChromaListe/posts/2015-08-21-doduo.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0084.png">
+        </a>
+        <a title="Mystherbe" href="/ChromaListe/posts/2015-08-10-mystherbe.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0043.png">
+        </a>
+        <a title="Tarpaud" href="/ChromaListe/posts/2015-07-10-tarpaud.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0186.png">
+        </a>
+        <a title="Tartard" href="/ChromaListe/posts/2015-07-08-tartard.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0062.png">
+        </a>
+        <a title="T&#xEA;tarte" href="/ChromaListe/posts/2015-07-07-tetarte.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0061.png">
+        </a>
+        <a title="Zarbi" href="/ChromaListe/posts/2015-07-02-zarbi.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0201.png">
+        </a>
+        <a title="Galegon" href="/ChromaListe/posts/2015-06-21-galegon.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0305.png">
+        </a>
+        <a title="Mysdibule" href="/ChromaListe/posts/2015-06-20-mysdibule.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0303.png">
+        </a>
+        <a title="Nostenfer" href="/ChromaListe/posts/2015-06-20-nostenfer.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0169.png">
+        </a>
+        <a title="Nosferalto" href="/ChromaListe/posts/2015-06-18-nosferalto.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0042.png">
+        </a>
+        <a title="Galekid" href="/ChromaListe/posts/2015-06-18-galekid.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0304.png">
+        </a>
+        <a title="Lin&#xE9;on" href="/ChromaListe/posts/2015-06-17-lineon.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0264.png">
+        </a>
+        <a title="Zigzaton" href="/ChromaListe/posts/2015-06-15-zigzaton.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0263.png">
+        </a>
+        <a title="Grainipiot" href="/ChromaListe/posts/2015-06-12-grainipiot.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0273.png">
+        </a>
+        <a title="M&#xE9;ditikka" href="/ChromaListe/posts/2015-05-23-meditikka.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0307.png">
+        </a>
+        <a title="Goupix" href="/ChromaListe/posts/2015-05-20-goupix.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0037.png">
+        </a>
+        <a title="Cochignon" href="/ChromaListe/posts/2015-05-17-cochignon.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0221.png">
+        </a>
+        <a title="Kaimorse" href="/ChromaListe/posts/2015-05-01-kaimorse.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0365.png">
+        </a>
+        <a title="Ros&#xE9;lia" href="/ChromaListe/posts/2015-04-24-roselia.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0315.png">
+        </a>
+        <a title="Raikou" href="/ChromaListe/posts/2015-04-18-raikou.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0243.png">
+        </a>
+        <a title="Sorb&#xE9;b&#xE9;" href="/ChromaListe/posts/2015-04-04-sorbebe.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0582.png">
+        </a>
+        <a title="Sharpedo" href="/ChromaListe/posts/2015-04-03-sharpedo.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0319.png">
+        </a>
+        <a title="L&#xE9;viator" href="/ChromaListe/posts/2015-04-02-leviator.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0130.png">
+        </a>
+        <a title="Poissoroy" href="/ChromaListe/posts/2015-04-01-poissoroy.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0119.png">
+        </a>
+        <a title="Poissir&#xE8;ne" href="/ChromaListe/posts/2015-04-01-poissirene.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0118.png">
+        </a>
+        <a title="Wailmer" href="/ChromaListe/posts/2015-03-30-wailmer.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0320.png">
+        </a>
+        <a title="Phogleur" href="/ChromaListe/posts/2015-03-27-phogleur.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0364.png">
+        </a>
+        <a title="Nosferapti" href="/ChromaListe/posts/2015-03-24-nosferapti.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0041.png">
+        </a>
+        <a title="Cresselia" href="/ChromaListe/posts/2015-03-22-cresselia.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0488.png">
+        </a>
+        <a title="Obalie" href="/ChromaListe/posts/2015-03-22-obalie.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0363.png">
+        </a>
+        <a title="Milobellus" href="/ChromaListe/posts/2015-02-24-milobellus.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0350.png">
+        </a>
+        <a title="Barpau" href="/ChromaListe/posts/2015-02-20-barpau.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0349.png">
+        </a>
+        <a title="S&#xE9;viper" href="/ChromaListe/posts/2015-02-09-seviper.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0336.png">
+        </a>
+        <a title="Latias" href="/ChromaListe/posts/2015-01-28-latias.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0380.png">
+        </a>
+        <a title="Miamiasme" href="/ChromaListe/posts/2015-01-20-miamiasme.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0568.png">
+        </a>
+        <a title="Kyurem" href="/ChromaListe/posts/2015-01-19-kyurem.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0646.png">
+        </a>
+        <a title="Regirock" href="/ChromaListe/posts/2014-12-30-regirock.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0377.png">
+        </a>
+        <a title="Mangriff" href="/ChromaListe/posts/2014-12-28-mangriff.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0335.png">
+        </a>
+        <a title="&#xC9;crapince" href="/ChromaListe/posts/2014-12-16-ecrapince.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0341.png">
+        </a>
+        <a title="Chuchmur" href="/ChromaListe/posts/2014-10-23-chuchmur.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0293.png">
+        </a>
+        <a title="Wattouat" href="/ChromaListe/posts/2014-10-18-wattouat.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0179.png">
+        </a>
+        <a title="Cam&#xE9;rupt" href="/ChromaListe/posts/2014-09-15-camerupt.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0323.png">
+        </a>
+        <a title="Limonde" href="/ChromaListe/posts/2014-09-07-limonde.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0618.png">
+        </a>
+        <a title="Pachirisu" href="/ChromaListe/posts/2014-09-07-pachirisu.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0417.png">
+        </a>
+        <a title="Luxio" href="/ChromaListe/posts/2014-09-06-luxio.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0404.png">
+        </a>
+        <a title="Farfaduvet" href="/ChromaListe/posts/2014-08-29-farfaduvet.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0547.png">
+        </a>
+        <a title="Doudouvet" href="/ChromaListe/posts/2014-08-17-doudouvet.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0546.png">
+        </a>
+        <a title="M&#xE9;tang" href="/ChromaListe/posts/2014-08-12-metang.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0375.png">
+        </a>
+        <a title="Go&#xE9;lise" href="/ChromaListe/posts/2014-08-12-goelise.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0278.png">
+        </a>
+        <a title="Nodulithe" href="/ChromaListe/posts/2014-08-06-nodulithe.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0524.png">
+        </a>
+        <a title="Mime Jr." href="/ChromaListe/posts/2014-08-05-mime-jr.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0439.png">
+        </a>
+        <a title="M. Mime (Galar)" href="/ChromaListe/posts/2014-08-05-m-mime-galar.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0122g.png">
+        </a>
+        <a title="R&#xE9;moraid" href="/ChromaListe/posts/2014-08-03-remoraid.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0223.png">
+        </a>
+        <a title="Loupio" href="/ChromaListe/posts/2014-08-03-loupio.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0170.png">
+        </a>
+        <a title="Mamanbo" href="/ChromaListe/posts/2014-08-02-mamanbo.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0594.png">
+        </a>
+        <a title="Ptitard" href="/ChromaListe/posts/2014-07-26-ptitard.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0060.png">
+        </a>
+        <a title="&#xC9;voli" href="/ChromaListe/posts/2014-07-03-evoli.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0133.png">
+        </a>
+        <a title="Banshitrouye" href="/ChromaListe/posts/2014-05-07-banshitrouye.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0711.png">
+        </a>
+        <a title="Pitrouille" href="/ChromaListe/posts/2014-04-21-pitrouille.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0710.png">
+        </a>
+        <a title="Scorvol" href="/ChromaListe/posts/2014-04-19-scorvol.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0472.png">
+        </a>
+        <a title="Scorplane" href="/ChromaListe/posts/2014-03-22-scorplane.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0207.png">
+        </a>
+        <a title="Exagide" href="/ChromaListe/posts/2014-03-07-exagide.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0681.png">
+        </a>
+        <a title="Lumivole" href="/ChromaListe/posts/2014-03-02-lumivole.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0314.png">
+        </a>
+        <a title="Magicarpe" href="/ChromaListe/posts/2014-02-21-magicarpe.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0129.png">
+        </a>
+        <a title="M. Mime" href="/ChromaListe/posts/2014-02-09-m-mime.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0122.png">
+        </a>
+        <a title="Insolourdo" href="/ChromaListe/posts/2014-02-07-insolourdo.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0206.png">
+        </a>
+        <a title="Relicanth" href="/ChromaListe/posts/2013-10-27-relicanth.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0369.png">
+        </a>
+        <a title="S&#xE9;racrawl" href="/ChromaListe/posts/2013-10-13-seracrawl.html">
+            <img class="pokemon-icon" src="/ChromaListe/assets/img/icons/0713.png">
+        </a>
+</div>
 
 
                 

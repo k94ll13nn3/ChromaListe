@@ -39,6 +39,7 @@
         @{
             var caught = (string)Model.Get(CustomKeys.Caught);
             var ball = (string)Model.Get(CustomKeys.Ball);
+            var ballImage = Context.GetLink($"/assets/img/balls/{ball}.png");
         }
         @if (!string.IsNullOrWhiteSpace(caught) && caught != @Model[CustomKeys.Title].ToString())
         {
@@ -49,10 +50,7 @@
         <li>Niveau : @Model[CustomKeys.Level]</li>
         <li>Version : @Model[CustomKeys.Version]</li>
         <li>Méthodes : @Model[CustomKeys.Category]</li>
-        @if (!string.IsNullOrWhiteSpace(ball))
-        {
-            <li>Ball : <span id="icon__ball" class="pkspr pokeball-@ball custom-pkspr-ball"></span></li>
-        }
+        <li>Ball : <img class="ball-icon" src="@ballImage" alt="@ball" title="@ball"/></li>
     </ul>
 
     @RenderBody()
@@ -83,8 +81,6 @@
                     }
                 }
         });
-
-        PkSpr.process_dom();
     });
 
     </script>

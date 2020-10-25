@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -12,6 +12,10 @@
     <PackageReference Include="Statiq.Razor" Version="1.0.0-beta.27" />
     <PackageReference Include="Statiq.Sass" Version="1.0.0-beta.27" />
     <PackageReference Include="Statiq.Yaml" Version="1.0.0-beta.27" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ChromaListe.Generator\ChromaListe.Generator.csproj" ReferenceOutputAssembly="false" OutputItemType="Analyzer" />
   </ItemGroup>
 
 </Project>

@@ -1,7 +1,6 @@
 <Project>
 
   <PropertyGroup>
-    <NoWarn>RCS1090;CA2007;S3220;RCS1096</NoWarn>
     <TreatWarningsAsErrors Condition="'$(Configuration)'=='Release'">true</TreatWarningsAsErrors>
     <CodeAnalysisTreatWarningsAsErrors Condition="'$(Configuration)'=='Release'">true</CodeAnalysisTreatWarningsAsErrors>
     <LangVersion>9.0</LangVersion>

@@ -7,8 +7,7 @@ NoTitle:
 }
 
 <h1 class="page-title">
-    <div class="page-title__text">Table de capture</div>
-    <div class="page-title__subtitle">Cible potentielle : <span id="nextTarget"></span></div>
+    <div class="page-title__text">Hauts faits</div>
 </h1>
 
 @foreach (Groups group in new[] { Groups.Starter, Groups.Legendary, Groups.Mythical, Groups.Fossil, Groups.Pikalike, Groups.Eevee, Groups.Regi, Groups.UltraBeast })
@@ -28,28 +27,8 @@ NoTitle:
             }
             else
             {
-                <img class="pokemon-icon not-catched" src="@icon">
+                <img class="pokemon-icon not-catched" src="@icon" title="@pokemon.Name">
             }
         }
     </div>
-}
-
-@section Scripts {
-    <script type="text/javascript">
-        function randomizeNextTarget()
-        {
-            @{
-                var uncaught = Pokemon.GetAll().Where(x => !Context.Outputs.FromPipeline(nameof(Posts)).Select(y => y[CustomKeys.Number]).Contains(x.Number));
-            }
-
-            var unchaughtNumbers = [@Html.Raw(string.Join(",", uncaught.Select(x => $"\"{x.Number}\"")))];
-            var unchaughtNames = [@Html.Raw(string.Join(",", uncaught.Select(x => $"\"{x.Name}\"")))];
-            var randomIndex = Math.floor(Math.random() * unchaughtNumbers.length);
-            $("#nextTarget").html(unchaughtNumbers[randomIndex] + ' - ' + unchaughtNames[randomIndex]);
-        }
-
-        $(document).ready(function () {
-            randomizeNextTarget();
-        });
-    </script>
 }

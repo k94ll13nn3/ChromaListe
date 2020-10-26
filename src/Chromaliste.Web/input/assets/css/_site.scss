@@ -3,7 +3,7 @@ $icon-size: 52px;
 .ball-icon {
     margin-top: -7px;
     margin-bottom: -10px;
-    display:inline;
+    display: inline;
 }
 
 .container {
@@ -14,11 +14,12 @@ $icon-size: 52px;
 }
 
 .not-catched {
-    opacity: 0.2;
+    opacity: 0.3;
 }
 
 .pokemon-icon {
     width: $icon-size;
     height: $icon-size;
     display: inline-block;
+    filter: drop-shadow(5px 5px 5px #222);
 }

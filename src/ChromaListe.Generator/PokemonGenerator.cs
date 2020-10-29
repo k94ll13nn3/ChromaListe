@@ -104,7 +104,7 @@ namespace ChromaListe.Web.Core
                 }
 
                 pokemon.FrenchName = names[$"{pokemon.Number}"];
-                string line = $@"[""{pokemon.DisplayNumber}""] = new Pokemon(""{pokemon.DisplayNumber}"", ""{pokemon.DisplayName}"", {groupsString}, {pokemon.PrimaryTpe}, {pokemon.SecondaryTpe}),";
+                string line = $@"[""{pokemon.DisplayNumber}""] = new Pokemon(""{pokemon.DisplayNumber}"", ""{pokemon.DisplayName}"", {groupsString}),";
                 generatedLines.Add(line);
             }
 

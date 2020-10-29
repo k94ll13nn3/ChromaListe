@@ -12,8 +12,8 @@ Title: Statistiques
     @{
         var categories = Context.Outputs.FromPipeline(nameof(Posts))
             .GroupBy(x => (string)x[CustomKeys.Category])
-        .OrderByDescending(x => x.Count())
-        .Select(x => new { key = x.Key, count = x.Count() });
+            .OrderByDescending(x => x.Count())
+            .Select(x => (key: x.Key, count: x.Count()));
         foreach (var category in categories)
         {
             var percent = category.count * 1000 / nbDocs;
@@ -29,8 +29,8 @@ Title: Statistiques
     @{
         var versions = Context.Outputs.FromPipeline(nameof(Posts))
             .GroupBy(x => (string)x[CustomKeys.Version])
-        .OrderByDescending(x => x.Count())
-        .Select(x => new { key = x.Key, count = x.Count() });
+            .OrderByDescending(x => x.Count())
+            .Select(x => (key: x.Key, count: x.Count()));
         foreach (var version in versions)
         {
             var percent = version.count * 1000 / nbDocs;
@@ -46,8 +46,8 @@ Title: Statistiques
     @{
         var years = Context.Outputs.FromPipeline(nameof(Posts))
             .GroupBy(x => DateTime.Parse((string)x[CustomKeys.Date]).Year)
-        .OrderByDescending(x => x.Count())
-        .Select(x => new { key = x.Key, count = x.Count() });
+            .OrderByDescending(x => x.Count())
+            .Select(x => (key: x.Key, count: x.Count()));
         foreach (var year in years)
         {
             var percent = year.count * 1000 / nbDocs;
@@ -63,9 +63,8 @@ Title: Statistiques
     @{
         var months = Context.Outputs.FromPipeline(nameof(Posts))
             .GroupBy(x => DateTime.Parse((string)x[CustomKeys.Date]).ToString("MMMM yyyy"))
-        .OrderByDescending(x => x.Count())
-        .Select(x => new { key = x.Key, count = x.Count() });
-
+            .OrderByDescending(x => x.Count())
+            .Select(x => (key: x.Key, count: x.Count()));
         foreach (var month in months.Take(5))
         {
             var percent = month.count * 10;
@@ -83,7 +82,6 @@ Title: Statistiques
             .GroupBy(x => (string)x[CustomKeys.Ball])
             .OrderByDescending(x => x.Count())
             .Select(x => (key: x.Key, count: x.Count()));
-
         foreach (var ball in balls)
         {
             var percent = ball.count * 1000 / nbDocs;

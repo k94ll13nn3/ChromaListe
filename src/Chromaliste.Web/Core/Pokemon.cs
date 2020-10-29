@@ -5,13 +5,11 @@ namespace ChromaListe.Web.Core
 {
     public sealed partial record Pokemon
     {
-        private Pokemon(string number, string name, Groups groups, PokemonType primaryType, PokemonType? secondaryType)
+        private Pokemon(string number, string name, Groups groups)
         {
             Number = number;
             Name = name;
             Groups = groups;
-            PrimaryType = primaryType;
-            SecondaryType = secondaryType;
         }
 
         public static int PokemonCount => PokemonList.Count;
@@ -21,10 +19,6 @@ namespace ChromaListe.Web.Core
         public string Number { get; }
 
         public Groups Groups { get; }
-
-        public PokemonType PrimaryType { get; }
-
-        public PokemonType? SecondaryType { get; }
 
         public static Pokemon Get(string number)
         {

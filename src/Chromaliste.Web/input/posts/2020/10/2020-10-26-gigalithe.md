@@ -5,5 +5,5 @@ caught: Géolithe
 location: Grand Antre Dynamax
 level: 65
 version: Epée
-ball: super
+ball: great
 ---

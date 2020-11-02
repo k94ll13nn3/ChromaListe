@@ -1,12 +1,10 @@
-@{
-    var slugifiedPostFile = ((string)Model[CustomKeys.WritePath].ToString()).Slugify();
-}
+@inherits Statiq.Razor.StatiqRazorPage<PostData>
 
 <li class="post-teaser">
-    <a href="@Context.GetLink("/")@Model[CustomKeys.WritePath]">
+    <a href="@Context.GetLink("/")@Model.WritePath">
         <div>
-            <span class="post-teaser__title">@Model[CustomKeys.Title]</span>
-            <span class="post-teaser__date">@($"{Model.Get<DateTime>(CustomKeys.Date):dd MMMM yyyy}")</span>
+            <span class="post-teaser__title">@Model.Name</span>
+            <span class="post-teaser__date">@($"{Model.CatchDate:dd MMMM yyyy}")</span>
         </div>
     </a>
 </li>

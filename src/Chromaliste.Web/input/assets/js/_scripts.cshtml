@@ -1,7 +1,7 @@
 function randomizePost()
 {
-    var postsUrl = [@Html.Raw(string.Join(",", Context.Outputs.FromPipeline(nameof(Posts)).Select(x => $"\"{Context.GetLink("/")}{(string)x[CustomKeys.WritePath]}\"")))];
-    var postsTitle = [@Html.Raw(string.Join(",", Context.Outputs.FromPipeline(nameof(Posts)).Select(x => $"\"{x["Title"]}\"")))];
+    var postsUrl = [@Html.Raw(string.Join(",", Context.GetPosts().Select(x => $"\"{Context.GetLink("/")}{x.WritePath}\"")))];
+    var postsTitle = [@Html.Raw(string.Join(",", Context.GetPosts().Select(x => $"\"{x.Name}\"")))];
     var randomIndex = Math.floor(Math.random() * postsUrl.length);
     $("#randomPostLink").attr('href', postsUrl[randomIndex]);
     $("#randomPostLink").html(postsTitle[randomIndex]);
@@ -49,7 +49,7 @@ function updateSearchResults() {
 }
 
 $(document).ready(function () {
-    window.store = {@Html.Raw(string.Join(",", Context.Outputs.FromPipeline(nameof(Posts)).Select(x => $"\"{x["Title"]}\":{{\"title\":\"{x["Title"]}\", \"url\":\"{Context.GetLink("/")}{(string)x[CustomKeys.WritePath]}\"}}")))};
+    window.store = {@Html.Raw(string.Join(",", Context.GetPosts().Select(x => $"\"{x.Name}\":{{\"title\":\"{x.Name}\", \"url\":\"{Context.GetLink("/")}{x.WritePath}\"}}")))};
 
     $("#searchInput").keyup(function () {
         updateSearchResults();

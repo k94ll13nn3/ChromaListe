@@ -18,6 +18,8 @@ namespace ChromaListe.Web.Core
 
         public string Number { get; }
 
+        public string PaddedNumber => Number.PadLeft(Number.EndsWith('a') || Number.EndsWith('g') ? 5 : 4, '0');
+
         public Groups Groups { get; }
 
         public static Pokemon Get(string number)

@@ -4,7 +4,7 @@
 
 @if(!Metadata.ContainsKey(CustomKeys.NoTitle))
 {
-    <h1 class="page-title">
+    <div class="page-title">
         @if(Metadata.ContainsKey(CustomKeys.Title))
         {
             <div class="page-title__text">@Metadata[CustomKeys.Title]</div>
@@ -13,7 +13,7 @@
         {
             <div class="page-title__subtitle">@Html.Raw(Metadata[CustomKeys.Subtitle])</div>
         }
-    </h1>
+    </div>
 }
 
 @RenderBody()

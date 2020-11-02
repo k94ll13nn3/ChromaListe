@@ -3,25 +3,25 @@ NoTitle:
 ---
 
 @{
-    var catchedPokemon = Context.Outputs.FromPipeline(nameof(Posts)).Select(x => x.Get(CustomKeys.Number)).Distinct();
+    IEnumerable<PostData> catchedPokemon = Context.GetPosts();
 }
 
-<h1 class="page-title">
+<div class="page-title">
     <div class="page-title__text">Hauts faits</div>
-</h1>
+</div>
 
 @foreach (Groups group in new[] { Groups.Starter, Groups.Legendary, Groups.Mythical, Groups.Fossil, Groups.Pikalike, Groups.Eevee, Groups.Regi, Groups.UltraBeast })
 {
     IEnumerable<Pokemon> pokemons = Pokemon.GetAll(group);
-    <h1>@group.GetDescription() (@pokemons.Count(x => catchedPokemon.Contains($"{x?.Number ?? string.Empty}"))/@pokemons.Count())</h1>
+    <h1>@group.GetDescription() (@pokemons.Count(x => catchedPokemon.Any(p => p.Number == x.Number))/@pokemons.Count())</h1>
     <div class="container">
         @foreach (Pokemon pokemon in pokemons)
         {
-            var icon = Context.GetLink($"/assets/img/icons/{pokemon.Number.PadLeft(pokemon.Number.EndsWith('a') || pokemon.Number.EndsWith('g') ? 5 : 4, '0')}.png");
-            if (catchedPokemon.Contains($"{pokemon?.Number ?? string.Empty}"))
+            var icon = Context.GetLink($"/assets/img/icons/{pokemon.PaddedNumber}.png");
+            var post = catchedPokemon.FirstOrDefault(p => p.Number == pokemon.Number);
+            if (post != null)
             {
-                var post = Context.Outputs.FromPipeline(nameof(Posts)).OrderBy(x => x.Get(CustomKeys.Date).ToString()).First(x => x.Get(CustomKeys.Number).ToString() == pokemon.Number);
-                <a title="@pokemon.Name" href="@Context.GetLink("/")@post[CustomKeys.WritePath]">
+                <a title="@pokemon.Name" href="@Context.GetLink("/")@post.WritePath">
                     <img class="pokemon-icon" src="@icon">
                 </a>
             }

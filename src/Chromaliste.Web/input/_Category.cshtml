@@ -6,7 +6,7 @@
 <ul class="list-posts">
     @foreach(var doc in posts.OrderByDescending(x => x[CustomKeys.WritePath]))
     {
-        @Html.Partial("_PostTeaser", doc)
+        @Html.Partial("_PostTeaser", new PostData(doc))
     }
 
     @RenderBody()

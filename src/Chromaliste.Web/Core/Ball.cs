@@ -1,0 +1,30 @@
+﻿namespace ChromaListe.Web.Core
+{
+    public enum Ball
+    {
+        Poke,
+        Great,
+        Ultra,
+        Master,
+        Net,
+        Dive,
+        Nest,
+        Repeat,
+        Timer,
+        Luxury,
+        Premier,
+        Dusk,
+        Heal,
+        Quick,
+        Fast,
+        Level,
+        Lure,
+        Heavy,
+        Love,
+        Friend,
+        Moon,
+        Sport,
+        Dream,
+        Beast,
+    }
+}

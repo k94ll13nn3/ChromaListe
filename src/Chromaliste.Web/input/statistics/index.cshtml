@@ -3,22 +3,22 @@ Title: Statistiques
 ---
 
 @{
-    var nbDocs = Context.Outputs.FromPipeline(nameof(Posts)).Count();
+    var nbDocs = Context.GetPosts().Count();
 }
 
 <h2>Méthode</h2>
 
 <dl>
     @{
-        var categories = Context.Outputs.FromPipeline(nameof(Posts))
-            .GroupBy(x => (string)x[CustomKeys.Category])
+        var categories = Context.GetPosts()
+            .GroupBy(x => x.Category)
             .OrderByDescending(x => x.Count())
             .Select(x => (key: x.Key, count: x.Count()));
         foreach (var category in categories)
         {
             var percent = category.count * 1000 / nbDocs;
             var countString = $"({category.count})".PadLeft(4, ' ');
-            <dd class="percentage percentage-@percent"><span class="text">@category.key @countString</span></dd>
+            <dd class="percentage percentage-@percent"><span class="text">@category.key.GetDescription() @countString</span></dd>
         }
     }
 </dl>
@@ -27,15 +27,15 @@ Title: Statistiques
 
 <dl>
     @{
-        var versions = Context.Outputs.FromPipeline(nameof(Posts))
-            .GroupBy(x => (string)x[CustomKeys.Version])
+        var versions = Context.GetPosts()
+            .GroupBy(x => x.Version)
             .OrderByDescending(x => x.Count())
             .Select(x => (key: x.Key, count: x.Count()));
         foreach (var version in versions)
         {
             var percent = version.count * 1000 / nbDocs;
             var countString = $"({version.count})".PadLeft(4, ' ');
-            <dd class="percentage percentage-@percent"><span class="text">@version.key @countString</span></dd>
+            <dd class="percentage percentage-@percent"><span class="text">@version.key.GetDescription() @countString</span></dd>
         }
     }
 </dl>
@@ -44,8 +44,8 @@ Title: Statistiques
 
 <dl>
     @{
-        var years = Context.Outputs.FromPipeline(nameof(Posts))
-            .GroupBy(x => DateTime.Parse((string)x[CustomKeys.Date]).Year)
+        var years = Context.GetPosts()
+            .GroupBy(x => x.CatchDate.Year)
             .OrderByDescending(x => x.Count())
             .Select(x => (key: x.Key, count: x.Count()));
         foreach (var year in years)
@@ -61,8 +61,8 @@ Title: Statistiques
 
 <dl>
     @{
-        var months = Context.Outputs.FromPipeline(nameof(Posts))
-            .GroupBy(x => DateTime.Parse((string)x[CustomKeys.Date]).ToString("MMMM yyyy"))
+        var months = Context.GetPosts()
+            .GroupBy(x => x.CatchDate.ToString("MMMM yyyy"))
             .OrderByDescending(x => x.Count())
             .Select(x => (key: x.Key, count: x.Count()));
         foreach (var month in months.Take(5))
@@ -78,18 +78,18 @@ Title: Statistiques
 
 <dl>
     @{
-        var balls = Context.Outputs.FromPipeline(nameof(Posts))
-            .GroupBy(x => (string)x[CustomKeys.Ball])
+        var balls = Context.GetPosts()
+            .GroupBy(x => x.Ball)
             .OrderByDescending(x => x.Count())
             .Select(x => (key: x.Key, count: x.Count()));
         foreach (var ball in balls)
         {
             var percent = ball.count * 1000 / nbDocs;
             var countString = $"({ball.count})".PadLeft(4, ' ');
-            var ballImage = Context.GetLink($"/assets/img/balls/{ball.key}.png");
+            var ballImage = Context.GetLink($"/assets/img/balls/{ball.key.ToString().ToLowerInvariant()}.png");
             <dd class="percentage percentage-@percent">
                 <span class="text">
-                    <img class="ball-icon" src="@ballImage" alt="@ball.key" title="@ball.key" /> @countString
+                    <img class="ball-icon" src="@ballImage" alt="@ball.key.GetDescription()" title="@ball.key.GetDescription()" /> @countString
                 </span>
             </dd>
         }

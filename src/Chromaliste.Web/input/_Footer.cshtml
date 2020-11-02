@@ -1,7 +1,7 @@
 @{
     var nbPkmsTotal = Pokemon.PokemonCount;
-    var nbPkmsDistinct = Context.Outputs.FromPipeline(nameof(Posts)).Select(x => x[CustomKeys.Number]).Distinct().Count();
-    var nbPkms = Context.Outputs.FromPipeline(nameof(Posts)).Count();
+    var nbPkmsDistinct = Context.GetPosts().Select(x => x.Number).Distinct().Count();
+    var nbPkms = Context.GetPosts().Count();
     var percent = nbPkmsDistinct * 100.0 / nbPkmsTotal;
 }
 
@@ -11,9 +11,9 @@
         <a id="randomPostLink"></a> ------
     </div>
     <ul class="categories">
-        @foreach (string category in Context.Outputs.FromPipeline(nameof(Posts)).Select<IDocument, string>(x => (string)x[CustomKeys.Category]).Distinct().OrderBy(x => x))
+        @foreach (Category category in Context.GetPosts().Select(x => x.Category).Distinct().OrderBy(x => x))
         {
-            <li class="categories__item"><a href="@Context.GetLink("/")categories/@(category.Slugify())">@category</a></li>
+            <li class="categories__item"><a href="@Context.GetLink("/")categories/@(category.ToString().Slugify())">@category.GetDescription()</a></li>
         }
     </ul>
     <div class="explore__label">

@@ -1,56 +1,49 @@
 @{
     Layout = "/_Master.cshtml";
 
-    var previousPost = Context.Outputs.FromPipeline(nameof(Posts))
-        .OrderBy(x => x[CustomKeys.Date])
-        .ThenBy(x => x[CustomKeys.Number])
-        .TakeWhile(x => x[CustomKeys.WritePath] != Model[CustomKeys.WritePath])
-        .LastOrDefault();
-    var lastPost = Context.Outputs.FromPipeline(nameof(Posts))
-        .OrderByDescending(x => x[CustomKeys.Date])
-        .ThenByDescending(x => x[CustomKeys.Number])
-        .TakeWhile(x => x[CustomKeys.WritePath] != Model[CustomKeys.WritePath])
-        .LastOrDefault();
+    IList<PostData> posts = Context.GetPosts();
+    PostData post = new PostData(Model);
+    var postIndex = Context.GetPosts().IndexOf(post);
+    var lastPost = postIndex - 1 >= 0 ? posts[postIndex - 1] : null;
+    var previousPost = postIndex + 1 < posts.Count ? posts[postIndex + 1] : null;
 }
 
-<h1 class="page-title post-title">
-    <div class="page-title__text post-title__text">@Model[CustomKeys.Title]</div>
-    <div class="page-title__subtitle post-title__subtitle">@($"{Model.Get<DateTime>(CustomKeys.Date):dd MMMM yyyy}")</div>
+<div class="page-title post-title">
+    <div class="page-title__text post-title__text">@post.Name</div>
+    <div class="page-title__subtitle post-title__subtitle">@($"{post.CatchDate:dd MMMM yyyy}")</div>
     <div class="page-title__subtitle post-title__subtitle">
         @if (previousPost != null)
         {
-            <div style="float: left;">
-                <a href="@Context.GetLink("/")@((string)previousPost[CustomKeys.WritePath])">&larr; @previousPost[CustomKeys.Title]</a>
-            </div>
+            <span style="float: left;">
+                <a href="@Context.GetLink("/")@previousPost.WritePath">&larr; @previousPost.Name</a>
+            </span>
         }
         @if (lastPost != null)
         {
-            <div style="float: right;">
-                <a href="@Context.GetLink("/")@((string)lastPost[CustomKeys.WritePath])">@lastPost[CustomKeys.Title] &rarr;</a>
-            </div>
+            <span style="float: right;">
+                <a href="@Context.GetLink("/")@lastPost.WritePath">@lastPost.Name &rarr;</a>
+            </span>
         }
     </div>
-</h1>
+</div>
 
 <div class="content">
-    <p><img src="@Model[CustomKeys.Image]" alt="" /></p>
+    <p><img src="@post.Image" alt="" /></p>
 
     <ul>
         @{
-            var caught = (string)Model.Get(CustomKeys.Caught);
-            var ball = (string)Model.Get(CustomKeys.Ball);
-            var ballImage = Context.GetLink($"/assets/img/balls/{ball}.png");
+            var ballImage = Context.GetLink($"/assets/img/balls/{post.Ball.ToString().ToLowerInvariant()}.png");
         }
-        @if (!string.IsNullOrWhiteSpace(caught) && caught != @Model[CustomKeys.Title].ToString())
+        @if (!string.IsNullOrWhiteSpace(post.CaughtAs) && post.CaughtAs != post.Name)
         {
-            <li>Attrapé : @caught</li>
+            <li>Attrapé : @post.CaughtAs</li>
         }
-        <li>Numéro : @Model[CustomKeys.Number]</li>
-        <li>@Model[CustomKeys.Location]</li>
-        <li>Niveau : @Model[CustomKeys.Level]</li>
-        <li>Version : @Model[CustomKeys.Version]</li>
-        <li>Méthodes : @Model[CustomKeys.Category]</li>
-        <li>Ball : <img class="ball-icon" src="@ballImage" alt="@ball" title="@ball"/></li>
+        <li>Numéro : @post.Number</li>
+        <li>@post.Location</li>
+        <li>Niveau : @post.Level</li>
+        <li>Version : @post.Version.GetDescription()</li>
+        <li>Méthodes : @post.Category.GetDescription()</li>
+        <li>Ball : <img class="ball-icon" src="@ballImage" alt="@post.Ball.GetDescription()" title="@post.Ball.GetDescription()" /></li>
     </ul>
 
     @RenderBody()
@@ -67,7 +60,7 @@
                     {
                 <text>
                 case 37:
-                    window.location = '@Context.GetLink("/")@((string)previousPost[CustomKeys.WritePath])';
+                    window.location = '@Context.GetLink("/")@((string)previousPost.WritePath)';
                     break;
                 </text>
                     }
@@ -75,7 +68,7 @@
                     {
                 <text>
                 case 39:
-                    window.location = '@Context.GetLink("/")@((string)lastPost[CustomKeys.WritePath])';
+                    window.location = '@Context.GetLink("/")@((string)lastPost.WritePath)';
                     break;
                     </text>
                     }

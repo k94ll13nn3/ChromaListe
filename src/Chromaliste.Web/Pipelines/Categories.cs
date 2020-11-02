@@ -11,12 +11,12 @@ namespace ChromaListe.Web.Pipelines
         {
             Dependencies.AddRange(new[]
             {
-                nameof(Posts),
+                PipelineNames.Posts,
             });
 
             ProcessModules = new ModuleList
             {
-                new ReplaceDocuments(nameof(Posts)),
+                new ReplaceDocuments(PipelineNames.Posts),
                 new GroupDocuments(CustomKeys.Category),
                 new FilterDocuments(Config.FromDocument(doc => !string.IsNullOrEmpty(doc.GetString(Keys.GroupKey)))),
                 new ForEachDocument(

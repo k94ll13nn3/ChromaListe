@@ -6,7 +6,7 @@ using Statiq.Yaml;
 
 namespace ChromaListe.Web.Pipelines
 {
-    public class Posts : Pipeline
+    public class Posts : Pipeline, INamedPipeline
     {
         public Posts()
         {
@@ -26,5 +26,7 @@ namespace ChromaListe.Web.Pipelines
                 new SetMetadata(CustomKeys.WritePath, Config.FromDocument(doc => $"posts/{doc.Source.FileNameWithoutExtension}.html")),
             };
         }
+
+        public string PipelineName => PipelineNames.Posts;
     }
 }

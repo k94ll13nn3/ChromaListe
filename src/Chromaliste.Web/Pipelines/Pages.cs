@@ -1,4 +1,5 @@
-﻿using Statiq.Common;
+﻿using ChromaListe.Web.Core;
+using Statiq.Common;
 using Statiq.Core;
 using Statiq.Razor;
 using Statiq.Yaml;
@@ -11,7 +12,7 @@ namespace ChromaListe.Web.Pipelines
         {
             Dependencies.AddRange(new[]
             {
-                nameof(Posts),
+                PipelineNames.Posts,
             });
 
             InputModules = new ModuleList

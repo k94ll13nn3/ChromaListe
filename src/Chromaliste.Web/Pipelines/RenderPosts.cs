@@ -11,12 +11,12 @@ namespace ChromaListe.Web.Pipelines
         {
             Dependencies.AddRange(new[]
             {
-                nameof(Posts),
+                PipelineNames.Posts,
             });
 
             ProcessModules = new ModuleList
             {
-                new ReplaceDocuments(nameof(Posts)),
+                new ReplaceDocuments(PipelineNames.Posts),
                 new RenderRazor().WithLayout((NormalizedPath)"/_Post.cshtml"),
                 new SetDestination(Config.FromDocument(doc => (NormalizedPath)doc.GetString(CustomKeys.WritePath))),
             };

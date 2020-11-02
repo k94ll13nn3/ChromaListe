@@ -53,7 +53,7 @@ namespace ChromaListe.Web.Core
             if (Posts is null)
             {
                 Posts = context.Outputs
-                    .FromPipeline(nameof(Pipelines.Posts))
+                    .FromPipeline(PipelineNames.Posts)
                     .OrderByDescending(x => x.Get(CustomKeys.Date))
                     .ThenByDescending(x => x.Get(CustomKeys.Number))
                     .Select(x => new PostData(x)).ToList();

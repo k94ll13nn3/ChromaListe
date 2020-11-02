@@ -1,6 +1,6 @@
 ---
 number: 692
-category: Pêche
+category: ChainFishing
 location: Relifac
 level: 25
 version: X

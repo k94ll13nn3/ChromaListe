@@ -1,9 +1,9 @@
 ---
 number: 752
-category: Appels à l'aide
+category: Sos
 caught: Araqua
 location: Colline Clapotis
 level: 17
-version: Lune
+version: MO
 ball: dive
 ---

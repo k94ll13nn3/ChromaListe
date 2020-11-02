@@ -1,6 +1,6 @@
 ---
 number: 307
-category: Navi-Dex
+category: DexNav
 location: Mont Mémoria
 level: 28
 version: OR

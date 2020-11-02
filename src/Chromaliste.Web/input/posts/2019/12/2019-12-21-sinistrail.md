@@ -1,8 +1,8 @@
 ---
 number: 781
-category: Rencontre visible
+category: VisibleEncounter
 location: Route 9
 level: 42
-version: Epée
+version: SW
 ball: timer
 ---

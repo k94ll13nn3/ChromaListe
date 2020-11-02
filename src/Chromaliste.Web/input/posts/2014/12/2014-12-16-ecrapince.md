@@ -1,6 +1,6 @@
 ---
 number: 341
-category: Pêche
+category: ChainFishing
 location: Route 117
 level: 35
 version: OR

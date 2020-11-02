@@ -1,8 +1,8 @@
 ---
 number: 102
-category: Appels à l'aide
+category: Sos
 location: Île noadkoko
 level: 40
-version: Lune
+version: MO
 ball: repeat
 ---

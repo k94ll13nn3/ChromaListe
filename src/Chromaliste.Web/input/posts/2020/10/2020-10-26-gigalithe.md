@@ -1,9 +1,9 @@
 ---
 number: 526
-category: Expéditions Dynamax
+category: DynamaxAdventures
 caught: Géolithe
 location: Grand Antre Dynamax
 level: 65
-version: Epée
+version: SW
 ball: great
 ---

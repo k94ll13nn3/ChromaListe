@@ -1,6 +1,6 @@
 ---
 number: 713
-category: Rencontre aléatoire
+category: RandomEncounter
 caught: Grelaçon
 location: Caverne Gelée
 level: 40

@@ -13,6 +13,7 @@ Title: Statistiques
         var categories = Context.GetPosts()
             .GroupBy(x => x.Category)
             .OrderByDescending(x => x.Count())
+            .ThenBy(x => x.Key.GetDescription())
             .Select(x => (key: x.Key, count: x.Count()));
         foreach (var category in categories)
         {
@@ -30,6 +31,7 @@ Title: Statistiques
         var versions = Context.GetPosts()
             .GroupBy(x => x.Version)
             .OrderByDescending(x => x.Count())
+            .ThenBy(x => x.Key.GetDescription())
             .Select(x => (key: x.Key, count: x.Count()));
         foreach (var version in versions)
         {

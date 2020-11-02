@@ -1,8 +1,8 @@
 ---
 number: 147
-category: Appels à l'aide
+category: Sos
 location: Chemin du Défi
 level: 43
-version: Lune
+version: MO
 ball: premier
 ---

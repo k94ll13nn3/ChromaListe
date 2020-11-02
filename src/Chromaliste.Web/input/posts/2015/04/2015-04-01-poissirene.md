@@ -1,6 +1,6 @@
 ---
 number: 118
-category: Pêche
+category: ChainFishing
 location: Site Météore
 level: 30
 version: OR

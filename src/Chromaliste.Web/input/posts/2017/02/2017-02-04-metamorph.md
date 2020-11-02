@@ -1,8 +1,8 @@
 ---
 number: 132
-category: Appels à l'aide
+category: Sos
 location: Mont Hokulani
 level: 28
-version: Lune
+version: MO
 ball: timer
 ---

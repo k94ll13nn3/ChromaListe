@@ -1,8 +1,8 @@
 ---
 number: 731
-category: Appels à l'aide
+category: Sos
 location: Route 6
 level: 17
-version: Lune
+version: MO
 ball: poke
 ---

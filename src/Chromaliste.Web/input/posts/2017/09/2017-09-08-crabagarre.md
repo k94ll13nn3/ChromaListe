@@ -3,6 +3,6 @@ number: 739
 category: Reset
 location: Route 10
 level: 27
-version: Lune
+version: MO
 ball: premier
 ---

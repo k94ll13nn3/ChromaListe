@@ -1,9 +1,9 @@
 ---
 number: 41
 imageSuffix: b
-category: Appels à l'aide
+category: Sos
 location: Tunnel Taupiqueur
 level: 22
-version: Lune
+version: MO
 ball: repeat
 ---

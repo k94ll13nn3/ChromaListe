@@ -1,6 +1,6 @@
 ---
 number: 350
-category: Pêche
+category: ChainFishing
 location: Route 119
 level: 35
 version: OR

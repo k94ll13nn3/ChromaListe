@@ -1,8 +1,8 @@
 ---
 number: 19a
-category: Appels à l'aide
+category: Sos
 location: Route 8
 level: 20
-version: Lune
+version: MO
 ball: quick
 ---

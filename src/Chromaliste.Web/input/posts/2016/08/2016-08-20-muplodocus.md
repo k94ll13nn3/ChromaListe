@@ -1,6 +1,6 @@
 ---
 number: 706
-category: Safari des Amis
+category: FriendSafari
 caught: Colimucus
 location: Safari des Amis
 level: 30

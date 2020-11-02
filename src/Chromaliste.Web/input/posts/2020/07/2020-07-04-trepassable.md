@@ -1,9 +1,9 @@
 ---
 number: 770
-category: Rencontre visible
+category: VisibleEncounter
 caught: Bacabouh
 location: Lagune Circulaire
 level: 60
-version: Epée
+version: SW
 ball: luxury
 ---

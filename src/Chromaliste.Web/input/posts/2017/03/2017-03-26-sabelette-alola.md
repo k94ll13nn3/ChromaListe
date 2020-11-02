@@ -1,8 +1,8 @@
 ---
 number: 27a
-category: Appels à l'aide
+category: Sos
 location: Village Toko
 level: 29
-version: Lune
+version: MO
 ball: dive
 ---

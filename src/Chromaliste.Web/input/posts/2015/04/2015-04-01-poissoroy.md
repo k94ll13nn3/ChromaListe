@@ -1,6 +1,6 @@
 ---
 number: 119
-category: Pêche
+category: ChainFishing
 caught: Poissirène
 location: Site Météore
 level: 30

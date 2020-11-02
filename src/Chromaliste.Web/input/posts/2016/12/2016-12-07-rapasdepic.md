@@ -1,8 +1,8 @@
 ---
 number: 22
-category: Rencontre aléatoire
+category: RandomEncounter
 location: Mont Hokulani
 level: 26
-version: Lune
+version: MO
 ball: ultra
 ---

@@ -1,8 +1,8 @@
 ---
 number: 88a
-category: Appels à l'aide
+category: Sos
 location: Route 1
 level: 8
-version: Lune
+version: MO
 ball: nest
 ---

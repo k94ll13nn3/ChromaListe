@@ -1,9 +1,9 @@
 ---
 number: 94
-category: Appels à l'aide
+category: Sos
 caught: Spectrum
 location: Bradley Prix
 level: 31
-version: Lune
+version: MO
 ball: nest
 ---

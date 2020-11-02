@@ -1,6 +1,6 @@
 ---
 number: 369
-category: Pêche
+category: ChainFishing
 location: Relifac-le-Haut
 level: 35
 version: X

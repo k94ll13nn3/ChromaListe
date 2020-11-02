@@ -1,6 +1,6 @@
 ---
 number: 710
-category: Rencontre aléatoire
+category: RandomEncounter
 location: Route 16
 level: 36
 version: X

@@ -1,6 +1,6 @@
 ---
 number: 473
-category: Safari des Amis
+category: FriendSafari
 caught: Cochignon
 location: Safari des Amis
 level: 30

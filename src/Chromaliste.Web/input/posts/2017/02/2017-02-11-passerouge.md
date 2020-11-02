@@ -1,8 +1,8 @@
 ---
 number: 661
-category: Appels à l'aide
+category: Sos
 location: Parc Volcanique
 level: 16
-version: Lune
+version: MO
 ball: great
 ---

@@ -1,8 +1,8 @@
 ---
 number: 829
-category: Rencontre visible
+category: VisibleEncounter
 location: Route 3
 level: 14
-version: Epée
+version: SW
 ball: repeat
 ---

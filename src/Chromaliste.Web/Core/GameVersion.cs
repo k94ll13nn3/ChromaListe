@@ -4,7 +4,7 @@ namespace ChromaListe.Web.Core
 {
     public enum GameVersion
     {
-        [Description("Cristal (console virtuelle)")]
+        [Description("Cristal (VC)")]
         CVC,
 
         [Description("X")]

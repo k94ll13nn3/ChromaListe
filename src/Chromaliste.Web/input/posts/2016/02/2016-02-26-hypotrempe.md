@@ -1,6 +1,6 @@
 ---
 number: 116
-category: Pêche
+category: ChainFishing
 location: Chenal 130
 level: 30
 version: OR

@@ -1,8 +1,8 @@
 ---
 number: 741
-category: Rencontre aléatoire
+category: RandomEncounter
 location: Jardin de Mele-Mele
 level: 11
-version: Lune
+version: MO
 ball: beast
 ---

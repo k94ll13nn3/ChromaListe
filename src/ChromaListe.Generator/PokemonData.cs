@@ -22,7 +22,7 @@ namespace ChromaListe.Generator
 
         [JsonProperty("types")]
         [SuppressMessage("Usage", "CA2227", Justification = "Used only for serialization.")]
-        public List<string> Types { get; set; } = new List<string>();
+        public IList<string> Types { get; set; } = new List<string>();
 
         public string DisplayName => Form switch
         {

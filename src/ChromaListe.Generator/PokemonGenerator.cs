@@ -62,7 +62,7 @@ namespace ChromaListe.Web.Core
                 BaseAddress = new Uri(BaseAddress)
             };
 
-            string textSpecies = client.GetStringAsync(new Uri("kwsch/PKHeX/master/PKHeX.Core/Resources/text/fr/text_Species_fr.txt", UriKind.Relative)).Result;
+            string textSpecies = client.GetStringAsync(new Uri("kwsch/PKHeX/master/PKHeX.Core/Resources/text/other/fr/text_Species_fr.txt", UriKind.Relative)).Result;
             string[] lines = textSpecies.Split('\n');
             var names = Enumerable.Range(0, lines.Length).ToDictionary(x => $"{x}", x => lines[x]);
 

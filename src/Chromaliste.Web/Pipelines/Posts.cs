@@ -4,18 +4,18 @@ using Statiq.Core;
 using Statiq.Markdown;
 using Statiq.Yaml;
 
-namespace ChromaListe.Web.Pipelines
+namespace ChromaListe.Web.Pipelines;
+
+public class Posts : Pipeline, INamedPipeline
 {
-    public class Posts : Pipeline, INamedPipeline
+    public Posts()
     {
-        public Posts()
-        {
-            InputModules = new ModuleList
+        InputModules = new ModuleList
             {
                 new ReadFiles("posts/**/*.md")
             };
 
-            ProcessModules = new ModuleList
+        ProcessModules = new ModuleList
             {
                 new ExtractFrontMatter(new ParseYaml()),
                 new RenderMarkdown(),
@@ -25,8 +25,7 @@ namespace ChromaListe.Web.Pipelines
                 new SetMetadata(CustomKeys.Icon, Config.FromDocument((doc, ctx) => ctx.GetLink($"/assets/img/icons/{doc.GetString(CustomKeys.Number).PadLeft(doc.GetString(CustomKeys.Number).EndsWith('a') || doc.GetString(CustomKeys.Number).EndsWith('g') ? 5 : 4, '0')}.png"))),
                 new SetMetadata(CustomKeys.WritePath, Config.FromDocument(doc => $"posts/{doc.Source.FileNameWithoutExtension}.html")),
             };
-        }
-
-        public string PipelineName => PipelineNames.Posts;
     }
+
+    public string PipelineName => PipelineNames.Posts;
 }

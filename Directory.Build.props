@@ -1,16 +1,11 @@
 <Project>
 
   <PropertyGroup>
-    <TreatWarningsAsErrors Condition="'$(Configuration)'=='Release'">true</TreatWarningsAsErrors>
-    <CodeAnalysisTreatWarningsAsErrors Condition="'$(Configuration)'=='Release'">true</CodeAnalysisTreatWarningsAsErrors>
     <LangVersion>preview</LangVersion>
     <Nullable>enable</Nullable>
     <AnalysisMode>AllEnabledByDefault</AnalysisMode>
-  </PropertyGroup>
-
-  <!-- https://github.com/dotnet/roslyn/issues/37876#issuecomment-738042719 -->
-  <PropertyGroup>
-    <NoWarn>$(NoWarn);CA1014</NoWarn>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,7 +13,10 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="SonarAnalyzer.CSharp" Version="8.25.0.33663">
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(Configuration)' != 'Release'">
+    <PackageReference Include="SonarAnalyzer.CSharp" Version="8.30.0.37606">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>

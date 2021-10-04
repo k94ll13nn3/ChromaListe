@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ChromaListe.Generator": {
+      "commandName": "DebugRoslynComponent",
+      "targetProject": "..\\Chromaliste.Web\\ChromaListe.Web.csproj"
+    }
+  }
+}

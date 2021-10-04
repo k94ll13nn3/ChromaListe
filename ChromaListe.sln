@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29521.150
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31717.71
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C7755EB0-A859-4D73-96C4-42D8DB2BD193}"
 EndProject
@@ -10,12 +10,13 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution items", "Solution items", "{647DBAF6-150F-468A-8E2F-6DD987142E4B}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		.globalconfig = .globalconfig
 		Directory.Build.props = Directory.Build.props
 		global.json = global.json
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChromaListe.Generator", "src\ChromaListe.Generator\ChromaListe.Generator.csproj", "{927C7493-5922-4663-A54E-1BD633C8539B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChromaListe.Generator", "src\ChromaListe.Generator\ChromaListe.Generator.csproj", "{927C7493-5922-4663-A54E-1BD633C8539B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

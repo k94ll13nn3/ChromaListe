@@ -1,7 +1,6 @@
-﻿namespace ChromaListe.Web.Core
+﻿namespace ChromaListe.Web.Core;
+
+public static class PipelineNames
 {
-    public static class PipelineNames
-    {
-        public static string Posts => nameof(Posts);
-    }
+    public static string Posts => nameof(Posts);
 }

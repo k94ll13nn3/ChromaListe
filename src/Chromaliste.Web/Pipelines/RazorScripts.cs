@@ -4,33 +4,32 @@ using Statiq.Core;
 using Statiq.Minification;
 using Statiq.Razor;
 
-namespace ChromaListe.Web.Pipelines
+namespace ChromaListe.Web.Pipelines;
+
+public class RazorScripts : Pipeline
 {
-    public class RazorScripts : Pipeline
+    public RazorScripts()
     {
-        public RazorScripts()
+        Dependencies.AddRange(new[]
         {
-            Dependencies.AddRange(new[]
-            {
                 PipelineNames.Posts,
             });
 
-            InputModules = new ModuleList
+        InputModules = new ModuleList
             {
                 new ReadFiles("assets/js/_scripts.cshtml")
             };
 
-            ProcessModules = new ModuleList
+        ProcessModules = new ModuleList
             {
                 new RenderRazor().IgnorePrefix(null),
                 new MinifyJs(),
                 new SetDestination(Config.FromDocument(_ => (NormalizedPath)"assets/js/scripts.js"))
             };
 
-            OutputModules = new ModuleList
+        OutputModules = new ModuleList
             {
                 new WriteFiles()
             };
-        }
     }
 }

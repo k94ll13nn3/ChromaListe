@@ -3,18 +3,18 @@ using Statiq.Common;
 using Statiq.Core;
 using Statiq.Razor;
 
-namespace ChromaListe.Web.Pipelines
+namespace ChromaListe.Web.Pipelines;
+
+public class Categories : Pipeline
 {
-    public class Categories : Pipeline
+    public Categories()
     {
-        public Categories()
+        Dependencies.AddRange(new[]
         {
-            Dependencies.AddRange(new[]
-            {
                 PipelineNames.Posts,
             });
 
-            ProcessModules = new ModuleList
+        ProcessModules = new ModuleList
             {
                 new ReplaceDocuments(PipelineNames.Posts),
                 new GroupDocuments(CustomKeys.Category),
@@ -29,10 +29,9 @@ namespace ChromaListe.Web.Pipelines
                 new SetDestination(Config.FromDocument(doc => (NormalizedPath)doc.GetString(CustomKeys.WritePath)))
             };
 
-            OutputModules = new ModuleList
+        OutputModules = new ModuleList
             {
                 new WriteFiles()
             };
-        }
     }
 }

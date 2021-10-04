@@ -4,33 +4,32 @@ using Statiq.Core;
 using Statiq.Razor;
 using Statiq.Yaml;
 
-namespace ChromaListe.Web.Pipelines
+namespace ChromaListe.Web.Pipelines;
+
+public class Pages : Pipeline
 {
-    public class Pages : Pipeline
+    public Pages()
     {
-        public Pages()
+        Dependencies.AddRange(new[]
         {
-            Dependencies.AddRange(new[]
-            {
                 PipelineNames.Posts,
             });
 
-            InputModules = new ModuleList
+        InputModules = new ModuleList
             {
                 new ReadFiles("**/*.cshtml")
             };
 
-            ProcessModules = new ModuleList
+        ProcessModules = new ModuleList
             {
                 new ExtractFrontMatter(new ParseYaml()),
                 new RenderRazor().WithLayout((NormalizedPath)"/_Page.cshtml"),
                 new SetDestination(".html")
             };
 
-            OutputModules = new ModuleList
+        OutputModules = new ModuleList
             {
                 new WriteFiles()
             };
-        }
     }
 }

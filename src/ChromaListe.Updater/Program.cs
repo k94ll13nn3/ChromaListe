@@ -9,8 +9,14 @@ using HttpClient client = new()
     BaseAddress = new Uri(BaseAddress)
 };
 
-string[] lines = await File.ReadAllLinesAsync("french.txt");
-var names = Enumerable.Range(0, lines.Length).Where(x => !string.IsNullOrWhiteSpace(lines[x])).ToDictionary(x => x + 1, x => lines[x]);
+string[] nameLines = await File.ReadAllLinesAsync("names.txt");
+var names = Enumerable.Range(0, nameLines.Length).Where(x => !string.IsNullOrWhiteSpace(nameLines[x])).ToDictionary(x => x + 1, x => nameLines[x]);
+
+string[] typeLines = await File.ReadAllLinesAsync("types.csv");
+var types = Enumerable
+    .Range(0, typeLines.Length)
+    .Where(x => !string.IsNullOrWhiteSpace(typeLines[x]))
+    .ToDictionary(x => typeLines[x].Split(',')[0], x => typeLines[x].Split(',')[1]);
 
 string pokedexJs = await client.GetStringAsync(new Uri("smogon/pokemon-showdown/master/data/pokedex.ts", UriKind.Relative));
 
@@ -42,7 +48,9 @@ foreach (PokemonData pokemon in pokemons)
     }
 
     pokemon.Name = names.GetValueOrDefault((int)pokemon.Number, pokemon.BaseName ?? pokemon.Name);
-    generatedLines.Add($"{pokemon.Number},{pokemon.Name},{pokemon.Form},{pokemon.PrimaryType},{pokemon.SecondaryType},{pokemon.PrimaryTag}");
+    string primaryType = types.GetValueOrDefault(pokemon.PrimaryType, pokemon.PrimaryType);
+    string? secondaryType = pokemon.SecondaryType is not null ? types.GetValueOrDefault(pokemon.SecondaryType, pokemon.SecondaryType) : null;
+    generatedLines.Add($"{pokemon.Number},{pokemon.Name},{pokemon.Form},{primaryType},{secondaryType},{pokemon.PrimaryTag}");
 }
 
 await File.WriteAllLinesAsync("../ChromaListe.Web/pokemons.csv", generatedLines);

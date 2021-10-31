@@ -1,33 +1,34 @@
-using System.Diagnostics.CodeAnalysis;
-using Newtonsoft.Json;
-
 namespace ChromaListe.Generator;
 
 public class PokemonData
 {
-    [JsonProperty("num")]
+    public PokemonData(double number, string name, string form, string primaryTpe, string? secondaryTpe, string? tag)
+    {
+        Number = number;
+        Name = name;
+        Form = form;
+        PrimaryTpe = primaryTpe;
+        SecondaryTpe = secondaryTpe;
+        Tag = tag;
+    }
+
     public double Number { get; set; }
 
-    [JsonProperty("name")]
-    public string Name { get; set; } = string.Empty;
+    public string Name { get; set; }
 
-    [JsonProperty("baseSpecies")]
-    public string BaseName { get; set; } = string.Empty;
+    public string Form { get; set; }
 
-    public string FrenchName { get; set; } = string.Empty;
+    public string PrimaryTpe { get; set; }
 
-    [JsonProperty("forme")]
-    public string Form { get; set; } = string.Empty;
+    public string? SecondaryTpe { get; set; }
 
-    [JsonProperty("types")]
-    [SuppressMessage("Usage", "CA2227", Justification = "Used only for serialization.")]
-    public IList<string> Types { get; set; } = new List<string>();
+    public string? Tag { get; set; }
 
     public string DisplayName => Form switch
     {
-        "Alola" => $"{FrenchName} (Alola)",
-        "Galar" => $"{FrenchName} (Galar)",
-        _ => FrenchName,
+        "Alola" => $"{Name} (Alola)",
+        "Galar" => $"{Name} (Galar)",
+        _ => Name,
     };
 
     public string PrimaryGroup => Form switch
@@ -43,10 +44,6 @@ public class PokemonData
         "Galar" => $"{Number}g",
         _ => $"{Number}",
     };
-
-    public string PrimaryTpe => $"PokemonType.{Types[0]}";
-
-    public string? SecondaryTpe => Types.Count > 1 ? $"PokemonType.{Types[1]}" : "null";
 
     private static string GetGeneration(int number)
     {

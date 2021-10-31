@@ -15,6 +15,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <AdditionalFiles Include="pokemons.csv" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ChromaListe.Generator\ChromaListe.Generator.csproj" ReferenceOutputAssembly="false" OutputItemType="Analyzer" />
   </ItemGroup>
 

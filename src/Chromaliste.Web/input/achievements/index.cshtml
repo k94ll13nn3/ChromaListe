@@ -10,7 +10,7 @@ NoTitle:
     <div class="page-title__text">Hauts faits</div>
 </div>
 
-@foreach (Groups group in new[] { Groups.Starter, Groups.Legendary, Groups.Mythical, Groups.Fossil, Groups.Pikalike, Groups.Eevee, Groups.Regi, Groups.UltraBeast })
+@foreach (Groups group in new[] { Groups.Starter, Groups.SubLegendary, Groups.RestrictedLegendary, Groups.Mythical, Groups.Fossil, Groups.Pikalike, Groups.Eevee, Groups.Regi, Groups.UltraBeast })
 {
     IEnumerable<Pokemon> pokemons = Pokemon.GetAll(group);
     <h1>@group.GetDescription() (@pokemons.Count(x => catchedPokemon.Any(p => p.Number == x.Number))/@pokemons.Count())</h1>

@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.31717.71
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C7755EB0-A859-4D73-96C4-42D8DB2BD193}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChromaListe.Web", "src\Chromaliste.Web\ChromaListe.Web.csproj", "{72DBE97F-A68F-40FC-9446-FFC61CB8B2DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChromaListe.Web", "src\ChromaListe.Web\ChromaListe.Web.csproj", "{72DBE97F-A68F-40FC-9446-FFC61CB8B2DC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution items", "Solution items", "{647DBAF6-150F-468A-8E2F-6DD987142E4B}"
 	ProjectSection(SolutionItems) = preProject
@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution items", "Solution 
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChromaListe.Generator", "src\ChromaListe.Generator\ChromaListe.Generator.csproj", "{927C7493-5922-4663-A54E-1BD633C8539B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChromaListe.Updater", "src\ChromaListe.Updater\ChromaListe.Updater.csproj", "{F5692CB4-3AD7-49D1-8864-4AE11033C190}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -52,6 +54,18 @@ Global
 		{927C7493-5922-4663-A54E-1BD633C8539B}.Release|x64.Build.0 = Release|Any CPU
 		{927C7493-5922-4663-A54E-1BD633C8539B}.Release|x86.ActiveCfg = Release|Any CPU
 		{927C7493-5922-4663-A54E-1BD633C8539B}.Release|x86.Build.0 = Release|Any CPU
+		{F5692CB4-3AD7-49D1-8864-4AE11033C190}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5692CB4-3AD7-49D1-8864-4AE11033C190}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5692CB4-3AD7-49D1-8864-4AE11033C190}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F5692CB4-3AD7-49D1-8864-4AE11033C190}.Debug|x64.Build.0 = Debug|Any CPU
+		{F5692CB4-3AD7-49D1-8864-4AE11033C190}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F5692CB4-3AD7-49D1-8864-4AE11033C190}.Debug|x86.Build.0 = Debug|Any CPU
+		{F5692CB4-3AD7-49D1-8864-4AE11033C190}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5692CB4-3AD7-49D1-8864-4AE11033C190}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5692CB4-3AD7-49D1-8864-4AE11033C190}.Release|x64.ActiveCfg = Release|Any CPU
+		{F5692CB4-3AD7-49D1-8864-4AE11033C190}.Release|x64.Build.0 = Release|Any CPU
+		{F5692CB4-3AD7-49D1-8864-4AE11033C190}.Release|x86.ActiveCfg = Release|Any CPU
+		{F5692CB4-3AD7-49D1-8864-4AE11033C190}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +73,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{72DBE97F-A68F-40FC-9446-FFC61CB8B2DC} = {C7755EB0-A859-4D73-96C4-42D8DB2BD193}
 		{927C7493-5922-4663-A54E-1BD633C8539B} = {C7755EB0-A859-4D73-96C4-42D8DB2BD193}
+		{F5692CB4-3AD7-49D1-8864-4AE11033C190} = {C7755EB0-A859-4D73-96C4-42D8DB2BD193}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0965A89A-4F2C-4792-9E83-4300769D31C4}

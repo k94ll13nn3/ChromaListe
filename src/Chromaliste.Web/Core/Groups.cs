@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 
 namespace ChromaListe.Web.Core;
 
@@ -29,7 +29,7 @@ public enum Groups
     [Description("Pokémon de départ")]
     Starter = 1 << 10,
     [Description("Pokémon légendaires")]
-    Legendary = 1 << 11,
+    RestrictedLegendary = 1 << 11,
     [Description("Pokémon fabuleux")]
     Mythical = 1 << 12,
     [Description("Pokémon fossiles")]
@@ -42,4 +42,6 @@ public enum Groups
     Eevee = 1 << 16,
     [Description("Pokémon Regi")]
     Regi = 1 << 17,
+    [Description("Pokémon semi-légendaires")]
+    SubLegendary = 1 << 18,
 }

@@ -1,4 +1,4 @@
-﻿using Statiq.Common;
+using Statiq.Common;
 
 namespace ChromaListe.Web.Core;
 
@@ -12,7 +12,7 @@ public record PostData
         Category = document.Get<Category>(CustomKeys.Category);
         CaughtAs = document.GetString(CustomKeys.Caught);
         Location = document.GetString(CustomKeys.Location);
-        Level = document.GetInt(CustomKeys.Level);
+        Level = document.GetString(CustomKeys.Level);
         Version = document.Get<GameVersion>(CustomKeys.Version);
         Ball = document.Get<Ball>(CustomKeys.Ball);
         WritePath = document.GetString(CustomKeys.WritePath);
@@ -32,7 +32,7 @@ public record PostData
 
     public string Location { get; set; }
 
-    public int Level { get; set; }
+    public string Level { get; set; }
 
     public GameVersion Version { get; set; }
 

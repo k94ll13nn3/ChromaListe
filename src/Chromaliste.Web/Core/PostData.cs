@@ -4,8 +4,10 @@ namespace ChromaListe.Web.Core;
 
 public record PostData
 {
-    public PostData(IDocument document)
+    public PostData(IDocument? document)
     {
+        ArgumentNullException.ThrowIfNull(document);
+
         Number = document.GetString(CustomKeys.Number);
         Name = document.GetString(CustomKeys.Title);
         CatchDate = document.GetDateTime(CustomKeys.Date);

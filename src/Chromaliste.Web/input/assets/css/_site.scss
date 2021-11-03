@@ -1,4 +1,4 @@
-$icon-size: 52px;
+$icon-size: 67px;
 
 .ball-icon {
     margin-top: -7px;
@@ -22,4 +22,9 @@ $icon-size: 52px;
     height: $icon-size;
     display: inline-block;
     filter: drop-shadow(5px 5px 5px #222);
+}
+
+.post-image {
+    margin-left: auto;
+    margin-right: auto;
 }

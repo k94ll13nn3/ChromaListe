@@ -8,6 +8,7 @@
     <title>Statistiques &raquo ChromaListe by Keuvain</title>
     <link rel="icon" href="/ChromaListe/assets/img/favicon.ico" type="image/x-icon">
     <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+    <link href="/ChromaListe/assets/css/charts.min.css" rel="stylesheet" />
     <link href="/ChromaListe/assets/css/master.css" rel="stylesheet" />
     <script type="text/javascript" src="/ChromaListe/assets/js/lunr.min.js"></script>
     <script type="text/javascript" src="/ChromaListe/assets/js/jquery.min.js"></script>
@@ -43,135 +44,336 @@
 
 <h2>Méthode</h2>
 
-<dl>
-            <dd class="percentage percentage-269"><span class="text">Horde (49)</span></dd>
-            <dd class="percentage percentage-175"><span class="text">Appels &#xE0; l&#x27;aide (32)</span></dd>
-            <dd class="percentage percentage-126"><span class="text">P&#xEA;che &#xE0; la cha&#xEE;ne (23)</span></dd>
-            <dd class="percentage percentage-126"><span class="text">Reset (23)</span></dd>
-            <dd class="percentage percentage-87"><span class="text">Masuda (16)</span></dd>
-            <dd class="percentage percentage-87"><span class="text">Safari des Amis (16)</span></dd>
-            <dd class="percentage percentage-49"><span class="text">Rencontre al&#xE9;atoire &#xA0;(9)</span></dd>
-            <dd class="percentage percentage-27"><span class="text">Navi-Dex &#xA0;(5)</span></dd>
-            <dd class="percentage percentage-21"><span class="text">Rencontre visible &#xA0;(4)</span></dd>
-            <dd class="percentage percentage-16"><span class="text">Exp&#xE9;ditions Dynamax &#xA0;(3)</span></dd>
-            <dd class="percentage percentage-10"><span class="text">RNG &#xA0;(2)</span></dd>
-</dl>
+<table class="charts-css column show-labels show-primary-axis data-spacing-10">
+    <thead>
+        <tr>
+            <th scope="col"> Méthode </th>
+            <th scope="col"> Pourcentage </th>
+        </tr>
+    </thead>
+    <tbody>
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> Horde </th>
+                    <td style="--size: calc( 49 / 49 );"><span class="tooltip"> 49 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> Appels&#xA;aide </th>
+                    <td style="--size: calc( 32 / 49 );"><span class="tooltip"> 32 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> P&#xEA;che&#xA;cha&#xEE;ne </th>
+                    <td style="--size: calc( 23 / 49 );"><span class="tooltip"> 23 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> Reset </th>
+                    <td style="--size: calc( 23 / 49 );"><span class="tooltip"> 23 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> Masuda </th>
+                    <td style="--size: calc( 16 / 49 );"><span class="tooltip"> 16 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> Safari&#xA;Amis </th>
+                    <td style="--size: calc( 16 / 49 );"><span class="tooltip"> 16 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> Renc.&#xA;al&#xE9;a. </th>
+                    <td style="--size: calc( 9 / 49 );"><span class="tooltip"> 9 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> Navi-Dex </th>
+                    <td style="--size: calc( 5 / 49 );"><span class="tooltip"> 5 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> Renc.&#xA;vis. </th>
+                    <td style="--size: calc( 4 / 49 );"><span class="tooltip"> 4 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> Exp&#xE9;.&#xA;Dyna. </th>
+                    <td style="--size: calc( 3 / 49 );"><span class="tooltip"> 3 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> RNG </th>
+                    <td style="--size: calc( 2 / 49 );"><span class="tooltip"> 2 </span></td>
+                </tr>
+    </tbody>
+</table>
 
 <h2>Version</h2>
 
-<dl>
-            <dd class="percentage percentage-313"><span class="text">X (57)</span></dd>
-            <dd class="percentage percentage-274"><span class="text">Rubis Om&#xE9;ga (50)</span></dd>
-            <dd class="percentage percentage-214"><span class="text">Lune (39)</span></dd>
-            <dd class="percentage percentage-60"><span class="text">&#xC9;p&#xE9;e (11)</span></dd>
-            <dd class="percentage percentage-60"><span class="text">Saphir Alpha (11)</span></dd>
-            <dd class="percentage percentage-60"><span class="text">Ultra-Soleil (11)</span></dd>
-            <dd class="percentage percentage-10"><span class="text">Or HeartGold &#xA0;(2)</span></dd>
-            <dd class="percentage percentage-5"><span class="text">Cristal (VC) &#xA0;(1)</span></dd>
-</dl>
+<table class="charts-css column show-labels show-primary-axis data-spacing-10">
+    <thead>
+        <tr>
+            <th scope="col"> Méthode </th>
+            <th scope="col"> Pourcentage </th>
+        </tr>
+    </thead>
+    <tbody>
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> X </th>
+                    <td style="--size: calc( 57 / 57 );"><span class="tooltip"> 57 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> Rubis&#xA;Om&#xE9;ga </th>
+                    <td style="--size: calc( 50 / 57 );"><span class="tooltip"> 50 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> Lune </th>
+                    <td style="--size: calc( 39 / 57 );"><span class="tooltip"> 39 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> &#xC9;p&#xE9;e </th>
+                    <td style="--size: calc( 11 / 57 );"><span class="tooltip"> 11 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> Saphir&#xA;Alpha </th>
+                    <td style="--size: calc( 11 / 57 );"><span class="tooltip"> 11 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> Ultra-Soleil </th>
+                    <td style="--size: calc( 11 / 57 );"><span class="tooltip"> 11 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> Or&#xA;HeartGold </th>
+                    <td style="--size: calc( 2 / 57 );"><span class="tooltip"> 2 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> Cristal&#xA;(VC) </th>
+                    <td style="--size: calc( 1 / 57 );"><span class="tooltip"> 1 </span></td>
+                </tr>
+    </tbody>
+</table>
 
 <h2>Année</h2>
 
-<dl>
-            <dd class="percentage percentage-340"><span class="text">2017 (62)</span></dd>
-            <dd class="percentage percentage-236"><span class="text">2015 (43)</span></dd>
-            <dd class="percentage percentage-164"><span class="text">2014 (30)</span></dd>
-            <dd class="percentage percentage-159"><span class="text">2016 (29)</span></dd>
-            <dd class="percentage percentage-54"><span class="text">2020 (10)</span></dd>
-            <dd class="percentage percentage-21"><span class="text">2018 &#xA0;(4)</span></dd>
-            <dd class="percentage percentage-10"><span class="text">2019 &#xA0;(2)</span></dd>
-            <dd class="percentage percentage-10"><span class="text">2013 &#xA0;(2)</span></dd>
-</dl>
+<table class="charts-css column show-labels show-primary-axis data-spacing-10">
+    <thead>
+        <tr>
+            <th scope="col"> Méthode </th>
+            <th scope="col"> Pourcentage </th>
+        </tr>
+    </thead>
+    <tbody>
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> 2017 </th>
+                    <td style="--size: calc( 62 / 62 );"><span class="tooltip"> 62 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> 2015 </th>
+                    <td style="--size: calc( 43 / 62 );"><span class="tooltip"> 43 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> 2014 </th>
+                    <td style="--size: calc( 30 / 62 );"><span class="tooltip"> 30 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> 2016 </th>
+                    <td style="--size: calc( 29 / 62 );"><span class="tooltip"> 29 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> 2020 </th>
+                    <td style="--size: calc( 10 / 62 );"><span class="tooltip"> 10 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> 2018 </th>
+                    <td style="--size: calc( 4 / 62 );"><span class="tooltip"> 4 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> 2019 </th>
+                    <td style="--size: calc( 2 / 62 );"><span class="tooltip"> 2 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> 2013 </th>
+                    <td style="--size: calc( 2 / 62 );"><span class="tooltip"> 2 </span></td>
+                </tr>
+    </tbody>
+</table>
 
 <h2>Meilleurs mois</h2>
 
-<dl>
-            <dd class="percentage percentage-140"><span class="text">octobre 2017 (14)</span></dd>
-            <dd class="percentage percentage-130"><span class="text">septembre 2017 (13)</span></dd>
-            <dd class="percentage percentage-100"><span class="text">ao&#xFB;t 2014 (10)</span></dd>
-            <dd class="percentage percentage-90"><span class="text">f&#xE9;vrier 2017 &#xA0;(9)</span></dd>
-            <dd class="percentage percentage-90"><span class="text">mars 2016 &#xA0;(9)</span></dd>
-</dl>
+<table class="charts-css column show-labels show-primary-axis data-spacing-10">
+    <thead>
+        <tr>
+            <th scope="col"> Méthode </th>
+            <th scope="col"> Pourcentage </th>
+        </tr>
+    </thead>
+    <tbody>
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> octobre&#xA;2017 </th>
+                    <td style="--size: calc( 14 / 14 );"><span class="tooltip"> 14 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> septembre&#xA;2017 </th>
+                    <td style="--size: calc( 13 / 14 );"><span class="tooltip"> 13 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> ao&#xFB;t&#xA;2014 </th>
+                    <td style="--size: calc( 10 / 14 );"><span class="tooltip"> 10 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> f&#xE9;vrier&#xA;2017 </th>
+                    <td style="--size: calc( 9 / 14 );"><span class="tooltip"> 9 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> mars&#xA;2016 </th>
+                    <td style="--size: calc( 9 / 14 );"><span class="tooltip"> 9 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> juin&#xA;2015 </th>
+                    <td style="--size: calc( 8 / 14 );"><span class="tooltip"> 8 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> avril&#xA;2015 </th>
+                    <td style="--size: calc( 7 / 14 );"><span class="tooltip"> 7 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> d&#xE9;cembre&#xA;2016 </th>
+                    <td style="--size: calc( 6 / 14 );"><span class="tooltip"> 6 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> octobre&#xA;2015 </th>
+                    <td style="--size: calc( 6 / 14 );"><span class="tooltip"> 6 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> novembre&#xA;2017 </th>
+                    <td style="--size: calc( 5 / 14 );"><span class="tooltip"> 5 </span></td>
+                </tr>
+    </tbody>
+</table>
 
 <h2>Ball</h2>
 
-<dl>
-            <dd class="percentage percentage-203">
-                <span class="text">
-                    <img class="ball-icon" src="/ChromaListe/assets/img/balls/repeat.png" alt="Repeat" title="Repeat" /> (37)
-                </span>
-            </dd>
-            <dd class="percentage percentage-109">
-                <span class="text">
-                    <img class="ball-icon" src="/ChromaListe/assets/img/balls/poke.png" alt="Poke" title="Poke" /> (20)
-                </span>
-            </dd>
-            <dd class="percentage percentage-87">
-                <span class="text">
-                    <img class="ball-icon" src="/ChromaListe/assets/img/balls/premier.png" alt="Premier" title="Premier" /> (16)
-                </span>
-            </dd>
-            <dd class="percentage percentage-82">
-                <span class="text">
-                    <img class="ball-icon" src="/ChromaListe/assets/img/balls/luxury.png" alt="Luxury" title="Luxury" /> (15)
-                </span>
-            </dd>
-            <dd class="percentage percentage-71">
-                <span class="text">
-                    <img class="ball-icon" src="/ChromaListe/assets/img/balls/timer.png" alt="Timer" title="Timer" /> (13)
-                </span>
-            </dd>
-            <dd class="percentage percentage-65">
-                <span class="text">
-                    <img class="ball-icon" src="/ChromaListe/assets/img/balls/quick.png" alt="Quick" title="Quick" /> (12)
-                </span>
-            </dd>
-            <dd class="percentage percentage-65">
-                <span class="text">
-                    <img class="ball-icon" src="/ChromaListe/assets/img/balls/ultra.png" alt="Ultra" title="Ultra" /> (12)
-                </span>
-            </dd>
-            <dd class="percentage percentage-60">
-                <span class="text">
-                    <img class="ball-icon" src="/ChromaListe/assets/img/balls/nest.png" alt="Nest" title="Nest" /> (11)
-                </span>
-            </dd>
-            <dd class="percentage percentage-54">
-                <span class="text">
-                    <img class="ball-icon" src="/ChromaListe/assets/img/balls/dive.png" alt="Dive" title="Dive" /> (10)
-                </span>
-            </dd>
-            <dd class="percentage percentage-49">
-                <span class="text">
-                    <img class="ball-icon" src="/ChromaListe/assets/img/balls/heal.png" alt="Heal" title="Heal" /> &#xA0;(9)
-                </span>
-            </dd>
-            <dd class="percentage percentage-43">
-                <span class="text">
-                    <img class="ball-icon" src="/ChromaListe/assets/img/balls/net.png" alt="Net" title="Net" /> &#xA0;(8)
-                </span>
-            </dd>
-            <dd class="percentage percentage-38">
-                <span class="text">
-                    <img class="ball-icon" src="/ChromaListe/assets/img/balls/dusk.png" alt="Dusk" title="Dusk" /> &#xA0;(7)
-                </span>
-            </dd>
-            <dd class="percentage percentage-32">
-                <span class="text">
-                    <img class="ball-icon" src="/ChromaListe/assets/img/balls/great.png" alt="Great" title="Great" /> &#xA0;(6)
-                </span>
-            </dd>
-            <dd class="percentage percentage-27">
-                <span class="text">
-                    <img class="ball-icon" src="/ChromaListe/assets/img/balls/beast.png" alt="Beast" title="Beast" /> &#xA0;(5)
-                </span>
-            </dd>
-            <dd class="percentage percentage-5">
-                <span class="text">
-                    <img class="ball-icon" src="/ChromaListe/assets/img/balls/level.png" alt="Level" title="Level" /> &#xA0;(1)
-                </span>
-            </dd>
-</dl>
+<table class="charts-css column show-labels show-primary-axis data-spacing-10">
+    <thead>
+        <tr>
+            <th scope="col"> Méthode </th>
+            <th scope="col"> Pourcentage </th>
+        </tr>
+    </thead>
+    <tbody>
+                <tr>
+                    <th scope="row" style="white-space: pre-line">
+                        <span class="text">
+                            <img class="ball-icon" src="/ChromaListe/assets/img/balls/repeat.png" alt="Repeat" title="Repeat" />
+                        </span>
+                    </th>
+                    <td style="--size: calc( 37 / 37 );"><span class="tooltip"> 37 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line">
+                        <span class="text">
+                            <img class="ball-icon" src="/ChromaListe/assets/img/balls/poke.png" alt="Poke" title="Poke" />
+                        </span>
+                    </th>
+                    <td style="--size: calc( 20 / 37 );"><span class="tooltip"> 20 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line">
+                        <span class="text">
+                            <img class="ball-icon" src="/ChromaListe/assets/img/balls/premier.png" alt="Premier" title="Premier" />
+                        </span>
+                    </th>
+                    <td style="--size: calc( 16 / 37 );"><span class="tooltip"> 16 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line">
+                        <span class="text">
+                            <img class="ball-icon" src="/ChromaListe/assets/img/balls/luxury.png" alt="Luxury" title="Luxury" />
+                        </span>
+                    </th>
+                    <td style="--size: calc( 15 / 37 );"><span class="tooltip"> 15 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line">
+                        <span class="text">
+                            <img class="ball-icon" src="/ChromaListe/assets/img/balls/timer.png" alt="Timer" title="Timer" />
+                        </span>
+                    </th>
+                    <td style="--size: calc( 13 / 37 );"><span class="tooltip"> 13 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line">
+                        <span class="text">
+                            <img class="ball-icon" src="/ChromaListe/assets/img/balls/quick.png" alt="Quick" title="Quick" />
+                        </span>
+                    </th>
+                    <td style="--size: calc( 12 / 37 );"><span class="tooltip"> 12 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line">
+                        <span class="text">
+                            <img class="ball-icon" src="/ChromaListe/assets/img/balls/ultra.png" alt="Ultra" title="Ultra" />
+                        </span>
+                    </th>
+                    <td style="--size: calc( 12 / 37 );"><span class="tooltip"> 12 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line">
+                        <span class="text">
+                            <img class="ball-icon" src="/ChromaListe/assets/img/balls/nest.png" alt="Nest" title="Nest" />
+                        </span>
+                    </th>
+                    <td style="--size: calc( 11 / 37 );"><span class="tooltip"> 11 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line">
+                        <span class="text">
+                            <img class="ball-icon" src="/ChromaListe/assets/img/balls/dive.png" alt="Dive" title="Dive" />
+                        </span>
+                    </th>
+                    <td style="--size: calc( 10 / 37 );"><span class="tooltip"> 10 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line">
+                        <span class="text">
+                            <img class="ball-icon" src="/ChromaListe/assets/img/balls/heal.png" alt="Heal" title="Heal" />
+                        </span>
+                    </th>
+                    <td style="--size: calc( 9 / 37 );"><span class="tooltip"> 9 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line">
+                        <span class="text">
+                            <img class="ball-icon" src="/ChromaListe/assets/img/balls/net.png" alt="Net" title="Net" />
+                        </span>
+                    </th>
+                    <td style="--size: calc( 8 / 37 );"><span class="tooltip"> 8 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line">
+                        <span class="text">
+                            <img class="ball-icon" src="/ChromaListe/assets/img/balls/dusk.png" alt="Dusk" title="Dusk" />
+                        </span>
+                    </th>
+                    <td style="--size: calc( 7 / 37 );"><span class="tooltip"> 7 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line">
+                        <span class="text">
+                            <img class="ball-icon" src="/ChromaListe/assets/img/balls/great.png" alt="Great" title="Great" />
+                        </span>
+                    </th>
+                    <td style="--size: calc( 6 / 37 );"><span class="tooltip"> 6 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line">
+                        <span class="text">
+                            <img class="ball-icon" src="/ChromaListe/assets/img/balls/beast.png" alt="Beast" title="Beast" />
+                        </span>
+                    </th>
+                    <td style="--size: calc( 5 / 37 );"><span class="tooltip"> 5 </span></td>
+                </tr>
+                <tr>
+                    <th scope="row" style="white-space: pre-line">
+                        <span class="text">
+                            <img class="ball-icon" src="/ChromaListe/assets/img/balls/level.png" alt="Level" title="Level" />
+                        </span>
+                    </th>
+                    <td style="--size: calc( 1 / 37 );"><span class="tooltip"> 1 </span></td>
+                </tr>
+    </tbody>
+</table>
 
 
                 

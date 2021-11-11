@@ -1,39 +1,37 @@
-using System.ComponentModel;
-
 namespace ChromaListe.Web.Core;
 
 public enum Category
 {
-    [Description("Appels à l'aide")]
+    [ChromaDescription("Appels à l'aide", "Appels\naide")]
     Sos = 0,
 
-    [Description("Expéditions Dynamax")]
+    [ChromaDescription("Expéditions Dynamax", "Expé.\nDyna.")]
     DynamaxAdventures = 1,
 
-    [Description("Horde")]
+    [ChromaDescription("Horde")]
     Horde = 2,
 
-    [Description("Masuda")]
+    [ChromaDescription("Masuda")]
     Masuda = 3,
 
-    [Description("Navi-Dex")]
+    [ChromaDescription("Navi-Dex")]
     DexNav = 4,
 
-    [Description("Pêche à la chaîne")]
+    [ChromaDescription("Pêche à la chaîne", "Pêche\nchaîne")]
     ChainFishing = 5,
 
-    [Description("Rencontre aléatoire")]
+    [ChromaDescription("Rencontre aléatoire", "Renc.\naléa.")]
     RandomEncounter = 6,
 
-    [Description("Rencontre visible")]
+    [ChromaDescription("Rencontre visible", "Renc.\nvis.")]
     VisibleEncounter = 7,
 
-    [Description("Reset")]
+    [ChromaDescription("Reset")]
     Reset = 8,
 
-    [Description("RNG")]
+    [ChromaDescription("RNG")]
     Rng = 9,
 
-    [Description("Safari des Amis")]
+    [ChromaDescription("Safari des Amis", "Safari\nAmis")]
     FriendSafari = 10,
 }

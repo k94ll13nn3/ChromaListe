@@ -8,92 +8,142 @@ Title: Statistiques
 
 <h2>Méthode</h2>
 
-<dl>
-    @{
-        var categories = Context.GetPosts()
-            .GroupBy(x => x.Category)
-            .OrderByDescending(x => x.Count())
-            .ThenBy(x => x.Key.GetDescription())
-            .Select(x => (key: x.Key, count: x.Count()));
-        foreach (var category in categories)
-        {
-            var percent = category.count * 1000 / nbDocs;
-            var countString = $"({category.count})".PadLeft(4, ' ');
-            <dd class="percentage percentage-@percent"><span class="text">@category.key.GetDescription() @countString</span></dd>
+<table class="charts-css column show-labels show-primary-axis data-spacing-10">
+    <thead>
+        <tr>
+            <th scope="col"> Méthode </th>
+            <th scope="col"> Pourcentage </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var categories = Context.GetPosts()
+                .GroupBy(x => x.Category)
+                .OrderByDescending(x => x.Count())
+                .ThenBy(x => x.Key.GetDescription())
+                .Select(x => (key: x.Key, count: x.Count()));
+            var maxCategoryCount = categories.MaxBy(c => c.count).count;
+            foreach (var category in categories)
+            {
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> @category.key.GetDescription(true) </th>
+                    <td style="--size: calc( @category.count / @maxCategoryCount );"><span class="tooltip"> @category.count </span></td>
+                </tr>
+            }
         }
-    }
-</dl>
+    </tbody>
+</table>
 
 <h2>Version</h2>
 
-<dl>
-    @{
-        var versions = Context.GetPosts()
-            .GroupBy(x => x.Version)
-            .OrderByDescending(x => x.Count())
-            .ThenBy(x => x.Key.GetDescription())
-            .Select(x => (key: x.Key, count: x.Count()));
-        foreach (var version in versions)
-        {
-            var percent = version.count * 1000 / nbDocs;
-            var countString = $"({version.count})".PadLeft(4, ' ');
-            <dd class="percentage percentage-@percent"><span class="text">@version.key.GetDescription() @countString</span></dd>
+<table class="charts-css column show-labels show-primary-axis data-spacing-10">
+    <thead>
+        <tr>
+            <th scope="col"> Méthode </th>
+            <th scope="col"> Pourcentage </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var versions = Context.GetPosts()
+                .GroupBy(x => x.Version)
+                .OrderByDescending(x => x.Count())
+                .ThenBy(x => x.Key.GetDescription())
+                .Select(x => (key: x.Key, count: x.Count()));
+            var maxVersionCount = versions.MaxBy(c => c.count).count;
+            foreach (var version in versions)
+            {
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> @version.key.GetDescription(true) </th>
+                    <td style="--size: calc( @version.count / @maxVersionCount );"><span class="tooltip"> @version.count </span></td>
+                </tr>
+            }
         }
-    }
-</dl>
+    </tbody>
+</table>
 
 <h2>Année</h2>
 
-<dl>
-    @{
-        var years = Context.GetPosts()
-            .GroupBy(x => x.CatchDate.Year)
-            .OrderByDescending(x => x.Count())
-            .Select(x => (key: x.Key, count: x.Count()));
-        foreach (var year in years)
-        {
-            var percent = year.count * 1000 / nbDocs;
-            var countString = $"({year.count})".PadLeft(4, ' ');
-            <dd class="percentage percentage-@percent"><span class="text">@year.key @countString</span></dd>
+<table class="charts-css column show-labels show-primary-axis data-spacing-10">
+    <thead>
+        <tr>
+            <th scope="col"> Méthode </th>
+            <th scope="col"> Pourcentage </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var years = Context.GetPosts()
+                .GroupBy(x => x.CatchDate.Year)
+                .OrderByDescending(x => x.Count())
+                .Select(x => (key: x.Key, count: x.Count()));
+            var maxYearCount = years.MaxBy(c => c.count).count;
+            foreach (var year in years)
+            {
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> @year.key </th>
+                    <td style="--size: calc( @year.count / @maxYearCount );"><span class="tooltip"> @year.count </span></td>
+                </tr>
+            }
         }
-    }
-</dl>
+    </tbody>
+</table>
 
 <h2>Meilleurs mois</h2>
 
-<dl>
-    @{
-        var months = Context.GetPosts()
-            .GroupBy(x => x.CatchDate.ToString("MMMM yyyy"))
-            .OrderByDescending(x => x.Count())
-            .Select(x => (key: x.Key, count: x.Count()));
-        foreach (var month in months.Take(5))
-        {
-            var percent = month.count * 10;
-            var countString = $"({month.count})".PadLeft(4, ' ');
-            <dd class="percentage percentage-@percent"><span class="text">@month.key @countString</span></dd>
+<table class="charts-css column show-labels show-primary-axis data-spacing-10">
+    <thead>
+        <tr>
+            <th scope="col"> Méthode </th>
+            <th scope="col"> Pourcentage </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var months = Context.GetPosts()
+                .GroupBy(x => x.CatchDate.ToString("MMMM\nyyyy"))
+                .OrderByDescending(x => x.Count())
+                .Select(x => (key: x.Key, count: x.Count()));
+            var maxMonthCount = months.MaxBy(c => c.count).count;
+            foreach (var month in months.Take(10))
+            {
+                <tr>
+                    <th scope="row" style="white-space: pre-line"> @month.key </th>
+                    <td style="--size: calc( @month.count / @maxMonthCount );"><span class="tooltip"> @month.count </span></td>
+                </tr>
+            }
         }
-    }
-</dl>
+    </tbody>
+</table>
 
 <h2>Ball</h2>
 
-<dl>
-    @{
-        var balls = Context.GetPosts()
-            .GroupBy(x => x.Ball)
-            .OrderByDescending(x => x.Count())
-            .Select(x => (key: x.Key, count: x.Count()));
-        foreach (var ball in balls)
-        {
-            var percent = ball.count * 1000 / nbDocs;
-            var countString = $"({ball.count})".PadLeft(4, ' ');
-            var ballImage = Context.GetLink($"/assets/img/balls/{ball.key.ToString().ToLowerInvariant()}.png");
-            <dd class="percentage percentage-@percent">
-                <span class="text">
-                    <img class="ball-icon" src="@ballImage" alt="@ball.key.GetDescription()" title="@ball.key.GetDescription()" /> @countString
-                </span>
-            </dd>
+<table class="charts-css column show-labels show-primary-axis data-spacing-10">
+    <thead>
+        <tr>
+            <th scope="col"> Méthode </th>
+            <th scope="col"> Pourcentage </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var balls = Context.GetPosts()
+                .GroupBy(x => x.Ball)
+                .OrderByDescending(x => x.Count())
+                .Select(x => (key: x.Key, count: x.Count()));
+            var maxBallCount = balls.MaxBy(c => c.count).count;
+            foreach (var ball in balls)
+            {
+                var ballImage = Context.GetLink($"/assets/img/balls/{ball.key.ToString().ToLowerInvariant()}.png");
+                <tr>
+                    <th scope="row" style="white-space: pre-line">
+                        <span class="text">
+                            <img class="ball-icon" src="@ballImage" alt="@ball.key.GetDescription()" title="@ball.key.GetDescription()" />
+                        </span>
+                    </th>
+                    <td style="--size: calc( @ball.count / @maxBallCount );"><span class="tooltip"> @ball.count </span></td>
+                </tr>
+            }
         }
-    }
-</dl>
+    </tbody>
+</table>

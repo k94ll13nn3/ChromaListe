@@ -1,4 +1,3 @@
-using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Text;
@@ -30,7 +29,7 @@ public static class ClassExtensions
         return value;
     }
 
-    public static string GetDescription(this Enum value)
+    public static string GetDescription(this Enum value, bool shortDescription = false)
     {
         _ = value ?? throw new ArgumentNullException(nameof(value));
 
@@ -41,9 +40,14 @@ public static class ClassExtensions
             return value.ToString();
         }
 
-        var attributes = (DescriptionAttribute[])fi.GetCustomAttributes(typeof(DescriptionAttribute), false);
+        var attributes = (ChromaDescriptionAttribute[])fi.GetCustomAttributes(typeof(ChromaDescriptionAttribute), false);
 
-        return attributes?.Length > 0 ? attributes[0].Description : value.ToString();
+        return (attributes?.Length, shortDescription) switch
+        {
+            ( > 0, true) => attributes[0]!.ShortDescription ?? attributes[0]!.Description,
+            ( > 0, false) => attributes[0]!.Description,
+            _ => value.ToString(),
+        };
     }
 
     public static IList<PostData> GetPosts(this IExecutionContext context)

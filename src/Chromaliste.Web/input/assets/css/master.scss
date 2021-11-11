@@ -6,10 +6,10 @@ $iron: #333333;
 $cloudy: #828282;
 $blue: #1e5f86;
 
-@import
-    "mixins",
-    "default",
-    "percent",
-    "search",
-    "site"
-;
+@import "mixins", "default", "search", "site";
+
+.column {
+    height: 250px;
+    max-width: 800px;
+    --labels-size: 3rem !important;
+}

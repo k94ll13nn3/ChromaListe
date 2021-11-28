@@ -38,12 +38,12 @@
         {
             <li>Attrapé : @post.CaughtAs</li>
         }
-        <li>Numéro : @post.Number</li>
-        <li>@post.Location</li>
-        <li>Niveau : @post.Level</li>
-        <li>Version : @post.Version.GetDescription()</li>
-        <li>Méthodes : @post.Category.GetDescription()</li>
-        <li>Ball : <img class="ball-icon" src="@ballImage" alt="@post.Ball.GetDescription()" title="@post.Ball.GetDescription()" /></li>
+        <li><strong>Numéro :</strong> @post.Number</li>
+        <li><strong>Rencontré :</strong> @post.Location</li>
+        <li><strong>Niveau :</strong> @post.Level</li>
+        <li><strong>Version :</strong> @post.Version.GetDescription()</li>
+        <li><strong>Méthode :</strong> @post.Category.GetDescription()</li>
+        <li><strong>Ball :</strong> <img class="ball-icon" src="@ballImage" alt="@post.Ball.GetDescription()" title="@post.Ball.GetDescription()" /></li>
     </ul>
 
     @RenderBody()

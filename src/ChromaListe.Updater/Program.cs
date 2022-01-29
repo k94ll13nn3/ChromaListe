@@ -32,7 +32,7 @@ string json = JsonSerializer.Serialize(battlePokedex);
 IEnumerable<PokemonData>? pokemons = JsonSerializer
     .Deserialize<IDictionary<string, PokemonData>>(json)
     ?.Values
-    .Where(x => x.Number > 0 && new[] { string.Empty, "Alola", "Galar" }.Contains(x.Form));
+    .Where(x => x.Number > 0 && new[] { string.Empty, "Alola", "Galar", "Hisui" }.Contains(x.Form));
 if (pokemons is null)
 {
     throw new InvalidOperationException("pokemons");

@@ -42,4 +42,6 @@ public enum Groups
     Regi = 1 << 17,
     [ChromaDescription("Pokémon semi-légendaires")]
     SubLegendary = 1 << 18,
+    [ChromaDescription("Formes de Hisui")]
+    Hisui = 1 << 19,
 }

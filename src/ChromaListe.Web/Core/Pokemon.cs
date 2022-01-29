@@ -1,4 +1,4 @@
-﻿namespace ChromaListe.Web.Core;
+namespace ChromaListe.Web.Core;
 
 public sealed partial record Pokemon
 {
@@ -15,7 +15,7 @@ public sealed partial record Pokemon
 
     public string Number { get; }
 
-    public string PaddedNumber => Number.PadLeft(Number.EndsWith('a') || Number.EndsWith('g') ? 5 : 4, '0');
+    public string PaddedNumber => Number.PadLeft(Number.EndsWith('a') || Number.EndsWith('g') || Number.EndsWith('h') ? 5 : 4, '0');
 
     public Groups Groups { get; }
 

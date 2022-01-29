@@ -28,6 +28,7 @@ public class PokemonData
     {
         "Alola" => $"{Name} (Alola)",
         "Galar" => $"{Name} (Galar)",
+        "Hisui" => $"{Name} (Hisui)",
         _ => Name,
     };
 
@@ -35,6 +36,7 @@ public class PokemonData
     {
         "Alola" => "Groups.Alola",
         "Galar" => "Groups.Galar",
+        "Hisui" => "Groups.Hisui",
         _ => $"Groups.{GetGeneration((int)Number)}",
     };
 
@@ -42,6 +44,7 @@ public class PokemonData
     {
         "Alola" => $"{Number}a",
         "Galar" => $"{Number}g",
+        "Hisui" => $"{Number}h",
         _ => $"{Number}",
     };
 

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Monde ouvert &raquo ChromaListe by Keuvain</title>
+    <link rel="icon" href="/ChromaListe/assets/img/favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+    <link href="/ChromaListe/assets/css/charts.min.css" rel="stylesheet" />
+    <link href="/ChromaListe/assets/css/master.css" rel="stylesheet" />
+    <script type="text/javascript" src="/ChromaListe/assets/js/lunr.min.js"></script>
+    <script type="text/javascript" src="/ChromaListe/assets/js/jquery.min.js"></script>
+</head>
+
+
+    <body>
+        <div class="wrapper">
+            <header class="header">
+    <div class="navigation">
+        <a href="/ChromaListe/" class="logo">ChromaListe by Keuvain</a>
+
+        <ul class="menu">
+            <li class="menu__entry"><a href="/ChromaListe/">Accueil</a></li>
+            <li class="menu__entry"><a href="/ChromaListe/statistics">Statistiques</a></li>
+            <li class="menu__entry"><a href="/ChromaListe/capturetable">Table de capture</a> (<a href="/ChromaListe/achievements">*</a>)</li>
+            <li class="menu__entry">
+                <div>
+                    <input type="text" id="searchInput" placeholder="Rechercher..." />
+                    <div id="searchResults"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</header>
+
+            
+    <div class="page-title">
+            <div class="page-title__text">Monde ouvert</div>
+            <div class="page-title__subtitle">Pokémon attrapés avec la méthode <strong>‘Monde ouvert’</strong></div>
+    </div>
+
+
+<ul class="list-posts">
+
+<li class="post-teaser">
+    <a href="/ChromaListe/posts/2022-02-16-mustebouee.html">
+        <div>
+            <span class="post-teaser__title">Must&#xE9;bou&#xE9;e</span>
+            <span class="post-teaser__date">16 f&#xE9;vrier 2022</span>
+        </div>
+    </a>
+</li>
+
+<li class="post-teaser">
+    <a href="/ChromaListe/posts/2022-02-14-chaglam.html">
+        <div>
+            <span class="post-teaser__title">Chaglam</span>
+            <span class="post-teaser__date">14 f&#xE9;vrier 2022</span>
+        </div>
+    </a>
+</li>
+
+<li class="post-teaser">
+    <a href="/ChromaListe/posts/2022-02-13-nosferapti.html">
+        <div>
+            <span class="post-teaser__title">Nosferapti</span>
+            <span class="post-teaser__date">13 f&#xE9;vrier 2022</span>
+        </div>
+    </a>
+</li>
+
+<li class="post-teaser">
+    <a href="/ChromaListe/posts/2022-02-05-lixy.html">
+        <div>
+            <span class="post-teaser__title">Lixy</span>
+            <span class="post-teaser__date">05 f&#xE9;vrier 2022</span>
+        </div>
+    </a>
+</li>
+
+<li class="post-teaser">
+    <a href="/ChromaListe/posts/2022-02-03-etourmi.html">
+        <div>
+            <span class="post-teaser__title">&#xC9;tourmi</span>
+            <span class="post-teaser__date">03 f&#xE9;vrier 2022</span>
+        </div>
+    </a>
+</li>
+
+<li class="post-teaser">
+    <a href="/ChromaListe/posts/2022-02-02-luxray.html">
+        <div>
+            <span class="post-teaser__title">Luxray</span>
+            <span class="post-teaser__date">02 f&#xE9;vrier 2022</span>
+        </div>
+    </a>
+</li>
+
+<li class="post-teaser">
+    <a href="/ChromaListe/posts/2022-01-29-luxio.html">
+        <div>
+            <span class="post-teaser__title">Luxio</span>
+            <span class="post-teaser__date">29 janvier 2022</span>
+        </div>
+    </a>
+</li>
+
+<li class="post-teaser">
+    <a href="/ChromaListe/posts/2022-01-28-nostenfer.html">
+        <div>
+            <span class="post-teaser__title">Nostenfer</span>
+            <span class="post-teaser__date">28 janvier 2022</span>
+        </div>
+    </a>
+</li>
+
+    
+</ul>
+
+
+                
+        </div>
+
+        
+<div class="explore">
+    <div class="explore__devider">
+        ------ Pokémon chromatiques : 193/198 (20,1%) |
+        <a id="randomPostLink"></a> ------
+    </div>
+    <ul class="categories">
+            <li class="categories__item"><a href="/ChromaListe/categories/sos">Appels &#xE0; l&#x27;aide</a></li>
+            <li class="categories__item"><a href="/ChromaListe/categories/dynamaxadventures">Exp&#xE9;ditions Dynamax</a></li>
+            <li class="categories__item"><a href="/ChromaListe/categories/horde">Horde</a></li>
+            <li class="categories__item"><a href="/ChromaListe/categories/masuda">Masuda</a></li>
+            <li class="categories__item"><a href="/ChromaListe/categories/overworld">Monde ouvert</a></li>
+            <li class="categories__item"><a href="/ChromaListe/categories/dexnav">Navi-Dex</a></li>
+            <li class="categories__item"><a href="/ChromaListe/categories/chainfishing">P&#xEA;che &#xE0; la cha&#xEE;ne</a></li>
+            <li class="categories__item"><a href="/ChromaListe/categories/pokeradar">Pok&#xE9; Radar</a></li>
+            <li class="categories__item"><a href="/ChromaListe/categories/randomencounter">Rencontre al&#xE9;atoire</a></li>
+            <li class="categories__item"><a href="/ChromaListe/categories/visibleencounter">Rencontre visible</a></li>
+            <li class="categories__item"><a href="/ChromaListe/categories/reset">Reset</a></li>
+            <li class="categories__item"><a href="/ChromaListe/categories/rng">RNG</a></li>
+            <li class="categories__item"><a href="/ChromaListe/categories/friendsafari">Safari des Amis</a></li>
+    </ul>
+    <div class="explore__label">
+        Thème <a href="https://github.com/kronik3r/daktilo">Daktilo</a> sous licence MIT.<br/>
+        Données reprises de <a href="https://github.com/smogon/pokemon-showdown">pokemon-showdown</a> sous licence MIT.<br/>
+        Pokémon et tous les noms respectifs sont des marques déposées et © de Nintendo 1996-2021. <br/>
+        Les images et icônes sont © Nintendo/Creatures Inc./GAME FREAK Inc.
+    </div>
+</div>
+
+
+        <script type="text/javascript" src="/ChromaListe/assets/js/scripts.js"></script>
+
+        
+    
+
+    </body>
+</html>

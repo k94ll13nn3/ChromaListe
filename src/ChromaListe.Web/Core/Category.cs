@@ -34,4 +34,10 @@ public enum Category
 
     [ChromaDescription("Safari des Amis", "Safari\nAmis")]
     FriendSafari = 10,
+
+    [ChromaDescription("Poké Radar", "Poké\nRadar")]
+    PokeRadar = 11,
+
+    [ChromaDescription("Monde ouvert", "Monde\nouvert")]
+    Overworld = 12,
 }

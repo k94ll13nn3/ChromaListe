@@ -25,4 +25,10 @@ public enum GameVersion
 
     [ChromaDescription("Or HeartGold", "Or\nHeartGold")]
     HG = 7,
+
+    [ChromaDescription("Diamant Étincelant", "Diamant\nÉtincelant")]
+    BD = 8,
+
+    [ChromaDescription("Légendes Pokémon : Arceus", "Légendes\nPokémon :\nArceus")]
+    PLA = 9,
 }

@@ -1,6 +1,4 @@
 ﻿using ChromaListe.Web.Core;
-using Statiq.Common;
-using Statiq.Core;
 using Statiq.Markdown;
 using Statiq.Yaml;
 

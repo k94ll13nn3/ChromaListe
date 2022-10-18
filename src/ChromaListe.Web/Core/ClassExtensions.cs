@@ -2,7 +2,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
-using Statiq.Common;
 
 namespace ChromaListe.Web.Core;
 
@@ -54,14 +53,11 @@ public static class ClassExtensions
     {
         _ = context ?? throw new ArgumentNullException(nameof(context));
 
-        if (Posts is null)
-        {
-            Posts = context.Outputs
+        Posts ??= context.Outputs
                 .FromPipeline(PipelineNames.Posts)
                 .OrderByDescending(x => x.Get(CustomKeys.Date))
                 .ThenByDescending(x => x.Get(CustomKeys.Number))
                 .Select(x => new PostData(x)).ToList();
-        }
 
         return Posts;
     }

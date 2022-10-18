@@ -1,7 +1,5 @@
 using System.Globalization;
 using ChromaListe.Web.Core;
-using Statiq.App;
-using Statiq.Common;
 
 CultureInfo.DefaultThreadCurrentCulture = CultureInfo.CreateSpecificCulture("fr-FR");
 return await Bootstrapper

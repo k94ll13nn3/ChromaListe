@@ -14,7 +14,7 @@
     {
         var currentPokemon = Pokemon.Get(pokemon.Number);
         <a title="@currentPokemon.Name" href="@Context.GetLink("/")@pokemon.WritePath">
-            <img class="pokemon-icon" src="@pokemon.Icon">
+            <img class="pokemon-icon" src="@pokemon.Icon" loading="lazy" alt="Image of captured shiny @pokemon.Name">
         </a>
     }
 </div>

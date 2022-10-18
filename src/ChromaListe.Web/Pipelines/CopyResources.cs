@@ -1,7 +1,4 @@
-﻿using Statiq.Common;
-using Statiq.Core;
-
-namespace ChromaListe.Web.Pipelines;
+﻿namespace ChromaListe.Web.Pipelines;
 
 public class CopyResources : Pipeline
 {

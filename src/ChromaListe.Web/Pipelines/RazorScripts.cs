@@ -1,6 +1,4 @@
 ﻿using ChromaListe.Web.Core;
-using Statiq.Common;
-using Statiq.Core;
 using Statiq.Minification;
 using Statiq.Razor;
 

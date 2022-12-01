@@ -11,7 +11,7 @@
     <PackageReference Include="Statiq.Minification" Version="1.0.0-beta.62" />
     <PackageReference Include="Statiq.Razor" Version="1.0.0-beta.62" />
     <PackageReference Include="Statiq.Sass" Version="1.0.0-beta.62" />
-    <PackageReference Include="Statiq.Yaml" Version="1.0.0-beta.62" />
+    <PackageReference Include="Statiq.Yaml" Version="1.0.0-beta.63" />
   </ItemGroup>
 
   <ItemGroup>

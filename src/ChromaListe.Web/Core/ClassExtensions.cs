@@ -1,18 +1,13 @@
-using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 
 namespace ChromaListe.Web.Core;
 
-public static class ClassExtensions
+public static partial class ClassExtensions
 {
     private static IList<PostData>? Posts;
-    private static readonly Regex TrimWhitespaces = new(@"\s", RegexOptions.Compiled);
-    private static readonly Regex RemoveNonText = new(@"[^\w\s\p{Pd}]", RegexOptions.Compiled);
-    private static readonly Regex DashToUnderscores = new("([-_]){2,}", RegexOptions.Compiled);
 
-    [SuppressMessage("Globalization", "CA1308", Justification = "Only for display.")]
     public static string Slugify(this string value)
     {
         _ = value ?? throw new ArgumentNullException(nameof(value));
@@ -20,10 +15,10 @@ public static class ClassExtensions
         value = value.ToLowerInvariant();
         byte[] bytes = CodePagesEncodingProvider.Instance.GetEncoding("Cyrillic")?.GetBytes(value) ?? Array.Empty<byte>();
         value = Encoding.ASCII.GetString(bytes);
-        value = TrimWhitespaces.Replace(value, "-");
-        value = RemoveNonText.Replace(value, string.Empty);
+        value = TrimWhitespaces().Replace(value, "-");
+        value = RemoveNonText().Replace(value, string.Empty);
         value = value.Trim('-', '_');
-        value = DashToUnderscores.Replace(value, "$1");
+        value = DashToUnderscores().Replace(value, "$1");
 
         return value;
     }
@@ -61,4 +56,13 @@ public static class ClassExtensions
 
         return Posts;
     }
+
+    [GeneratedRegex("\\s", RegexOptions.Compiled)]
+    private static partial Regex TrimWhitespaces();
+
+    [GeneratedRegex("[^\\w\\s\\p{Pd}]", RegexOptions.Compiled)]
+    private static partial Regex RemoveNonText();
+
+    [GeneratedRegex("([-_]){2,}", RegexOptions.Compiled)]
+    private static partial Regex DashToUnderscores();
 }

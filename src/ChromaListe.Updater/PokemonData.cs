@@ -1,4 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
 using System.Text.Json.Serialization;
 
 namespace ChromaListe.Updater;
@@ -18,11 +17,9 @@ public class PokemonData
     public string Form { get; set; } = string.Empty;
 
     [JsonPropertyName("types")]
-    [SuppressMessage("Usage", "CA2227", Justification = "Used only for serialization.")]
     public IList<string> Types { get; set; } = new List<string>();
 
     [JsonPropertyName("tags")]
-    [SuppressMessage("Usage", "CA2227", Justification = "Used only for serialization.")]
     public IList<string> Tags { get; set; } = new List<string>();
 
     public string PrimaryType => Types[0];

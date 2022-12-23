@@ -6,8 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Jint" Version="2.11.58" PrivateAssets="all" GeneratePathProperty="true" />
-    <PackageReference Include="System.Text.Json" Version="7.0.0" />
+    <PackageReference Include="Jint" Version="3.0.0-beta-2044" PrivateAssets="all" GeneratePathProperty="true" />
+    <PackageReference Include="System.Text.Json" Version="7.0.1" />
   </ItemGroup>
 
   <ItemGroup>

@@ -11,11 +11,12 @@ public class PokemonGenerator : ISourceGenerator
     private static readonly Dictionary<string, List<string>> Groups = new()
     {
         ["Regi"] = new List<string> { "377", "378", "379", "486", "894", "895" },
-        ["Starter"] = new List<string> { "1", "4", "7", "152", "155", "158", "252", "255", "258", "387", "390", "393", "495", "498", "501", "650", "653", "656", "722", "725", "728", "810", "813", "816" },
-        ["Fossil"] = new List<string> { "138", "139", "140", "141", "142", "345", "346", "347", "348", "408", "409", "410", "411", "564", "565", "566", "567", "696", "697", "698", "699", "880", "881", "882", "883", }, //25
+        ["Starter"] = new List<string> { "1", "4", "7", "152", "155", "158", "252", "255", "258", "387", "390", "393", "495", "498", "501", "650", "653", "656", "722", "725", "728", "810", "813", "816", "906", "909", "912" },
+        ["Fossil"] = new List<string> { "138", "139", "140", "141", "142", "345", "346", "347", "348", "408", "409", "410", "411", "564", "565", "566", "567", "696", "697", "698", "699", "880", "881", "882", "883", },
         ["Pikalike"] = new List<string> { "25", "26", "26a", "172", "311", "312", "417", "587", "702", "777", "877" },
         ["Eevee"] = new List<string> { "133", "134", "135", "136", "196", "197", "470", "471", "700" },
         ["UltraBeast"] = new List<string> { "793", "794", "795", "796", "797", "798", "799", "803", "804", "805", "806" },
+        ["FakeRegional"] = new List<string> { "948", "949", "960", "961" },
     };
 
     public void Execute(GeneratorExecutionContext context)
@@ -84,15 +85,15 @@ public sealed partial record Pokemon
         foreach (PokemonData pokemon in pokemons)
         {
             IEnumerable<string> groupsForPokemon = Groups.Where(x => x.Value.Contains(pokemon.DisplayNumber)).Select(x => $"Groups.{x.Key}");
-            string groupsString = pokemon.PrimaryGroup;
+            var groupsString = new StringBuilder(pokemon.PrimaryGroup);
             if (groupsForPokemon.Any())
             {
-                groupsString += " | " + string.Join(" | ", groupsForPokemon);
+                groupsString.Append(" | ").Append(string.Join(" | ", groupsForPokemon));
             }
 
-            if (!string.IsNullOrWhiteSpace(pokemon.Tag))
+            foreach (string tag in pokemon.Tags)
             {
-                groupsString += " | Groups." + pokemon.Tag!.Replace(" ", "").Replace("-", "");
+                groupsString.Append(" | Groups.").Append(tag!.Replace(" ", "").Replace("-", ""));
             }
 
             string line = $@"        [""{pokemon.DisplayNumber}""] = new Pokemon(""{pokemon.DisplayNumber}"", ""{pokemon.DisplayName}"", {groupsString}),";
@@ -111,6 +112,6 @@ public sealed partial record Pokemon
             splittedLine[2],
             splittedLine[3],
             splittedLine[4],
-            splittedLine[5]);
+            splittedLine[5].Split(new[] { '|' }, StringSplitOptions.RemoveEmptyEntries));
     }
 }

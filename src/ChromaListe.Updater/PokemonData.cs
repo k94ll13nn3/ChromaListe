@@ -26,5 +26,5 @@ public class PokemonData
 
     public string? SecondaryType => Types.Count > 1 ? Types[1] : null;
 
-    public string? PrimaryTag => Tags.Count > 0 ? Tags[0] : null;
+    public string? TagList => Tags.Count > 0 ? string.Join('|', Tags) : null;
 }

@@ -23,16 +23,16 @@ string pokedexJs = await client.GetStringAsync(new Uri("smogon/pokemon-showdown/
 // Remove all before '"'.
 string minifiedJs = string.Concat("Pokedex", pokedexJs.AsSpan(56));
 
-object battlePokedex = new Engine()
-    .Execute(minifiedJs)
-    .GetCompletionValue()
+using var engine = new Engine();
+object battlePokedex = engine
+    .Evaluate(minifiedJs)
     .ToObject();
 
 string json = JsonSerializer.Serialize(battlePokedex);
 IEnumerable<PokemonData>? pokemons = JsonSerializer
     .Deserialize<IDictionary<string, PokemonData>>(json)
     ?.Values
-    .Where(x => x.Number > 0 && new[] { string.Empty, "Alola", "Galar", "Hisui" }.Contains(x.Form));
+    .Where(x => x.Number > 0 && new[] { string.Empty, "Alola", "Galar", "Hisui", "Paldea" }.Contains(x.Form));
 if (pokemons is null)
 {
     throw new InvalidOperationException("pokemons");
@@ -50,7 +50,7 @@ foreach (PokemonData pokemon in pokemons)
     pokemon.Name = names.GetValueOrDefault((int)pokemon.Number, pokemon.BaseName ?? pokemon.Name);
     string primaryType = types.GetValueOrDefault(pokemon.PrimaryType, pokemon.PrimaryType);
     string? secondaryType = pokemon.SecondaryType is not null ? types.GetValueOrDefault(pokemon.SecondaryType, pokemon.SecondaryType) : null;
-    generatedLines.Add($"{pokemon.Number},{pokemon.Name},{pokemon.Form},{primaryType},{secondaryType},{pokemon.PrimaryTag}");
+    generatedLines.Add($"{pokemon.Number},{pokemon.Name},{pokemon.Form},{primaryType},{secondaryType},{pokemon.TagList}");
 }
 
 await File.WriteAllLinesAsync("../ChromaListe.Web/pokemons.csv", generatedLines);

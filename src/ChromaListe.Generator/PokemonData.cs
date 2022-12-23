@@ -2,14 +2,14 @@ namespace ChromaListe.Generator;
 
 public class PokemonData
 {
-    public PokemonData(double number, string name, string form, string primaryTpe, string? secondaryTpe, string? tag)
+    public PokemonData(double number, string name, string form, string primaryTpe, string? secondaryTpe, string[] tags)
     {
         Number = number;
         Name = name;
         Form = form;
         PrimaryTpe = primaryTpe;
         SecondaryTpe = secondaryTpe;
-        Tag = tag;
+        Tags = tags;
     }
 
     public double Number { get; set; }
@@ -22,13 +22,14 @@ public class PokemonData
 
     public string? SecondaryTpe { get; set; }
 
-    public string? Tag { get; set; }
+    public string[] Tags { get; set; }
 
     public string DisplayName => Form switch
     {
         "Alola" => $"{Name} (Alola)",
         "Galar" => $"{Name} (Galar)",
         "Hisui" => $"{Name} (Hisui)",
+        "Paldea" => $"{Name} (Paldea)",
         _ => Name,
     };
 
@@ -37,6 +38,7 @@ public class PokemonData
         "Alola" => "Groups.Alola",
         "Galar" => "Groups.Galar",
         "Hisui" => "Groups.Hisui",
+        "Paldea" => "Groups.Paldea",
         _ => $"Groups.{GetGeneration((int)Number)}",
     };
 
@@ -45,6 +47,7 @@ public class PokemonData
         "Alola" => $"{Number}a",
         "Galar" => $"{Number}g",
         "Hisui" => $"{Number}h",
+        "Paldea" => $"{Number}p",
         _ => $"{Number}",
     };
 
@@ -59,7 +62,8 @@ public class PokemonData
             _ when number <= 649 => "Generation5",
             _ when number <= 721 => "Generation6",
             _ when number <= 809 => "Generation7",
-            _ => "Generation8"
+            _ when number <= 905 => "Generation8",
+            _ => "Generation9"
         };
     }
 }

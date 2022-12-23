@@ -44,4 +44,12 @@ public enum Groups
     SubLegendary = 1 << 18,
     [ChromaDescription("Formes de Hisui")]
     Hisui = 1 << 19,
+    [ChromaDescription("Formes de Paldea")]
+    Paldea = 1 << 20,
+    [ChromaDescription("Pokémon paradoxes")]
+    Paradox = 1 << 21,
+    [ChromaDescription("Génération 9")]
+    Generation9 = 1 << 22,
+    [ChromaDescription("Faux régionaux")]
+    FakeRegional = 1 << 23,
 }

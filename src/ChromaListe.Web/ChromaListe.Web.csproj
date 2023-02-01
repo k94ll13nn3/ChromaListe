@@ -10,7 +10,7 @@
     <PackageReference Include="Statiq.Markdown" Version="1.0.0-beta.65" />
     <PackageReference Include="Statiq.Minification" Version="1.0.0-beta.65" />
     <PackageReference Include="Statiq.Razor" Version="1.0.0-beta.65" />
-    <PackageReference Include="Statiq.Sass" Version="1.0.0-beta.65" />
+    <PackageReference Include="Statiq.Sass" Version="1.0.0-beta.66" />
     <PackageReference Include="Statiq.Yaml" Version="1.0.0-beta.65" />
   </ItemGroup>
 

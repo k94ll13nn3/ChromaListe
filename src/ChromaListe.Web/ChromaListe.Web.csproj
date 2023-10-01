@@ -6,12 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Statiq.App" Version="1.0.0-beta.70" />
-    <PackageReference Include="Statiq.Markdown" Version="1.0.0-beta.70" />
-    <PackageReference Include="Statiq.Minification" Version="1.0.0-beta.70" />
-    <PackageReference Include="Statiq.Razor" Version="1.0.0-beta.70" />
-    <PackageReference Include="Statiq.Sass" Version="1.0.0-beta.70" />
-    <PackageReference Include="Statiq.Yaml" Version="1.0.0-beta.70" />
+    <PackageReference Include="Statiq.App" Version="1.0.0-beta.71" />
+    <PackageReference Include="Statiq.Markdown" Version="1.0.0-beta.71" />
+    <PackageReference Include="Statiq.Minification" Version="1.0.0-beta.71" />
+    <PackageReference Include="Statiq.Razor" Version="1.0.0-beta.71" />
+    <PackageReference Include="Statiq.Sass" Version="1.0.0-beta.71" />
+    <PackageReference Include="Statiq.Yaml" Version="1.0.0-beta.71" />
   </ItemGroup>
 
   <ItemGroup>

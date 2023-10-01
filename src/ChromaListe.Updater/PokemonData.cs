@@ -17,10 +17,10 @@ public class PokemonData
     public string Form { get; set; } = string.Empty;
 
     [JsonPropertyName("types")]
-    public IList<string> Types { get; set; } = new List<string>();
+    public IList<string> Types { get; } = new List<string>();
 
     [JsonPropertyName("tags")]
-    public IList<string> Tags { get; set; } = new List<string>();
+    public IList<string> Tags { get; } = new List<string>();
 
     public string PrimaryType => Types[0];
 

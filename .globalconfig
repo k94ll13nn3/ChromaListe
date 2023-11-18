@@ -9,5 +9,7 @@ dotnet_diagnostic.IDE0058.severity = none
 dotnet_diagnostic.CA2007.severity = none
 dotnet_diagnostic.RCS1090.severity = none
 
+dotnet_diagnostic.IDE0270.severity = refactoring
+
 # S3903 : Move class to namespace. Not detecting file scoped namespace
 dotnet_diagnostic.S3903.severity=silent

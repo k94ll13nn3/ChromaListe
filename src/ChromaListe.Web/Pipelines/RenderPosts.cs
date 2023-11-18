@@ -1,4 +1,4 @@
-﻿using ChromaListe.Web.Core;
+using ChromaListe.Web.Core;
 using Statiq.Razor;
 
 namespace ChromaListe.Web.Pipelines;
@@ -7,21 +7,18 @@ public class RenderPosts : Pipeline
 {
     public RenderPosts()
     {
-        Dependencies.AddRange(new[]
-        {
-                PipelineNames.Posts,
-            });
+        Dependencies.AddRange(PipelineNames.Posts);
 
-        ProcessModules = new ModuleList
-            {
-                new ReplaceDocuments(PipelineNames.Posts),
-                new RenderRazor().WithLayout((NormalizedPath)"/_Post.cshtml"),
-                new SetDestination(Config.FromDocument(doc => (NormalizedPath)doc.GetString(CustomKeys.WritePath))),
-            };
+        ProcessModules =
+        [
+            new ReplaceDocuments(PipelineNames.Posts),
+            new RenderRazor().WithLayout((NormalizedPath)"/_Post.cshtml"),
+            new SetDestination(Config.FromDocument(doc => (NormalizedPath)doc.GetString(CustomKeys.WritePath))),
+        ];
 
-        OutputModules = new ModuleList
-            {
-                new WriteFiles()
-            };
+        OutputModules =
+        [
+            new WriteFiles()
+        ];
     }
 }

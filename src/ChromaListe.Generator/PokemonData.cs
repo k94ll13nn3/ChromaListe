@@ -1,28 +1,18 @@
 namespace ChromaListe.Generator;
 
-public class PokemonData
+public class PokemonData(double number, string name, string form, string primaryTpe, string? secondaryTpe, string[] tags)
 {
-    public PokemonData(double number, string name, string form, string primaryTpe, string? secondaryTpe, string[] tags)
-    {
-        Number = number;
-        Name = name;
-        Form = form;
-        PrimaryTpe = primaryTpe;
-        SecondaryTpe = secondaryTpe;
-        Tags = tags;
-    }
+    public double Number { get; set; } = number;
 
-    public double Number { get; set; }
+    public string Name { get; set; } = name;
 
-    public string Name { get; set; }
+    public string Form { get; set; } = form;
 
-    public string Form { get; set; }
+    public string PrimaryTpe { get; set; } = primaryTpe;
 
-    public string PrimaryTpe { get; set; }
+    public string? SecondaryTpe { get; set; } = secondaryTpe;
 
-    public string? SecondaryTpe { get; set; }
-
-    public string[] Tags { get; set; }
+    public string[] Tags { get; set; } = tags;
 
     public string DisplayName => Form switch
     {

@@ -1,4 +1,4 @@
-﻿using Statiq.Sass;
+using Statiq.Sass;
 
 namespace ChromaListe.Web.Pipelines;
 
@@ -8,19 +8,19 @@ public class GenerateSass : Pipeline
     {
         Isolated = true;
 
-        InputModules = new ModuleList
-            {
-                new ReadFiles("assets/css/master.scss")
-            };
+        InputModules =
+        [
+            new ReadFiles("assets/css/master.scss")
+        ];
 
-        ProcessModules = new ModuleList
-            {
-                new CompileSass().WithCompressedOutputStyle()
-            };
+        ProcessModules =
+        [
+            new CompileSass().WithCompressedOutputStyle()
+        ];
 
-        OutputModules = new ModuleList
-            {
-                new WriteFiles()
-            };
+        OutputModules =
+        [
+            new WriteFiles()
+        ];
     }
 }

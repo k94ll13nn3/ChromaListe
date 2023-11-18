@@ -1,4 +1,4 @@
-﻿using ChromaListe.Web.Core;
+using ChromaListe.Web.Core;
 using Statiq.Razor;
 using Statiq.Yaml;
 
@@ -8,26 +8,23 @@ public class Pages : Pipeline
 {
     public Pages()
     {
-        Dependencies.AddRange(new[]
-        {
-                PipelineNames.Posts,
-            });
+        Dependencies.AddRange(PipelineNames.Posts);
 
-        InputModules = new ModuleList
-            {
-                new ReadFiles("**/*.cshtml")
-            };
+        InputModules =
+        [
+            new ReadFiles("**/*.cshtml")
+        ];
 
-        ProcessModules = new ModuleList
-            {
-                new ExtractFrontMatter(new ParseYaml()),
-                new RenderRazor().WithLayout((NormalizedPath)"/_Page.cshtml"),
-                new SetDestination(".html")
-            };
+        ProcessModules =
+        [
+            new ExtractFrontMatter(new ParseYaml()),
+            new RenderRazor().WithLayout((NormalizedPath)"/_Page.cshtml"),
+            new SetDestination(".html")
+        ];
 
-        OutputModules = new ModuleList
-            {
-                new WriteFiles()
-            };
+        OutputModules =
+        [
+            new WriteFiles()
+        ];
     }
 }

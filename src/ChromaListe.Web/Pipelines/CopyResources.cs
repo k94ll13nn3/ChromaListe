@@ -1,4 +1,4 @@
-﻿namespace ChromaListe.Web.Pipelines;
+namespace ChromaListe.Web.Pipelines;
 
 public class CopyResources : Pipeline
 {
@@ -6,9 +6,9 @@ public class CopyResources : Pipeline
     {
         Isolated = true;
 
-        ProcessModules = new ModuleList
-            {
-                new CopyFiles("**/*{!.cshtml,!.md,!.scss,}")
-            };
+        ProcessModules =
+        [
+            new CopyFiles("**/*{!.cshtml,!.md,!.scss,}")
+        ];
     }
 }

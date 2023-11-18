@@ -13,7 +13,7 @@ public static partial class ClassExtensions
         _ = value ?? throw new ArgumentNullException(nameof(value));
 
         value = value.ToLowerInvariant();
-        byte[] bytes = CodePagesEncodingProvider.Instance.GetEncoding("Cyrillic")?.GetBytes(value) ?? Array.Empty<byte>();
+        byte[] bytes = CodePagesEncodingProvider.Instance.GetEncoding("Cyrillic")?.GetBytes(value) ?? [];
         value = Encoding.ASCII.GetString(bytes);
         value = TrimWhitespaces().Replace(value, "-");
         value = RemoveNonText().Replace(value, string.Empty);

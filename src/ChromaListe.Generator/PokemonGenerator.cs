@@ -10,13 +10,13 @@ public class PokemonGenerator : ISourceGenerator
 {
     private static readonly Dictionary<string, List<string>> Groups = new()
     {
-        ["Regi"] = new List<string> { "377", "378", "379", "486", "894", "895" },
-        ["Starter"] = new List<string> { "1", "4", "7", "152", "155", "158", "252", "255", "258", "387", "390", "393", "495", "498", "501", "650", "653", "656", "722", "725", "728", "810", "813", "816", "906", "909", "912" },
-        ["Fossil"] = new List<string> { "138", "139", "140", "141", "142", "345", "346", "347", "348", "408", "409", "410", "411", "564", "565", "566", "567", "696", "697", "698", "699", "880", "881", "882", "883", },
-        ["Pikalike"] = new List<string> { "25", "26", "26a", "172", "311", "312", "417", "587", "702", "777", "877" },
-        ["Eevee"] = new List<string> { "133", "134", "135", "136", "196", "197", "470", "471", "700" },
-        ["UltraBeast"] = new List<string> { "793", "794", "795", "796", "797", "798", "799", "803", "804", "805", "806" },
-        ["FakeRegional"] = new List<string> { "948", "949", "960", "961" },
+        ["Regi"] = ["377", "378", "379", "486", "894", "895"],
+        ["Starter"] = ["1", "4", "7", "152", "155", "158", "252", "255", "258", "387", "390", "393", "495", "498", "501", "650", "653", "656", "722", "725", "728", "810", "813", "816", "906", "909", "912"],
+        ["Fossil"] = ["138", "139", "140", "141", "142", "345", "346", "347", "348", "408", "409", "410", "411", "564", "565", "566", "567", "696", "697", "698", "699", "880", "881", "882", "883",],
+        ["Pikalike"] = ["25", "26", "26a", "172", "311", "312", "417", "587", "702", "777", "877"],
+        ["Eevee"] = ["133", "134", "135", "136", "196", "197", "470", "471", "700"],
+        ["UltraBeast"] = ["793", "794", "795", "796", "797", "798", "799", "803", "804", "805", "806"],
+        ["FakeRegional"] = ["948", "949", "960", "961"],
     };
 
     public void Execute(GeneratorExecutionContext context)
@@ -58,7 +58,7 @@ public sealed partial record Pokemon
                 "Usage",
                 DiagnosticSeverity.Error,
                 true), null));
-            return new();
+            return [];
         }
 
         SourceText? content = file.GetText(context.CancellationToken);
@@ -72,7 +72,7 @@ public sealed partial record Pokemon
                 "Usage",
                 DiagnosticSeverity.Error,
                 true), null));
-            return new();
+            return [];
         }
 
         IEnumerable<PokemonData>? pokemons = content
@@ -81,7 +81,7 @@ public sealed partial record Pokemon
             .Where(l => !string.IsNullOrWhiteSpace(l))
             .Select(LineToData);
 
-        List<string> generatedLines = new();
+        List<string> generatedLines = [];
         foreach (PokemonData pokemon in pokemons)
         {
             IEnumerable<string> groupsForPokemon = Groups.Where(x => x.Value.Contains(pokemon.DisplayNumber)).Select(x => $"Groups.{x.Key}");

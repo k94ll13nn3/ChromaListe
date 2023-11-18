@@ -38,7 +38,7 @@ if (pokemons is null)
     throw new InvalidOperationException("pokemons");
 }
 
-List<string> generatedLines = new();
+List<string> generatedLines = [];
 foreach (PokemonData pokemon in pokemons)
 {
     // Skip Pikachu alola, because it's the pikachu with the alola cap.

@@ -31,4 +31,7 @@ public enum GameVersion
 
     [ChromaDescription("Légendes Pokémon : Arceus", "Légendes\nPokémon :\nArceus")]
     PLA = 9,
+
+    [ChromaDescription("Écarlate")]
+    SC = 10,
 }

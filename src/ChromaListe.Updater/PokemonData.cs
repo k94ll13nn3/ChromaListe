@@ -17,10 +17,12 @@ public class PokemonData
     public string Form { get; set; } = string.Empty;
 
     [JsonPropertyName("types")]
-    public IList<string> Types { get; } = new List<string>();
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "CA2227:Collection properties should be read only", Justification = "<Pending>")]
+    public IList<string> Types { get; set; } = [];
 
     [JsonPropertyName("tags")]
-    public IList<string> Tags { get; } = new List<string>();
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "CA2227:Collection properties should be read only", Justification = "<Pending>")]
+    public IList<string> Tags { get; set; } = [];
 
     public string PrimaryType => Types[0];
 

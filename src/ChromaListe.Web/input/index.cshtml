@@ -5,6 +5,7 @@
 <ul class="list-posts">
     @Html.Partial("_PostTeaser", catchedPokemon[0])
     @Html.Partial("_PostTeaser", catchedPokemon[1])
+    @Html.Partial("_PostTeaser", catchedPokemon[2])
 </ul>
 
 <hr>
@@ -13,8 +14,9 @@
     @foreach (var pokemon in catchedPokemon)
     {
         var currentPokemon = Pokemon.Get(pokemon.Number);
+        var isMultiple = !string.IsNullOrWhiteSpace(pokemon.ImageSuffix);
         <a title="@currentPokemon.Name" href="@Context.GetLink("/")@pokemon.WritePath">
-            <img class="pokemon-icon" src="@pokemon.Icon" loading="lazy" alt="Image of captured shiny @pokemon.Name">
+            <img class="pokemon-icon" src="@pokemon.Icon" loading="lazy" alt="Image of captured shiny @pokemon.Name" style="@(isMultiple ? "filter: grayscale(1);" : "")">
         </a>
     }
 </div>

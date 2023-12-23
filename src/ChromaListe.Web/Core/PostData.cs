@@ -16,6 +16,7 @@ public record PostData
         WritePath = document.GetString(CustomKeys.WritePath);
         Image = document.GetString(CustomKeys.Image);
         Icon = document.GetString(CustomKeys.Icon);
+        ImageSuffix = document.GetString(CustomKeys.ImageSuffix);
     }
 
     public string Number { get; set; }
@@ -41,4 +42,6 @@ public record PostData
     public string Image { get; set; }
 
     public string Icon { get; set; }
+
+    public string? ImageSuffix { get; set; }
 }

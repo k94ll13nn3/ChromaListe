@@ -50,6 +50,6 @@ public enum Groups
     Paradox = 1 << 21,
     [ChromaDescription("Génération 9")]
     Generation9 = 1 << 22,
-    [ChromaDescription("Faux régionaux")]
+    [ChromaDescription("Espèces convergentes")]
     FakeRegional = 1 << 23,
 }

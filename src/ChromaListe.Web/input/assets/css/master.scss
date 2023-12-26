@@ -7,8 +7,3 @@ $cloudy: #4F4B4B;
 $blue: #1e5f86;
 
 @import "mixins", "default", "search", "site";
-
-.column {
-    max-width: 800px;
-    --labels-size: 3rem !important;
-}

@@ -29,3 +29,14 @@ $icon-size: 67px;
     margin-left: auto;
     margin-right: auto;
 }
+
+.duplicate-shiny{
+    filter: grayscale(1);
+    opacity: 0.3;
+}
+
+.column {
+    max-width: 900px;
+    --labels-size: 4rem !important;
+    --labels-align-block: start !important;
+}

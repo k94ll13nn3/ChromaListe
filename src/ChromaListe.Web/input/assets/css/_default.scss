@@ -67,7 +67,7 @@ strong {
 /* =Header */
 
 .wrapper {
-    max-width: 80%;
+    max-width: 1400px;
     margin: 30px auto;
 }
 
@@ -299,5 +299,9 @@ strong {
     }
     .post-title__subtitle {
         font-size: 18px;
+    }
+    .menu__entry {
+        display: block;
+        margin-right: 0px;
     }
 }

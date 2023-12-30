@@ -2,11 +2,12 @@ namespace ChromaListe.Web.Core;
 
 public sealed partial record Pokemon
 {
-    private Pokemon(string number, string name, Groups groups)
+    private Pokemon(string number, string name, Groups groups, double speciesNumber)
     {
         Number = number;
         Name = name;
         Groups = groups;
+        SpeciesNumber = speciesNumber;
     }
 
     public static int PokemonCount => PokemonList.Count;
@@ -14,6 +15,8 @@ public sealed partial record Pokemon
     public string Name { get; }
 
     public string Number { get; }
+
+    public double SpeciesNumber { get; }
 
     public string PaddedNumber => Number.PadLeft(Number.EndsWith('a') || Number.EndsWith('g') || Number.EndsWith('h') || Number.EndsWith('p') ? 5 : 4, '0');
 

@@ -96,7 +96,7 @@ public sealed partial record Pokemon
                 groupsString.Append(" | Groups.").Append(tag!.Replace(" ", "").Replace("-", ""));
             }
 
-            string line = $@"        [""{pokemon.DisplayNumber}""] = new Pokemon(""{pokemon.DisplayNumber}"", ""{pokemon.DisplayName}"", {groupsString}),";
+            string line = $@"        [""{pokemon.DisplayNumber}""] = new Pokemon(""{pokemon.DisplayNumber}"", ""{pokemon.DisplayName}"", {groupsString}, {pokemon.SpeciesNumber}),";
             generatedLines.Add(line);
         }
 
@@ -112,6 +112,7 @@ public sealed partial record Pokemon
             splittedLine[2],
             splittedLine[3],
             splittedLine[4],
-            splittedLine[5].Split(new[] { '|' }, StringSplitOptions.RemoveEmptyEntries));
+            splittedLine[5].Split(new[] { '|' }, StringSplitOptions.RemoveEmptyEntries),
+            int.Parse(splittedLine[6], NumberStyles.Integer, CultureInfo.InvariantCulture));
     }
 }

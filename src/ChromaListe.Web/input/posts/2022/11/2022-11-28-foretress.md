@@ -1,6 +1,6 @@
 ---
 number: 205
-category: Overworld
+category: MassOutbreak
 location: Forêt Toastée
 level: 53
 version: SC

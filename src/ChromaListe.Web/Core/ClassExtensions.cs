@@ -8,6 +8,7 @@ public static partial class ClassExtensions
 {
     private static IList<PostData>? Posts;
 
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Globalization", "CA1308:Normalize strings to uppercase", Justification = "Only for display")]
     public static string Slugify(this string value)
     {
         _ = value ?? throw new ArgumentNullException(nameof(value));

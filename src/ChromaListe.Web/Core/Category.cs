@@ -40,4 +40,7 @@ public enum Category
 
     [ChromaDescription("Monde ouvert", "Monde\nouvert")]
     Overworld = 12,
+
+    [ChromaDescription("Apparition massive", "Appar.\nmassive")]
+    MassOutbreak = 13,
 }

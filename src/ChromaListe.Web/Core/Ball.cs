@@ -26,4 +26,5 @@ public enum Ball
     Sport = 21,
     Dream = 22,
     Beast = 23,
+    Safari = 24,
 }

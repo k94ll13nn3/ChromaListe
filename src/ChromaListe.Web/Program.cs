@@ -1,5 +1,12 @@
 using System.Globalization;
+using ChromaListe.Web;
 using ChromaListe.Web.Core;
+
+if (args.Length > 0 && args[0] is "new")
+{
+    await PostGenerator.RunAsync();
+    return;
+}
 
 CultureInfo.DefaultThreadCurrentCulture = CultureInfo.CreateSpecificCulture("fr-FR");
 

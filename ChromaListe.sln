@@ -11,6 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		.globalconfig = .globalconfig
+		.github\workflows\ci.yml = .github\workflows\ci.yml
 		Directory.Build.props = Directory.Build.props
 		global.json = global.json
 		README.md = README.md
@@ -18,7 +19,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChromaListe.Generator", "src\ChromaListe.Generator\ChromaListe.Generator.csproj", "{927C7493-5922-4663-A54E-1BD633C8539B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChromaListe.Updater", "src\ChromaListe.Updater\ChromaListe.Updater.csproj", "{F5692CB4-3AD7-49D1-8864-4AE11033C190}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChromaListe.Updater", "src\ChromaListe.Updater\ChromaListe.Updater.csproj", "{F5692CB4-3AD7-49D1-8864-4AE11033C190}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{B9060F5B-523A-4B04-95FB-444AFE8E45A8}"
+	ProjectSection(SolutionItems) = preProject
+		scripts\new.ps1 = scripts\new.ps1
+		scripts\run.ps1 = scripts\run.ps1
+		scripts\update.ps1 = scripts\update.ps1
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -74,6 +82,7 @@ Global
 		{72DBE97F-A68F-40FC-9446-FFC61CB8B2DC} = {C7755EB0-A859-4D73-96C4-42D8DB2BD193}
 		{927C7493-5922-4663-A54E-1BD633C8539B} = {C7755EB0-A859-4D73-96C4-42D8DB2BD193}
 		{F5692CB4-3AD7-49D1-8864-4AE11033C190} = {C7755EB0-A859-4D73-96C4-42D8DB2BD193}
+		{B9060F5B-523A-4B04-95FB-444AFE8E45A8} = {647DBAF6-150F-468A-8E2F-6DD987142E4B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0965A89A-4F2C-4792-9E83-4300769D31C4}

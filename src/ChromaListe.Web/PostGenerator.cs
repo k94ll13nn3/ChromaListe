@@ -1,3 +1,4 @@
+using System.Globalization;
 using ChromaListe.Web.Core;
 using Spectre.Console;
 
@@ -12,7 +13,9 @@ internal static class PostGenerator
             .HideChoices();
         Choice<(string name, string number)> selectedPokemon = pokemonPrompt.Show(AnsiConsole.Console);
 
-        DateOnly catchDate = AnsiConsole.Ask("Date de capture ?", DateOnly.FromDateTime(DateTime.Now));
+        string catchYear = AnsiConsole.Ask("Année de capture ?", DateTime.Now.Year).ToString("D2", CultureInfo.InvariantCulture);
+        string catchMonth = AnsiConsole.Ask("Mois de capture ?", DateTime.Now.Month).ToString("D2", CultureInfo.InvariantCulture);
+        string catchDay = AnsiConsole.Ask("Jour de capture ?", DateTime.Now.Day).ToString("D2", CultureInfo.InvariantCulture);
         string catchLocation = AnsiConsole.Ask<string>("Lieu de capture ?");
         int catchLevel = AnsiConsole.Ask<int>("Niveau de capture ?");
 
@@ -52,7 +55,7 @@ internal static class PostGenerator
         Choice<Ball> ball = AnsiConsole.Prompt(ballPrompt);
         AnsiConsole.MarkupLine($"Quelle [blue]balle[/] ? {ball.Value.GetDescription()}");
 
-        string filename = $@"input\posts\{catchDate.Year}\{catchDate.Month}\{catchDate.Year}-{catchDate.Month}-{catchDate.Day}-{selectedPokemon.Value.name.Slugify()}.md";
+        string filename = $@"input\posts\{catchYear}\{catchMonth}\{catchYear}-{catchMonth}-{catchDay}-{selectedPokemon.Value.name.Slugify()}.md";
 
         ICollection<string> lines =
         [
@@ -77,6 +80,7 @@ internal static class PostGenerator
 
         lines.Add("---");
 
+        Directory.CreateDirectory(Path.GetDirectoryName(filename)!);
         await File.WriteAllLinesAsync(filename, lines);
     }
 

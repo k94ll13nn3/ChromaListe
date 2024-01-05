@@ -26,7 +26,7 @@ string minifiedJs = string.Concat("Pokedex", pokedexJs.AsSpan(56));
 using var engine = new Engine();
 object battlePokedex = engine
     .Evaluate(minifiedJs)
-    .ToObject();
+    .ToObject()!;
 
 string json = JsonSerializer.Serialize(battlePokedex);
 ICollection<PokemonData>? pokemons = JsonSerializer

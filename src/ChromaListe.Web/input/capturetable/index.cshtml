@@ -20,15 +20,21 @@ NoTitle:
         {
             var icon = Context.GetLink($"/assets/img/icons/{pokemon.PaddedNumber}.png");
             var post = catchedPokemon.FirstOrDefault(p => p.Number == pokemon.Number);
+            var count = catchedPokemon.Count(p => p.Number == pokemon.Number);
             if (post != null)
             {
-                <a title="@pokemon.Name" href="@Context.GetLink("/")@post.WritePath">
-                    <img class="pokemon-icon" src="@icon" loading="lazy" alt="Image of captured shiny @pokemon.Name">
+                <a title="@pokemon.Name" href="@Context.GetLink("/")@post.WritePath" style="position: relative">
+                    <img class="pokemon-icon" src="@icon" loading="lazy" alt="Image of captured shiny @pokemon.Name" />
+
+                    @if (count > 1)
+                    {
+                        <div class="badge-number">@count</div>
+                    }
                 </a>
             }
             else
             {
-                <img class="pokemon-icon not-catched" src="@icon" title="@pokemon.Name" loading="lazy" alt="Image of shiny @pokemon.Name">
+                <img class="pokemon-icon not-catched" src="@icon" title="@pokemon.Name" loading="lazy" alt="Image of shiny @pokemon.Name" />
             }
         }
     </div>
@@ -36,13 +42,12 @@ NoTitle:
 
 @section Scripts {
     <script type="text/javascript">
-        function randomizeNextTarget()
-        {
-            @{
-                var uncaught = Pokemon.GetAll().Where(x => !catchedPokemon.Select(y => y.Number).Contains(x.Number));
-            }
+        function randomizeNextTarget() {
+        @{
+            var uncaught = Pokemon.GetAll().Where(x => !catchedPokemon.Select(y => y.Number).Contains(x.Number));
+        }
 
-            var unchaughtNumbers = [@Html.Raw(string.Join(",", uncaught.Select(x => $"\"{x.Number}\"")))];
+                    var unchaughtNumbers = [@Html.Raw(string.Join(",", uncaught.Select(x => $"\"{x.Number}\"")))];
             var unchaughtNames = [@Html.Raw(string.Join(",", uncaught.Select(x => $"\"{x.Name}\"")))];
             var randomIndex = Math.floor(Math.random() * unchaughtNumbers.length);
             $("#nextTarget").html(unchaughtNumbers[randomIndex] + ' - ' + unchaughtNames[randomIndex]);

@@ -37,14 +37,14 @@ internal static class PostGenerator
         SelectionPrompt<Choice<GameVersion>> gamePrompt = new SelectionPrompt<Choice<GameVersion>>()
             .Title("Quel [blue]jeu[/] ?")
             .PageSize(Enum.GetValues<GameVersion>().Length)
-            .AddChoices(Enum.GetValues<GameVersion>().Select(p => new Choice<GameVersion>(p.GetDescription(), p)));
+            .AddChoices(Enum.GetValues<GameVersion>().Select(p => new Choice<GameVersion>(p.GetDescription(), p)).Reverse());
         Choice<GameVersion> game = AnsiConsole.Prompt(gamePrompt);
         AnsiConsole.MarkupLine($"Quel [blue]jeu[/] ? {game.Value.GetDescription()}");
 
         SelectionPrompt<Choice<Category>> categoryPrompt = new SelectionPrompt<Choice<Category>>()
             .Title("Quelle [blue]méthode[/] ?")
             .PageSize(Enum.GetValues<Category>().Length)
-            .AddChoices(Enum.GetValues<Category>().Select(p => new Choice<Category>(p.GetDescription(), p)));
+            .AddChoices(Enum.GetValues<Category>().Select(p => new Choice<Category>(p.GetDescription(), p)).Reverse());
         Choice<Category> category = AnsiConsole.Prompt(categoryPrompt);
         AnsiConsole.MarkupLine($"Quelle [blue]méthode[/] ? {category.Value.GetDescription()}");
 

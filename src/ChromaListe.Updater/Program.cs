@@ -76,7 +76,6 @@ foreach (PokemonData pokemon in pokemons)
         if (pokemon.SpeciesNumber is 0)
         {
             pokemon.SpeciesNumber = pokemons.Single(p => p.Name == pokemon.PreEvolution).Number;
-            Console.WriteLine($"{pokemon.Name} {pokemon.PreEvolution}");
         }
     }
 

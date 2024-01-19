@@ -19,7 +19,7 @@ NoTitle:
         @foreach (Pokemon pokemon in pokemons)
         {
             var icon = Context.GetLink($"/assets/img/icons/{pokemon.PaddedNumber}.png");
-            var post = catchedPokemon.FirstOrDefault(p => p.Number == pokemon.Number);
+            var post = catchedPokemon.OrderBy(p => p.CatchDate).FirstOrDefault(p => p.Number == pokemon.Number);
             var count = catchedPokemon.Count(p => p.Number == pokemon.Number);
             if (post != null)
             {
@@ -47,7 +47,7 @@ NoTitle:
             var uncaught = Pokemon.GetAll().Where(x => !catchedPokemon.Select(y => y.Number).Contains(x.Number));
         }
 
-                    var unchaughtNumbers = [@Html.Raw(string.Join(",", uncaught.Select(x => $"\"{x.Number}\"")))];
+                        var unchaughtNumbers = [@Html.Raw(string.Join(",", uncaught.Select(x => $"\"{x.Number}\"")))];
             var unchaughtNames = [@Html.Raw(string.Join(",", uncaught.Select(x => $"\"{x.Name}\"")))];
             var randomIndex = Math.floor(Math.random() * unchaughtNumbers.length);
             $("#nextTarget").html(unchaughtNumbers[randomIndex] + ' - ' + unchaughtNames[randomIndex]);

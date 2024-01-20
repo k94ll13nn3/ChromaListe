@@ -1,6 +1,11 @@
+@{
+    var nbPkmsDistinct = Context.GetPosts().Select(x => x.Number).Distinct().Count();
+    var nbPkmsTotal = Pokemon.PokemonCount;
+}
+
 <header class="header">
     <div class="navigation">
-        <a href="@Context.GetLink("/")" class="logo">@Context.GetString(CustomKeys.SiteTitle)</a>
+        <a href="@Context.GetLink("/")" class="logo">@Context.GetString(CustomKeys.SiteTitle) (@nbPkmsDistinct/@nbPkmsTotal)</a>
 
         <ul class="menu">
             <li class="menu__entry"><a href="@Context.GetLink("/")">Accueil</a></li>

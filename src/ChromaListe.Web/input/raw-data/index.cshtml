@@ -1,0 +1,70 @@
+@{
+    IList<PostData> catchedPokemon = Context.GetPosts();
+}
+
+<div id="pokemon-table"></div>
+
+<script>
+    const container = document.querySelector("#pokemon-table");
+
+    const data = [
+        @foreach (var pokemon in catchedPokemon)
+        {
+            var currentPokemon = Pokemon.Get(pokemon.Number);
+            @Html.Raw($"[ \"{@pokemon.Name}\", \"{@pokemon.CaughtAs}\", \"{@pokemon.CatchDate:dd/MM/yyyy}\", \"{@pokemon.Location}\", \"{@pokemon.Level}\", \"{@pokemon.Version.GetDescription()}\", \"{@pokemon.Category.GetDescription()}\", \"{@pokemon.Ball}\" ],\n")
+        }
+        
+    ];
+
+    const hot = new Handsontable(container, {
+        data: data,
+        layoutDirection: "ltr",
+        language: "fr-FR",
+        height: 600,
+        width: "100%",
+        stretchH: "all",
+        readOnly: true,
+        readOnlyCellClassName: "",
+        colWidths: [170, 222, 130, 120, 120, 130, 156],
+        colHeaders: [
+            "Pokémon",
+            "Attrapé",
+            "Date",
+            "Rencontré",
+            "Niveau",
+            "Version",
+            "Méthode",
+            "Ball",
+        ],
+        columns: [
+            { data: 0, type: "text" },
+            { data: 1, type: "text" },
+            {
+                data: 2,
+                type: "date",
+                allowInvalid: false,
+                dateFormat: "DD/MM/YYYY",
+            },
+            { data: 3, type: "text" },
+            {
+                data: 4,
+                type: "numeric",
+            },
+            { data: 5, type: "text" },
+            { data: 6, type: "text" },
+            { data: 7, type: "text" },
+        ],
+        dropdownMenu: true,
+        dropdownMenu: ["filter_by_condition", "filter_by_value", "filter_action_bar"],
+        filters: true,
+        contextMenu: false,
+        multiColumnSorting: true,
+        rowHeaders: true,
+        manualRowMove: false,
+        navigableHeaders: true,
+        autoWrapCol: true,
+        autoColumnSize: false,
+        licenseKey: "non-commercial-and-evaluation",
+    });
+
+</script>

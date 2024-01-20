@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="fr">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shiny Dex</title>
+    <meta name="description" content="ChromaListe by Keuvain">
+    <link rel="icon" href="/ChromaListe/assets/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/handsontable/dist/handsontable.full.min.css" />
+    <link rel="stylesheet" type="text/css" href="/ChromaListe/assets/css/master.css" />
+    <script type="text/javascript" src="https://unpkg.com/lunr/lunr.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/handsontable/dist/handsontable.full.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/handsontable@14.1.0/languages/fr-FR.js"></script>
+</head>
+
+
+    <body>
+        <div class="wrapper">
+            
+<header class="header">
+    <div class="navigation">
+        <a href="/ChromaListe/" class="logo">Shiny Dex (247/1080)</a>
+
+        <ul class="menu">
+            <li class="menu__entry"><a href="/ChromaListe/">Accueil</a></li>
+            <li class="menu__entry"><a href="/ChromaListe/statistics">Statistiques</a></li>
+            <li class="menu__entry"><a href="/ChromaListe/capturetable">Table de capture</a></li>
+            <li class="menu__entry"><a href="/ChromaListe/achievements">Hauts faits</a></li>
+            <li class="menu__entry"><a href="/ChromaListe/families">Familles</a></li>
+            <li class="menu__entry"><a href="/ChromaListe/raw-data">Données</a></li>
+            <li class="menu__entry">
+                <div>
+                    <input type="text" id="searchInput" placeholder="Rechercher..." />
+                    <div id="searchResults"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</header>
+
+            
+    <div class="page-title">
+    </div>
+
+
+<div id="pokemon-table"></div>
+
+<script>
+    const container = document.querySelector("#pokemon-table");
+
+    const data = [
+[ "Charkos", "Kranidos", "18/01/2024", "Zone Canyon", "68", "Écarlate", "Monde ouvert", "Sport" ],
+[ "Pharamp", "", "18/01/2024", "Zone Nord n°1", "51", "Écarlate", "Apparition massive", "Heal" ],
+[ "Altaria", "", "17/01/2024", "Zone Canyon", "59", "Écarlate", "Monde ouvert", "Ultra" ],
+[ "Sablaireau", "", "16/01/2024", "Lande de la Quiétude", "65", "Écarlate", "Monde ouvert", "Premier" ],
+[ "Malosse", "", "16/01/2024", "Lande de la Quiétude", "65", "Écarlate", "Apparition massive", "Great" ],
+[ "Lixy", "", "15/01/2024", "Zone Nord n°2", "51", "Écarlate", "Monde ouvert", "Quick" ],
+[ "Teddiursa", "", "15/01/2024", "Zone Nord n°2", "50", "Écarlate", "Monde ouvert", "Dusk" ],
+[ "Bulbizarre", "", "15/01/2024", "Zone Côtière", "68", "Écarlate", "Monde ouvert", "Nest" ],
+[ "Ouistempo", "", "14/01/2024", "Zone Côtière", "64", "Écarlate", "Monde ouvert", "Nest" ],
+[ "Parecool", "", "14/01/2024", "Zone Côtière", "64", "Écarlate", "Monde ouvert", "Heal" ],
+[ "Khélocrok", "", "10/01/2024", "Zone Sud n°5", "22", "Écarlate", "Monde ouvert", "Nest" ],
+[ "Noadkoko (Alola)", "", "10/01/2024", "Zone Côtière", "59", "Écarlate", "Monde ouvert", "Luxury" ],
+[ "Flamenroule", "", "09/01/2024", "Zone Sud n°5", "19", "Écarlate", "Monde ouvert", "Heal" ],
+[ "Terraiste", "Axoloto (Paldea)", "08/01/2024", "Zone Sud n°5", "22", "Écarlate", "Monde ouvert", "Dive" ],
+[ "Lougaroc", "Rocabot", "07/01/2024", "Plaine des Glycines", "57", "Écarlate", "Apparition massive", "Great" ],
+[ "Limagma", "", "06/01/2024", "Lac Cristallin", "68", "Écarlate", "Monde ouvert", "Luxury" ],
+[ "Rugit-Lune", "", "05/01/2024", "Zone Zéro", "56", "Écarlate", "Monde ouvert", "Dusk" ],
+[ "Embrochet", "", "04/01/2024", "Zone Ouest n°2", "29", "Écarlate", "Monde ouvert", "Dive" ],
+[ "Oniglali", "Stalgamin", "04/01/2024", "Tunnel Mezcla-Pincho", "36", "Écarlate", "Monde ouvert", "Quick" ],
+[ "Compagnol", "", "03/01/2024", "Zone Sud n°3", "17", "Écarlate", "Apparition massive", "Premier" ],
+[ "Pimito", "", "02/01/2024", "Zone Ouest n°1", "16", "Écarlate", "Monde ouvert", "Quick" ],
+[ "Denticrisse", "", "02/01/2024", "Zone Savane", "55", "Écarlate", "Monde ouvert", "Timer" ],
+[ "Mimantis", "", "01/01/2024", "Terres Vierges de Septentria", "66", "Écarlate", "Monde ouvert", "Quick" ],
+[ "Colossinge", "", "01/01/2024", "Terres Vierges de Septentria", "72", "Écarlate", "Monde ouvert", "Dusk" ],
+[ "Wimessir", "", "30/12/2023", "Terres Vierges de Septentria", "64", "Écarlate", "Monde ouvert", "Repeat" ],
+[ "Grimalin", "", "30/12/2023", "Forêt Ternelle", "72", "Écarlate", "Monde ouvert", "Moon" ],
+[ "Hoothoot", "", "30/12/2023", "Plaine des Glycines", "60", "Écarlate", "Monde ouvert", "Level" ],
+[ "Qwilfish (Hisui)", "", "29/12/2023", "Zone Polaire", "65", "Écarlate", "Monde ouvert", "Premier" ],
+[ "Axoloto (Paldea)", "", "29/12/2023", "Zone Sud n°5", "22", "Écarlate", "Monde ouvert", "Lure" ],
+[ "Noadkoko", "Noeunoeuf", "28/12/2023", "Zone Savane", "58", "Écarlate", "Monde ouvert", "Nest" ],
+[ "Hachécateur", "", "27/12/2023", "Zone Canyon", "67", "Écarlate", "Monde ouvert", "Safari" ],
+[ "Mimantis", "", "26/12/2023", "Coteau Pommes", "55", "Écarlate", "Monde ouvert", "Nest" ],
+[ "Duralugon", "", "25/12/2023", "Zone Savane", "58", "Écarlate", "Apparition massive", "Heavy" ],
+[ "Plumeline", "", "23/12/2023", "Zone Côtière", "58", "Écarlate", "Monde ouvert", "Quick" ],
+[ "Matoufeu", "Flamiaou", "22/12/2023", "Zone Canyon", "61", "Écarlate", "Monde ouvert", "Premier" ],
+[ "Mascaïman", "", "22/12/2023", "Zone Savane", "63", "Écarlate", "Monde ouvert", "Quick" ],
+[ "Gravalanch (Alola)", "Racaillou (Alola)", "20/12/2023", "Zone Canyon", "62", "Écarlate", "Monde ouvert", "Repeat" ],
+[ "Racaillou (Alola)", "", "18/12/2023", "Zone Canyon", "66", "Écarlate", "Monde ouvert", "Quick" ],
+[ "Amassel", "Selutin", "04/01/2023", "Mont Nappé", "40", "Écarlate", "Monde ouvert", "Luxury" ],
+[ "Tapatoès", "", "03/01/2023", "Zone Est n°2", "19", "Écarlate", "Monde ouvert", "Nest" ],
+[ "Granivol", "", "02/01/2023", "Zone Est n°1", "20", "Écarlate", "Monde ouvert", "Quick" ],
+[ "Dofin", "", "25/12/2022", "Zone Sud n°4", "17", "Écarlate", "Apparition massive", "Heal" ],
+[ "Mucuscule", "", "25/12/2022", "Zone Sud n°5", "18", "Écarlate", "Monde ouvert", "Ultra" ],
+[ "Chevroum", "", "25/12/2022", "Zone Nord n°2", "50", "Écarlate", "Monde ouvert", "Nest" ],
+[ "Scalproie", "", "12/12/2022", "Zone Nord n°2", "52", "Écarlate", "Monde ouvert", "Quick" ],
+[ "Selutin", "", "05/12/2022", "Zone Sud n°3", "10", "Écarlate", "Monde ouvert", "Nest" ],
+[ "Grodrive", "", "05/12/2022", "Zone Ouest n°3", "31", "Écarlate", "Monde ouvert", "Nest" ],
+[ "Scarhino", "", "05/12/2022", "Zone Nord n°2", "49", "Écarlate", "Monde ouvert", "Heal" ],
+[ "Fort-Ivoire", "", "03/12/2022", "Zone Zéro", "60", "Écarlate", "Monde ouvert", "Poke" ],
+[ "Terracool", "", "28/11/2022", "Forêt Toastée", "55", "Écarlate", "Monde ouvert", "Quick" ],
+[ "Floramantis", "", "28/11/2022", "Forêt Toastée", "55", "Écarlate", "Monde ouvert", "Nest" ],
+[ "Foretress", "", "28/11/2022", "Forêt Toastée", "53", "Écarlate", "Apparition massive", "Quick" ],
+[ "Motorizard", "", "26/11/2022", "Zone Est n°2", "20", "Écarlate", "Monde ouvert", "Quick" ],
+[ "Candine", "", "19/11/2022", "Zone Est n°1", "22", "Écarlate", "Apparition massive", "Ultra" ],
+[ "Pachirisu", "", "19/11/2022", "Zone Est n°2", "25", "Écarlate", "Monde ouvert", "Nest" ],
+[ "Piclairon", "Picassault", "29/10/2022", "Route 1", "3", "Lune", "Appels à l'aide", "Nest" ],
+[ "Blizzi", "", "29/10/2022", "Route 10", "45", "Épée", "Rencontre visible", "Dive" ],
+[ "Emolga", "", "24/10/2022", "Grand Antre Dynamax", "65", "Épée", "Expéditions Dynamax", "Ultra" ],
+[ "Mustébouée", "", "16/02/2022", "Plaines Obsidiennes", "3", "Légendes Pokémon : Arceus", "Monde ouvert", "Poke" ],
+[ "Chaglam", "", "14/02/2022", "Coteau du Passage", "27", "Légendes Pokémon : Arceus", "Monde ouvert", "Poke" ],
+[ "Nosferapti", "", "13/02/2022", "Plaines Obsidiennes", "12", "Légendes Pokémon : Arceus", "Monde ouvert", "Poke" ],
+[ "Lixy", "", "05/02/2022", "Plaines Obsidiennes", "10", "Légendes Pokémon : Arceus", "Monde ouvert", "Poke" ],
+[ "Étourmi", "", "03/02/2022", "Plaines Obsidiennes", "7", "Légendes Pokémon : Arceus", "Monde ouvert", "Poke" ],
+[ "Luxray", "", "02/02/2022", "Plaines Obsidiennes", "32", "Légendes Pokémon : Arceus", "Monde ouvert", "Poke" ],
+[ "Luxio", "", "29/01/2022", "Hauts de l'Humlilité", "26", "Légendes Pokémon : Arceus", "Monde ouvert", "Poke" ],
+[ "Nostenfer", "Nosferapti", "28/01/2022", "Pente des Gringoles", "60", "Légendes Pokémon : Arceus", "Monde ouvert", "Poke" ],
+[ "Tokotoro", "", "06/12/2021", "Grand Antre Dynamax", "70", "Épée", "Expéditions Dynamax", "Premier" ],
+[ "Porygon", "", "28/11/2021", "Jardin Trophée", "18", "Diamant Étincelant", "Poké Radar", "Heal" ],
+[ "Crabaraque", "", "18/11/2021", "Grand Antre Dynamax", "65", "Épée", "Expéditions Dynamax", "Ultra" ],
+[ "Triopikeur (Alola)", "", "15/11/2021", "Grand Antre Dynamax", "65", "Épée", "Expéditions Dynamax", "Ultra" ],
+[ "Berserkatt", "", "11/11/2021", "Grand Antre Dynamax", "65", "Épée", "Expéditions Dynamax", "Ultra" ],
+[ "Momartik", "", "09/11/2021", "Grand Antre Dynamax", "65", "Épée", "Expéditions Dynamax", "Ultra" ],
+[ "Excavarenne", "", "08/11/2021", "Grand Antre Dynamax", "65", "Épée", "Expéditions Dynamax", "Ultra" ],
+[ "Maracachi", "", "31/10/2021", "Grand Antre Dynamax", "65", "Épée", "Expéditions Dynamax", "Ultra" ],
+[ "Gloupti", "", "05/11/2020", "Route 5", "5", "X", "Horde", "Dive" ],
+[ "Necrozma", "", "01/11/2020", "Grand Antre Dynamax", "70", "Épée", "Expéditions Dynamax", "Dive" ],
+[ "Larvibule", "", "31/10/2020", "Mont Ardent", "29", "Ultra-Soleil", "Appels à l'aide", "Beast" ],
+[ "Sorboul", "", "26/10/2020", "Grand Antre Dynamax", "65", "Épée", "Expéditions Dynamax", "Great" ],
+[ "Gigalithe", "Géolithe", "26/10/2020", "Grand Antre Dynamax", "65", "Épée", "Expéditions Dynamax", "Great" ],
+[ "Regidrago", "", "24/10/2020", "Ruines du Choix", "70", "Épée", "Reset", "Timer" ],
+[ "Trépassable", "Bacabouh", "04/07/2020", "Lagune Circulaire", "60", "Épée", "Rencontre visible", "Luxury" ],
+[ "Flamiaou", "", "15/05/2020", "Route 5", "oeuf", "Épée", "Masuda", "Poke" ],
+[ "Zigzaton (Galar)", "", "07/03/2020", "Route 5", "oeuf", "Épée", "Masuda", "Quick" ],
+[ "Tournicoton", "", "21/01/2020", "Route 3", "14", "Épée", "Rencontre visible", "Repeat" ],
+[ "Nigosier", "", "04/01/2020", "Route 5", "oeuf", "Épée", "Masuda", "Ultra" ],
+[ "Sinistrail", "", "21/12/2019", "Route 9", "42", "Épée", "Rencontre visible", "Timer" ],
+[ "Charbi", "", "14/12/2019", "Route 3", "13", "Épée", "Rencontre visible", "Premier" ],
+[ "Tritox", "", "05/12/2018", "Parc Volcanique", "17", "Ultra-Soleil", "Appels à l'aide", "Nest" ],
+[ "Groudon", "", "03/12/2018", "Ultra-Dimension Zéro", "60", "Ultra-Soleil", "Reset", "Timer" ],
+[ "Celebi", "", "13/02/2018", "Bois aux Chênes", "30", "Cristal (VC)", "Reset", "Poke" ],
+[ "Katagami", "", "07/01/2018", "Ultra-Forêt", "60", "Ultra-Soleil", "Reset", "Beast" ],
+[ "Scalpion", "", "17/12/2017", "Route 17", "36", "Ultra-Soleil", "Appels à l'aide", "Nest" ],
+[ "Ho-Oh", "", "14/12/2017", "Ultra-Dimension Zéro", "60", "Ultra-Soleil", "Reset", "Luxury" ],
+[ "Engloutyran", "", "03/12/2017", "Ultra-Gratte-Ciel", "60", "Ultra-Soleil", "Reset", "Beast" ],
+[ "Zorua", "", "30/11/2017", "Route 1", "7", "Ultra-Soleil", "Appels à l'aide", "Dive" ],
+[ "Xerneas", "", "28/11/2017", "Ultra-Dimension Zéro", "60", "Ultra-Soleil", "Reset", "Dive" ],
+[ "Pierroteknik", "", "26/11/2017", "Forêt de Poni", "60", "Ultra-Soleil", "Rencontre aléatoire", "Beast" ],
+[ "Arkéapti", "", "21/11/2017", "Ranch Ohana", "oeuf", "Ultra-Soleil", "Masuda", "Poke" ],
+[ "Kraknoix", "", "05/11/2017", "Désert Haine", "30", "Lune", "Appels à l'aide", "Great" ],
+[ "Polichombr", "", "31/10/2017", "Safari des Amis", "30", "X", "Safari des Amis", "Dusk" ],
+[ "Drascore", "Rapion", "29/10/2017", "Route 14", "16", "X", "Horde", "Repeat" ],
+[ "Rapion", "", "29/10/2017", "Route 14", "16", "X", "Horde", "Timer" ],
+[ "Goinfrex", "", "29/10/2017", "Route 1", "12", "Lune", "Appels à l'aide", "Nest" ],
+[ "Manzaï", "", "29/10/2017", "Jungle Sombrefeuille", "20", "Lune", "Appels à l'aide", "Heal" ],
+[ "Grolem", "Racaillou", "28/10/2017", "Route Victoire", "28", "X", "Horde", "Luxury" ],
+[ "Gravalanch", "", "28/10/2017", "Route Victoire", "29", "X", "Horde", "Luxury" ],
+[ "Tarinorme", "Tarinor", "28/10/2017", "Route 10", "10", "X", "Horde", "Luxury" ],
+[ "Yanma", "", "28/10/2017", "Route 10", "10", "X", "Horde", "Dive" ],
+[ "Chamallot", "", "24/10/2017", "Chemin Ardent", "8", "Saphir Alpha", "Horde", "Ultra" ],
+[ "Miaouss (Alola)", "", "22/10/2017", "Route 1", "8", "Lune", "Appels à l'aide", "Dusk" ],
+[ "Racaillou", "", "19/10/2017", "Route Victoire", "28", "X", "Horde", "Timer" ],
+[ "Crocrodil", "Kaiminus", "17/10/2017", "Bourg Geon", "5", "Or HeartGold", "Reset", "Poke" ],
+[ "Germignon", "", "09/10/2017", "Bourg Geon", "5", "Or HeartGold", "Reset", "Poke" ],
+[ "Magnéti", "", "30/09/2017", "Route 110", "6", "Rubis Oméga", "Horde", "Timer" ],
+[ "Groret", "Spoink", "30/09/2017", "Sentier Sinuroc", "10", "Saphir Alpha", "Horde", "Repeat" ],
+[ "Spoink", "", "29/09/2017", "Sentier Sinuroc", "10", "Saphir Alpha", "Horde", "Ultra" ],
+[ "Lovdisc", "", "28/09/2017", "Chenal 128", "35", "Rubis Oméga", "Pêche à la chaîne", "Luxury" ],
+[ "Moufflair", "Moufouette", "25/09/2017", "Route 11", "11", "X", "Horde", "Heal" ],
+[ "Moufouette", "", "25/09/2017", "Route 11", "11", "X", "Horde", "Nest" ],
+[ "Cadoizo", "", "25/09/2017", "Route 3", "9", "Lune", "Appels à l'aide", "Premier" ],
+[ "Amagara", "", "22/09/2017", "Poké Loisir", "oeuf", "Lune", "Masuda", "Poke" ],
+[ "Ramoloss", "", "12/09/2017", "Route 1", "7", "Lune", "Appels à l'aide", "Heal" ],
+[ "Mimigal", "", "12/09/2017", "Route 1", "10", "Lune", "Rencontre aléatoire", "Great" ],
+[ "Baudrive", "", "10/09/2017", "Cimetière d'Ekaeka", "7", "Lune", "Appels à l'aide", "Repeat" ],
+[ "Crabagarre", "", "08/09/2017", "Route 10", "27", "Lune", "Reset", "Premier" ],
+[ "Altaria", "Tylton", "02/09/2017", "Route 114", "9", "Saphir Alpha", "Horde", "Repeat" ],
+[ "Suicune", "", "05/06/2017", "Forêt Impénétrable", "50", "Rubis Oméga", "Reset", "Repeat" ],
+[ "Noeunoeuf", "", "30/05/2017", "Île noadkoko", "40", "Lune", "Appels à l'aide", "Repeat" ],
+[ "Tylton", "", "22/05/2017", "Route 114", "9", "Saphir Alpha", "Horde", "Great" ],
+[ "Nénupiot", "", "21/05/2017", "Route 114", "9", "Saphir Alpha", "Horde", "Premier" ],
+[ "Minidraco", "", "21/05/2017", "Chemin du Défi", "43", "Lune", "Appels à l'aide", "Premier" ],
+[ "Tiboudet", "", "07/05/2017", "Route 12", "25", "Lune", "Appels à l'aide", "Premier" ],
+[ "Kaiminus", "", "28/04/2017", "Ranch Ohana", "oeuf", "Lune", "Masuda", "Ultra" ],
+[ "Tarenbulle", "Araqua", "16/04/2017", "Colline Clapotis", "17", "Lune", "Appels à l'aide", "Dive" ],
+[ "Araqua", "", "01/04/2017", "Colline Clapotis", "14", "Lune", "Appels à l'aide", "Dive" ],
+[ "Sabelette (Alola)", "", "26/03/2017", "Village Toko", "29", "Lune", "Appels à l'aide", "Dive" ],
+[ "Feuforêve", "", "14/03/2017", "Cimetière d'Ekaeka", "7", "Lune", "Appels à l'aide", "Dusk" ],
+[ "Tadmorv (Alola)", "", "11/03/2017", "Route 1", "8", "Lune", "Appels à l'aide", "Nest" ],
+[ "Rattata (Alola)", "", "08/03/2017", "Route 8", "20", "Lune", "Appels à l'aide", "Quick" ],
+[ "Rocabot", "", "04/03/2017", "Colline Dicarat", "10", "Lune", "Appels à l'aide", "Net" ],
+[ "Nidoran♂", "", "23/02/2017", "Route 11", "11", "X", "Horde", "Nest" ],
+[ "Terhal", "", "19/02/2017", "Mont Hokulani", "25", "Lune", "Appels à l'aide", "Repeat" ],
+[ "Ectoplasma", "Spectrum", "17/02/2017", "Bradley Prix", "31", "Lune", "Appels à l'aide", "Nest" ],
+[ "Spectrum", "", "15/02/2017", "Bradley Prix", "31", "Lune", "Appels à l'aide", "Dusk" ],
+[ "Passerouge", "", "11/02/2017", "Parc Volcanique", "16", "Lune", "Appels à l'aide", "Great" ],
+[ "Reshiram", "", "05/02/2017", "Grotte Évanescente", "50", "Rubis Oméga", "Reset", "Repeat" ],
+[ "Métamorph", "", "04/02/2017", "Mont Hokulani", "28", "Lune", "Appels à l'aide", "Timer" ],
+[ "Pikachu", "Pichu", "03/02/2017", "Route 1", "3", "Lune", "Appels à l'aide", "Heal" ],
+[ "Pichu", "", "03/02/2017", "Route 1", "4", "Lune", "Appels à l'aide", "Premier" ],
+[ "Manglouton", "", "31/01/2017", "Route 1", "6", "Lune", "Appels à l'aide", "Nest" ],
+[ "Nosferapti", "", "26/01/2017", "Tunnel Taupiqueur", "22", "Lune", "Appels à l'aide", "Repeat" ],
+[ "Caninos", "", "21/01/2017", "Ranch Ohana", "oeuf", "Lune", "Masuda", "Repeat" ],
+[ "Nymphali", "Evoli", "11/01/2017", "Ranch Ohana", "oeuf", "Lune", "RNG", "Poke" ],
+[ "Picassaut", "", "22/12/2016", "Route 6", "17", "Lune", "Appels à l'aide", "Poke" ],
+[ "Vorastérie", "", "19/12/2016", "Ranch Ohana", "oeuf", "Lune", "RNG", "Dive" ],
+[ "Plumeline", "", "17/12/2016", "Jardin de Mele-Mele", "11", "Lune", "Rencontre aléatoire", "Beast" ],
+[ "Brindibou", "", "16/12/2016", "Ranch Ohana", "oeuf", "Lune", "Masuda", "Poke" ],
+[ "Bacabouh", "", "11/12/2016", "Plage Hano-Hano", "22", "Lune", "Appels à l'aide", "Dusk" ],
+[ "Rapasdepic", "", "07/12/2016", "Mont Hokulani", "26", "Lune", "Rencontre aléatoire", "Ultra" ],
+[ "Géolithe", "", "22/11/2016", "Grand Canyon de Poni", "44", "Lune", "Rencontre aléatoire", "Level" ],
+[ "Entei", "", "08/10/2016", "Forêt Impénétrable", "50", "Rubis Oméga", "Reset", "Repeat" ],
+[ "Lokhlass", "", "26/08/2016", "Safari des Amis", "30", "X", "Safari des Amis", "Repeat" ],
+[ "Muplodocus", "Colimucus", "20/08/2016", "Safari des Amis", "30", "X", "Safari des Amis", "Repeat" ],
+[ "Sonistrelle", "", "14/08/2016", "Safari des Amis", "30", "X", "Safari des Amis", "Repeat" ],
+[ "Colimucus", "", "14/08/2016", "Safari des Amis", "30", "X", "Safari des Amis", "Repeat" ],
+[ "Joliflor", "Mystherbe", "18/07/2016", "Route 120", "13", "Rubis Oméga", "Horde", "Repeat" ],
+[ "Rafflesia", "Mystherbe", "06/06/2016", "Route 120", "13", "Rubis Oméga", "Horde", "Heal" ],
+[ "Regigigas", "", "21/04/2016", "Grotte de l'Îlot", "50", "Rubis Oméga", "Reset", "Repeat" ],
+[ "Gamblast", "Flingouste", "19/04/2016", "Relifac", "25", "X", "Pêche à la chaîne", "Net" ],
+[ "Flingouste", "", "14/04/2016", "Relifac", "25", "X", "Pêche à la chaîne", "Net" ],
+[ "Frison", "", "07/04/2016", "Route 113", "26", "Rubis Oméga", "Navi-Dex", "Quick" ],
+[ "Électrode", "Voltorbe", "27/03/2016", "New Lavandia", "12", "Rubis Oméga", "Horde", "Quick" ],
+[ "Voltorbe", "", "26/03/2016", "New Lavandia", "12", "Rubis Oméga", "Horde", "Quick" ],
+[ "Hypocéan", "", "23/03/2016", "Chenal 130", "40", "Rubis Oméga", "Pêche à la chaîne", "Luxury" ],
+[ "Registeel", "", "21/03/2016", "Tombeau Antique", "40", "Rubis Oméga", "Reset", "Luxury" ],
+[ "Zigzaton", "", "13/03/2016", "Route 104", "2", "Rubis Oméga", "Horde", "Timer" ],
+[ "Queulorior", "", "12/03/2016", "Atoll de Combat", "oeuf", "Rubis Oméga", "Masuda", "Poke" ],
+[ "Mesmérella", "Scrutella", "11/03/2016", "Atoll de Combat", "oeuf", "Rubis Oméga", "Masuda", "Poke" ],
+[ "Scrutella", "", "11/03/2016", "Route 102", "3", "Rubis Oméga", "Navi-Dex", "Repeat" ],
+[ "Regice", "", "08/03/2016", "Grotte de l'Îlot", "40", "Rubis Oméga", "Reset", "Premier" ],
+[ "Hypotrempe", "", "26/02/2016", "Chenal 130", "30", "Rubis Oméga", "Pêche à la chaîne", "Quick" ],
+[ "Kranidos", "", "20/02/2016", "Mérouville", "20", "Rubis Oméga", "Reset", "Poke" ],
+[ "Ortide", "Mystherbe", "16/10/2015", "Route 120", "13", "Saphir Alpha", "Horde", "Ultra" ],
+[ "Tarinor", "", "14/10/2015", "Route 10", "10", "X", "Horde", "Timer" ],
+[ "Stari", "", "14/10/2015", "Route 8", "25", "X", "Pêche à la chaîne", "Net" ],
+[ "Grelaçon", "", "11/10/2015", "Safari des Amis", "30", "X", "Safari des Amis", "Repeat" ],
+[ "Mammochon", "Cochignon", "07/10/2015", "Safari des Amis", "30", "X", "Safari des Amis", "Repeat" ],
+[ "Stalgamin", "", "06/10/2015", "Safari des Amis", "30", "X", "Safari des Amis", "Repeat" ],
+[ "Zekrom", "", "30/09/2015", "Grotte Évanescente", "50", "Saphir Alpha", "Reset", "Ultra" ],
+[ "Doduo", "", "21/08/2015", "Parc Safari", "15", "Saphir Alpha", "Horde", "Ultra" ],
+[ "Mystherbe", "", "10/08/2015", "Parc Safari", "15", "Saphir Alpha", "Horde", "Premier" ],
+[ "Tarpaud", "Tétarte", "10/07/2015", "Route 19", "45", "X", "Pêche à la chaîne", "Repeat" ],
+[ "Tartard", "Tétarte", "08/07/2015", "Route 19", "45", "X", "Pêche à la chaîne", "Dive" ],
+[ "Têtarte", "", "07/07/2015", "Route 19", "45", "X", "Pêche à la chaîne", "Net" ],
+[ "Zarbi", "", "02/07/2015", "Grotte Mirage", "36", "Rubis Oméga", "Rencontre aléatoire", "Quick" ],
+[ "Galegon", "Galekid", "21/06/2015", "Grotte Granite", "6", "Rubis Oméga", "Horde", "Poke" ],
+[ "Mysdibule", "", "20/06/2015", "Grotte Granite", "6", "Rubis Oméga", "Horde", "Luxury" ],
+[ "Nostenfer", "Nosferapti", "20/06/2015", "Grotte Granite", "6", "Saphir Alpha", "Horde", "Nest" ],
+[ "Nosferalto", "Nosferapti", "18/06/2015", "Grotte Granite", "6", "Rubis Oméga", "Horde", "Quick" ],
+[ "Galekid", "", "18/06/2015", "Grotte Granite", "6", "Rubis Oméga", "Horde", "Ultra" ],
+[ "Linéon", "Zigzaton", "17/06/2015", "Route 102", "2", "Rubis Oméga", "Horde", "Ultra" ],
+[ "Zigzaton", "", "15/06/2015", "Route 102", "2", "Rubis Oméga", "Horde", "Poke" ],
+[ "Grainipiot", "", "12/06/2015", "Route 102", "2", "Rubis Oméga", "Horde", "Poke" ],
+[ "Méditikka", "", "23/05/2015", "Mont Mémoria", "28", "Rubis Oméga", "Navi-Dex", "Repeat" ],
+[ "Goupix", "", "20/05/2015", "Mont Mémoria", "15", "Rubis Oméga", "Horde", "Repeat" ],
+[ "Cochignon", "", "17/05/2015", "Safari des Amis", "30", "X", "Safari des Amis", "Ultra" ],
+[ "Kaimorse", "Obalie", "01/05/2015", "Grotte Tréfonds", "17", "Rubis Oméga", "Horde", "Heal" ],
+[ "Rosélia", "", "24/04/2015", "Route 117", "7", "Rubis Oméga", "Horde", "Luxury" ],
+[ "Raikou", "", "18/04/2015", "Forêt Impénétrable", "50", "Rubis Oméga", "Reset", "Repeat" ],
+[ "Sorbébé", "", "04/04/2015", "Caverne Gelée", "20", "X", "Horde", "Premier" ],
+[ "Sharpedo", "", "03/04/2015", "Route 119", "40", "Rubis Oméga", "Pêche à la chaîne", "Repeat" ],
+[ "Léviator", "Magicarpe", "02/04/2015", "Route 115", "25", "Rubis Oméga", "Pêche à la chaîne", "Repeat" ],
+[ "Poissoroy", "Poissirène", "01/04/2015", "Site Météore", "30", "Rubis Oméga", "Pêche à la chaîne", "Repeat" ],
+[ "Poissirène", "", "01/04/2015", "Site Météore", "30", "Rubis Oméga", "Pêche à la chaîne", "Repeat" ],
+[ "Wailmer", "", "30/03/2015", "Chenal 127", "35", "Rubis Oméga", "Pêche à la chaîne", "Premier" ],
+[ "Phogleur", "Obalie", "27/03/2015", "Grotte Tréfonds", "17", "Rubis Oméga", "Horde", "Luxury" ],
+[ "Nosferapti", "", "24/03/2015", "Grotte Tréfonds", "17", "Rubis Oméga", "Horde", "Nest" ],
+[ "Cresselia", "", "22/03/2015", "Île de l", "50", "Rubis Oméga", "Reset", "Repeat" ],
+[ "Obalie", "", "22/03/2015", "Grotte Tréfonds", "17", "Rubis Oméga", "Horde", "Heal" ],
+[ "Milobellus", "", "24/02/2015", "Route 119", "35", "Rubis Oméga", "Pêche à la chaîne", "Luxury" ],
+[ "Barpau", "", "20/02/2015", "Route 119", "35", "Rubis Oméga", "Pêche à la chaîne", "Repeat" ],
+[ "Séviper", "", "09/02/2015", "Safari des Amis", "30", "X", "Safari des Amis", "Dusk" ],
+[ "Latias", "", "28/01/2015", "Île du Sud", "30", "Rubis Oméga", "Reset", "Luxury" ],
+[ "Miamiasme", "", "20/01/2015", "Route 110", "24", "Rubis Oméga", "Navi-Dex", "Repeat" ],
+[ "Kyurem", "", "19/01/2015", "Gouffre Informe", "50", "Rubis Oméga", "Reset", "Repeat" ],
+[ "Regirock", "", "30/12/2014", "Ruines Désert", "40", "Rubis Oméga", "Reset", "Luxury" ],
+[ "Mangriff", "", "28/12/2014", "Route 114", "23", "Rubis Oméga", "Navi-Dex", "Quick" ],
+[ "Écrapince", "", "16/12/2014", "Route 117", "35", "Rubis Oméga", "Pêche à la chaîne", "Nest" ],
+[ "Chuchmur", "", "23/10/2014", "Cave Connecterre", "7", "X", "Horde", "Dusk" ],
+[ "Wattouat", "", "18/10/2014", "Route 12", "13", "X", "Horde", "Repeat" ],
+[ "Camérupt", "", "15/09/2014", "Safari des Amis", "30", "X", "Safari des Amis", "Quick" ],
+[ "Limonde", "", "07/09/2014", "Safari des Amis", "30", "X", "Safari des Amis", "Premier" ],
+[ "Pachirisu", "", "07/09/2014", "Safari des Amis", "30", "X", "Safari des Amis", "Quick" ],
+[ "Luxio", "", "06/09/2014", "Safari des Amis", "30", "X", "Safari des Amis", "Repeat" ],
+[ "Farfaduvet", "Doudouvet", "29/08/2014", "Route 7", "oeuf", "X", "Masuda", "Poke" ],
+[ "Doudouvet", "", "17/08/2014", "Route 7", "oeuf", "X", "Masuda", "Poke" ],
+[ "Métang", "", "12/08/2014", "Safari des Amis", "30", "X", "Safari des Amis", "Timer" ],
+[ "Goélise", "", "12/08/2014", "Route 8", "7", "X", "Horde", "Premier" ],
+[ "Nodulithe", "", "06/08/2014", "Grotte Miroitante", "11", "X", "Horde", "Luxury" ],
+[ "Mime Jr.", "", "05/08/2014", "Grotte Miroitante", "11", "X", "Horde", "Timer" ],
+[ "M. Mime (Galar)", "Mime Jr.", "05/08/2014", "Grotte Miroitante", "11", "X", "Horde", "Heal" ],
+[ "Rémoraid", "", "03/08/2014", "Baie Azur", "25", "X", "Pêche à la chaîne", "Premier" ],
+[ "Loupio", "", "03/08/2014", "Baie Azur", "25", "X", "Pêche à la chaîne", "Premier" ],
+[ "Mamanbo", "", "02/08/2014", "Baie Azur", "35", "X", "Pêche à la chaîne", "Timer" ],
+[ "Ptitard", "", "26/07/2014", "Route Victoire", "35", "X", "Pêche à la chaîne", "Net" ],
+[ "Évoli", "", "03/07/2014", "Route 7", "oeuf", "X", "Masuda", "Heal" ],
+[ "Banshitrouye", "Pitrouille", "07/05/2014", "Route 7", "oeuf", "X", "Masuda", "Poke" ],
+[ "Pitrouille", "", "21/04/2014", "Route 16", "36", "X", "Rencontre aléatoire", "Premier" ],
+[ "Scorvol", "Scorplane", "19/04/2014", "Route 7", "oeuf", "X", "Masuda", "Poke" ],
+[ "Scorplane", "", "22/03/2014", "Route 19", "24", "X", "Horde", "Timer" ],
+[ "Exagide", "Monorpale", "07/03/2014", "Route 7", "oeuf", "X", "Masuda", "Poke" ],
+[ "Lumivole", "", "02/03/2014", "Route 7", "13", "X", "Rencontre aléatoire", "Repeat" ],
+[ "Magicarpe", "", "21/02/2014", "Route 22", "15", "X", "Pêche à la chaîne", "Net" ],
+[ "M. Mime", "Mime Jr.", "09/02/2014", "Grotte Miroitante", "11", "X", "Horde", "Dive" ],
+[ "Insolourdo", "", "07/02/2014", "Safari des Amis", "30", "X", "Safari des Amis", "Quick" ],
+[ "Relicanth", "", "27/10/2013", "Relifac-le-Haut", "35", "X", "Pêche à la chaîne", "Net" ],
+[ "Séracrawl", "Grelaçon", "13/10/2013", "Caverne Gelée", "40", "X", "Rencontre aléatoire", "Ultra" ],
+        
+    ];
+
+    const hot = new Handsontable(container, {
+        data: data,
+        layoutDirection: "ltr",
+        language: "fr-FR",
+        height: 600,
+        width: "100%",
+        stretchH: "all",
+        readOnly: true,
+        readOnlyCellClassName: "",
+        colWidths: [170, 222, 130, 120, 120, 130, 156],
+        colHeaders: [
+            "Pokémon",
+            "Attrapé",
+            "Date",
+            "Rencontré",
+            "Niveau",
+            "Version",
+            "Méthode",
+            "Ball",
+        ],
+        columns: [
+            { data: 0, type: "text" },
+            { data: 1, type: "text" },
+            {
+                data: 2,
+                type: "date",
+                allowInvalid: false,
+                dateFormat: "DD/MM/YYYY",
+            },
+            { data: 3, type: "text" },
+            {
+                data: 4,
+                type: "numeric",
+            },
+            { data: 5, type: "text" },
+            { data: 6, type: "text" },
+            { data: 7, type: "text" },
+        ],
+        dropdownMenu: true,
+        dropdownMenu: ["filter_by_condition", "filter_by_value", "filter_action_bar"],
+        filters: true,
+        contextMenu: false,
+        multiColumnSorting: true,
+        rowHeaders: true,
+        manualRowMove: false,
+        navigableHeaders: true,
+        autoWrapCol: true,
+        autoColumnSize: false,
+        licenseKey: "non-commercial-and-evaluation",
+    });
+
+</script>
+
+
+                
+        </div>
+
+        <div class="explore">
+    <div class="explore__label">
+        Thème <a href="https://github.com/kronik3r/daktilo">Daktilo</a> sous licence MIT.<br />
+        Données reprises de <a href="https://github.com/smogon/pokemon-showdown">pokemon-showdown</a> sous licence MIT.<br />
+        Pokémon et tous les noms respectifs sont des marques déposées et © de Nintendo 1996-2021. <br />
+        Les images et icônes sont © Nintendo/Creatures Inc./GAME FREAK Inc.
+    </div>
+</div>
+
+
+        <script type="text/javascript" src="/ChromaListe/assets/js/scripts.js"></script>
+
+        
+    
+
+    </body>
+</html>

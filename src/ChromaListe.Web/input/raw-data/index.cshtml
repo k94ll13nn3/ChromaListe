@@ -4,67 +4,105 @@
 
 <div id="pokemon-table"></div>
 
-<script>
-    const container = document.querySelector("#pokemon-table");
+@section Scripts {
+    <script type="text/javascript">
+        const container = document.querySelector("#pokemon-table");
 
-    const data = [
-        @foreach (var pokemon in catchedPokemon)
-        {
-            var currentPokemon = Pokemon.Get(pokemon.Number);
-            @Html.Raw($"[ \"{@pokemon.Name}\", \"{@pokemon.CaughtAs}\", \"{@pokemon.CatchDate:dd/MM/yyyy}\", \"{@pokemon.Location}\", \"{@pokemon.Level}\", \"{@pokemon.Version.GetDescription()}\", \"{@pokemon.Category.GetDescription()}\", \"{@pokemon.Ball}\" ],\n")
-        }
-        
-    ];
-
-    const hot = new Handsontable(container, {
-        data: data,
-        layoutDirection: "ltr",
-        language: "fr-FR",
-        height: 600,
-        width: "100%",
-        stretchH: "all",
-        readOnly: true,
-        readOnlyCellClassName: "",
-        colWidths: [170, 222, 130, 120, 120, 130, 156],
-        colHeaders: [
-            "Pokémon",
-            "Attrapé",
-            "Date",
-            "Rencontré",
-            "Niveau",
-            "Version",
-            "Méthode",
-            "Ball",
-        ],
-        columns: [
-            { data: 0, type: "text" },
-            { data: 1, type: "text" },
+        const data = [
+            @foreach (var pokemon in catchedPokemon)
             {
-                data: 2,
-                type: "date",
-                allowInvalid: false,
-                dateFormat: "DD/MM/YYYY",
-            },
-            { data: 3, type: "text" },
-            {
-                data: 4,
-                type: "numeric",
-            },
-            { data: 5, type: "text" },
-            { data: 6, type: "text" },
-            { data: 7, type: "text" },
-        ],
-        dropdownMenu: true,
-        dropdownMenu: ["filter_by_condition", "filter_by_value", "filter_action_bar"],
-        filters: true,
-        contextMenu: false,
-        multiColumnSorting: true,
-        rowHeaders: true,
-        manualRowMove: false,
-        navigableHeaders: true,
-        autoWrapCol: true,
-        autoColumnSize: false,
-        licenseKey: "non-commercial-and-evaluation",
-    });
+                var currentPokemon = Pokemon.Get(pokemon.Number);
+                @Html.Raw($"[ \"{@pokemon.Name}\", \"{@pokemon.CaughtAs}\", \"{@pokemon.CatchDate:dd/MM/yyyy}\", \"{@pokemon.Location}\", \"{@pokemon.Level}\", \"{@pokemon.Version.GetDescription()}\", \"{@pokemon.Category.GetDescription()}\", \"{@pokemon.Ball}\", \"<a href='{@Context.GetLink("/")}{@pokemon.WritePath}'>Lien</a>\" ],\n")
+            }
+        ];
 
-</script>
+        const hot = new Handsontable(container, {
+            data: data,
+            layoutDirection: "ltr",
+            language: "fr-FR",
+            height: 600,
+            width: "100%",
+            stretchH: "all",
+            readOnly: true,
+            readOnlyCellClassName: "",
+            colWidths: [170, 222, 130, 120, 120, 130, 156],
+            colHeaders: [
+                "Pokémon",
+                "Attrapé",
+                "Date",
+                "Rencontré",
+                "Niveau",
+                "Version",
+                "Méthode",
+                "Ball",
+                "Lien"
+            ],
+            columns: [
+                { data: 0, type: "text" },
+                { data: 1, type: "text" },
+                {
+                    data: 2,
+                    type: "date",
+                    allowInvalid: false,
+                    dateFormat: "DD/MM/YYYY",
+                },
+                { data: 3, type: "text" },
+                {
+                    data: 4,
+                    type: "numeric",
+                },
+                { data: 5, type: "text" },
+                { data: 6, type: "text" },
+                { data: 7, type: "text" },
+                { data: 8, renderer: "html" },
+            ],
+            dropdownMenu: {
+                items: {
+                    filter_by_condition: {
+                        hidden() {
+                            return this.getSelectedRangeLast().to.col >= 8;
+                        },
+                    },
+                    filter_by_value: {
+                        hidden() {
+                            return this.getSelectedRangeLast().to.col >= 8;
+                        },
+                    },
+                    filter_action_bar: {
+                        hidden() {
+                            return this.getSelectedRangeLast().to.col >= 8;
+                        },
+                    },
+                },
+            },
+            afterGetColHeader(col, TH) {
+                if (col >= 8) {
+                    const button = TH.querySelector('.changeType');
+
+                    if (!button) {
+                        return;
+                    }
+
+                    button.parentElement.removeChild(button);
+                }
+            },
+            filters: true,
+            contextMenu: false,
+            multiColumnSorting: {
+                initialConfig: [
+                    {
+                        column: 2,
+                        sortOrder: 'desc',
+                    },
+                ],
+            },
+            rowHeaders: true,
+            manualRowMove: false,
+            navigableHeaders: true,
+            autoWrapCol: true,
+            autoColumnSize: false,
+            licenseKey: "non-commercial-and-evaluation",
+        });
+
+    </script>
+}

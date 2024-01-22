@@ -1,37 +1,10 @@
-#searchInput {
+#autoComplete {
     padding: 2px 5px;
     font-family: "Inconsolata";
     font-size: 18px;
     color: #333;
     border: 1px solid #333;
-}
-
-#searchResults {
-    border: 1px solid #222;
-    position: absolute;
-    max-height: 200px;
-    overflow: auto;
-    background: #fff;
-    padding: 5px 0px;
-    margin-top: 2px;
-    width: 280px;
-    display: none;
-    box-shadow: 2px 2px 5px #333;
-
-    a {
-        text-decoration: none;
-        display: block;
-        padding: 1px 5px;
-        cursor: pointer;
-
-        &:hover {
-            background: #dde6ef;
-            color: #000;
-        }
-    }
-
-    em {
-        display: block;
-        padding: 10px;
-    }
+    border-radius: 0;
+    width: auto;
+    height: auto;
 }

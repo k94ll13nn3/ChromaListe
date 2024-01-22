@@ -11,11 +11,12 @@
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/handsontable/dist/handsontable.full.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/css/autoComplete.02.min.css">
     <link rel="stylesheet" type="text/css" href="/ChromaListe/assets/css/master.css" />
-    <script type="text/javascript" src="https://unpkg.com/lunr/lunr.min.js"></script>
     <script type="text/javascript" src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/handsontable/dist/handsontable.full.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/handsontable@14.1.0/languages/fr-FR.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js"></script>
 </head>
 
 
@@ -35,8 +36,7 @@
             <li class="menu__entry"><a href="/ChromaListe/raw-data">Données</a></li>
             <li class="menu__entry">
                 <div>
-                    <input type="text" id="searchInput" placeholder="Rechercher..." />
-                    <div id="searchResults"></div>
+                    <input id="autoComplete">
                 </div>
             </li>
         </ul>

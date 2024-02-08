@@ -52,4 +52,6 @@ public enum Groups
     Generation9 = 1 << 22,
     [ChromaDescription("Espèces convergentes")]
     FakeRegional = 1 << 23,
+    [ChromaDescription("Chromatique verrouillé")]
+    Locked = 1 << 24,
 }

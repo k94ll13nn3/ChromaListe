@@ -21,7 +21,7 @@ var types = Enumerable
 string pokedexJs = await client.GetStringAsync(new Uri("smogon/pokemon-showdown/master/data/pokedex.ts", UriKind.Relative));
 
 // Remove all before '"'.
-string minifiedJs = string.Concat("Pokedex", pokedexJs.AsSpan(56));
+string minifiedJs = $"Pokedex{pokedexJs.AsSpan(56)}";
 
 using var engine = new Engine();
 object battlePokedex = engine

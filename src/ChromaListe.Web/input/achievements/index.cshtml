@@ -27,7 +27,14 @@ NoTitle:
             }
             else
             {
-                <img class="pokemon-icon not-catched" src="@icon" title="@pokemon.Name" loading="lazy" alt="Image of shiny @pokemon.Name">
+                <div style="position: relative">
+                    <img class="pokemon-icon not-catched" src="@icon" title="@pokemon.Name" loading="lazy" alt="Image of shiny @pokemon.Name" />
+
+                    @if (pokemon.Groups.HasFlag(Groups.Locked))
+                    {
+                        <div class="badge-number">❌</div>
+                    }
+                </div>
             }
         }
     </div>

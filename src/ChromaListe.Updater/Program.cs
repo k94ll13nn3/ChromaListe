@@ -54,7 +54,7 @@ foreach (PokemonData pokemon in pokemons)
         pokemon.Form = "Paldea";
     }
 
-    // Basculegion pre evolution form is exlcluded by default, so it is renamed to Basculin.
+    // Basculegion pre evolution form is excluded by default, so it is renamed to Basculin.
     if (pokemon.PreEvolution == "Basculin-White-Striped")
     {
         pokemon.PreEvolution = "Basculin";
@@ -72,7 +72,7 @@ foreach (PokemonData pokemon in pokemons)
     {
         pokemon.SpeciesNumber = pokemons.Single(p => p.Name == pokemon.PreEvolution).SpeciesNumber;
 
-        // Handle cases when the preevolution is in a more recent gen
+        // Handle cases when the pre-evolution is in a more recent gen
         if (pokemon.SpeciesNumber is 0)
         {
             pokemon.SpeciesNumber = pokemons.Single(p => p.Name == pokemon.PreEvolution).Number;

@@ -12,7 +12,7 @@
             @foreach (var pokemon in catchedPokemon)
             {
                 var currentPokemon = Pokemon.Get(pokemon.Number);
-                @Html.Raw($"[ \"{@pokemon.Name}\", \"{@pokemon.CaughtAs}\", \"{@pokemon.CatchDate:dd/MM/yyyy}\", \"{@pokemon.Location}\", \"{@pokemon.Level}\", \"{@pokemon.Version.GetDescription()}\", \"{@pokemon.Category.GetDescription()}\", \"{@pokemon.Ball}\", \"<a href='{@Context.GetLink("/")}{@pokemon.WritePath}'>Lien</a>\" ],\n")
+                @Html.Raw($"[ \"{@pokemon.Name}\", \"{@pokemon.CaughtAs}\", \"{(@pokemon.ImageSuffix is null ? "Non" : "Oui")}\",\"{@pokemon.CatchDate:dd/MM/yyyy}\", \"{@pokemon.Location}\", \"{@pokemon.Level}\", \"{@pokemon.Version.GetDescription()}\", \"{@pokemon.Category.GetDescription()}\", \"{@pokemon.Ball}\", \"<a href='{@Context.GetLink("/")}{@pokemon.WritePath}'>Lien</a>\" ],\n")
             }
         ];
 
@@ -25,10 +25,11 @@
             stretchH: "all",
             readOnly: true,
             readOnlyCellClassName: "",
-            colWidths: [170, 222, 130, 120, 120, 130, 156],
+            colWidths: [150, 150, 75, 90, 170, 75, 160, 160],
             colHeaders: [
                 "Pokémon",
                 "Attrapé",
+                "Doublon",
                 "Date",
                 "Rencontré",
                 "Niveau",
@@ -42,41 +43,47 @@
                 { data: 1, type: "text" },
                 {
                     data: 2,
+                    type: 'checkbox',
+                    checkedTemplate: 'Oui',
+                    uncheckedTemplate: 'Non',
+                },
+                {
+                    data: 3,
                     type: "date",
                     allowInvalid: false,
                     dateFormat: "DD/MM/YYYY",
                 },
-                { data: 3, type: "text" },
+                { data: 4, type: "text" },
                 {
-                    data: 4,
+                    data: 5,
                     type: "numeric",
                 },
-                { data: 5, type: "text" },
                 { data: 6, type: "text" },
                 { data: 7, type: "text" },
-                { data: 8, renderer: "html" },
+                { data: 8, type: "text" },
+                { data: 9, renderer: "html" },
             ],
             dropdownMenu: {
                 items: {
                     filter_by_condition: {
                         hidden() {
-                            return this.getSelectedRangeLast().to.col >= 8;
+                            return this.getSelectedRangeLast().to.col >= 9;
                         },
                     },
                     filter_by_value: {
                         hidden() {
-                            return this.getSelectedRangeLast().to.col >= 8;
+                            return this.getSelectedRangeLast().to.col >= 9;
                         },
                     },
                     filter_action_bar: {
                         hidden() {
-                            return this.getSelectedRangeLast().to.col >= 8;
+                            return this.getSelectedRangeLast().to.col >= 9;
                         },
                     },
                 },
             },
             afterGetColHeader(col, TH) {
-                if (col >= 8) {
+                if (col >= 9) {
                     const button = TH.querySelector('.changeType');
 
                     if (!button) {
@@ -91,7 +98,7 @@
             multiColumnSorting: {
                 initialConfig: [
                     {
-                        column: 2,
+                        column: 3,
                         sortOrder: 'desc',
                     },
                 ],

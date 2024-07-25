@@ -6,13 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Statiq.App" Version="1.0.0-beta.72" />
-    <PackageReference Include="Statiq.Markdown" Version="1.0.0-beta.72" />
-    <PackageReference Include="Statiq.Minification" Version="1.0.0-beta.72" />
-    <PackageReference Include="Statiq.Razor" Version="1.0.0-beta.72" />
-    <PackageReference Include="Statiq.Sass" Version="1.0.0-beta.72" />
-    <PackageReference Include="Statiq.Yaml" Version="1.0.0-beta.72" />
-    <PackageReference Include="Spectre.Console" Version="0.49.1" />
+    <PackageReference Include="Statiq.App" />
+    <PackageReference Include="Statiq.Markdown" />
+    <PackageReference Include="Statiq.Minification" />
+    <PackageReference Include="Statiq.Razor" />
+    <PackageReference Include="Statiq.Sass" />
+    <PackageReference Include="Statiq.Yaml" />
+    <PackageReference Include="Spectre.Console" />
   </ItemGroup>
 
   <ItemGroup>

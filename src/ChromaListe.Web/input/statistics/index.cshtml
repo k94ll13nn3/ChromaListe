@@ -1,9 +1,8 @@
 ---
-NoTitle: 
+NoTitle:
 ---
 
 @{
-    var nbDocs = Context.GetPosts().Count();
     var nbPkmsTotal = Pokemon.PokemonCount;
     var nbPkmsDistinct = Context.GetPosts().Select(x => x.Number).Distinct().Count();
     var nbPkms = Context.GetPosts().Count();

@@ -14,7 +14,9 @@ NoTitle:
 @foreach (Groups group in new[] { Groups.Generation1, Groups.Generation2, Groups.Generation3, Groups.Generation4, Groups.Generation5, Groups.Generation6, Groups.Generation7, Groups.Generation8, Groups.Generation9, Groups.Alola, Groups.Galar, Groups.Hisui, Groups.Paldea })
 {
     IEnumerable<Pokemon> pokemons = Pokemon.GetAll(group);
-    <h1>@group.GetDescription() (@pokemons.Count(x => catchedPokemon.Any(p => p.Number == x.Number))/@pokemons.Count())</h1>
+    var percent = pokemons.Count(x => catchedPokemon.Any(p => p.Number == x.Number)) * 100.0 / pokemons.Count();
+
+    <h1>@group.GetDescription() (@pokemons.Count(x => catchedPokemon.Any(p => p.Number == x.Number))/@pokemons.Count() - @string.Format("{0:0.0}%", percent))</h1>
     <div class="container">
         @foreach (Pokemon pokemon in pokemons)
         {
@@ -54,7 +56,7 @@ NoTitle:
             var uncaught = Pokemon.GetAll().Where(x => !catchedPokemon.Select(y => y.Number).Contains(x.Number));
         }
 
-                                var unchaughtNumbers = [@Html.Raw(string.Join(",", uncaught.Select(x => $"\"{x.Number}\"")))];
+                                            var unchaughtNumbers = [@Html.Raw(string.Join(",", uncaught.Select(x => $"\"{x.Number}\"")))];
             var unchaughtNames = [@Html.Raw(string.Join(",", uncaught.Select(x => $"\"{x.Name}\"")))];
             var randomIndex = Math.floor(Math.random() * unchaughtNumbers.length);
             $("#nextTarget").html(unchaughtNumbers[randomIndex] + ' - ' + unchaughtNames[randomIndex]);

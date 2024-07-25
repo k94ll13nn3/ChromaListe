@@ -5,7 +5,7 @@ namespace ChromaListe.Updater;
 public class PokemonData
 {
     [JsonPropertyName("num")]
-    public double Number { get; set; }
+    public int Number { get; set; }
 
     [JsonPropertyName("name")]
     public string Name { get; set; } = null!;
@@ -33,7 +33,7 @@ public class PokemonData
 
     public string? TagList => Tags.Count > 0 ? string.Join('|', Tags) : null;
 
-    public double SpeciesNumber { get; set; }
+    public int SpeciesNumber { get; set; }
 
     public string TranslatedName { get; set; } = null!;
 }

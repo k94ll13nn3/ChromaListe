@@ -60,7 +60,12 @@ foreach (PokemonData pokemon in pokemons)
         pokemon.PreEvolution = "Basculin";
     }
 
-    if (string.IsNullOrWhiteSpace(pokemon.BaseName) && string.IsNullOrWhiteSpace(pokemon.PreEvolution))
+    // Melmetal do not have any relation to Meltan in the data
+    if (pokemon.Number is 809)
+    {
+        pokemon.SpeciesNumber = 808;
+    }
+    else if (string.IsNullOrWhiteSpace(pokemon.BaseName) && string.IsNullOrWhiteSpace(pokemon.PreEvolution))
     {
         pokemon.SpeciesNumber = pokemon.Number;
     }
@@ -79,7 +84,7 @@ foreach (PokemonData pokemon in pokemons)
         }
     }
 
-    pokemon.TranslatedName = names.GetValueOrDefault((int)pokemon.Number, pokemon.BaseName ?? pokemon.Name);
+    pokemon.TranslatedName = names.GetValueOrDefault(pokemon.Number, pokemon.BaseName ?? pokemon.Name);
     string primaryType = types.GetValueOrDefault(pokemon.PrimaryType, pokemon.PrimaryType);
     string? secondaryType = pokemon.SecondaryType is not null ? types.GetValueOrDefault(pokemon.SecondaryType, pokemon.SecondaryType) : null;
     generatedLines.Add($"{pokemon.Number},{pokemon.TranslatedName},{pokemon.Form},{primaryType},{secondaryType},{pokemon.TagList},{pokemon.SpeciesNumber}");

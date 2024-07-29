@@ -6,15 +6,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Jint" PrivateAssets="all" GeneratePathProperty="true" />
+    <PackageReference Include="Jint" />
     <PackageReference Include="System.Text.Json" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="names.txt">
+    <None Update="*.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="types.csv">
+    <None Update="*.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

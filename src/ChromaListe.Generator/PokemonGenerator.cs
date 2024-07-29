@@ -15,7 +15,6 @@ public class PokemonGenerator : ISourceGenerator
         ["Fossil"] = ["138", "139", "140", "141", "142", "345", "346", "347", "348", "408", "409", "410", "411", "564", "565", "566", "567", "696", "697", "698", "699", "880", "881", "882", "883"],
         ["Pikalike"] = ["25", "26", "26a", "172", "311", "312", "417", "587", "702", "777", "877", "921", "922", "923"],
         ["Eevee"] = ["133", "134", "135", "136", "196", "197", "470", "471", "700"],
-        ["UltraBeast"] = ["793", "794", "795", "796", "797", "798", "799", "803", "804", "805", "806"],
         ["FakeRegional"] = ["948", "949", "960", "961", "1012", "1013"],
         ["Locked"] = ["144g", "145g", "146g", "494", "647", "648", "649", "719", "720", "721", "789", "790", "801", "802", "807", "888", "889", "890", "891", "892", "893", "896", "897", "898", "905", "1001", "1002", "1003", "1004", "1007", "1008", "1009", "1010", "1014", "1015", "1016", "1017", "1020", "1021", "1022", "1023", "1024", "1025"],
     };
@@ -29,7 +28,7 @@ namespace ChromaListe.Web.Core;
 
 public sealed partial record Pokemon
 {
-    private static readonly IReadOnlyDictionary<string, Pokemon> PokemonList = new Dictionary<string, Pokemon>
+    static Pokemon()
     {
 ");
         foreach (string line in GetPokemons(context))
@@ -37,7 +36,7 @@ public sealed partial record Pokemon
             sourceBuilder.AppendLine(line);
         }
 
-        sourceBuilder.Append(@"    };
+        sourceBuilder.Append(@"    }
 }");
         context.AddSource("Pokemon.Generated.cs", sourceBuilder.ToString());
     }
@@ -97,7 +96,7 @@ public sealed partial record Pokemon
                 groupsString.Append(" | Groups.").Append(tag!.Replace(" ", "").Replace("-", ""));
             }
 
-            string line = $@"        [""{pokemon.DisplayNumber}""] = new Pokemon(""{pokemon.DisplayNumber}"", ""{pokemon.DisplayName}"", {groupsString}, {pokemon.SpeciesNumber}),";
+            string line = $@"        PokemonList.Add(""{pokemon.DisplayNumber}"", new Pokemon(""{pokemon.DisplayNumber}"", ""{pokemon.DisplayName}"", {groupsString}, {pokemon.SpeciesNumber}, new() {{{string.Join(", ", pokemon.Games.Select(kv => $"[\"{kv.Key}\"] = {kv.Value}"))}}}));";
             generatedLines.Add(line);
         }
 
@@ -106,7 +105,21 @@ public sealed partial record Pokemon
 
     private static PokemonData LineToData(string line)
     {
-        string[]? splittedLine = line.Split(',');
+        string[] splittedLine = line.Split(',');
+        string[] splittedGames = splittedLine[7].Split(new[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
+
+        Dictionary<string, int> games = new()
+        {
+            ["LGP"] = int.Parse(splittedGames[0], NumberStyles.Integer, CultureInfo.InvariantCulture),
+            ["LGE"] = int.Parse(splittedGames[1], NumberStyles.Integer, CultureInfo.InvariantCulture),
+            ["SW"] = int.Parse(splittedGames[2], NumberStyles.Integer, CultureInfo.InvariantCulture),
+            ["SH"] = int.Parse(splittedGames[3], NumberStyles.Integer, CultureInfo.InvariantCulture),
+            ["BD"] = int.Parse(splittedGames[4], NumberStyles.Integer, CultureInfo.InvariantCulture),
+            ["SP"] = int.Parse(splittedGames[5], NumberStyles.Integer, CultureInfo.InvariantCulture),
+            ["PLA"] = int.Parse(splittedGames[6], NumberStyles.Integer, CultureInfo.InvariantCulture),
+            ["SC"] = int.Parse(splittedGames[7], NumberStyles.Integer, CultureInfo.InvariantCulture),
+            ["VI"] = int.Parse(splittedGames[8], NumberStyles.Integer, CultureInfo.InvariantCulture),
+        };
         return new PokemonData(
             int.Parse(splittedLine[0], NumberStyles.Integer, CultureInfo.InvariantCulture),
             splittedLine[1],
@@ -114,6 +127,7 @@ public sealed partial record Pokemon
             splittedLine[3],
             splittedLine[4],
             splittedLine[5].Split(new[] { '|' }, StringSplitOptions.RemoveEmptyEntries),
-            int.Parse(splittedLine[6], NumberStyles.Integer, CultureInfo.InvariantCulture));
+            int.Parse(splittedLine[6], NumberStyles.Integer, CultureInfo.InvariantCulture),
+            games);
     }
 }

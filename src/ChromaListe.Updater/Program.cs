@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Text.Json;
 using ChromaListe.Updater;
 using Jint;
@@ -39,6 +40,14 @@ if (pokemons is null)
     throw new InvalidOperationException("pokemons");
 }
 
+var pokemonByGame = new Dictionary<(int number, string? form), string>();
+string[] locations = await File.ReadAllLinesAsync("locations.csv");
+foreach (string location in locations)
+{
+    string[] parts = location.Split(',');
+    pokemonByGame.Add((int.Parse(parts[0], NumberStyles.Integer, CultureInfo.InvariantCulture), parts[1].Length is 0 ? null : parts[1]), parts[2]);
+}
+
 List<string> generatedLines = [];
 foreach (PokemonData pokemon in pokemons)
 {
@@ -58,6 +67,12 @@ foreach (PokemonData pokemon in pokemons)
     if (pokemon.PreEvolution == "Basculin-White-Striped")
     {
         pokemon.PreEvolution = "Basculin";
+    }
+
+    // DLC paradox pokémon do not have tags
+    if (pokemon.Number is >= 1020 and <= 1023)
+    {
+        pokemon.Tags = ["Paradox"];
     }
 
     // Melmetal do not have any relation to Meltan in the data
@@ -87,7 +102,7 @@ foreach (PokemonData pokemon in pokemons)
     pokemon.TranslatedName = names.GetValueOrDefault(pokemon.Number, pokemon.BaseName ?? pokemon.Name);
     string primaryType = types.GetValueOrDefault(pokemon.PrimaryType, pokemon.PrimaryType);
     string? secondaryType = pokemon.SecondaryType is not null ? types.GetValueOrDefault(pokemon.SecondaryType, pokemon.SecondaryType) : null;
-    generatedLines.Add($"{pokemon.Number},{pokemon.TranslatedName},{pokemon.Form},{primaryType},{secondaryType},{pokemon.TagList},{pokemon.SpeciesNumber}");
+    generatedLines.Add($"{pokemon.Number},{pokemon.TranslatedName},{pokemon.Form},{primaryType},{secondaryType},{pokemon.TagList},{pokemon.SpeciesNumber},{pokemonByGame[(pokemon.Number, pokemon.Form)]}");
 }
 
 await File.WriteAllLinesAsync("../ChromaListe.Web/pokemons.csv", generatedLines);

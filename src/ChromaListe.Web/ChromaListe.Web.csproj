@@ -7,7 +7,6 @@
 
   <ItemGroup>
     <PackageReference Include="Statiq.App" />
-    <PackageReference Include="Statiq.Markdown" />
     <PackageReference Include="Statiq.Minification" />
     <PackageReference Include="Statiq.Razor" />
     <PackageReference Include="Statiq.Sass" />

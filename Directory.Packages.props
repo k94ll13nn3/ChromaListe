@@ -5,15 +5,14 @@
   </PropertyGroup>
   <ItemGroup>
     <GlobalPackageReference Include="Roslynator.Analyzers" Version="4.12.4" />
-    <GlobalPackageReference Include="SonarAnalyzer.CSharp" Version="9.30.0.95878" />
+    <GlobalPackageReference Include="SonarAnalyzer.CSharp" Version="9.32.0.97167" />
   </ItemGroup>
   <ItemGroup>
-    <PackageVersion Include="Jint" Version="4.0.0" />
+    <PackageVersion Include="Jint" Version="4.0.1" />
     <PackageVersion Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.4" />
-    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="4.10.0" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="4.11.0" />
     <PackageVersion Include="Spectre.Console" Version="0.49.1" />
     <PackageVersion Include="Statiq.App" Version="1.0.0-beta.72" />
-    <PackageVersion Include="Statiq.Markdown" Version="1.0.0-beta.72" />
     <PackageVersion Include="Statiq.Minification" Version="1.0.0-beta.72" />
     <PackageVersion Include="Statiq.Razor" Version="1.0.0-beta.72" />
     <PackageVersion Include="Statiq.Sass" Version="1.0.0-beta.72" />

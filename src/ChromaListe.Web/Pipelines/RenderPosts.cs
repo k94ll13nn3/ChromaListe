@@ -1,4 +1,5 @@
 using ChromaListe.Web.Core;
+using ChromaListe.Web.Modules;
 using Statiq.Razor;
 
 namespace ChromaListe.Web.Pipelines;
@@ -11,6 +12,7 @@ public class RenderPosts : Pipeline
 
         ProcessModules =
         [
+            new CheckDuplicates(),
             new ReplaceDocuments(PipelineNames.Posts),
             new RenderRazor().WithLayout((NormalizedPath)"/_Post.cshtml"),
             new SetDestination(Config.FromDocument(doc => (NormalizedPath)doc.GetString(CustomKeys.WritePath))),

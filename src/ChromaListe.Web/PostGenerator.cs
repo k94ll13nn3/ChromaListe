@@ -95,7 +95,7 @@ internal static class PostGenerator
     }
 }
 
-public record Choice<T>(string Title, T Value)
+internal sealed record Choice<T>(string Title, T Value)
 {
     public override string ToString()
     {

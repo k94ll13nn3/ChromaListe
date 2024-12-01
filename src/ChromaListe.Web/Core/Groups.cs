@@ -1,7 +1,7 @@
 namespace ChromaListe.Web.Core;
 
 [Flags]
-public enum Groups
+internal enum Groups
 {
     None = 0,
     [ChromaDescription("Génération 1")]

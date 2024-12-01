@@ -1,7 +1,7 @@
 namespace ChromaListe.Web.Core;
 
 [AttributeUsage(AttributeTargets.All)]
-public sealed class ChromaDescriptionAttribute : Attribute
+internal sealed class ChromaDescriptionAttribute : Attribute
 {
     public ChromaDescriptionAttribute(string description)
     {

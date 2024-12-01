@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace ChromaListe.Web.Core;
 
-public static partial class ClassExtensions
+internal static partial class ClassExtensions
 {
     private static IList<PostData>? Posts;
 

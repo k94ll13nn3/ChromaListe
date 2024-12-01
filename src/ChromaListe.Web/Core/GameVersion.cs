@@ -1,6 +1,6 @@
 namespace ChromaListe.Web.Core;
 
-public enum GameVersion
+internal enum GameVersion
 {
     [ChromaDescription("Cristal (VC)", "Cristal\n(VC)")]
     CVC = 0,

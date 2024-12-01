@@ -1,6 +1,6 @@
 namespace ChromaListe.Web.Core;
 
-public record PostData
+internal sealed record PostData
 {
     public PostData(IDocument? document)
     {

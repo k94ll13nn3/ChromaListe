@@ -1,6 +1,6 @@
 namespace ChromaListe.Web.Core;
 
-public sealed partial record Pokemon
+internal sealed partial record Pokemon
 {
     private static readonly IDictionary<string, Pokemon> PokemonList = new Dictionary<string, Pokemon>();
 

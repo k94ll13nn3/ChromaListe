@@ -2,7 +2,7 @@ using Statiq.Sass;
 
 namespace ChromaListe.Web.Pipelines;
 
-public class GenerateSass : Pipeline
+internal sealed class GenerateSass : Pipeline
 {
     public GenerateSass()
     {

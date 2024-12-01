@@ -1,6 +1,6 @@
 namespace ChromaListe.Web.Core;
 
-public enum Category
+internal enum Category
 {
     [ChromaDescription("Appels à l'aide", "Appels\naide")]
     Sos = 0,

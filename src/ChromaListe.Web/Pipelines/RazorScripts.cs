@@ -4,7 +4,7 @@ using Statiq.Razor;
 
 namespace ChromaListe.Web.Pipelines;
 
-public class RazorScripts : Pipeline
+internal sealed class RazorScripts : Pipeline
 {
     public RazorScripts()
     {

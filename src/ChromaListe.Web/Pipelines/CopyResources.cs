@@ -1,6 +1,6 @@
 namespace ChromaListe.Web.Pipelines;
 
-public class CopyResources : Pipeline
+internal sealed class CopyResources : Pipeline
 {
     public CopyResources()
     {

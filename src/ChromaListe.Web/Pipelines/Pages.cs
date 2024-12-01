@@ -4,7 +4,7 @@ using Statiq.Yaml;
 
 namespace ChromaListe.Web.Pipelines;
 
-public class Pages : Pipeline
+internal sealed class Pages : Pipeline
 {
     public Pages()
     {

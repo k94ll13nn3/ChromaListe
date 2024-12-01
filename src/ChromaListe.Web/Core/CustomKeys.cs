@@ -1,6 +1,6 @@
 ﻿namespace ChromaListe.Web.Core;
 
-public static class CustomKeys
+internal static class CustomKeys
 {
     public static string SiteTitle => nameof(SiteTitle);
 

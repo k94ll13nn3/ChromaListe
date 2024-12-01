@@ -2,7 +2,7 @@ using System.Text.Json.Serialization;
 
 namespace ChromaListe.Updater;
 
-public class PokemonData
+internal sealed class PokemonData
 {
     [JsonPropertyName("num")]
     public int Number { get; set; }

@@ -26,7 +26,7 @@ using System.Collections.Generic;
 
 namespace ChromaListe.Web.Core;
 
-public sealed partial record Pokemon
+internal sealed partial record Pokemon
 {
     static Pokemon()
     {
@@ -77,7 +77,7 @@ public sealed partial record Pokemon
 
         IEnumerable<PokemonData>? pokemons = content
             .ToString()
-            .Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries)
+            .Split(['\r', '\n'], StringSplitOptions.RemoveEmptyEntries)
             .Where(l => !string.IsNullOrWhiteSpace(l))
             .Select(LineToData);
 
@@ -106,7 +106,7 @@ public sealed partial record Pokemon
     private static PokemonData LineToData(string line)
     {
         string[] splittedLine = line.Split(',');
-        string[] splittedGames = splittedLine[7].Split(new[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
+        string[] splittedGames = splittedLine[7].Split(['|'], StringSplitOptions.RemoveEmptyEntries);
 
         Dictionary<string, int> games = new()
         {
@@ -126,7 +126,7 @@ public sealed partial record Pokemon
             splittedLine[2],
             splittedLine[3],
             splittedLine[4],
-            splittedLine[5].Split(new[] { '|' }, StringSplitOptions.RemoveEmptyEntries),
+            splittedLine[5].Split(['|'], StringSplitOptions.RemoveEmptyEntries),
             int.Parse(splittedLine[6], NumberStyles.Integer, CultureInfo.InvariantCulture),
             games);
     }

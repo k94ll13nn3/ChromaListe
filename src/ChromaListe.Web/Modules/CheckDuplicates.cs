@@ -2,7 +2,7 @@ using ChromaListe.Web.Core;
 
 namespace ChromaListe.Web.Modules;
 
-public class CheckDuplicates : Module
+internal sealed class CheckDuplicates : Module
 {
     protected override void BeforeExecution(IExecutionContext context)
     {

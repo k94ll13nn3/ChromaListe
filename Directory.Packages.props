@@ -17,6 +17,6 @@
     <PackageVersion Include="Statiq.Razor" Version="1.0.0-beta.72" />
     <PackageVersion Include="Statiq.Sass" Version="1.0.0-beta.72" />
     <PackageVersion Include="Statiq.Yaml" Version="1.0.0-beta.72" />
-    <PackageVersion Include="System.Text.Json" Version="8.0.5" />
+    <PackageVersion Include="System.Text.Json" Version="9.0.0" />
   </ItemGroup>
 </Project>

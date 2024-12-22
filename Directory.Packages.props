@@ -4,13 +4,13 @@
     <CentralPackageTransitivePinningEnabled>false</CentralPackageTransitivePinningEnabled>
   </PropertyGroup>
   <ItemGroup>
-    <GlobalPackageReference Include="Roslynator.Analyzers" Version="4.12.9" />
-    <GlobalPackageReference Include="SonarAnalyzer.CSharp" Version="10.3.0.106239" />
+    <GlobalPackageReference Include="Roslynator.Analyzers" Version="4.12.10" />
+    <GlobalPackageReference Include="SonarAnalyzer.CSharp" Version="10.4.0.108396" />
   </ItemGroup>
   <ItemGroup>
     <PackageVersion Include="Jint" Version="4.1.0" />
     <PackageVersion Include="Microsoft.CodeAnalysis.Analyzers" Version="3.11.0" />
-    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="4.11.0" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="4.12.0" />
     <PackageVersion Include="Spectre.Console" Version="0.49.1" />
     <PackageVersion Include="Statiq.App" Version="1.0.0-beta.72" />
     <PackageVersion Include="Statiq.Minification" Version="1.0.0-beta.72" />

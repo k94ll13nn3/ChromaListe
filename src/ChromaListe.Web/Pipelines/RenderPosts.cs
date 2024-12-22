@@ -4,7 +4,7 @@ using Statiq.Razor;
 
 namespace ChromaListe.Web.Pipelines;
 
-internal sealed class RenderPosts : Pipeline
+public sealed class RenderPosts : Pipeline
 {
     public RenderPosts()
     {

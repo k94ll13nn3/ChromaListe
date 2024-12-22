@@ -3,7 +3,7 @@ using Statiq.Yaml;
 
 namespace ChromaListe.Web.Pipelines;
 
-internal sealed class Posts : Pipeline, INamedPipeline
+public sealed class Posts : Pipeline, INamedPipeline
 {
     public Posts()
     {

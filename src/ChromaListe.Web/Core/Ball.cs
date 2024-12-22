@@ -1,6 +1,6 @@
 namespace ChromaListe.Web.Core;
 
-internal enum Ball
+public enum Ball
 {
     Poke = 0,
     Great = 1,

@@ -177,6 +177,7 @@ csharp_space_between_square_brackets = false
 ################################
 
 dotnet_diagnostic.CA1812.severity = none
+dotnet_diagnostic.CA1515.severity = none
 
 [**/Pipelines/*.cs]
 # S3220: Method calls should not resolve ambiguously to overloads with "params"

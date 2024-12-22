@@ -26,7 +26,7 @@ using System.Collections.Generic;
 
 namespace ChromaListe.Web.Core;
 
-internal sealed partial record Pokemon
+public sealed partial record Pokemon
 {
     static Pokemon()
     {

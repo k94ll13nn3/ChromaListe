@@ -11,7 +11,7 @@
     <PackageVersion Include="Jint" Version="4.2.1" />
     <PackageVersion Include="Microsoft.CodeAnalysis.Analyzers" Version="3.11.0" />
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="4.12.0" />
-    <PackageVersion Include="Spectre.Console" Version="0.49.1" />
+    <PackageVersion Include="Spectre.Console" Version="0.50.0" />
     <PackageVersion Include="Statiq.App" Version="1.0.0-beta.72" />
     <PackageVersion Include="Statiq.Minification" Version="1.0.0-beta.72" />
     <PackageVersion Include="Statiq.Razor" Version="1.0.0-beta.72" />

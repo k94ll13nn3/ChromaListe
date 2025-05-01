@@ -8,7 +8,7 @@
     <GlobalPackageReference Include="SonarAnalyzer.CSharp" Version="10.8.0.113526" />
   </ItemGroup>
   <ItemGroup>
-    <PackageVersion Include="Jint" Version="4.2.1" />
+    <PackageVersion Include="Jint" Version="4.2.2" />
     <PackageVersion Include="Microsoft.CodeAnalysis.Analyzers" Version="3.11.0" />
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="4.12.0" />
     <PackageVersion Include="Spectre.Console" Version="0.49.1" />

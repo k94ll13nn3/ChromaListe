@@ -13,16 +13,16 @@ internal static class PostGenerator
             .HideChoices();
         Choice<(string name, string number)> selectedPokemon = pokemonPrompt.Show(AnsiConsole.Console);
 
-        string catchYear = AnsiConsole.Ask("Année de capture ?", DateTime.Now.Year).ToString("D2", CultureInfo.InvariantCulture);
-        string catchMonth = AnsiConsole.Ask("Mois de capture ?", DateTime.Now.Month).ToString("D2", CultureInfo.InvariantCulture);
-        string catchDay = AnsiConsole.Ask("Jour de capture ?", DateTime.Now.Day).ToString("D2", CultureInfo.InvariantCulture);
-        string catchLocation = AnsiConsole.Ask<string>("Lieu de capture ?");
-        int catchLevel = AnsiConsole.Ask<int>("Niveau de capture ?");
+        string catchYear = (await AnsiConsole.AskAsync("Année de capture ?", DateTime.Now.Year)).ToString("D2", CultureInfo.InvariantCulture);
+        string catchMonth = (await AnsiConsole.AskAsync("Mois de capture ?", DateTime.Now.Month)).ToString("D2", CultureInfo.InvariantCulture);
+        string catchDay = (await AnsiConsole.AskAsync("Jour de capture ?", DateTime.Now.Day)).ToString("D2", CultureInfo.InvariantCulture);
+        string catchLocation = await AnsiConsole.AskAsync<string>("Lieu de capture ?");
+        int catchLevel = await AnsiConsole.AskAsync<int>("Niveau de capture ?");
 
         string? imageSuffix = null;
         if (Confirm("Doublon ?"))
         {
-            imageSuffix = AnsiConsole.Ask<string>("Suffixe de l'image ?");
+            imageSuffix = await AnsiConsole.AskAsync<string>("Suffixe de l'image ?");
         }
 
         string? caughtAs = null;
@@ -38,21 +38,21 @@ internal static class PostGenerator
             .Title("Quel [blue]jeu[/] ?")
             .PageSize(Enum.GetValues<GameVersion>().Length)
             .AddChoices(Enum.GetValues<GameVersion>().Select(p => new Choice<GameVersion>(p.GetDescription(), p)).Reverse());
-        Choice<GameVersion> game = AnsiConsole.Prompt(gamePrompt);
+        Choice<GameVersion> game = await AnsiConsole.PromptAsync(gamePrompt);
         AnsiConsole.MarkupLine($"Quel [blue]jeu[/] ? {game.Value.GetDescription()}");
 
         SelectionPrompt<Choice<Category>> categoryPrompt = new SelectionPrompt<Choice<Category>>()
             .Title("Quelle [blue]méthode[/] ?")
             .PageSize(Enum.GetValues<Category>().Length)
             .AddChoices(Enum.GetValues<Category>().Select(p => new Choice<Category>(p.GetDescription(), p)).Reverse());
-        Choice<Category> category = AnsiConsole.Prompt(categoryPrompt);
+        Choice<Category> category = await AnsiConsole.PromptAsync(categoryPrompt);
         AnsiConsole.MarkupLine($"Quelle [blue]méthode[/] ? {category.Value.GetDescription()}");
 
         SelectionPrompt<Choice<Ball>> ballPrompt = new SelectionPrompt<Choice<Ball>>()
             .Title("Quelle [blue]balle[/] ?")
             .PageSize(Enum.GetValues<Ball>().Length)
             .AddChoices(Enum.GetValues<Ball>().Select(p => new Choice<Ball>(p.GetDescription(), p)));
-        Choice<Ball> ball = AnsiConsole.Prompt(ballPrompt);
+        Choice<Ball> ball = await AnsiConsole.PromptAsync(ballPrompt);
         AnsiConsole.MarkupLine($"Quelle [blue]balle[/] ? {ball.Value.GetDescription()}");
 
         string filename = $@"input\posts\{catchYear}\{catchMonth}\{catchYear}-{catchMonth}-{catchDay}-{selectedPokemon.Value.name.Slugify()}.md";

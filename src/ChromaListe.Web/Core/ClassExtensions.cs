@@ -49,11 +49,11 @@ public static partial class ClassExtensions
     {
         _ = context ?? throw new ArgumentNullException(nameof(context));
 
-        Posts ??= context.Outputs
+        Posts ??= [.. context.Outputs
                 .FromPipeline(PipelineNames.Posts)
                 .OrderByDescending(x => x.Get(CustomKeys.Date))
                 .ThenByDescending(x => x.Get(CustomKeys.Number))
-                .Select(x => new PostData(x)).ToList();
+                .Select(x => new PostData(x))];
 
         return Posts;
     }

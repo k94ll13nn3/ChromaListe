@@ -26,10 +26,10 @@ NoTitle:
     <tbody>
         @{
             var categories = Context.GetPosts()
-                .GroupBy(x => x.Category)
-                .OrderByDescending(x => x.Count())
-                .ThenBy(x => x.Key.GetDescription())
-                .Select(x => (key: x.Key, count: x.Count()));
+            .GroupBy(x => x.Category)
+            .OrderByDescending(x => x.Count())
+            .ThenBy(x => x.Key.GetDescription())
+            .Select(x => (key: x.Key, count: x.Count()));
             var maxCategoryCount = categories.MaxBy(c => c.count).count;
             foreach (var category in categories)
             {
@@ -54,10 +54,10 @@ NoTitle:
     <tbody>
         @{
             var versions = Context.GetPosts()
-                .GroupBy(x => x.Version)
-                .OrderByDescending(x => x.Count())
-                .ThenBy(x => x.Key.GetDescription())
-                .Select(x => (key: x.Key, count: x.Count()));
+            .GroupBy(x => x.Version)
+            .OrderByDescending(x => x.Count())
+            .ThenBy(x => x.Key.GetDescription())
+            .Select(x => (key: x.Key, count: x.Count()));
             var maxVersionCount = versions.MaxBy(c => c.count).count;
             foreach (var version in versions)
             {
@@ -82,9 +82,9 @@ NoTitle:
     <tbody>
         @{
             var years = Context.GetPosts()
-                .GroupBy(x => x.CatchDate.Year)
-                .OrderByDescending(x => x.Count())
-                .Select(x => (key: x.Key, count: x.Count()));
+            .GroupBy(x => x.CatchDate.Year)
+            .OrderByDescending(x => x.Count())
+            .Select(x => (key: x.Key, count: x.Count()));
             var maxYearCount = years.MaxBy(c => c.count).count;
             foreach (var year in years)
             {
@@ -109,9 +109,9 @@ NoTitle:
     <tbody>
         @{
             var months = Context.GetPosts()
-                .GroupBy(x => x.CatchDate.ToString("MMMM\nyyyy"))
-                .OrderByDescending(x => x.Count())
-                .Select(x => (key: x.Key, count: x.Count()));
+            .GroupBy(x => x.CatchDate.ToString("MMMM\nyyyy"))
+            .OrderByDescending(x => x.Count())
+            .Select(x => (key: x.Key, count: x.Count()));
             var maxMonthCount = months.MaxBy(c => c.count).count;
             foreach (var month in months.Take(10))
             {
@@ -136,9 +136,9 @@ NoTitle:
     <tbody>
         @{
             var balls = Context.GetPosts()
-                .GroupBy(x => x.Ball)
-                .OrderByDescending(x => x.Count())
-                .Select(x => (key: x.Key, count: x.Count()));
+            .GroupBy(x => x.Ball)
+            .OrderByDescending(x => x.Count())
+            .Select(x => (key: x.Key, count: x.Count()));
             var maxBallCount = balls.MaxBy(c => c.count).count;
             foreach (var ball in balls)
             {
@@ -155,3 +155,39 @@ NoTitle:
         }
     </tbody>
 </table>
+
+<h2>Graph</h2>
+
+@foreach (var year in Context.GetPosts().GroupBy(x => x.CatchDate.Year).OrderByDescending(x => x.Key).Select(g => g.Key))
+{
+    <h3>@year</h3>
+
+    <div style="display:flex">
+        <activity-graph class="letterboxd"
+                        id="@($"activity-graph-{year}")"
+                        style="margin:auto"
+                        weekday-headers="short"
+                        month-limits="late"
+                        lang="fr"
+                        week-start-day="1"
+                        start-date="@($"{year}-01-01")"
+                        end-date="@($"{year}-12-31")"></activity-graph>
+    </div>
+}
+
+@section Scripts {
+    <script type="module">
+        @{
+        var catchByYears = Context.GetPosts()
+            .GroupBy(x => x.CatchDate.Year)
+            .Select(g => g.GroupBy(x => x.CatchDate).ToDictionary(
+                x => x.Key.ToString("yyyy-MM-dd"),
+                x => new { parts = new List<string> { $"day--data-{(x.Count() >= 4 ? 4 : x.Count())}" }, title = $"{x.Count()} shiny(s)" }));
+        }
+
+        @foreach (var catchYear in catchByYears)
+        {
+            @Html.Raw($"document.querySelector('#activity-graph-{catchYear.First().Key[..4]}').data = {Json.Serialize(catchYear)};")
+        }
+    </script>
+}

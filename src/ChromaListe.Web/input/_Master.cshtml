@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="fr">
-    @Html.Partial("_Head")
+    @await Html.PartialAsync("_Head")
 
-    <body>
-        <div class="wrapper">
-            @Html.Partial("_Navbar")
-            @RenderBody()                
-        </div>
+<body>
+    <div class="wrapper">
+        @await Html.PartialAsync("_Navbar")
+        @RenderBody()
+    </div>
 
-        @Html.Partial("_Footer")
+    @await Html.PartialAsync("_Footer")
 
-        @Html.Partial("_Scripts")
-        @RenderSection("Scripts", false)
-    </body>
+    @await Html.PartialAsync("_Scripts")
+    @await RenderSectionAsync("Scripts", false)
+</body>
 </html>

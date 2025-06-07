@@ -75,7 +75,7 @@ NoTitle:
             var uncaught = Pokemon.GetAll().Where(x => !catchedPokemon.Select(y => y.Number).Contains(x.Number));
         }
 
-                                                            var unchaughtNumbers = [@Html.Raw(string.Join(",", uncaught.Select(x => $"\"{x.Number}\"")))];
+            var unchaughtNumbers = [@Html.Raw(string.Join(",", uncaught.Select(x => $"\"{x.Number}\"")))];
             var unchaughtNames = [@Html.Raw(string.Join(",", uncaught.Select(x => $"\"{x.Name}\"")))];
             var randomIndex = Math.floor(Math.random() * unchaughtNumbers.length);
             $("#nextTarget").html(unchaughtNumbers[randomIndex] + ' - ' + unchaughtNames[randomIndex]);

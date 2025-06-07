@@ -3,9 +3,9 @@
 }
 
 <ul class="list-posts">
-    @Html.Partial("_PostTeaser", catchedPokemon[0])
-    @Html.Partial("_PostTeaser", catchedPokemon[1])
-    @Html.Partial("_PostTeaser", catchedPokemon[2])
+    @(await Html.PartialAsync("_PostTeaser", catchedPokemon[0]))
+    @(await Html.PartialAsync("_PostTeaser", catchedPokemon[1]))
+    @(await Html.PartialAsync("_PostTeaser", catchedPokemon[2]))
 </ul>
 
 <hr>

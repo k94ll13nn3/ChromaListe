@@ -61,32 +61,17 @@ $icon-size: 67px;
     font-size: 15px
 }
 
-.with-tooltip {
-
-    .tooltip-wrapper {
-        visibility: hidden;
-        position: absolute
-    }
-
-    .tooltip-content {
-        width: 211px;
-        background-color: darkgray;
-        position: absolute;
-        z-index: 100;
-        top: 100%;
-        left: 50%;
-        margin-left: -80px;
-        display: flex;
-        gap: 5px;
-        padding: 10px;
-        border-radius: 10px;
-        flex-wrap: wrap;
-    }
-
-    &:hover {
-        .tooltip-wrapper {
-            visibility: visible;
-            transition: all 0.4s 0.5s ease;
-        }
-    }
+.tooltip-content {
+    width: 211px;
+    background-color: darkgray;
+    position: absolute;
+    z-index: 100;
+    top: 100%;
+    left: 50%;
+    margin-left: -80px;
+    display: flex;
+    gap: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    flex-wrap: wrap;
 }

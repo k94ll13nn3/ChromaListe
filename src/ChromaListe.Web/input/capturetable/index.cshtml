@@ -27,7 +27,6 @@ NoTitle:
             {
                 <a title="@pokemon.Name" href="@Context.GetLink("/")@post.WritePath" style="position: relative">
                     <img class="pokemon-icon" src="@icon" loading="lazy" alt="Image of captured shiny @pokemon.Name" />
-
                     @if (count > 1)
                     {
                         <div class="badge-number">@count</div>
@@ -36,32 +35,22 @@ NoTitle:
             }
             else
             {
-                <div style="position: relative" class="with-tooltip">
+                string[] games = new string[] { "LGP", "LGE", "SW", "SH", "BD", "SP", "PLA", "SC", "VI" };
+                var data = Json.Serialize(games.Select(g => new
+                {
+                    src = $"/ChromaListe/assets/img/games/{g}.png",
+                    alt = g,
+                    badge = pokemon.Games[g] == 2 ? "✔️" : "",
+                    catched = pokemon.Games[g] == 0 ? " not-catched" : "",
+                }).ToList());
+
+                <div style="position: relative" class="with-tooltip" data-tooltip='@data'>
                     <img class="pokemon-icon not-catched" src="@icon" title="@pokemon.Name" loading="lazy" alt="Image of shiny @pokemon.Name" />
 
                     @if (pokemon.Groups.HasFlag(Groups.Locked))
                     {
                         <div class="badge-number">❌</div>
                     }
-
-                    @{
-                        string[] games = new string[] { "LGP", "LGE", "SW", "SH", "BD", "SP", "PLA", "SC", "VI" };
-                    }                                 
-                                                      
-                    <div class="tooltip-wrapper">     
-                        <div class="tooltip-content">
-                            @foreach (var game in games)
-                            {
-                                <div style="position: relative">
-                                    <img class="pokemon-icon @(pokemon.Games[game] == 0 ? "not-catched" : "")" src="@Context.GetLink($"/assets/img/games/{game}.png")" loading="lazy" alt="@game" />
-                                    @if (pokemon.Games[game] == 2)
-                                    {
-                                        <div class="badge-number">✔️</div>
-                                    }  
-                                </div>
-                            }
-                        </div>
-                    </div>
                 </div>
             }
         }
@@ -83,6 +72,64 @@ NoTitle:
 
         $(document).ready(function () {
             randomizeNextTarget();
+        });
+
+
+        // Create single tooltip instance
+        const globalTooltip = document.createElement('div');
+        globalTooltip.classList.add('tooltip-wrapper');
+        const tooltipContent = document.createElement('div');
+        tooltipContent.classList.add('tooltip-content');
+        globalTooltip.appendChild(tooltipContent);
+        document.body.appendChild(globalTooltip);
+
+        globalTooltip.style.position = 'absolute';
+        globalTooltip.style.display = 'none';
+        globalTooltip.style.zIndex = '9999';
+
+        // Function to build tooltip content
+        function populateTooltip(data) {
+            tooltipContent.innerHTML = ''; // Clear previous content
+
+            data.forEach(item => {
+                const div = document.createElement('div');
+                div.style.position = 'relative';
+
+                const img = document.createElement('img');
+                img.className = 'pokemon-icon' + (item.catched);
+                img.src = item.src;
+                img.alt = item.alt;
+                img.loading = 'lazy';
+
+                div.appendChild(img);
+
+                if (item.badge) {
+                    const badge = document.createElement('div');
+                    badge.classList.add('badge-number');
+                    badge.textContent = item.badge;
+                    div.appendChild(badge);
+                }
+
+                tooltipContent.appendChild(div);
+            });
+        }
+
+        // Attach events to all targets
+        document.querySelectorAll('.with-tooltip').forEach(el => {
+            el.addEventListener('mouseenter', (e) => {
+                const data = JSON.parse(el.dataset.tooltip);
+                populateTooltip(data);
+
+                const rect = el.getBoundingClientRect();
+                globalTooltip.style.left = `${rect.left + window.scrollX}px`;
+                globalTooltip.style.top = `${rect.bottom + window.scrollY}px`;
+
+                globalTooltip.style.display = 'block';
+            });
+
+            el.addEventListener('mouseleave', () => {
+                globalTooltip.style.display = 'none';
+            });
         });
     </script>
 }

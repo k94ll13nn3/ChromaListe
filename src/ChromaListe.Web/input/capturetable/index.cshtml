@@ -23,6 +23,7 @@ NoTitle:
             var icon = Context.GetLink($"/assets/img/icons/{pokemon.PaddedNumber}.png");
             var post = catchedPokemon.OrderBy(p => p.CatchDate).FirstOrDefault(p => p.Number == pokemon.Number);
             var count = catchedPokemon.Count(p => p.Number == pokemon.Number);
+            var isEvolved = catchedPokemon.Count(p => p.Number == pokemon.Number && p.CaughtAs != null) == count;
             if (post != null)
             {
                 <a title="@pokemon.Name" href="@Context.GetLink("/")@post.WritePath" style="position: relative">
@@ -30,6 +31,10 @@ NoTitle:
                     @if (count > 1)
                     {
                         <div class="badge-number">@count</div>
+                    }
+                    @if (isEvolved)
+                    {
+                        <div class="badge-number-left">🔺</div>
                     }
                 </a>
             }

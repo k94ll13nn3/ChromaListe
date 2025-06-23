@@ -1,17 +1,17 @@
 @{
-    IList<PostData> catchedPokemon = Context.GetPosts();
+    IList<PostData> caughtPokemon = Context.GetPosts();
 }
 
 <ul class="list-posts">
-    @(await Html.PartialAsync("_PostTeaser", catchedPokemon[0]))
-    @(await Html.PartialAsync("_PostTeaser", catchedPokemon[1]))
-    @(await Html.PartialAsync("_PostTeaser", catchedPokemon[2]))
+    @(await Html.PartialAsync("_PostTeaser", caughtPokemon[0]))
+    @(await Html.PartialAsync("_PostTeaser", caughtPokemon[1]))
+    @(await Html.PartialAsync("_PostTeaser", caughtPokemon[2]))
 </ul>
 
 <hr>
 
 <div class="container">
-    @foreach (var pokemon in catchedPokemon)
+    @foreach (var pokemon in caughtPokemon)
     {
         var currentPokemon = Pokemon.Get(pokemon.Number);
         var icon = Context.GetLink($"/assets/img/icons/{currentPokemon.PaddedNumber}.png");

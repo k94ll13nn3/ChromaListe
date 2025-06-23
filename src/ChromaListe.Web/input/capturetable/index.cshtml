@@ -3,7 +3,7 @@ NoTitle:
 ---
 
 @{
-    IEnumerable<PostData> catchedPokemon = Context.GetPosts();
+    IList<PostData> caughtPokemon = Context.GetPosts();
 }
 
 <div class="page-title">
@@ -13,17 +13,17 @@ NoTitle:
 
 @foreach (Groups group in new[] { Groups.Generation1, Groups.Generation2, Groups.Generation3, Groups.Generation4, Groups.Generation5, Groups.Generation6, Groups.Generation7, Groups.Generation8, Groups.Generation9, Groups.Alola, Groups.Galar, Groups.Hisui, Groups.Paldea })
 {
-    IEnumerable<Pokemon> pokemons = Pokemon.GetAll(group);
-    var percent = pokemons.Count(x => catchedPokemon.Any(p => p.Number == x.Number)) * 100.0 / pokemons.Count();
+    IReadOnlyCollection<Pokemon> pokemonInGroup = Pokemon.GetAll(group);
+    var percent = pokemonInGroup.Count(x => caughtPokemon.Any(p => p.Number == x.Number)) * 100.0 / pokemonInGroup.Count;
 
-    <h1>@group.GetDescription() (@pokemons.Count(x => catchedPokemon.Any(p => p.Number == x.Number))/@pokemons.Count() - @string.Format("{0:0.0}%", percent))</h1>
+    <h1>@group.GetDescription() (@pokemonInGroup.Count(x => caughtPokemon.Any(p => p.Number == x.Number))/@pokemonInGroup.Count - @string.Format("{0:0.0}%", percent))</h1>
     <div class="container">
-        @foreach (Pokemon pokemon in pokemons)
+        @foreach (Pokemon pokemon in pokemonInGroup)
         {
             var icon = Context.GetLink($"/assets/img/icons/{pokemon.PaddedNumber}.png");
-            var post = catchedPokemon.OrderBy(p => p.CatchDate).FirstOrDefault(p => p.Number == pokemon.Number);
-            var count = catchedPokemon.Count(p => p.Number == pokemon.Number);
-            var isEvolved = catchedPokemon.Count(p => p.Number == pokemon.Number && p.CaughtAs != null) == count;
+            var post = caughtPokemon.OrderBy(p => p.CatchDate).FirstOrDefault(p => p.Number == pokemon.Number);
+            var count = caughtPokemon.Count(p => p.Number == pokemon.Number);
+            var isEvolved = caughtPokemon.Count(p => p.Number == pokemon.Number && p.CaughtAs != null) == count;
             if (post != null)
             {
                 <a title="@pokemon.Name" href="@Context.GetLink("/")@post.WritePath" style="position: relative">
@@ -46,12 +46,11 @@ NoTitle:
                     src = $"/ChromaListe/assets/img/games/{g}.png",
                     alt = g,
                     badge = pokemon.Games[g] == 2 ? "✔️" : "",
-                    catched = pokemon.Games[g] == 0 ? " not-catched" : "",
+                    caught = pokemon.Games[g] == 0 ? " not-caught" : "",
                 }).ToList());
 
                 <div style="position: relative" class="with-tooltip" data-tooltip='@data'>
-                    <img class="pokemon-icon not-catched" src="@icon" title="@pokemon.Name" loading="lazy" alt="Image of shiny @pokemon.Name" />
-
+                    <img class="pokemon-icon not-caught" src="@icon" title="@pokemon.Name" loading="lazy" alt="Image of shiny @pokemon.Name" />
                     @if (pokemon.Groups.HasFlag(Groups.Locked))
                     {
                         <div class="badge-number">❌</div>
@@ -66,9 +65,8 @@ NoTitle:
     <script type="text/javascript">
         function randomizeNextTarget() {
         @{
-            var uncaught = Pokemon.GetAll().Where(x => !catchedPokemon.Select(y => y.Number).Contains(x.Number));
+                var uncaught = Pokemon.GetAll().Where(x => !caughtPokemon.Select(y => y.Number).Contains(x.Number));
         }
-
             var unchaughtNumbers = [@Html.Raw(string.Join(",", uncaught.Select(x => $"\"{x.Number}\"")))];
             var unchaughtNames = [@Html.Raw(string.Join(",", uncaught.Select(x => $"\"{x.Name}\"")))];
             var randomIndex = Math.floor(Math.random() * unchaughtNumbers.length);
@@ -101,7 +99,7 @@ NoTitle:
                 div.style.position = 'relative';
 
                 const img = document.createElement('img');
-                img.className = 'pokemon-icon' + (item.catched);
+                img.className = 'pokemon-icon' + (item.caught);
                 img.src = item.src;
                 img.alt = item.alt;
                 img.loading = 'lazy';

@@ -3,7 +3,7 @@ NoTitle:
 ---
 
 @{
-    IEnumerable<PostData> catchedPokemon = Context.GetPosts();
+    IList<PostData> caughtPokemon = Context.GetPosts();
 }
 
 <div class="page-title">
@@ -12,13 +12,13 @@ NoTitle:
 
 @foreach (Groups group in new[] { Groups.Starter, Groups.SubLegendary, Groups.RestrictedLegendary, Groups.Mythical, Groups.Fossil, Groups.Pikalike, Groups.Eevee, Groups.Regi, Groups.UltraBeast, Groups.Paradox, Groups.FakeRegional })
 {
-    IEnumerable<Pokemon> pokemons = Pokemon.GetAll(group);
-    <h1>@group.GetDescription() (@pokemons.Count(x => catchedPokemon.Any(p => p.Number == x.Number))/@pokemons.Count())</h1>
+    IReadOnlyCollection<Pokemon> pokemonInGroup = Pokemon.GetAll(group);
+    <h1>@group.GetDescription() (@pokemonInGroup.Count(x => caughtPokemon.Any(p => p.Number == x.Number))/@pokemonInGroup.Count)</h1>
     <div class="container">
-        @foreach (Pokemon pokemon in pokemons)
+        @foreach (Pokemon pokemon in pokemonInGroup)
         {
             var icon = Context.GetLink($"/assets/img/icons/{pokemon.PaddedNumber}.png");
-            var post = catchedPokemon.FirstOrDefault(p => p.Number == pokemon.Number);
+            var post = caughtPokemon.OrderBy(p => p.CatchDate).FirstOrDefault(p => p.Number == pokemon.Number);
             if (post != null)
             {
                 <a title="@pokemon.Name" href="@Context.GetLink("/")@post.WritePath">
@@ -28,8 +28,7 @@ NoTitle:
             else
             {
                 <div style="position: relative">
-                    <img class="pokemon-icon not-catched" src="@icon" title="@pokemon.Name" loading="lazy" alt="Image of shiny @pokemon.Name" />
-
+                    <img class="pokemon-icon not-caught" src="@icon" title="@pokemon.Name" loading="lazy" alt="Image of shiny @pokemon.Name" />
                     @if (pokemon.Groups.HasFlag(Groups.Locked))
                     {
                         <div class="badge-number">❌</div>

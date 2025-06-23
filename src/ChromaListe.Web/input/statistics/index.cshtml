@@ -4,8 +4,8 @@ NoTitle:
 
 @{
     var nbPkmsTotal = Pokemon.PokemonCount;
-    var nbPkmsDistinct = Context.GetPosts().Select(x => x.Number).Distinct().Count();
-    var nbPkms = Context.GetPosts().Count();
+    var nbPkmsDistinct = Context.GetPosts().DistinctBy(x => x.Number).Count();
+    var nbPkms = Context.GetPosts().Count;
     var percent = nbPkmsDistinct * 100.0 / nbPkmsTotal;
     var allYears = Context.GetPosts().GroupBy(x => x.CatchDate.Year).OrderByDescending(x => x.Key).Select(g => g.Key).ToList();
 }
@@ -27,10 +27,10 @@ NoTitle:
     <tbody>
         @{
             var categories = Context.GetPosts()
-            .GroupBy(x => x.Category)
-            .OrderByDescending(x => x.Count())
-            .ThenBy(x => x.Key.GetDescription())
-            .Select(x => (key: x.Key, count: x.Count()));
+                .GroupBy(x => x.Category)
+                .OrderByDescending(x => x.Count())
+                .ThenBy(x => x.Key.GetDescription())
+                .Select(x => (key: x.Key, count: x.Count()));
             var maxCategoryCount = categories.MaxBy(c => c.count).count;
             foreach (var category in categories)
             {
@@ -55,10 +55,10 @@ NoTitle:
     <tbody>
         @{
             var versions = Context.GetPosts()
-            .GroupBy(x => x.Version)
-            .OrderByDescending(x => x.Count())
-            .ThenBy(x => x.Key.GetDescription())
-            .Select(x => (key: x.Key, count: x.Count()));
+                .GroupBy(x => x.Version)
+                .OrderByDescending(x => x.Count())
+                .ThenBy(x => x.Key.GetDescription())
+                .Select(x => (key: x.Key, count: x.Count()));
             var maxVersionCount = versions.MaxBy(c => c.count).count;
             foreach (var version in versions)
             {
@@ -83,9 +83,9 @@ NoTitle:
     <tbody>
         @{
             var years = Context.GetPosts()
-            .GroupBy(x => x.CatchDate.Year)
-            .OrderByDescending(x => x.Count())
-            .Select(x => (key: x.Key, count: x.Count()));
+                .GroupBy(x => x.CatchDate.Year)
+                .OrderByDescending(x => x.Count())
+                .Select(x => (key: x.Key, count: x.Count()));
             var maxYearCount = years.MaxBy(c => c.count).count;
             foreach (var year in years)
             {
@@ -110,9 +110,9 @@ NoTitle:
     <tbody>
         @{
             var months = Context.GetPosts()
-            .GroupBy(x => x.CatchDate.ToString("MMMM\nyyyy"))
-            .OrderByDescending(x => x.Count())
-            .Select(x => (key: x.Key, count: x.Count()));
+                .GroupBy(x => x.CatchDate.ToString("MMMM\nyyyy"))
+                .OrderByDescending(x => x.Count())
+                .Select(x => (key: x.Key, count: x.Count()));
             var maxMonthCount = months.MaxBy(c => c.count).count;
             foreach (var month in months.Take(10))
             {
@@ -137,9 +137,9 @@ NoTitle:
     <tbody>
         @{
             var balls = Context.GetPosts()
-            .GroupBy(x => x.Ball)
-            .OrderByDescending(x => x.Count())
-            .Select(x => (key: x.Key, count: x.Count()));
+                .GroupBy(x => x.Ball)
+                .OrderByDescending(x => x.Count())
+                .Select(x => (key: x.Key, count: x.Count()));
             var maxBallCount = balls.MaxBy(c => c.count).count;
             foreach (var ball in balls)
             {

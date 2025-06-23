@@ -32,13 +32,13 @@ public sealed partial record Pokemon
         return PokemonList[number];
     }
 
-    public static IEnumerable<Pokemon> GetAll()
+    public static ICollection<Pokemon> GetAll()
     {
         return PokemonList.Values;
     }
 
-    public static IEnumerable<Pokemon> GetAll(Groups group)
+    public static IReadOnlyCollection<Pokemon> GetAll(Groups group)
     {
-        return PokemonList.Values.Where(p => p.Groups.HasFlag(group));
+        return [.. PokemonList.Values.Where(p => p.Groups.HasFlag(group))];
     }
 }

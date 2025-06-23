@@ -3,8 +3,7 @@ NoTitle:
 ---
 
 @{
-    IEnumerable<PostData> catchedPokemon = Context.GetPosts();
-    IEnumerable<Pokemon> pokemons = Pokemon.GetAll();
+    IEnumerable<PostData> caughtPokemon = Context.GetPosts();
 }
 
 <div class="page-title">
@@ -12,13 +11,13 @@ NoTitle:
 </div>
 
 <div class="container">
-    @foreach (IGrouping<double, Pokemon> pokemonSpecies in pokemons.GroupBy(p => p.SpeciesNumber))
+    @foreach (IGrouping<double, Pokemon> pokemonSpecies in Pokemon.GetAll().GroupBy(p => p.SpeciesNumber))
     {
         <div class="family-bloc">
             @foreach (var pokemon in pokemonSpecies.OrderBy(p => p.Number != p.SpeciesNumber.ToString()))
             {
                 var icon = Context.GetLink($"/assets/img/icons/{pokemon.PaddedNumber}.png");
-                var post = catchedPokemon.FirstOrDefault(p => p.Number == pokemon.Number);
+                var post = caughtPokemon.FirstOrDefault(p => p.Number == pokemon.Number);
                 if (post != null)
                 {
                     <a title="@pokemon.Name" href="@Context.GetLink("/")@post.WritePath">
@@ -27,7 +26,7 @@ NoTitle:
                 }
                 else
                 {
-                    <img class="pokemon-icon not-catched" src="@icon" title="@pokemon.Name" loading="lazy" alt="Image of shiny @pokemon.Name">
+                    <img class="pokemon-icon not-caught" src="@icon" title="@pokemon.Name" loading="lazy" alt="Image of shiny @pokemon.Name">
                 }
             }
         </div>

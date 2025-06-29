@@ -12,7 +12,7 @@
             @foreach (var pokemon in caughtPokemon)
             {
                 var currentPokemon = Pokemon.Get(pokemon.Number);
-                @Html.Raw($"[ \"{@pokemon.Name}\", \"{@pokemon.CaughtAs}\", \"{(@pokemon.ImageSuffix is null ? "Non" : "Oui")}\",\"{@pokemon.CatchDate:dd/MM/yyyy}\", \"{@pokemon.Location}\", \"{@pokemon.Level}\", \"{@pokemon.Version.GetDescription()}\", \"{@pokemon.Category.GetDescription()}\", \"{@pokemon.Ball}\", \"<a href='{@Context.GetLink("/")}{@pokemon.WritePath}'>Lien</a>\" ],\n")
+                    @Html.Raw($"[ \"{@pokemon.Name}\", \"{@pokemon.CaughtAs}\", \"{(@pokemon.ImageSuffix is null ? "Non" : "Oui")}\",\"{@pokemon.CatchDate:dd/MM/yyyy}\", \"{@pokemon.Location}\", \"{@pokemon.Level}\", \"{@pokemon.Version.GetDescription()}\", \"{@pokemon.Category.GetDescription()}\", \"{@pokemon.Ball.GetDescription()}\", \"<a href='{@Context.GetLink("/")}{@pokemon.WritePath}'>Lien</a>\" ],\n")
             }
         ];
 

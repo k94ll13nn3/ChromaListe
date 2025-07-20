@@ -34,4 +34,7 @@ public enum GameVersion
 
     [ChromaDescription("Écarlate")]
     SC = 10,
+
+    [ChromaDescription("Violet")]
+    VI = 11,
 }

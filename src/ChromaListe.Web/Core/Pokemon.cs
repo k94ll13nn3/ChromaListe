@@ -4,10 +4,12 @@ public sealed partial record Pokemon
 {
     private static readonly IDictionary<string, Pokemon> PokemonList = new Dictionary<string, Pokemon>();
 
-    private Pokemon(string number, string name, Groups groups, double speciesNumber, Dictionary<string, int> games)
+    private Pokemon(string number, string name, string primaryType, string? secondaryType, Groups groups, double speciesNumber, Dictionary<string, int> games)
     {
         Number = number;
         Name = name;
+        PrimaryType = primaryType;
+        SecondaryType = secondaryType;
         Groups = groups;
         SpeciesNumber = speciesNumber;
         Games = games;
@@ -20,6 +22,10 @@ public sealed partial record Pokemon
     public string Number { get; }
 
     public double SpeciesNumber { get; }
+
+    public string PrimaryType { get; }
+
+    public string? SecondaryType { get; }
 
     public string PaddedNumber => Number.PadLeft(Number.EndsWith('a') || Number.EndsWith('g') || Number.EndsWith('h') || Number.EndsWith('p') ? 5 : 4, '0');
 

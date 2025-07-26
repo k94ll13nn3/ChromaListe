@@ -6,4 +6,5 @@ location: Zone Côtière
 level: 58
 version: SC
 ball: quick
+alternativeForm: c
 ---

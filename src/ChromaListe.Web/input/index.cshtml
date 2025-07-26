@@ -14,7 +14,7 @@
     @foreach (var pokemon in caughtPokemon)
     {
         var currentPokemon = Pokemon.Get(pokemon.Number);
-        var icon = Context.GetLink($"/assets/img/icons/{currentPokemon.PaddedNumber}.png");
+        var icon = Context.GetLink($"/assets/img/icons/{currentPokemon.PaddedNumber}{(!string.IsNullOrWhiteSpace(pokemon.AlternativeForm) ? "-alt-" + pokemon.AlternativeForm : string.Empty)}.png");
         var isMultiple = !string.IsNullOrWhiteSpace(pokemon.ImageSuffix);
         <a title="@currentPokemon.Name" href="@Context.GetLink("/")@pokemon.WritePath">
             <img class="pokemon-icon @(isMultiple ? "duplicate-shiny" : "")" src="@icon" loading="lazy" alt="Image of captured shiny @pokemon.Name">

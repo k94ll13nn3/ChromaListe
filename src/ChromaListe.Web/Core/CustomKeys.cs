@@ -1,4 +1,4 @@
-﻿namespace ChromaListe.Web.Core;
+namespace ChromaListe.Web.Core;
 
 public static class CustomKeys
 {
@@ -35,4 +35,6 @@ public static class CustomKeys
     public static string Icon => nameof(Icon);
 
     public static string ImageSuffix => nameof(ImageSuffix);
+
+    public static string AlternativeForm => nameof(AlternativeForm);
 }

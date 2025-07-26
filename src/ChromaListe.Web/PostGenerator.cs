@@ -25,6 +25,12 @@ internal static class PostGenerator
             imageSuffix = await AnsiConsole.AskAsync<string>("Suffixe de l'image ?");
         }
 
+        string? alternativeForm = null;
+        if (Confirm("Alternative form ?"))
+        {
+            alternativeForm = await AnsiConsole.AskAsync<string>("Alternative version ?");
+        }
+
         string? caughtAs = null;
         if (Confirm("Evolution ?"))
         {
@@ -71,6 +77,11 @@ internal static class PostGenerator
         if (imageSuffix is not null)
         {
             lines.Add($"imageSuffix: {imageSuffix}");
+        }
+
+        if (alternativeForm is not null)
+        {
+            lines.Add($"alternativeForm: {alternativeForm}");
         }
 
         if (caughtAs is not null)

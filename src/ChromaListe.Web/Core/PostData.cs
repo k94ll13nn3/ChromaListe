@@ -16,6 +16,7 @@ public sealed record PostData
         WritePath = document.GetString(CustomKeys.WritePath);
         Image = document.GetString(CustomKeys.Image);
         ImageSuffix = document.GetString(CustomKeys.ImageSuffix);
+        AlternativeForm = document.GetString(CustomKeys.AlternativeForm);
     }
 
     public string Number { get; set; }
@@ -41,4 +42,6 @@ public sealed record PostData
     public string Image { get; set; }
 
     public string? ImageSuffix { get; set; }
+
+    public string? AlternativeForm { get; set; }
 }

@@ -1,4 +1,4 @@
-﻿namespace ChromaListe.Web.Core;
+namespace ChromaListe.Web.Core;
 
 internal static class PipelineNames
 {

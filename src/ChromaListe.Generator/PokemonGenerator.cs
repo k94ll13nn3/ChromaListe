@@ -70,7 +70,7 @@ public sealed partial record Pokemon
                 groupsString.Append(" | Groups.").Append(tag!.Replace(" ", "").Replace("-", ""));
             }
 
-            string line = $@"        PokemonList.Add(""{pokemon.DisplayNumber}"", new Pokemon(""{pokemon.DisplayNumber}"", ""{pokemon.DisplayName}"", ""{pokemon.PrimaryType}"", ""{pokemon.SecondaryType}"",{groupsString}, {pokemon.SpeciesNumber}, new() {{{string.Join(", ", pokemon.Games.Select(kv => $"[\"{kv.Key}\"] = {kv.Value}"))}}}));";
+            string line = $@"        PokemonList.Add(""{pokemon.DisplayNumber}"", new Pokemon(""{pokemon.DisplayNumber}"", ""{pokemon.DisplayName}"", ""{pokemon.PrimaryType}"", ""{pokemon.SecondaryType}"", {groupsString}, {pokemon.SpeciesNumber}, new() {{{string.Join(", ", pokemon.Games.Select(kv => $"[\"{kv.Key}\"] = {kv.Value}"))}}}));";
             generatedLines.Add(line);
         }
 

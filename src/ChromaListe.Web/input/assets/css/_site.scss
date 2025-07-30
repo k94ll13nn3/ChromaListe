@@ -90,3 +90,83 @@ $icon-size: 67px;
     border-radius: 10px;
     flex-wrap: wrap;
 }
+
+$types-colors: ( Plante: #78C850, Poison: #A040A0, Normal: #A8A878, Feu: #F08030, Eau: #6890F0, Électrik: #F8D030, Glace: #98D8D8, Combat: #C03028, Sol: #E0C068, Vol: #A890F0, Psy: #F85888, Insecte: #A8B820, Roche: #B8A038, Spectre: #705898, Dragon: #7038F8, Ténèbres: #705848, Acier: #B8B8D0, Fée: #EE99AC );
+
+.pokemon-post-teasers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    padding-left: 0px;
+
+    .pokemon-post-teaser-card {
+        width: 320px;
+        border: 2px solid #c5e1e5;
+        border-radius: 15px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        font-family: 'Segoe UI', sans-serif;
+        transition: transform 0.2s ease-in-out;
+        margin: 10px;
+
+        .pokemon-post-teaser-card-header {
+            display: flex;
+            align-items: center;
+            background: #b2ebf2;
+            padding: 15px;
+        }
+
+        @each $type, $color in $types-colors {
+            &[data-type1="#{$type}"] {
+                border-color: #{$color};
+
+                .pokemon-post-teaser-card-header {
+                    background-color: #{$color};
+                }
+            }
+        }
+
+        .pokemon-icon {
+            margin-right: 15px;
+        }
+
+        .pokemon-post-teaser-header-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .pokemon-post-teaser-name {
+            font-size: 1.4em;
+            margin: 0;
+            color: #00695c;
+        }
+
+        .pokemon-post-teaser-number {
+            font-size: 0.9em;
+            color: #455a64;
+            margin-top: 4px;
+        }
+
+        .pokemon-post-teaser-info {
+            list-style: none;
+            padding: 15px 20px;
+            margin: 0;
+        }
+
+        .pokemon-post-teaser-info li {
+            font-size: 14px;
+            margin: 8px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .pokemon-post-teaser-info strong {
+            color: #004d40;
+            flex: 1;
+        }
+    }
+}

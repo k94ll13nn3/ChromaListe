@@ -1,10 +1,31 @@
 @inherits Statiq.Razor.StatiqRazorPage<PostData>
 
-<li class="post-teaser">
-    <a href="@Context.GetLink("/")@Model.WritePath">
-        <div>
-            <span class="post-teaser__title">@Model.Name</span>
-            <span class="post-teaser__date">@($"{Model.CatchDate:dd MMMM yyyy}")</span>
+@{
+    var currentPokemon = Pokemon.Get(Model.Number);
+    var icon = Context.GetLink($"/assets/img/icons/{currentPokemon.PaddedNumber}{(!string.IsNullOrWhiteSpace(Model.AlternativeForm) ? "-alt-" + Model.AlternativeForm : string.Empty)}.png");
+    var ballImage = Context.GetLink($"/assets/img/balls/{Model.Ball.ToString().ToLowerInvariant()}.png");
+}
+
+<div class="pokemon-post-teaser-card" data-type1="@currentPokemon.PrimaryType">
+    <div class="pokemon-post-teaser-card-header">
+        <img class="pokemon-icon" src="@icon" loading="lazy" alt="Image of captured shiny @Model.Name">
+        <div class="pokemon-post-teaser-header-text">
+            <h2 class="pokemon-post-teaser-name"><a href="@Context.GetLink("/")@Model.WritePath" title="@Model.Name">@Model.Name</a></h2>
+            <div style="display:flex; width:100%;justify-content:space-between">
+                <span class="pokemon-post-teaser-number">#@Model.Number</span>
+                <span class="pokemon-post-teaser-number">📅 @($"{Model.CatchDate:dd MMMM yyyy}")</span>
+            </div>
         </div>
-    </a>
-</li>
+    </div>
+
+    <ul class="pokemon-post-teaser-info">
+        <li><strong>Rencontré :</strong> @Model.Location</li>
+        <li><strong>Niveau :</strong> @Model.Level</li>
+        <li><strong>Version :</strong> @Model.Version.GetDescription()</li>
+        <li><strong>Méthode :</strong> @Model.Category.GetDescription()</li>
+        <li>
+            <strong>Ball :</strong>
+            <img class="ball-icon" src="@ballImage" alt="@Model.Ball.GetDescription()" title="@Model.Ball.GetDescription()" />
+        </li>
+    </ul>
+</div>

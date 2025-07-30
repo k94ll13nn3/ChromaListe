@@ -2,10 +2,15 @@
     IList<PostData> caughtPokemon = Context.GetPosts();
 }
 
-<ul class="list-posts">
+<div class="page-title">
+    <div class="page-title__text">Derniers shinys</div>
+</div>
+
+<ul class="pokemon-post-teasers">
     @(await Html.PartialAsync("_PostTeaser", caughtPokemon[0]))
     @(await Html.PartialAsync("_PostTeaser", caughtPokemon[1]))
     @(await Html.PartialAsync("_PostTeaser", caughtPokemon[2]))
+    @(await Html.PartialAsync("_PostTeaser", caughtPokemon[3]))
 </ul>
 
 <hr>

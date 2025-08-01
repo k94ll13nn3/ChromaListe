@@ -43,7 +43,7 @@ $icon-size: 67px;
 
 .family-bloc {
     margin: 5px 1px;
-    background: #eaecf0;
+    background: #44464a;
 }
 
 .badge-number {
@@ -142,6 +142,10 @@ $types-colors: ( Plante: #78C850, Poison: #A040A0, Normal: #A8A878, Feu: #F08030
             font-size: 1.4em;
             margin: 0;
             color: #00695c;
+
+            a {
+                color: #455a64;
+            }
         }
 
         .pokemon-post-teaser-number {
@@ -165,7 +169,7 @@ $types-colors: ( Plante: #78C850, Poison: #A040A0, Normal: #A8A878, Feu: #F08030
         }
 
         .pokemon-post-teaser-info strong {
-            color: #004d40;
+            color: #5ba89b;
             flex: 1;
         }
     }

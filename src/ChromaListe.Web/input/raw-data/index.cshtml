@@ -4,6 +4,12 @@
 
 <div id="pokemon-table"></div>
 
+<style>
+    .htAutocompleteArrow {
+        display: none;
+    }
+</style>
+
 @section Scripts {
     <script type="text/javascript">
         const container = document.querySelector("#pokemon-table");
@@ -12,7 +18,7 @@
             @foreach (var pokemon in caughtPokemon)
             {
                 var currentPokemon = Pokemon.Get(pokemon.Number);
-                    @Html.Raw($"[ \"{@pokemon.Name}\", \"{@pokemon.CaughtAs}\", \"{(@pokemon.ImageSuffix is null ? "Non" : "Oui")}\",\"{@pokemon.CatchDate:dd/MM/yyyy}\", \"{@pokemon.Location}\", \"{@pokemon.Level}\", \"{@pokemon.Version.GetDescription()}\", \"{@pokemon.Category.GetDescription()}\", \"{@pokemon.Ball.GetDescription()}\", \"<a href='{@Context.GetLink("/")}{@pokemon.WritePath}'>Lien</a>\" ],\n")
+                                @Html.Raw($"[ \"<a href='{@Context.GetLink("/")}{@pokemon.WritePath}'>{@pokemon.Name}</a>\", \"{@pokemon.CaughtAs}\", \"{(@pokemon.ImageSuffix is null ? "Non" : "Oui")}\",\"{@pokemon.CatchDate:dd/MM/yyyy}\", \"{@pokemon.Location}\", \"{@pokemon.Level}\", \"{@pokemon.Version.GetDescription()}\", \"{@pokemon.Category.GetDescription()}\", \"{@pokemon.Ball.GetDescription()}\" ],\n")
             }
         ];
 
@@ -25,21 +31,21 @@
             stretchH: "all",
             readOnly: true,
             readOnlyCellClassName: "",
-            colWidths: [150, 150, 75, 90, 170, 75, 160, 160],
+            themeName: "ht-theme-main-dark",
+            colWidths: [140, 140, 75, 90, 150, 75, 160, 150],
             colHeaders: [
                 "Pokémon",
                 "Attrapé",
-                "Doublon",
+                "Doub.",
                 "Date",
                 "Rencontré",
-                "Niveau",
+                "Niv.",
                 "Version",
                 "Méthode",
-                "Ball",
-                "Lien"
+                "Ball"
             ],
             columns: [
-                { data: 0, type: "text" },
+                { data: 0, renderer: "html" },
                 { data: 1, type: "text" },
                 {
                     data: 2,
@@ -61,7 +67,6 @@
                 { data: 6, type: "text" },
                 { data: 7, type: "text" },
                 { data: 8, type: "text" },
-                { data: 9, renderer: "html" },
             ],
             dropdownMenu: {
                 items: {

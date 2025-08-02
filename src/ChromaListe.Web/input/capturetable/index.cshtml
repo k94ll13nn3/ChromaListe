@@ -53,7 +53,7 @@ NoTitle:
                     <img class="pokemon-icon not-caught" src="@icon" title="@pokemon.Name" loading="lazy" alt="Image of shiny @pokemon.Name" />
                     @if (pokemon.Groups.HasFlag(Groups.Locked))
                     {
-                        <div class="badge-number">❌</div>
+                        <div class="badge-number" style="font-size: 10px">❌</div>
                     }
                 </div>
             }
@@ -65,7 +65,7 @@ NoTitle:
     <script type="text/javascript">
         function randomizeNextTarget() {
         @{
-                var uncaught = Pokemon.GetAll().Where(x => !caughtPokemon.Select(y => y.Number).Contains(x.Number));
+                var uncaught = Pokemon.GetAll().Where(x => !x.Groups.HasFlag(Groups.Locked) && !caughtPokemon.Select(y => y.Number).Contains(x.Number));
         }
             var unchaughtNumbers = [@Html.Raw(string.Join(",", uncaught.Select(x => $"\"{x.Number}\"")))];
             var unchaughtNames = [@Html.Raw(string.Join(",", uncaught.Select(x => $"\"{x.Name}\"")))];

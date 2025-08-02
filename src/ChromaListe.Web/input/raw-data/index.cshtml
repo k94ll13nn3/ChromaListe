@@ -8,6 +8,10 @@
     .htAutocompleteArrow {
         display: none;
     }
+
+    .wrapper {
+        max-width: 1500px !important;
+    }
 </style>
 
 @section Scripts {
@@ -18,7 +22,7 @@
             @foreach (var pokemon in caughtPokemon)
             {
                 var currentPokemon = Pokemon.Get(pokemon.Number);
-                                @Html.Raw($"[ \"<a href='{@Context.GetLink("/")}{@pokemon.WritePath}'>{@pokemon.Name}</a>\", \"{@pokemon.CaughtAs}\", \"{(@pokemon.ImageSuffix is null ? "Non" : "Oui")}\",\"{@pokemon.CatchDate:dd/MM/yyyy}\", \"{@pokemon.Location}\", \"{@pokemon.Level}\", \"{@pokemon.Version.GetDescription()}\", \"{@pokemon.Category.GetDescription()}\", \"{@pokemon.Ball.GetDescription()}\" ],\n")
+                                    @Html.Raw($"[ \"<a title='{@pokemon.Name}' href='{@Context.GetLink("/")}{@pokemon.WritePath}'>{@pokemon.Name}</a>\", \"{@pokemon.CaughtAs}\", \"{(@pokemon.ImageSuffix is null ? "Non" : "Oui")}\",\"{@pokemon.CatchDate:dd/MM/yyyy}\", \"{@pokemon.Location}\", \"{@pokemon.Level}\", \"{@pokemon.Version.GetDescription()}\", \"{@pokemon.Category.GetDescription()}\", \"{@pokemon.Ball.GetDescription()}\" ],\n")
             }
         ];
 
@@ -32,13 +36,13 @@
             readOnly: true,
             readOnlyCellClassName: "",
             themeName: "ht-theme-main-dark",
-            colWidths: [140, 140, 75, 90, 150, 75, 160, 150],
+            colWidths: [130, 130, 75, 90, 150, 75, 160, 150, 75],
             colHeaders: [
                 "Pokémon",
                 "Attrapé",
                 "Doub.",
                 "Date",
-                "Rencontré",
+                "Lieu",
                 "Niv.",
                 "Version",
                 "Méthode",
